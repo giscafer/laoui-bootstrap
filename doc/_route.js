@@ -1,0 +1,59 @@
+/**
+ * Created by Giscafer
+ */
+let pageHtml = {};
+let templs = require.context("./pages/", true, /^((?!\/unknown\/).)*.html$/);
+let ctrls = require.context("./pages/", true, /^((?!\/unknown\/).)*.ctrl.js$/);
+templs.keys().forEach(key => {
+    pageHtml[key] = templs(key);
+});
+
+export default $routeProvider => {
+    "ngInject";
+    $routeProvider
+        .when('/laoui/home', {
+            title: 'LaoUI Demo',
+            templateUrl: pageHtml['./home/home.html'],
+            controller: ctrls('./home/home.ctrl.js').default,
+            controllerAs: 'home',
+            reloadOnSearch: false
+        })
+        .when('/components/grid', {
+            title: 'grid Demo',
+            templateUrl: pageHtml['./components/grid/grid.html'],
+            controller: ctrls('./components/grid/grid.ctrl.js').default,
+            controllerAs: 'ctrl',
+            reloadOnSearch: false
+        })
+        .when('/components/icon', {
+            title: 'icon Demo',
+            templateUrl: pageHtml['./components/icon/icon.html'],
+            controller: ctrls('./components/icon/icon.ctrl.js').default,
+            controllerAs: 'ctrl',
+            reloadOnSearch: false
+        })
+        .when('/components/alert', {
+            title: 'alert Demo',
+            templateUrl: pageHtml['./components/alert/alert.html'],
+            controller: ctrls('./components/alert/alert.ctrl.js').default,
+            controllerAs: 'ctrl',
+            reloadOnSearch: false
+        })
+        .when('/components/navigation', {
+            title: 'navigation Demo',
+            templateUrl: pageHtml['./components/navigation/navigation.html'],
+            controller: ctrls('./components/navigation/navigation.ctrl.js').default,
+            controllerAs: 'ctrl',
+            reloadOnSearch: false
+        })
+        .when('/components/edit', {
+            title: 'Edit Demo',
+            templateUrl: pageHtml['./components/edit/edit.html'],
+            controller: ctrls('./components/edit/edit.ctrl.js').default,
+            controllerAs: 'ctrl',
+            reloadOnSearch: false
+        })
+        .otherwise({
+            redirectTo: '/laoui/home'
+        });
+}

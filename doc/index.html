@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html ng-app="laoui-doc">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="x-ua-compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width">
+    <title ng-bind="title"></title>
+    <!--   <link rel="shortcut icon" type="image/x-icon" href="./images/favicon.png"/> -->
+    <link rel="stylesheet" type="text/css" href="laoui/styles/laoui.min.css" />
+    <script src="laoui/script/laoui.js"></script>
+</head>
+
+<body class="page-wrapper">
+    <div>
+        <ui-header></ui-header>
+        <ui-sidebar></ui-sidebar>
+        <div class="container-fulid">
+            <div class="container-inner" ng-view>
+            </div>
+        </div>
+    </div>
+</body>
+
+</html>

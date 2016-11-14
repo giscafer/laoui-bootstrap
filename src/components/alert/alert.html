@@ -1,0 +1,7 @@
+
+<div ng-hide="closing" ng-class="alertCls">
+    <i ng-if="showIcon" ng-class="iconCls"></i>
+    <span ng-class="messageCls" ng-bind="message"></span>
+    <span ng-class="descriptionCls"  ng-bind="description"></span>
+    <a ng-show="closable" ng-class="closeCls" ng-click="close({$event: $event})"><ui-icon type="cross" ng-if="!closetext"></ui-icon>{{closetext?closetext:''}}</a>
+</div>

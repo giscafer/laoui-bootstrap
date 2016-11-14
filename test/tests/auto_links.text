@@ -1,0 +1,24 @@
+Link: <http://example.com/>.
+
+With an ampersand: <http://example.com/?foo=1&bar=2>
+
+* In a list?
+* <http://example.com/>
+* It should.
+
+> Blockquoted: <http://example.com/>
+
+Auto-links should not occur here: `<http://example.com/>`
+
+	or here: <http://example.com/>
+
+```java
+
+	addEventListener('load', function() {
+	  var code = document.querySelector('#code');
+	  var worker = new Worker('worker.js');
+	  worker.onmessage = function(event) { code.innerHTML = event.data; }
+	  worker.postMessage(code.textContent);
+	})
+```
+<ui-icon type="search"/>

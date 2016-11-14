@@ -1,0 +1,20 @@
+<ul class="{{classes}} ui-navigation clearfix" ng-style="style">
+    <li class="{{getClass(link)}}" ng-repeat="link in links" ng-include="'children.html'"></li>
+    <script type="text/ng-template" id="children.html">
+        <div ng-if="link.children && link.children.length" ng-class="submenuTitleCls" aria-open="false" aria-owns="sub2$Menu" aria-haspopup="true" ng-style="link.style">
+            <span><i ng-if="link.icon" ng-class="link.icon && 'fa fa-' + link.icon"></i>
+                <span link="{{link.link}}">
+                    {{link.name}}
+                </span>
+            </span>
+        </div>
+       <span ng-if="!link.children||(link.children && !link.children.length)"  link="{{link.link}}">
+            <i ng-if="link.icon" ng-class="link.icon && 'fa fa-' + link.icon"></i>
+           {{link.name}}
+        </span>
+        <ul ng-if="link.children && link.children.length" class="{{subclasses}}">
+            <li ng-repeat="link in link.children" class="{{getClass(link)}}" ng-include="'children.html'" role="{{!link.children?'menuitem':'menu'}}" link="{{link.link}}" style="padding-left:40px;">
+            </li>
+        </ul>
+    </script>
+</ul>
