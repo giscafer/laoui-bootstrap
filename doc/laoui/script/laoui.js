@@ -39370,9 +39370,9 @@
 	var stackedMap = __webpack_require__(48);
 	var tabindex = __webpack_require__(10);
 	var tabs = __webpack_require__(103);
-	var timepicker = __webpack_require__(105);
-	var tooltip = __webpack_require__(109);
-	var typeahead = __webpack_require__(110);
+	var timepicker = __webpack_require__(107);
+	var tooltip = __webpack_require__(111);
+	var typeahead = __webpack_require__(112);
 
 	var MODULE_NAME = "laoui.components";
 
@@ -39715,8 +39715,8 @@
 /* 13 */
 /***/ function(module, exports) {
 
-	var path = 'F:/github/laoui-bootstrap/src/template/accordion/accordion-group.html';
-	var html = "<div role=\"tab\" id=\"{{::headingId}}\" aria-selected=\"{{isOpen}}\" class=\"panel-heading\" ng-keypress=\"toggleOpen($event)\">\r\n  <h4 class=\"panel-title\">\r\n    <a role=\"button\" data-toggle=\"collapse\" href aria-expanded=\"{{isOpen}}\" aria-controls=\"{{::panelId}}\" tabindex=\"0\" class=\"accordion-toggle\" ng-click=\"toggleOpen()\" uib-accordion-transclude=\"heading\" ng-disabled=\"isDisabled\" uib-tabindex-toggle><span uib-accordion-header ng-class=\"{'text-muted': isDisabled}\">{{heading}}</span></a>\r\n  </h4>\r\n</div>\r\n<div id=\"{{::panelId}}\" aria-labelledby=\"{{::headingId}}\" aria-hidden=\"{{!isOpen}}\" role=\"tabpanel\" class=\"panel-collapse collapse\" uib-collapse=\"!isOpen\">\r\n  <div class=\"panel-body\" ng-transclude></div>\r\n</div>\r\n";
+	var path = 'G:/GitHub/_private/laoui-bootstrap/src/template/accordion/accordion-group.html';
+	var html = "<div role=\"tab\" id=\"{{::headingId}}\" aria-selected=\"{{isOpen}}\" class=\"panel-heading\" ng-keypress=\"toggleOpen($event)\">\n  <h4 class=\"panel-title\">\n    <a role=\"button\" data-toggle=\"collapse\" href aria-expanded=\"{{isOpen}}\" aria-controls=\"{{::panelId}}\" tabindex=\"0\" class=\"accordion-toggle\" ng-click=\"toggleOpen()\" uib-accordion-transclude=\"heading\" ng-disabled=\"isDisabled\" uib-tabindex-toggle><span uib-accordion-header ng-class=\"{'text-muted': isDisabled}\">{{heading}}</span></a>\n  </h4>\n</div>\n<div id=\"{{::panelId}}\" aria-labelledby=\"{{::headingId}}\" aria-hidden=\"{{!isOpen}}\" role=\"tabpanel\" class=\"panel-collapse collapse\" uib-collapse=\"!isOpen\">\n  <div class=\"panel-body\" ng-transclude></div>\n</div>\n";
 	window.angular.module('ng').run(['$templateCache', function(c) { c.put(path, html) }]);
 	module.exports = path;
 
@@ -39724,7 +39724,7 @@
 /* 14 */
 /***/ function(module, exports) {
 
-	var path = 'F:/github/laoui-bootstrap/src/template/accordion/accordion.html';
+	var path = 'G:/GitHub/_private/laoui-bootstrap/src/template/accordion/accordion.html';
 	var html = "<div role=\"tablist\" class=\"panel-group\" ng-transclude></div>";
 	window.angular.module('ng').run(['$templateCache', function(c) { c.put(path, html) }]);
 	module.exports = path;
@@ -39748,8 +39748,8 @@
 /* 16 */
 /***/ function(module, exports) {
 
-	var path = 'F:/github/laoui-bootstrap/src/template/alert/alert.html';
-	var html = "<button ng-show=\"closeable\" type=\"button\" class=\"close\" ng-click=\"close({$event: $event})\">\r\n  <span aria-hidden=\"true\">&times;</span>\r\n  <span class=\"sr-only\">Close</span>\r\n</button>\r\n<div ng-transclude></div>\r\n";
+	var path = 'G:/GitHub/_private/laoui-bootstrap/src/template/alert/alert.html';
+	var html = "<button ng-show=\"closeable\" type=\"button\" class=\"close\" ng-click=\"close({$event: $event})\">\n  <span aria-hidden=\"true\">&times;</span>\n  <span class=\"sr-only\">Close</span>\n</button>\n<div ng-transclude></div>\n";
 	window.angular.module('ng').run(['$templateCache', function(c) { c.put(path, html) }]);
 	module.exports = path;
 
@@ -39760,7 +39760,7 @@
 	'use strict';
 
 	var alertTempl = __webpack_require__(16);
-	angular.module('ui.bootstrap.alert', []).controller('UibAlertController', ['$scope', '$element', '$attrs', '$interpolate', '$timeout', function ($scope, $element, $attrs, $interpolate, $timeout) {
+	angular.module('ui.bootstrap.alert', []).controller('UiAlertController', ['$scope', '$element', '$attrs', '$interpolate', '$timeout', function ($scope, $element, $attrs, $interpolate, $timeout) {
 	  $scope.closeable = !!$attrs.close;
 	  $element.addClass('alert');
 	  $attrs.$set('role', 'alert');
@@ -39775,11 +39775,11 @@
 	      $scope.close();
 	    }, parseInt(dismissOnTimeout, 10));
 	  }
-	}]).directive('uibAlert', function () {
+	}]).directive('uiAlert', function () {
 	  return {
-	    controller: 'UibAlertController',
+	    controller: 'UiAlertController',
 	    controllerAs: 'alert',
-	    restrict: 'A',
+	    restrict: 'AE',
 	    templateUrl: function templateUrl(element, attrs) {
 	      return attrs.templateUrl || alertTempl;
 	    },
@@ -39934,8 +39934,8 @@
 /* 23 */
 /***/ function(module, exports) {
 
-	var path = 'F:/github/laoui-bootstrap/src/template/carousel/carousel.html';
-	var html = "<div class=\"carousel-inner\" ng-transclude></div>\r\n<a role=\"button\" href class=\"left carousel-control\" ng-click=\"prev()\" ng-class=\"{ disabled: isPrevDisabled() }\" ng-show=\"slides.length > 1\">\r\n  <span aria-hidden=\"true\" class=\"glyphicon glyphicon-chevron-left\"></span>\r\n  <span class=\"sr-only\">previous</span>\r\n</a>\r\n<a role=\"button\" href class=\"right carousel-control\" ng-click=\"next()\" ng-class=\"{ disabled: isNextDisabled() }\" ng-show=\"slides.length > 1\">\r\n  <span aria-hidden=\"true\" class=\"glyphicon glyphicon-chevron-right\"></span>\r\n  <span class=\"sr-only\">next</span>\r\n</a>\r\n<ol class=\"carousel-indicators\" ng-show=\"slides.length > 1\">\r\n  <li ng-repeat=\"slide in slides | orderBy:indexOfSlide track by $index\" ng-class=\"{ active: isActive(slide) }\" ng-click=\"select(slide)\">\r\n    <span class=\"sr-only\">slide {{ $index + 1 }} of {{ slides.length }}<span ng-if=\"isActive(slide)\">, currently active</span></span>\r\n  </li>\r\n</ol>\r\n";
+	var path = 'G:/GitHub/_private/laoui-bootstrap/src/template/carousel/carousel.html';
+	var html = "<div class=\"carousel-inner\" ng-transclude></div>\n<a role=\"button\" href class=\"left carousel-control\" ng-click=\"prev()\" ng-class=\"{ disabled: isPrevDisabled() }\" ng-show=\"slides.length > 1\">\n  <span aria-hidden=\"true\" class=\"glyphicon glyphicon-chevron-left\"></span>\n  <span class=\"sr-only\">previous</span>\n</a>\n<a role=\"button\" href class=\"right carousel-control\" ng-click=\"next()\" ng-class=\"{ disabled: isNextDisabled() }\" ng-show=\"slides.length > 1\">\n  <span aria-hidden=\"true\" class=\"glyphicon glyphicon-chevron-right\"></span>\n  <span class=\"sr-only\">next</span>\n</a>\n<ol class=\"carousel-indicators\" ng-show=\"slides.length > 1\">\n  <li ng-repeat=\"slide in slides | orderBy:indexOfSlide track by $index\" ng-class=\"{ active: isActive(slide) }\" ng-click=\"select(slide)\">\n    <span class=\"sr-only\">slide {{ $index + 1 }} of {{ slides.length }}<span ng-if=\"isActive(slide)\">, currently active</span></span>\n  </li>\n</ol>\n";
 	window.angular.module('ng').run(['$templateCache', function(c) { c.put(path, html) }]);
 	module.exports = path;
 
@@ -39943,8 +39943,8 @@
 /* 24 */
 /***/ function(module, exports) {
 
-	var path = 'F:/github/laoui-bootstrap/src/template/carousel/slide.html';
-	var html = "<div class=\"text-center\" ng-transclude></div>\r\n";
+	var path = 'G:/GitHub/_private/laoui-bootstrap/src/template/carousel/slide.html';
+	var html = "<div class=\"text-center\" ng-transclude></div>\n";
 	window.angular.module('ng').run(['$templateCache', function(c) { c.put(path, html) }]);
 	module.exports = path;
 
@@ -46073,11 +46073,14 @@
 
 /***/ },
 /* 104 */
-/***/ function(module, exports) {
+/***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
 
-	angular.module('ui.bootstrap.tabs', []).controller('UibTabsetController', ['$scope', function ($scope) {
+	var tabsetTemplUrl = __webpack_require__(105);
+	var tabTemplUrl = __webpack_require__(106);
+
+	angular.module('ui.bootstrap.tabs', []).controller('UiTabsetController', ['$scope', function ($scope) {
 	  var ctrl = this,
 	      oldIndex;
 	  ctrl.tabs = [];
@@ -46170,7 +46173,7 @@
 	      }
 	    }
 	  }
-	}]).directive('uibTabset', function () {
+	}]).directive('uiTabset', function () {
 	  return {
 	    transclude: true,
 	    replace: true,
@@ -46179,22 +46182,22 @@
 	      active: '=?',
 	      type: '@'
 	    },
-	    controller: 'UibTabsetController',
+	    controller: 'UiTabsetController',
 	    controllerAs: 'tabset',
 	    templateUrl: function templateUrl(element, attrs) {
-	      return attrs.templateUrl || '../../template/tabs/tabset.html';
+	      return attrs.templateUrl || tabsetTemplUrl;
 	    },
 	    link: function link(scope, element, attrs) {
 	      scope.vertical = angular.isDefined(attrs.vertical) ? scope.$parent.$eval(attrs.vertical) : false;
 	      scope.justified = angular.isDefined(attrs.justified) ? scope.$parent.$eval(attrs.justified) : false;
 	    }
 	  };
-	}).directive('uibTab', ['$parse', function ($parse) {
+	}).directive('uiTab', ['$parse', function ($parse) {
 	  return {
-	    require: '^uibTabset',
+	    require: '^uiTabset',
 	    replace: true,
 	    templateUrl: function templateUrl(element, attrs) {
-	      return attrs.templateUrl || '../../template/tabs/tab.html';
+	      return attrs.templateUrl || tabTemplUrl;
 	    },
 	    transclude: true,
 	    scope: {
@@ -46255,10 +46258,10 @@
 	      scope.$transcludeFn = transclude;
 	    }
 	  };
-	}]).directive('uibTabHeadingTransclude', function () {
+	}]).directive('uiTabHeadingTransclude', function () {
 	  return {
 	    restrict: 'A',
-	    require: '^uibTab',
+	    require: '^uiTab',
 	    link: function link(scope, elm) {
 	      scope.$watch('headingElement', function updateHeadingElement(heading) {
 	        if (heading) {
@@ -46268,12 +46271,12 @@
 	      });
 	    }
 	  };
-	}).directive('uibTabContentTransclude', function () {
+	}).directive('uiTabContentTransclude', function () {
 	  return {
 	    restrict: 'A',
-	    require: '^uibTabset',
+	    require: '^uiTabset',
 	    link: function link(scope, elm, attrs) {
-	      var tab = scope.$eval(attrs.uibTabContentTransclude).tab;
+	      var tab = scope.$eval(attrs.uiTabContentTransclude).tab;
 
 	      //Now our tab is ready to be transcluded: both the tab heading area
 	      //and the tab content area are loaded.  Transclude 'em both.
@@ -46291,24 +46294,27 @@
 	  };
 
 	  function isTabHeading(node) {
-	    return node.tagName && (node.hasAttribute('uib-tab-heading') || node.hasAttribute('data-uib-tab-heading') || node.hasAttribute('x-uib-tab-heading') || node.tagName.toLowerCase() === 'uib-tab-heading' || node.tagName.toLowerCase() === 'data-uib-tab-heading' || node.tagName.toLowerCase() === 'x-uib-tab-heading' || node.tagName.toLowerCase() === 'uib:tab-heading');
+	    return node.tagName && (node.hasAttribute('ui-tab-heading') || node.hasAttribute('data-ui-tab-heading') || node.hasAttribute('x-ui-tab-heading') || node.tagName.toLowerCase() === 'ui-tab-heading' || node.tagName.toLowerCase() === 'data-ui-tab-heading' || node.tagName.toLowerCase() === 'x-ui-tab-heading' || node.tagName.toLowerCase() === 'ui:tab-heading');
 	  }
 	});
 
 /***/ },
 /* 105 */
-/***/ function(module, exports, __webpack_require__) {
+/***/ function(module, exports) {
 
-	'use strict';
-
-	__webpack_require__(106);
-	module.exports = __webpack_require__(107);
+	var path = 'G:/GitHub/_private/laoui-bootstrap/src/template/tabs/tabset.html';
+	var html = "<div>\n  <ul class=\"nav nav-{{tabset.type || 'tabs'}}\" ng-class=\"{'nav-stacked': vertical, 'nav-justified': justified}\" ng-transclude></ul>\n  <div class=\"tab-content\">\n    <div class=\"tab-pane\"\n         ng-repeat=\"tab in tabset.tabs\"\n         ng-class=\"{active: tabset.active === tab.index}\"\n         uib-tab-content-transclude=\"tab\">\n    </div>\n  </div>\n</div>\n";
+	window.angular.module('ng').run(['$templateCache', function(c) { c.put(path, html) }]);
+	module.exports = path;
 
 /***/ },
 /* 106 */
 /***/ function(module, exports) {
 
-	// removed by extract-text-webpack-plugin
+	var path = 'G:/GitHub/_private/laoui-bootstrap/src/template/tabs/tab.html';
+	var html = "<li ng-class=\"[{active: active, disabled: disabled}, classes]\" class=\"uib-tab nav-item\">\n  <a href ng-click=\"select($event)\" class=\"nav-link\" uib-tab-heading-transclude>{{heading}}</a>\n</li>\n";
+	window.angular.module('ng').run(['$templateCache', function(c) { c.put(path, html) }]);
+	module.exports = path;
 
 /***/ },
 /* 107 */
@@ -46316,8 +46322,23 @@
 
 	'use strict';
 
-	// require('../../template/timepicker/timepicker.html');
 	__webpack_require__(108);
+	module.exports = __webpack_require__(109);
+
+/***/ },
+/* 108 */
+/***/ function(module, exports) {
+
+	// removed by extract-text-webpack-plugin
+
+/***/ },
+/* 109 */
+/***/ function(module, exports, __webpack_require__) {
+
+	'use strict';
+
+	// require('../../template/timepicker/timepicker.html');
+	__webpack_require__(110);
 
 	var MODULE_NAME = 'ui.bootstrap.module.timepicker';
 
@@ -46326,7 +46347,7 @@
 	module.exports = MODULE_NAME;
 
 /***/ },
-/* 108 */
+/* 110 */
 /***/ function(module, exports) {
 
 	'use strict';
@@ -46915,7 +46936,7 @@
 	}]);
 
 /***/ },
-/* 109 */
+/* 111 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -46925,23 +46946,23 @@
 	module.exports = __webpack_require__(95);
 
 /***/ },
-/* 110 */
+/* 112 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
 
 	__webpack_require__(35);
-	__webpack_require__(111);
-	module.exports = __webpack_require__(112);
+	__webpack_require__(113);
+	module.exports = __webpack_require__(114);
 
 /***/ },
-/* 111 */
+/* 113 */
 /***/ function(module, exports) {
 
 	// removed by extract-text-webpack-plugin
 
 /***/ },
-/* 112 */
+/* 114 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -46950,7 +46971,7 @@
 	__webpack_require__(38);
 	// require('../../template/typeahead/typeahead-match.html');
 	// require('../../template/typeahead/typeahead-popup.html');
-	__webpack_require__(113);
+	__webpack_require__(115);
 
 	var MODULE_NAME = 'ui.bootstrap.module.typeahead';
 
@@ -46959,7 +46980,7 @@
 	module.exports = MODULE_NAME;
 
 /***/ },
-/* 113 */
+/* 115 */
 /***/ function(module, exports) {
 
 	'use strict';

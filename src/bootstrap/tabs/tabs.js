@@ -1,6 +1,9 @@
+var tabsetTemplUrl=require('../../template/tabs/tabset.html');
+var tabTemplUrl=require('../../template/tabs/tab.html');
+
 angular.module('ui.bootstrap.tabs', [])
 
-.controller('UibTabsetController', ['$scope', function ($scope) {
+.controller('UiTabsetController', ['$scope', function ($scope) {
   var ctrl = this,
     oldIndex;
   ctrl.tabs = [];
@@ -96,7 +99,7 @@ angular.module('ui.bootstrap.tabs', [])
   }
 }])
 
-.directive('uibTabset', function() {
+.directive('uiTabset', function() {
   return {
     transclude: true,
     replace: true,
@@ -105,10 +108,10 @@ angular.module('ui.bootstrap.tabs', [])
       active: '=?',
       type: '@'
     },
-    controller: 'UibTabsetController',
+    controller: 'UiTabsetController',
     controllerAs: 'tabset',
     templateUrl: function(element, attrs) {
-      return attrs.templateUrl || '../../template/tabs/tabset.html';
+      return attrs.templateUrl || tabsetTemplUrl;
     },
     link: function(scope, element, attrs) {
       scope.vertical = angular.isDefined(attrs.vertical) ?
@@ -119,12 +122,12 @@ angular.module('ui.bootstrap.tabs', [])
   };
 })
 
-.directive('uibTab', ['$parse', function($parse) {
+.directive('uiTab', ['$parse', function($parse) {
   return {
-    require: '^uibTabset',
+    require: '^uiTabset',
     replace: true,
     templateUrl: function(element, attrs) {
-      return attrs.templateUrl || '../../template/tabs/tab.html';
+      return attrs.templateUrl || tabTemplUrl;
     },
     transclude: true,
     scope: {
@@ -185,10 +188,10 @@ angular.module('ui.bootstrap.tabs', [])
   };
 }])
 
-.directive('uibTabHeadingTransclude', function() {
+.directive('uiTabHeadingTransclude', function() {
   return {
     restrict: 'A',
-    require: '^uibTab',
+    require: '^uiTab',
     link: function(scope, elm) {
       scope.$watch('headingElement', function updateHeadingElement(heading) {
         if (heading) {
@@ -200,12 +203,12 @@ angular.module('ui.bootstrap.tabs', [])
   };
 })
 
-.directive('uibTabContentTransclude', function() {
+.directive('uiTabContentTransclude', function() {
   return {
     restrict: 'A',
-    require: '^uibTabset',
+    require: '^uiTabset',
     link: function(scope, elm, attrs) {
-      var tab = scope.$eval(attrs.uibTabContentTransclude).tab;
+      var tab = scope.$eval(attrs.uiTabContentTransclude).tab;
 
       //Now our tab is ready to be transcluded: both the tab heading area
       //and the tab content area are loaded.  Transclude 'em both.
@@ -224,13 +227,13 @@ angular.module('ui.bootstrap.tabs', [])
 
   function isTabHeading(node) {
     return node.tagName && (
-      node.hasAttribute('uib-tab-heading') ||
-      node.hasAttribute('data-uib-tab-heading') ||
-      node.hasAttribute('x-uib-tab-heading') ||
-      node.tagName.toLowerCase() === 'uib-tab-heading' ||
-      node.tagName.toLowerCase() === 'data-uib-tab-heading' ||
-      node.tagName.toLowerCase() === 'x-uib-tab-heading' ||
-      node.tagName.toLowerCase() === 'uib:tab-heading'
+      node.hasAttribute('ui-tab-heading') ||
+      node.hasAttribute('data-ui-tab-heading') ||
+      node.hasAttribute('x-ui-tab-heading') ||
+      node.tagName.toLowerCase() === 'ui-tab-heading' ||
+      node.tagName.toLowerCase() === 'data-ui-tab-heading' ||
+      node.tagName.toLowerCase() === 'x-ui-tab-heading' ||
+      node.tagName.toLowerCase() === 'ui:tab-heading'
     );
   }
 });

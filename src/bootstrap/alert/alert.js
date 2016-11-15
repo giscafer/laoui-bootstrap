@@ -1,7 +1,7 @@
 var alertTempl=require('../../template/alert/alert.html');
 angular.module('ui.bootstrap.alert', [])
 
-.controller('UibAlertController', ['$scope', '$element', '$attrs', '$interpolate', '$timeout', function($scope, $element, $attrs, $interpolate, $timeout) {
+.controller('UiAlertController', ['$scope', '$element', '$attrs', '$interpolate', '$timeout', function($scope, $element, $attrs, $interpolate, $timeout) {
   $scope.closeable = !!$attrs.close;
   $element.addClass('alert');
   $attrs.$set('role', 'alert');
@@ -19,11 +19,11 @@ angular.module('ui.bootstrap.alert', [])
   }
 }])
 
-.directive('uibAlert', function() {
+.directive('uiAlert', function() {
   return {
-    controller: 'UibAlertController',
+    controller: 'UiAlertController',
     controllerAs: 'alert',
-    restrict: 'A',
+    restrict: 'AE',
     templateUrl: function(element, attrs) {
       return attrs.templateUrl || alertTempl;
     },
