@@ -27,7 +27,7 @@ var tooltip = require("./tooltip");
 var typeahead = require("./typeahead");
 
 
-const MODULE_NAME = "laoui.components";
+const MODULE_NAME = "ui.bootstrap";
 
 angular.module(MODULE_NAME, [accordion,
     alert,

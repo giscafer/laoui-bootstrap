@@ -67,11 +67,15 @@
 
 	var _bootstrap2 = _interopRequireDefault(_bootstrap);
 
+	var _components = __webpack_require__(116);
+
+	var _components2 = _interopRequireDefault(_components);
+
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 	var MODULE_NAME = "laoui-bootstrap";
 
-	_angular2.default.module(MODULE_NAME, [_bootstrap2.default]);
+	_angular2.default.module(MODULE_NAME, [_components2.default, _bootstrap2.default]);
 
 	exports.default = MODULE_NAME;
 
@@ -39374,7 +39378,7 @@
 	var tooltip = __webpack_require__(111);
 	var typeahead = __webpack_require__(112);
 
-	var MODULE_NAME = "laoui.components";
+	var MODULE_NAME = "ui.bootstrap";
 
 	angular.module(MODULE_NAME, [accordion, alert, buttons, carousel, collapse, dateparser, datepicker, datepickerPopup, debounce, dropdown, isClass, modal, pager, pagination, paging, popover, position, progressbar, rating, stackedMap, tabindex, tabs, timepicker, tooltip, typeahead]);
 
@@ -47649,6 +47653,287 @@
 	    return matchItem;
 	  };
 	}]);
+
+/***/ },
+/* 116 */
+/***/ function(module, exports, __webpack_require__) {
+
+	'use strict';
+
+	//Views
+	// import TextAngular from './edit';
+	//Navigation
+
+	Object.defineProperty(exports, "__esModule", {
+	    value: true
+	});
+
+	var _navigation = __webpack_require__(117);
+
+	var _navigation2 = _interopRequireDefault(_navigation);
+
+	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+	var MODULE_NAME = "laoui.bootstrap.components";
+
+	angular.module(MODULE_NAME, [])
+	//Navigation
+	.directive('uiNavigation', _navigation2.default.factory);
+
+	exports.default = MODULE_NAME;
+
+/***/ },
+/* 117 */
+/***/ function(module, exports, __webpack_require__) {
+
+	'use strict';
+
+	Object.defineProperty(exports, "__esModule", {
+	  value: true
+	});
+
+	var _navigation = __webpack_require__(118);
+
+	var _navigation2 = _interopRequireDefault(_navigation);
+
+	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+	exports.default = _navigation2.default;
+
+/***/ },
+/* 118 */
+/***/ function(module, exports, __webpack_require__) {
+
+	'use strict';
+
+	Object.defineProperty(exports, "__esModule", {
+	    value: true
+	});
+
+	var _classCallCheck2 = __webpack_require__(119);
+
+	var _classCallCheck3 = _interopRequireDefault(_classCallCheck2);
+
+	var _createClass2 = __webpack_require__(120);
+
+	var _createClass3 = _interopRequireDefault(_createClass2);
+
+	var _navigation = __webpack_require__(124);
+
+	var _navigation2 = _interopRequireDefault(_navigation);
+
+	var _navigationCtrl = __webpack_require__(125);
+
+	var _navigationCtrl2 = _interopRequireDefault(_navigationCtrl);
+
+	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+	var Navigation = function () {
+	    function Navigation($location, $timeout) {
+	        (0, _classCallCheck3.default)(this, Navigation);
+
+	        this.replace = true;
+	        this.transclude = true;
+	        this.scope = {
+	            links: '='
+	        };
+	        this.controller = _navigationCtrl2.default;
+	        this.templateUrl = _navigation2.default;
+	        this._$location = $location;
+	        this._$timeout = $timeout;
+	        this.link = this.link.bind(this);
+	    }
+
+	    (0, _createClass3.default)(Navigation, [{
+	        key: 'link',
+	        value: function link(scope, element, attrs) {
+	            scope.type = attrs.type ? attrs.type : 'navigation-verticle-1';
+
+	            if (scope.type.indexOf('verticle') !== -1) {
+	                element.delegate('li', 'click', function (e) {
+	                    var $this = angular.element(this);
+	                    var $toCloseItems;
+	                    if ($this.hasClass('collapsed')) {
+	                        var children = $this.find('> ul > li');
+	                        var ulHeight = 10; // ul上下padding的和
+	                        angular.forEach(children, function (obj, index) {
+	                            ulHeight += obj.clientHeight;
+	                        });
+	                        $toCloseItems = $this.siblings('li.expanded');
+	                        $this.addClass('expanded').removeClass('collapsed').find('> ul').height(ulHeight);
+	                        var $ul = angular.element(this).find('> ul');
+
+	                        setTimeout(function () {
+	                            $ul.height('auto');
+	                        }, 200);
+	                    } else if ($this.hasClass('expanded')) {
+	                        // 关闭当前展开的菜单项
+	                        $toCloseItems = $this;
+	                    }
+
+	                    angular.forEach($toCloseItems, function (item) {
+	                        var $item = angular.element(item);
+	                        var $itemUl = $item.find('> ul');
+	                        $item.removeClass('expanded').addClass('collapsed');
+	                        $itemUl.height($itemUl.height()).height(0);
+	                    });
+
+	                    e.stopPropagation();
+	                });
+
+	                scope.$watch('links', function () {
+	                    if (scope.links) {
+	                        setTimeout(function () {
+	                            var activedLink = element.find('li.active');
+	                            activedLink.parents('.link-root').trigger('click');
+	                        }, 0);
+	                    }
+	                });
+	            } else {
+	                element.delegate('li', 'mouseenter', function () {
+	                    var child = angular.element(this).find('> ul');
+	                    if (child.length > 0) {
+	                        child.fadeIn(100);
+	                    }
+	                });
+
+	                element.delegate('li', 'mouseleave', function () {
+	                    var child = angular.element(this).find('> ul');
+	                    if (child.length > 0) {
+	                        child.fadeOut(100);
+	                    }
+	                });
+
+	                scope.$watch('links', function () {
+	                    setTimeout(function () {
+	                        var activedLink = element.find('li.active');
+	                        activedLink.parents('li').last().addClass('active');
+	                    }, 200);
+	                });
+	            }
+	        }
+	    }], [{
+	        key: 'factory',
+	        value: ["$location", "$timeout", function factory($location, $timeout) {
+	            "ngInject";
+
+	            return new Navigation($location, $timeout);
+	        }]
+	    }]);
+	    return Navigation;
+	}();
+
+	exports.default = Navigation;
+
+/***/ },
+/* 119 */
+/***/ function(module, exports) {
+
+	"use strict";
+
+	exports.__esModule = true;
+
+	exports.default = function (instance, Constructor) {
+	  if (!(instance instanceof Constructor)) {
+	    throw new TypeError("Cannot call a class as a function");
+	  }
+	};
+
+/***/ },
+/* 120 */
+/***/ function(module, exports, __webpack_require__) {
+
+	"use strict";
+
+	exports.__esModule = true;
+
+	var _defineProperty = __webpack_require__(121);
+
+	var _defineProperty2 = _interopRequireDefault(_defineProperty);
+
+	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+	exports.default = function () {
+	  function defineProperties(target, props) {
+	    for (var i = 0; i < props.length; i++) {
+	      var descriptor = props[i];
+	      descriptor.enumerable = descriptor.enumerable || false;
+	      descriptor.configurable = true;
+	      if ("value" in descriptor) descriptor.writable = true;
+	      (0, _defineProperty2.default)(target, descriptor.key, descriptor);
+	    }
+	  }
+
+	  return function (Constructor, protoProps, staticProps) {
+	    if (protoProps) defineProperties(Constructor.prototype, protoProps);
+	    if (staticProps) defineProperties(Constructor, staticProps);
+	    return Constructor;
+	  };
+	}();
+
+/***/ },
+/* 121 */
+/***/ function(module, exports, __webpack_require__) {
+
+	module.exports = { "default": __webpack_require__(122), __esModule: true };
+
+/***/ },
+/* 122 */
+/***/ function(module, exports, __webpack_require__) {
+
+	__webpack_require__(123);
+	var $Object = __webpack_require__(73).Object;
+	module.exports = function defineProperty(it, key, desc){
+	  return $Object.defineProperty(it, key, desc);
+	};
+
+/***/ },
+/* 123 */
+/***/ function(module, exports, __webpack_require__) {
+
+	var $export = __webpack_require__(72);
+	// 19.1.2.4 / 15.2.3.6 Object.defineProperty(O, P, Attributes)
+	$export($export.S + $export.F * !__webpack_require__(81), 'Object', {defineProperty: __webpack_require__(77).f});
+
+/***/ },
+/* 124 */
+/***/ function(module, exports) {
+
+	var path = 'G:/GitHub/_private/laoui-bootstrap/src/components/navigation/template/navigation.html';
+	var html = "<ul class=\"{{type}} ui-navigation clearfix\">\n    <li class=\"link-root\" ng-repeat=\"link in links\" ng-include=\"'children.html'\" ng-class=\"{'collapsed': link.children && link.children.length > 0, 'active': currentUrl == link.link}\"></li>\n    <script type=\"text/ng-template\" id=\"children.html\">\n        <a ng-if=\"link.link\" ng-href=\"{{link.link}}\"> <i ng-if=\"link.icon\" class=\"fa\" ng-class=\"link.icon && 'fa-' + link.icon\"></i> {{link.name}} </a> <span ng-if=\"!link.link\">  <i ng-if=\"link.icon\" class=\"fa\" ng-class=\"link.icon && 'fa-' + link.icon\"></i> {{link.name}}</span>\n        <ul ng-if=\"link.children\">\n            <li ng-repeat=\"link in link.children\" ng-class=\"{'collapsed': link.children, 'active': currentUrl == link.link}\" ng-include=\"'children.html'\"></li>\n        </ul>\n    </script>\n</ul>\n";
+	window.angular.module('ng').run(['$templateCache', function(c) { c.put(path, html) }]);
+	module.exports = path;
+
+/***/ },
+/* 125 */
+/***/ function(module, exports, __webpack_require__) {
+
+	"use strict";
+
+	Object.defineProperty(exports, "__esModule", {
+	    value: true
+	});
+
+	var _classCallCheck2 = __webpack_require__(119);
+
+	var _classCallCheck3 = _interopRequireDefault(_classCallCheck2);
+
+	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+	var NavigationCtrl = function NavigationCtrl($scope, $location) {
+	    "ngInject";
+
+	    (0, _classCallCheck3.default)(this, NavigationCtrl);
+	    $scope.$watch(function () {
+	        return $location.path();
+	    }, function () {
+	        // 获取当前url
+	        $scope.currentUrl = '#' + $location.path();
+	    });
+	};
+	NavigationCtrl.$inject = ["$scope", "$location"];
+
+	exports.default = NavigationCtrl;
 
 /***/ }
 /******/ ]);
