@@ -65,7 +65,7 @@ To use clickable elements within the tab, you have override the tab template to 
 
 
 ## demo
-
+<i class="glyphicon glyphicon-bell"></i> Alert!
 <style type="text/css">
   form.tab-form-demo .tab-pane {
     margin: 20px 20px;

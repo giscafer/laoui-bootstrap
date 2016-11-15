@@ -1,5 +1,5 @@
 export default class TabsCtrl {
-    constructor($scope) {
+    constructor($scope,$window) {
         "ngInject";
         $scope.tabs = [
             { title: 'Dynamic Title 1', content: 'Dynamic content 1' },

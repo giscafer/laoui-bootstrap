@@ -46303,7 +46303,7 @@
 /***/ function(module, exports) {
 
 	var path = 'G:/GitHub/_private/laoui-bootstrap/src/template/tabs/tabset.html';
-	var html = "<div>\n  <ul class=\"nav nav-{{tabset.type || 'tabs'}}\" ng-class=\"{'nav-stacked': vertical, 'nav-justified': justified}\" ng-transclude></ul>\n  <div class=\"tab-content\">\n    <div class=\"tab-pane\"\n         ng-repeat=\"tab in tabset.tabs\"\n         ng-class=\"{active: tabset.active === tab.index}\"\n         uib-tab-content-transclude=\"tab\">\n    </div>\n  </div>\n</div>\n";
+	var html = "<div>\n  <ul class=\"nav nav-{{tabset.type || 'tabs'}}\" ng-class=\"{'nav-stacked': vertical, 'nav-justified': justified}\" ng-transclude></ul>\n  <div class=\"tab-content\">\n    <div class=\"tab-pane\"\n         ng-repeat=\"tab in tabset.tabs\"\n         ng-class=\"{active: tabset.active === tab.index}\"\n         ui-tab-content-transclude=\"tab\">\n    </div>\n  </div>\n</div>\n";
 	window.angular.module('ng').run(['$templateCache', function(c) { c.put(path, html) }]);
 	module.exports = path;
 
@@ -46312,7 +46312,7 @@
 /***/ function(module, exports) {
 
 	var path = 'G:/GitHub/_private/laoui-bootstrap/src/template/tabs/tab.html';
-	var html = "<li ng-class=\"[{active: active, disabled: disabled}, classes]\" class=\"uib-tab nav-item\">\n  <a href ng-click=\"select($event)\" class=\"nav-link\" uib-tab-heading-transclude>{{heading}}</a>\n</li>\n";
+	var html = "<li ng-class=\"[{active: active, disabled: disabled}, classes]\" class=\"uib-tab nav-item\">\n  <a href ng-click=\"select($event)\" class=\"nav-link\" ui-tab-heading-transclude>{{heading}}</a>\n</li>\n";
 	window.angular.module('ng').run(['$templateCache', function(c) { c.put(path, html) }]);
 	module.exports = path;
 
