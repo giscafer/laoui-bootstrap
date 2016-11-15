@@ -69,7 +69,7 @@
 
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
-	var MODULE_NAME = "laoui";
+	var MODULE_NAME = "laoui-bootstrap";
 
 	_angular2.default.module(MODULE_NAME, [_bootstrap2.default]);
 
@@ -39355,24 +39355,24 @@
 	var collapse = __webpack_require__(8);
 	var dateparser = __webpack_require__(26);
 	var datepicker = __webpack_require__(28);
-	var datepickerPopup = __webpack_require__(38);
-	var debounce = __webpack_require__(46);
-	var dropdown = __webpack_require__(48);
+	var datepickerPopup = __webpack_require__(34);
+	var debounce = __webpack_require__(41);
+	var dropdown = __webpack_require__(43);
 	var isClass = __webpack_require__(31);
-	var modal = __webpack_require__(51);
-	var pager = __webpack_require__(92);
-	var pagination = __webpack_require__(97);
-	var paging = __webpack_require__(93);
-	var popover = __webpack_require__(100);
-	var position = __webpack_require__(112);
-	var progressbar = __webpack_require__(113);
-	var rating = __webpack_require__(118);
-	var stackedMap = __webpack_require__(53);
+	var modal = __webpack_require__(46);
+	var pager = __webpack_require__(86);
+	var pagination = __webpack_require__(90);
+	var paging = __webpack_require__(87);
+	var popover = __webpack_require__(92);
+	var position = __webpack_require__(98);
+	var progressbar = __webpack_require__(99);
+	var rating = __webpack_require__(101);
+	var stackedMap = __webpack_require__(48);
 	var tabindex = __webpack_require__(10);
-	var tabs = __webpack_require__(121);
-	var timepicker = __webpack_require__(125);
-	var tooltip = __webpack_require__(130);
-	var typeahead = __webpack_require__(131);
+	var tabs = __webpack_require__(103);
+	var timepicker = __webpack_require__(105);
+	var tooltip = __webpack_require__(109);
+	var typeahead = __webpack_require__(110);
 
 	var MODULE_NAME = "laoui.components";
 
@@ -39388,13 +39388,12 @@
 
 	__webpack_require__(8);
 	__webpack_require__(10);
-	var accordiongroupHtml = __webpack_require__(12);
-	var accordionHtml = __webpack_require__(13);
-	__webpack_require__(14);
+
+	__webpack_require__(12);
 
 	var MODULE_NAME = 'ui.bootstrap.module.accordion';
 
-	angular.module(MODULE_NAME, ['ui.bootstrap.accordion', accordionHtml, accordiongroupHtml]);
+	angular.module(MODULE_NAME, ['ui.bootstrap.accordion']);
 
 	module.exports = MODULE_NAME;
 
@@ -39568,27 +39567,12 @@
 
 /***/ },
 /* 12 */
-/***/ function(module, exports) {
-
-	var path = 'G:/GitHub/_private/laoui-bootstrap/src/template/accordion/accordion-group.html';
-	var html = "<div role=\"tab\" id=\"{{::headingId}}\" aria-selected=\"{{isOpen}}\" class=\"panel-heading\" ng-keypress=\"toggleOpen($event)\">\n  <h4 class=\"panel-title\">\n    <a role=\"button\" data-toggle=\"collapse\" href aria-expanded=\"{{isOpen}}\" aria-controls=\"{{::panelId}}\" tabindex=\"0\" class=\"accordion-toggle\" ng-click=\"toggleOpen()\" uib-accordion-transclude=\"heading\" ng-disabled=\"isDisabled\" uib-tabindex-toggle><span uib-accordion-header ng-class=\"{'text-muted': isDisabled}\">{{heading}}</span></a>\n  </h4>\n</div>\n<div id=\"{{::panelId}}\" aria-labelledby=\"{{::headingId}}\" aria-hidden=\"{{!isOpen}}\" role=\"tabpanel\" class=\"panel-collapse collapse\" uib-collapse=\"!isOpen\">\n  <div class=\"panel-body\" ng-transclude></div>\n</div>\n";
-	window.angular.module('ng').run(['$templateCache', function(c) { c.put(path, html) }]);
-	module.exports = path;
-
-/***/ },
-/* 13 */
-/***/ function(module, exports) {
-
-	var path = 'G:/GitHub/_private/laoui-bootstrap/src/template/accordion/accordion.html';
-	var html = "<div role=\"tablist\" class=\"panel-group\" ng-transclude></div>";
-	window.angular.module('ng').run(['$templateCache', function(c) { c.put(path, html) }]);
-	module.exports = path;
-
-/***/ },
-/* 14 */
-/***/ function(module, exports) {
+/***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
+
+	var accordiongroupHtml = __webpack_require__(13);
+	var accordionHtml = __webpack_require__(14);
 
 	angular.module('ui.bootstrap.accordion', ['ui.bootstrap.collapse', 'ui.bootstrap.tabindex']).constant('uibAccordionConfig', {
 	  closeOthers: true
@@ -39635,7 +39619,7 @@
 	    controllerAs: 'accordion',
 	    transclude: true,
 	    templateUrl: function templateUrl(element, attrs) {
-	      return attrs.templateUrl || 'uib/template/accordion/accordion.html';
+	      return attrs.templateUrl || accordionHtml;
 	    }
 	  };
 	})
@@ -39647,7 +39631,7 @@
 	    transclude: true, // It transcludes the contents of the directive into the template
 	    restrict: 'A',
 	    templateUrl: function templateUrl(element, attrs) {
-	      return attrs.templateUrl || 'uib/template/accordion/accordion-group.html';
+	      return attrs.templateUrl || accordiongroupHtml;
 	    },
 	    scope: {
 	      heading: '@', // Interpolate the heading attribute onto this scope
@@ -39728,6 +39712,24 @@
 	});
 
 /***/ },
+/* 13 */
+/***/ function(module, exports) {
+
+	var path = 'F:/github/laoui-bootstrap/src/template/accordion/accordion-group.html';
+	var html = "<div role=\"tab\" id=\"{{::headingId}}\" aria-selected=\"{{isOpen}}\" class=\"panel-heading\" ng-keypress=\"toggleOpen($event)\">\r\n  <h4 class=\"panel-title\">\r\n    <a role=\"button\" data-toggle=\"collapse\" href aria-expanded=\"{{isOpen}}\" aria-controls=\"{{::panelId}}\" tabindex=\"0\" class=\"accordion-toggle\" ng-click=\"toggleOpen()\" uib-accordion-transclude=\"heading\" ng-disabled=\"isDisabled\" uib-tabindex-toggle><span uib-accordion-header ng-class=\"{'text-muted': isDisabled}\">{{heading}}</span></a>\r\n  </h4>\r\n</div>\r\n<div id=\"{{::panelId}}\" aria-labelledby=\"{{::headingId}}\" aria-hidden=\"{{!isOpen}}\" role=\"tabpanel\" class=\"panel-collapse collapse\" uib-collapse=\"!isOpen\">\r\n  <div class=\"panel-body\" ng-transclude></div>\r\n</div>\r\n";
+	window.angular.module('ng').run(['$templateCache', function(c) { c.put(path, html) }]);
+	module.exports = path;
+
+/***/ },
+/* 14 */
+/***/ function(module, exports) {
+
+	var path = 'F:/github/laoui-bootstrap/src/template/accordion/accordion.html';
+	var html = "<div role=\"tablist\" class=\"panel-group\" ng-transclude></div>";
+	window.angular.module('ng').run(['$templateCache', function(c) { c.put(path, html) }]);
+	module.exports = path;
+
+/***/ },
 /* 15 */
 /***/ function(module, exports, __webpack_require__) {
 
@@ -39738,7 +39740,7 @@
 
 	var MODULE_NAME = 'ui.bootstrap.module.alert';
 
-	angular.module(MODULE_NAME, ['ui.bootstrap.alert', 'uib/template/alert/alert.html']);
+	angular.module(MODULE_NAME, ['ui.bootstrap.alert']);
 
 	module.exports = MODULE_NAME;
 
@@ -39746,17 +39748,18 @@
 /* 16 */
 /***/ function(module, exports) {
 
-	var path = 'G:/GitHub/_private/laoui-bootstrap/src/template/alert/alert.html';
-	var html = "<button ng-show=\"closeable\" type=\"button\" class=\"close\" ng-click=\"close({$event: $event})\">\n  <span aria-hidden=\"true\">&times;</span>\n  <span class=\"sr-only\">Close</span>\n</button>\n<div ng-transclude></div>\n";
+	var path = 'F:/github/laoui-bootstrap/src/template/alert/alert.html';
+	var html = "<button ng-show=\"closeable\" type=\"button\" class=\"close\" ng-click=\"close({$event: $event})\">\r\n  <span aria-hidden=\"true\">&times;</span>\r\n  <span class=\"sr-only\">Close</span>\r\n</button>\r\n<div ng-transclude></div>\r\n";
 	window.angular.module('ng').run(['$templateCache', function(c) { c.put(path, html) }]);
 	module.exports = path;
 
 /***/ },
 /* 17 */
-/***/ function(module, exports) {
+/***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
 
+	var alertTempl = __webpack_require__(16);
 	angular.module('ui.bootstrap.alert', []).controller('UibAlertController', ['$scope', '$element', '$attrs', '$interpolate', '$timeout', function ($scope, $element, $attrs, $interpolate, $timeout) {
 	  $scope.closeable = !!$attrs.close;
 	  $element.addClass('alert');
@@ -39778,7 +39781,7 @@
 	    controllerAs: 'alert',
 	    restrict: 'A',
 	    templateUrl: function templateUrl(element, attrs) {
-	      return attrs.templateUrl || 'uib/template/alert/alert.html';
+	      return attrs.templateUrl || alertTempl;
 	    },
 	    transclude: true,
 	    scope: {
@@ -39923,7 +39926,7 @@
 
 	var MODULE_NAME = 'ui.bootstrap.module.carousel';
 
-	angular.module(MODULE_NAME, ['ui.bootstrap.carousel', 'uib/template/carousel/carousel.html', 'uib/template/carousel/slide.html']);
+	angular.module(MODULE_NAME, ['ui.bootstrap.carousel']);
 
 	module.exports = MODULE_NAME;
 
@@ -39931,8 +39934,8 @@
 /* 23 */
 /***/ function(module, exports) {
 
-	var path = 'G:/GitHub/_private/laoui-bootstrap/src/template/carousel/carousel.html';
-	var html = "<div class=\"carousel-inner\" ng-transclude></div>\n<a role=\"button\" href class=\"left carousel-control\" ng-click=\"prev()\" ng-class=\"{ disabled: isPrevDisabled() }\" ng-show=\"slides.length > 1\">\n  <span aria-hidden=\"true\" class=\"glyphicon glyphicon-chevron-left\"></span>\n  <span class=\"sr-only\">previous</span>\n</a>\n<a role=\"button\" href class=\"right carousel-control\" ng-click=\"next()\" ng-class=\"{ disabled: isNextDisabled() }\" ng-show=\"slides.length > 1\">\n  <span aria-hidden=\"true\" class=\"glyphicon glyphicon-chevron-right\"></span>\n  <span class=\"sr-only\">next</span>\n</a>\n<ol class=\"carousel-indicators\" ng-show=\"slides.length > 1\">\n  <li ng-repeat=\"slide in slides | orderBy:indexOfSlide track by $index\" ng-class=\"{ active: isActive(slide) }\" ng-click=\"select(slide)\">\n    <span class=\"sr-only\">slide {{ $index + 1 }} of {{ slides.length }}<span ng-if=\"isActive(slide)\">, currently active</span></span>\n  </li>\n</ol>\n";
+	var path = 'F:/github/laoui-bootstrap/src/template/carousel/carousel.html';
+	var html = "<div class=\"carousel-inner\" ng-transclude></div>\r\n<a role=\"button\" href class=\"left carousel-control\" ng-click=\"prev()\" ng-class=\"{ disabled: isPrevDisabled() }\" ng-show=\"slides.length > 1\">\r\n  <span aria-hidden=\"true\" class=\"glyphicon glyphicon-chevron-left\"></span>\r\n  <span class=\"sr-only\">previous</span>\r\n</a>\r\n<a role=\"button\" href class=\"right carousel-control\" ng-click=\"next()\" ng-class=\"{ disabled: isNextDisabled() }\" ng-show=\"slides.length > 1\">\r\n  <span aria-hidden=\"true\" class=\"glyphicon glyphicon-chevron-right\"></span>\r\n  <span class=\"sr-only\">next</span>\r\n</a>\r\n<ol class=\"carousel-indicators\" ng-show=\"slides.length > 1\">\r\n  <li ng-repeat=\"slide in slides | orderBy:indexOfSlide track by $index\" ng-class=\"{ active: isActive(slide) }\" ng-click=\"select(slide)\">\r\n    <span class=\"sr-only\">slide {{ $index + 1 }} of {{ slides.length }}<span ng-if=\"isActive(slide)\">, currently active</span></span>\r\n  </li>\r\n</ol>\r\n";
 	window.angular.module('ng').run(['$templateCache', function(c) { c.put(path, html) }]);
 	module.exports = path;
 
@@ -39940,17 +39943,18 @@
 /* 24 */
 /***/ function(module, exports) {
 
-	var path = 'G:/GitHub/_private/laoui-bootstrap/src/template/carousel/slide.html';
-	var html = "<div class=\"text-center\" ng-transclude></div>\n";
+	var path = 'F:/github/laoui-bootstrap/src/template/carousel/slide.html';
+	var html = "<div class=\"text-center\" ng-transclude></div>\r\n";
 	window.angular.module('ng').run(['$templateCache', function(c) { c.put(path, html) }]);
 	module.exports = path;
 
 /***/ },
 /* 25 */
-/***/ function(module, exports) {
+/***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
 
+	var carouselTempl = __webpack_require__(23);
 	angular.module('ui.bootstrap.carousel', []).controller('UibCarouselController', ['$scope', '$element', '$interval', '$timeout', '$animate', function ($scope, $element, $interval, $timeout, $animate) {
 	  var self = this,
 	      slides = self.slides = $scope.slides = [],
@@ -40237,7 +40241,7 @@
 	    controllerAs: 'carousel',
 	    restrict: 'A',
 	    templateUrl: function templateUrl(element, attrs) {
-	      return attrs.templateUrl || 'uib/template/carousel/carousel.html';
+	      return attrs.templateUrl || carouselTempl;
 	    },
 	    scope: {
 	      active: '=',
@@ -40253,7 +40257,7 @@
 	    restrict: 'A',
 	    transclude: true,
 	    templateUrl: function templateUrl(element, attrs) {
-	      return attrs.templateUrl || 'uib/template/carousel/slide.html';
+	      return attrs.templateUrl || '../../template/carousel/slide.html';
 	    },
 	    scope: {
 	      actual: '=?',
@@ -40929,15 +40933,15 @@
 
 	__webpack_require__(26);
 	__webpack_require__(31);
+	// require('../../template/datepicker/datepicker.html');
+	// require('../../template/datepicker/day.html');
+	// require('../../template/datepicker/month.html');
+	// require('../../template/datepicker/year.html');
 	__webpack_require__(33);
-	__webpack_require__(34);
-	__webpack_require__(35);
-	__webpack_require__(36);
-	__webpack_require__(37);
 
 	var MODULE_NAME = 'ui.bootstrap.module.datepicker';
 
-	angular.module(MODULE_NAME, ['ui.bootstrap.datepicker', 'uib/template/datepicker/datepicker.html', 'uib/template/datepicker/day.html', 'uib/template/datepicker/month.html', 'uib/template/datepicker/year.html']);
+	angular.module(MODULE_NAME, ['ui.bootstrap.datepicker']);
 
 	module.exports = MODULE_NAME;
 
@@ -41058,42 +41062,6 @@
 
 /***/ },
 /* 33 */
-/***/ function(module, exports) {
-
-	var path = 'G:/GitHub/_private/laoui-bootstrap/src/template/datepicker/datepicker.html';
-	var html = "<div ng-switch=\"datepickerMode\">\n  <div uib-daypicker ng-switch-when=\"day\" tabindex=\"0\" class=\"uib-daypicker\"></div>\n  <div uib-monthpicker ng-switch-when=\"month\" tabindex=\"0\" class=\"uib-monthpicker\"></div>\n  <div uib-yearpicker ng-switch-when=\"year\" tabindex=\"0\" class=\"uib-yearpicker\"></div>\n</div>\n";
-	window.angular.module('ng').run(['$templateCache', function(c) { c.put(path, html) }]);
-	module.exports = path;
-
-/***/ },
-/* 34 */
-/***/ function(module, exports) {
-
-	var path = 'G:/GitHub/_private/laoui-bootstrap/src/template/datepicker/day.html';
-	var html = "<table role=\"grid\" aria-labelledby=\"{{::uniqueId}}-title\" aria-activedescendant=\"{{activeDateId}}\">\n  <thead>\n    <tr>\n      <th><button type=\"button\" class=\"btn btn-default btn-sm pull-left uib-left\" ng-click=\"move(-1)\" tabindex=\"-1\"><i aria-hidden=\"true\" class=\"glyphicon glyphicon-chevron-left\"></i><span class=\"sr-only\">previous</span></button></th>\n      <th colspan=\"{{::5 + showWeeks}}\"><button id=\"{{::uniqueId}}-title\" role=\"heading\" aria-live=\"assertive\" aria-atomic=\"true\" type=\"button\" class=\"btn btn-default btn-sm uib-title\" ng-click=\"toggleMode()\" ng-disabled=\"datepickerMode === maxMode\" tabindex=\"-1\"><strong>{{title}}</strong></button></th>\n      <th><button type=\"button\" class=\"btn btn-default btn-sm pull-right uib-right\" ng-click=\"move(1)\" tabindex=\"-1\"><i aria-hidden=\"true\" class=\"glyphicon glyphicon-chevron-right\"></i><span class=\"sr-only\">next</span></button></th>\n    </tr>\n    <tr>\n      <th ng-if=\"showWeeks\" class=\"text-center\"></th>\n      <th ng-repeat=\"label in ::labels track by $index\" class=\"text-center\"><small aria-label=\"{{::label.full}}\">{{::label.abbr}}</small></th>\n    </tr>\n  </thead>\n  <tbody>\n    <tr class=\"uib-weeks\" ng-repeat=\"row in rows track by $index\" role=\"row\">\n      <td ng-if=\"showWeeks\" class=\"text-center h6\"><em>{{ weekNumbers[$index] }}</em></td>\n      <td ng-repeat=\"dt in row\" class=\"uib-day text-center\" role=\"gridcell\"\n        id=\"{{::dt.uid}}\"\n        ng-class=\"::dt.customClass\">\n        <button type=\"button\" class=\"btn btn-default btn-sm\"\n          uib-is-class=\"\n            'btn-info' for selectedDt,\n            'active' for activeDt\n            on dt\"\n          ng-click=\"select(dt.date)\"\n          ng-disabled=\"::dt.disabled\"\n          tabindex=\"-1\"><span ng-class=\"::{'text-muted': dt.secondary, 'text-info': dt.current}\">{{::dt.label}}</span></button>\n      </td>\n    </tr>\n  </tbody>\n</table>\n";
-	window.angular.module('ng').run(['$templateCache', function(c) { c.put(path, html) }]);
-	module.exports = path;
-
-/***/ },
-/* 35 */
-/***/ function(module, exports) {
-
-	var path = 'G:/GitHub/_private/laoui-bootstrap/src/template/datepicker/month.html';
-	var html = "<table role=\"grid\" aria-labelledby=\"{{::uniqueId}}-title\" aria-activedescendant=\"{{activeDateId}}\">\n  <thead>\n    <tr>\n      <th><button type=\"button\" class=\"btn btn-default btn-sm pull-left uib-left\" ng-click=\"move(-1)\" tabindex=\"-1\"><i aria-hidden=\"true\" class=\"glyphicon glyphicon-chevron-left\"></i><span class=\"sr-only\">previous</span></button></th>\n      <th colspan=\"{{::yearHeaderColspan}}\"><button id=\"{{::uniqueId}}-title\" role=\"heading\" aria-live=\"assertive\" aria-atomic=\"true\" type=\"button\" class=\"btn btn-default btn-sm uib-title\" ng-click=\"toggleMode()\" ng-disabled=\"datepickerMode === maxMode\" tabindex=\"-1\"><strong>{{title}}</strong></button></th>\n      <th><button type=\"button\" class=\"btn btn-default btn-sm pull-right uib-right\" ng-click=\"move(1)\" tabindex=\"-1\"><i aria-hidden=\"true\" class=\"glyphicon glyphicon-chevron-right\"></i><span class=\"sr-only\">next</span></i></button></th>\n    </tr>\n  </thead>\n  <tbody>\n    <tr class=\"uib-months\" ng-repeat=\"row in rows track by $index\" role=\"row\">\n      <td ng-repeat=\"dt in row\" class=\"uib-month text-center\" role=\"gridcell\"\n        id=\"{{::dt.uid}}\"\n        ng-class=\"::dt.customClass\">\n        <button type=\"button\" class=\"btn btn-default\"\n          uib-is-class=\"\n            'btn-info' for selectedDt,\n            'active' for activeDt\n            on dt\"\n          ng-click=\"select(dt.date)\"\n          ng-disabled=\"::dt.disabled\"\n          tabindex=\"-1\"><span ng-class=\"::{'text-info': dt.current}\">{{::dt.label}}</span></button>\n      </td>\n    </tr>\n  </tbody>\n</table>\n";
-	window.angular.module('ng').run(['$templateCache', function(c) { c.put(path, html) }]);
-	module.exports = path;
-
-/***/ },
-/* 36 */
-/***/ function(module, exports) {
-
-	var path = 'G:/GitHub/_private/laoui-bootstrap/src/template/datepicker/year.html';
-	var html = "<table role=\"grid\" aria-labelledby=\"{{::uniqueId}}-title\" aria-activedescendant=\"{{activeDateId}}\">\n  <thead>\n    <tr>\n      <th><button type=\"button\" class=\"btn btn-default btn-sm pull-left uib-left\" ng-click=\"move(-1)\" tabindex=\"-1\"><i aria-hidden=\"true\" class=\"glyphicon glyphicon-chevron-left\"></i><span class=\"sr-only\">previous</span></button></th>\n      <th colspan=\"{{::columns - 2}}\"><button id=\"{{::uniqueId}}-title\" role=\"heading\" aria-live=\"assertive\" aria-atomic=\"true\" type=\"button\" class=\"btn btn-default btn-sm uib-title\" ng-click=\"toggleMode()\" ng-disabled=\"datepickerMode === maxMode\" tabindex=\"-1\"><strong>{{title}}</strong></button></th>\n      <th><button type=\"button\" class=\"btn btn-default btn-sm pull-right uib-right\" ng-click=\"move(1)\" tabindex=\"-1\"><i aria-hidden=\"true\" class=\"glyphicon glyphicon-chevron-right\"></i><span class=\"sr-only\">next</span></button></th>\n    </tr>\n  </thead>\n  <tbody>\n    <tr class=\"uib-years\" ng-repeat=\"row in rows track by $index\" role=\"row\">\n      <td ng-repeat=\"dt in row\" class=\"uib-year text-center\" role=\"gridcell\"\n        id=\"{{::dt.uid}}\"\n        ng-class=\"::dt.customClass\">\n        <button type=\"button\" class=\"btn btn-default\"\n          uib-is-class=\"\n            'btn-info' for selectedDt,\n            'active' for activeDt\n            on dt\"\n          ng-click=\"select(dt.date)\"\n          ng-disabled=\"::dt.disabled\"\n          tabindex=\"-1\"><span ng-class=\"::{'text-info': dt.current}\">{{::dt.label}}</span></button>\n      </td>\n    </tr>\n  </tbody>\n</table>\n";
-	window.angular.module('ng').run(['$templateCache', function(c) { c.put(path, html) }]);
-	module.exports = path;
-
-/***/ },
-/* 37 */
 /***/ function(module, exports) {
 
 	'use strict';
@@ -41636,7 +41604,7 @@
 	}]).directive('uibDatepicker', function () {
 	  return {
 	    templateUrl: function templateUrl(element, attrs) {
-	      return attrs.templateUrl || 'uib/template/datepicker/datepicker.html';
+	      return attrs.templateUrl || '../../template/datepicker/datepicker.html';
 	    },
 	    scope: {
 	      datepickerOptions: '=?'
@@ -41655,7 +41623,7 @@
 	}).directive('uibDaypicker', function () {
 	  return {
 	    templateUrl: function templateUrl(element, attrs) {
-	      return attrs.templateUrl || 'uib/template/datepicker/day.html';
+	      return attrs.templateUrl || '../../template/datepicker/day.html';
 	    },
 	    require: ['^uibDatepicker', 'uibDaypicker'],
 	    restrict: 'A',
@@ -41670,7 +41638,7 @@
 	}).directive('uibMonthpicker', function () {
 	  return {
 	    templateUrl: function templateUrl(element, attrs) {
-	      return attrs.templateUrl || 'uib/template/datepicker/month.html';
+	      return attrs.templateUrl || '../../template/datepicker/month.html';
 	    },
 	    require: ['^uibDatepicker', 'uibMonthpicker'],
 	    restrict: 'A',
@@ -41685,7 +41653,7 @@
 	}).directive('uibYearpicker', function () {
 	  return {
 	    templateUrl: function templateUrl(element, attrs) {
-	      return attrs.templateUrl || 'uib/template/datepicker/year.html';
+	      return attrs.templateUrl || '../../template/datepicker/year.html';
 	    },
 	    require: ['^uibDatepicker', 'uibYearpicker'],
 	    restrict: 'A',
@@ -41701,52 +41669,52 @@
 	});
 
 /***/ },
-/* 38 */
+/* 34 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
 
 	__webpack_require__(29);
-	__webpack_require__(39);
-	__webpack_require__(40);
-	module.exports = __webpack_require__(41);
+	__webpack_require__(35);
+	__webpack_require__(36);
+	module.exports = __webpack_require__(37);
 
 /***/ },
-/* 39 */
+/* 35 */
 /***/ function(module, exports) {
 
 	// removed by extract-text-webpack-plugin
 
 /***/ },
-/* 40 */
+/* 36 */
 /***/ function(module, exports) {
 
 	// removed by extract-text-webpack-plugin
 
 /***/ },
-/* 41 */
+/* 37 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
 
 	__webpack_require__(30);
-	__webpack_require__(42);
-	__webpack_require__(44);
-	__webpack_require__(45);
+	__webpack_require__(38);
+	// require('../../template/datepickerPopup/popup.html');
+	__webpack_require__(40);
 
 	var MODULE_NAME = 'ui.bootstrap.module.datepickerPopup';
 
-	angular.module(MODULE_NAME, ['ui.bootstrap.datepickerPopup', 'uib/template/datepickerPopup/popup.html', 'ui.bootstrap.module.datepicker']);
+	angular.module(MODULE_NAME, ['ui.bootstrap.datepickerPopup', 'ui.bootstrap.module.datepicker']);
 
 	module.exports = MODULE_NAME;
 
 /***/ },
-/* 42 */
+/* 38 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
 
-	__webpack_require__(43);
+	__webpack_require__(39);
 
 	var MODULE_NAME = 'ui.bootstrap.module.position';
 
@@ -41755,7 +41723,7 @@
 	module.exports = MODULE_NAME;
 
 /***/ },
-/* 43 */
+/* 39 */
 /***/ function(module, exports) {
 
 	'use strict';
@@ -42374,16 +42342,7 @@
 	}]);
 
 /***/ },
-/* 44 */
-/***/ function(module, exports) {
-
-	var path = 'G:/GitHub/_private/laoui-bootstrap/src/template/datepickerPopup/popup.html';
-	var html = "<ul role=\"presentation\" class=\"uib-datepicker-popup dropdown-menu uib-position-measure\" dropdown-nested ng-if=\"isOpen\" ng-keydown=\"keydown($event)\" ng-click=\"$event.stopPropagation()\">\n  <li ng-transclude></li>\n  <li ng-if=\"showButtonBar\" class=\"uib-button-bar\">\n    <span class=\"btn-group pull-left\">\n      <button type=\"button\" class=\"btn btn-sm btn-info uib-datepicker-current\" ng-click=\"select('today', $event)\" ng-disabled=\"isDisabled('today')\">{{ getText('current') }}</button>\n      <button type=\"button\" class=\"btn btn-sm btn-danger uib-clear\" ng-click=\"select(null, $event)\">{{ getText('clear') }}</button>\n    </span>\n    <button type=\"button\" class=\"btn btn-sm btn-success pull-right uib-close\" ng-click=\"close($event)\">{{ getText('close') }}</button>\n  </li>\n</ul>\n";
-	window.angular.module('ng').run(['$templateCache', function(c) { c.put(path, html) }]);
-	module.exports = path;
-
-/***/ },
-/* 45 */
+/* 40 */
 /***/ function(module, exports) {
 
 	'use strict';
@@ -42396,8 +42355,8 @@
 	  closeText: 'Done',
 	  currentText: 'Today',
 	  datepickerPopup: 'yyyy-MM-dd',
-	  datepickerPopupTemplateUrl: 'uib/template/datepickerPopup/popup.html',
-	  datepickerTemplateUrl: 'uib/template/datepicker/datepicker.html',
+	  datepickerPopupTemplateUrl: '../../template/datepickerPopup/popup.html',
+	  datepickerTemplateUrl: '../../template/datepicker/datepicker.html',
 	  html5Types: {
 	    date: 'yyyy-MM-dd',
 	    'datetime-local': 'yyyy-MM-ddTHH:mm:ss.sss',
@@ -42818,18 +42777,18 @@
 	    restrict: 'A',
 	    transclude: true,
 	    templateUrl: function templateUrl(element, attrs) {
-	      return attrs.templateUrl || 'uib/template/datepickerPopup/popup.html';
+	      return attrs.templateUrl || '../../template/datepickerPopup/popup.html';
 	    }
 	  };
 	});
 
 /***/ },
-/* 46 */
+/* 41 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
 
-	__webpack_require__(47);
+	__webpack_require__(42);
 
 	var MODULE_NAME = 'ui.bootstrap.module.debounce';
 
@@ -42838,7 +42797,7 @@
 	module.exports = MODULE_NAME;
 
 /***/ },
-/* 47 */
+/* 42 */
 /***/ function(module, exports) {
 
 	'use strict';
@@ -42866,22 +42825,22 @@
 	}]);
 
 /***/ },
-/* 48 */
+/* 43 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
 
-	__webpack_require__(39);
-	module.exports = __webpack_require__(49);
+	__webpack_require__(35);
+	module.exports = __webpack_require__(44);
 
 /***/ },
-/* 49 */
+/* 44 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
 
-	__webpack_require__(42);
-	__webpack_require__(50);
+	__webpack_require__(38);
+	__webpack_require__(45);
 
 	var MODULE_NAME = 'ui.bootstrap.module.dropdown';
 
@@ -42890,7 +42849,7 @@
 	module.exports = MODULE_NAME;
 
 /***/ },
-/* 50 */
+/* 45 */
 /***/ function(module, exports) {
 
 	'use strict';
@@ -43248,38 +43207,38 @@
 	});
 
 /***/ },
-/* 51 */
+/* 46 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
 
-	__webpack_require__(39);
-	module.exports = __webpack_require__(52);
+	__webpack_require__(35);
+	module.exports = __webpack_require__(47);
 
 /***/ },
-/* 52 */
+/* 47 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
 
-	__webpack_require__(42);
-	__webpack_require__(53);
-	__webpack_require__(55);
-	__webpack_require__(56);
+	__webpack_require__(38);
+	__webpack_require__(48);
+	// require('../../template/modal/window.html');
+	__webpack_require__(50);
 
 	var MODULE_NAME = 'ui.bootstrap.module.modal';
 
-	angular.module(MODULE_NAME, ['ui.bootstrap.modal', 'uib/template/modal/window.html']);
+	angular.module(MODULE_NAME, ['ui.bootstrap.modal']);
 
 	module.exports = MODULE_NAME;
 
 /***/ },
-/* 53 */
+/* 48 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
 
-	__webpack_require__(54);
+	__webpack_require__(49);
 
 	var MODULE_NAME = 'ui.bootstrap.module.stackedMap';
 
@@ -43288,7 +43247,7 @@
 	module.exports = MODULE_NAME;
 
 /***/ },
-/* 54 */
+/* 49 */
 /***/ function(module, exports) {
 
 	'use strict';
@@ -43349,21 +43308,12 @@
 	});
 
 /***/ },
-/* 55 */
-/***/ function(module, exports) {
-
-	var path = 'G:/GitHub/_private/laoui-bootstrap/src/template/modal/window.html';
-	var html = "<div class=\"modal-dialog {{size ? 'modal-' + size : ''}}\"><div class=\"modal-content\" uib-modal-transclude></div></div>\n";
-	window.angular.module('ng').run(['$templateCache', function(c) { c.put(path, html) }]);
-	module.exports = path;
-
-/***/ },
-/* 56 */
+/* 50 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
 
-	var _keys = __webpack_require__(57);
+	var _keys = __webpack_require__(51);
 
 	var _keys2 = _interopRequireDefault(_keys);
 
@@ -43505,7 +43455,7 @@
 	    restrict: 'A',
 	    transclude: true,
 	    templateUrl: function templateUrl(tElement, tAttrs) {
-	      return tAttrs.templateUrl || 'uib/template/modal/window.html';
+	      return tAttrs.templateUrl || '../../template/modal/window.html';
 	    },
 	    link: function link(scope, element, attrs) {
 	      element.addClass(attrs.windowTopClass || '');
@@ -44229,44 +44179,44 @@
 	});
 
 /***/ },
-/* 57 */
+/* 51 */
 /***/ function(module, exports, __webpack_require__) {
 
-	module.exports = { "default": __webpack_require__(58), __esModule: true };
+	module.exports = { "default": __webpack_require__(52), __esModule: true };
 
 /***/ },
-/* 58 */
+/* 52 */
 /***/ function(module, exports, __webpack_require__) {
 
-	__webpack_require__(59);
-	module.exports = __webpack_require__(79).Object.keys;
+	__webpack_require__(53);
+	module.exports = __webpack_require__(73).Object.keys;
 
 /***/ },
-/* 59 */
+/* 53 */
 /***/ function(module, exports, __webpack_require__) {
 
 	// 19.1.2.14 Object.keys(O)
-	var toObject = __webpack_require__(60)
-	  , $keys    = __webpack_require__(62);
+	var toObject = __webpack_require__(54)
+	  , $keys    = __webpack_require__(56);
 
-	__webpack_require__(77)('keys', function(){
+	__webpack_require__(71)('keys', function(){
 	  return function keys(it){
 	    return $keys(toObject(it));
 	  };
 	});
 
 /***/ },
-/* 60 */
+/* 54 */
 /***/ function(module, exports, __webpack_require__) {
 
 	// 7.1.13 ToObject(argument)
-	var defined = __webpack_require__(61);
+	var defined = __webpack_require__(55);
 	module.exports = function(it){
 	  return Object(defined(it));
 	};
 
 /***/ },
-/* 61 */
+/* 55 */
 /***/ function(module, exports) {
 
 	// 7.2.1 RequireObjectCoercible(argument)
@@ -44276,25 +44226,25 @@
 	};
 
 /***/ },
-/* 62 */
+/* 56 */
 /***/ function(module, exports, __webpack_require__) {
 
 	// 19.1.2.14 / 15.2.3.14 Object.keys(O)
-	var $keys       = __webpack_require__(63)
-	  , enumBugKeys = __webpack_require__(76);
+	var $keys       = __webpack_require__(57)
+	  , enumBugKeys = __webpack_require__(70);
 
 	module.exports = Object.keys || function keys(O){
 	  return $keys(O, enumBugKeys);
 	};
 
 /***/ },
-/* 63 */
+/* 57 */
 /***/ function(module, exports, __webpack_require__) {
 
-	var has          = __webpack_require__(64)
-	  , toIObject    = __webpack_require__(65)
-	  , arrayIndexOf = __webpack_require__(68)(false)
-	  , IE_PROTO     = __webpack_require__(72)('IE_PROTO');
+	var has          = __webpack_require__(58)
+	  , toIObject    = __webpack_require__(59)
+	  , arrayIndexOf = __webpack_require__(62)(false)
+	  , IE_PROTO     = __webpack_require__(66)('IE_PROTO');
 
 	module.exports = function(object, names){
 	  var O      = toIObject(object)
@@ -44310,7 +44260,7 @@
 	};
 
 /***/ },
-/* 64 */
+/* 58 */
 /***/ function(module, exports) {
 
 	var hasOwnProperty = {}.hasOwnProperty;
@@ -44319,28 +44269,28 @@
 	};
 
 /***/ },
-/* 65 */
+/* 59 */
 /***/ function(module, exports, __webpack_require__) {
 
 	// to indexed object, toObject with fallback for non-array-like ES3 strings
-	var IObject = __webpack_require__(66)
-	  , defined = __webpack_require__(61);
+	var IObject = __webpack_require__(60)
+	  , defined = __webpack_require__(55);
 	module.exports = function(it){
 	  return IObject(defined(it));
 	};
 
 /***/ },
-/* 66 */
+/* 60 */
 /***/ function(module, exports, __webpack_require__) {
 
 	// fallback for non-array-like ES3 and non-enumerable old V8 strings
-	var cof = __webpack_require__(67);
+	var cof = __webpack_require__(61);
 	module.exports = Object('z').propertyIsEnumerable(0) ? Object : function(it){
 	  return cof(it) == 'String' ? it.split('') : Object(it);
 	};
 
 /***/ },
-/* 67 */
+/* 61 */
 /***/ function(module, exports) {
 
 	var toString = {}.toString;
@@ -44350,14 +44300,14 @@
 	};
 
 /***/ },
-/* 68 */
+/* 62 */
 /***/ function(module, exports, __webpack_require__) {
 
 	// false -> Array#indexOf
 	// true  -> Array#includes
-	var toIObject = __webpack_require__(65)
-	  , toLength  = __webpack_require__(69)
-	  , toIndex   = __webpack_require__(71);
+	var toIObject = __webpack_require__(59)
+	  , toLength  = __webpack_require__(63)
+	  , toIndex   = __webpack_require__(65);
 	module.exports = function(IS_INCLUDES){
 	  return function($this, el, fromIndex){
 	    var O      = toIObject($this)
@@ -44376,18 +44326,18 @@
 	};
 
 /***/ },
-/* 69 */
+/* 63 */
 /***/ function(module, exports, __webpack_require__) {
 
 	// 7.1.15 ToLength
-	var toInteger = __webpack_require__(70)
+	var toInteger = __webpack_require__(64)
 	  , min       = Math.min;
 	module.exports = function(it){
 	  return it > 0 ? min(toInteger(it), 0x1fffffffffffff) : 0; // pow(2, 53) - 1 == 9007199254740991
 	};
 
 /***/ },
-/* 70 */
+/* 64 */
 /***/ function(module, exports) {
 
 	// 7.1.4 ToInteger
@@ -44398,10 +44348,10 @@
 	};
 
 /***/ },
-/* 71 */
+/* 65 */
 /***/ function(module, exports, __webpack_require__) {
 
-	var toInteger = __webpack_require__(70)
+	var toInteger = __webpack_require__(64)
 	  , max       = Math.max
 	  , min       = Math.min;
 	module.exports = function(index, length){
@@ -44410,20 +44360,20 @@
 	};
 
 /***/ },
-/* 72 */
+/* 66 */
 /***/ function(module, exports, __webpack_require__) {
 
-	var shared = __webpack_require__(73)('keys')
-	  , uid    = __webpack_require__(75);
+	var shared = __webpack_require__(67)('keys')
+	  , uid    = __webpack_require__(69);
 	module.exports = function(key){
 	  return shared[key] || (shared[key] = uid(key));
 	};
 
 /***/ },
-/* 73 */
+/* 67 */
 /***/ function(module, exports, __webpack_require__) {
 
-	var global = __webpack_require__(74)
+	var global = __webpack_require__(68)
 	  , SHARED = '__core-js_shared__'
 	  , store  = global[SHARED] || (global[SHARED] = {});
 	module.exports = function(key){
@@ -44431,7 +44381,7 @@
 	};
 
 /***/ },
-/* 74 */
+/* 68 */
 /***/ function(module, exports) {
 
 	// https://github.com/zloirock/core-js/issues/86#issuecomment-115759028
@@ -44440,7 +44390,7 @@
 	if(typeof __g == 'number')__g = global; // eslint-disable-line no-undef
 
 /***/ },
-/* 75 */
+/* 69 */
 /***/ function(module, exports) {
 
 	var id = 0
@@ -44450,7 +44400,7 @@
 	};
 
 /***/ },
-/* 76 */
+/* 70 */
 /***/ function(module, exports) {
 
 	// IE 8- don't enum bug keys
@@ -44459,13 +44409,13 @@
 	).split(',');
 
 /***/ },
-/* 77 */
+/* 71 */
 /***/ function(module, exports, __webpack_require__) {
 
 	// most Object methods by ES6 should accept primitives
-	var $export = __webpack_require__(78)
-	  , core    = __webpack_require__(79)
-	  , fails   = __webpack_require__(88);
+	var $export = __webpack_require__(72)
+	  , core    = __webpack_require__(73)
+	  , fails   = __webpack_require__(82);
 	module.exports = function(KEY, exec){
 	  var fn  = (core.Object || {})[KEY] || Object[KEY]
 	    , exp = {};
@@ -44474,13 +44424,13 @@
 	};
 
 /***/ },
-/* 78 */
+/* 72 */
 /***/ function(module, exports, __webpack_require__) {
 
-	var global    = __webpack_require__(74)
-	  , core      = __webpack_require__(79)
-	  , ctx       = __webpack_require__(80)
-	  , hide      = __webpack_require__(82)
+	var global    = __webpack_require__(68)
+	  , core      = __webpack_require__(73)
+	  , ctx       = __webpack_require__(74)
+	  , hide      = __webpack_require__(76)
 	  , PROTOTYPE = 'prototype';
 
 	var $export = function(type, name, source){
@@ -44540,18 +44490,18 @@
 	module.exports = $export;
 
 /***/ },
-/* 79 */
+/* 73 */
 /***/ function(module, exports) {
 
 	var core = module.exports = {version: '2.4.0'};
 	if(typeof __e == 'number')__e = core; // eslint-disable-line no-undef
 
 /***/ },
-/* 80 */
+/* 74 */
 /***/ function(module, exports, __webpack_require__) {
 
 	// optional / simple context binding
-	var aFunction = __webpack_require__(81);
+	var aFunction = __webpack_require__(75);
 	module.exports = function(fn, that, length){
 	  aFunction(fn);
 	  if(that === undefined)return fn;
@@ -44572,7 +44522,7 @@
 	};
 
 /***/ },
-/* 81 */
+/* 75 */
 /***/ function(module, exports) {
 
 	module.exports = function(it){
@@ -44581,12 +44531,12 @@
 	};
 
 /***/ },
-/* 82 */
+/* 76 */
 /***/ function(module, exports, __webpack_require__) {
 
-	var dP         = __webpack_require__(83)
-	  , createDesc = __webpack_require__(91);
-	module.exports = __webpack_require__(87) ? function(object, key, value){
+	var dP         = __webpack_require__(77)
+	  , createDesc = __webpack_require__(85);
+	module.exports = __webpack_require__(81) ? function(object, key, value){
 	  return dP.f(object, key, createDesc(1, value));
 	} : function(object, key, value){
 	  object[key] = value;
@@ -44594,15 +44544,15 @@
 	};
 
 /***/ },
-/* 83 */
+/* 77 */
 /***/ function(module, exports, __webpack_require__) {
 
-	var anObject       = __webpack_require__(84)
-	  , IE8_DOM_DEFINE = __webpack_require__(86)
-	  , toPrimitive    = __webpack_require__(90)
+	var anObject       = __webpack_require__(78)
+	  , IE8_DOM_DEFINE = __webpack_require__(80)
+	  , toPrimitive    = __webpack_require__(84)
 	  , dP             = Object.defineProperty;
 
-	exports.f = __webpack_require__(87) ? Object.defineProperty : function defineProperty(O, P, Attributes){
+	exports.f = __webpack_require__(81) ? Object.defineProperty : function defineProperty(O, P, Attributes){
 	  anObject(O);
 	  P = toPrimitive(P, true);
 	  anObject(Attributes);
@@ -44615,17 +44565,17 @@
 	};
 
 /***/ },
-/* 84 */
+/* 78 */
 /***/ function(module, exports, __webpack_require__) {
 
-	var isObject = __webpack_require__(85);
+	var isObject = __webpack_require__(79);
 	module.exports = function(it){
 	  if(!isObject(it))throw TypeError(it + ' is not an object!');
 	  return it;
 	};
 
 /***/ },
-/* 85 */
+/* 79 */
 /***/ function(module, exports) {
 
 	module.exports = function(it){
@@ -44633,24 +44583,24 @@
 	};
 
 /***/ },
-/* 86 */
+/* 80 */
 /***/ function(module, exports, __webpack_require__) {
 
-	module.exports = !__webpack_require__(87) && !__webpack_require__(88)(function(){
-	  return Object.defineProperty(__webpack_require__(89)('div'), 'a', {get: function(){ return 7; }}).a != 7;
+	module.exports = !__webpack_require__(81) && !__webpack_require__(82)(function(){
+	  return Object.defineProperty(__webpack_require__(83)('div'), 'a', {get: function(){ return 7; }}).a != 7;
 	});
 
 /***/ },
-/* 87 */
+/* 81 */
 /***/ function(module, exports, __webpack_require__) {
 
 	// Thank's IE8 for his funny defineProperty
-	module.exports = !__webpack_require__(88)(function(){
+	module.exports = !__webpack_require__(82)(function(){
 	  return Object.defineProperty({}, 'a', {get: function(){ return 7; }}).a != 7;
 	});
 
 /***/ },
-/* 88 */
+/* 82 */
 /***/ function(module, exports) {
 
 	module.exports = function(exec){
@@ -44662,11 +44612,11 @@
 	};
 
 /***/ },
-/* 89 */
+/* 83 */
 /***/ function(module, exports, __webpack_require__) {
 
-	var isObject = __webpack_require__(85)
-	  , document = __webpack_require__(74).document
+	var isObject = __webpack_require__(79)
+	  , document = __webpack_require__(68).document
 	  // in old IE typeof document.createElement is 'object'
 	  , is = isObject(document) && isObject(document.createElement);
 	module.exports = function(it){
@@ -44674,11 +44624,11 @@
 	};
 
 /***/ },
-/* 90 */
+/* 84 */
 /***/ function(module, exports, __webpack_require__) {
 
 	// 7.1.1 ToPrimitive(input [, PreferredType])
-	var isObject = __webpack_require__(85);
+	var isObject = __webpack_require__(79);
 	// instead of the ES6 spec version, we didn't implement @@toPrimitive case
 	// and the second argument - flag - preferred type is a string
 	module.exports = function(it, S){
@@ -44691,7 +44641,7 @@
 	};
 
 /***/ },
-/* 91 */
+/* 85 */
 /***/ function(module, exports) {
 
 	module.exports = function(bitmap, value){
@@ -44704,29 +44654,29 @@
 	};
 
 /***/ },
-/* 92 */
+/* 86 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
 
-	__webpack_require__(93);
+	__webpack_require__(87);
 	__webpack_require__(10);
-	__webpack_require__(95);
-	__webpack_require__(96);
+	// require('../../template/pager/pager.html');
+	__webpack_require__(89);
 
 	var MODULE_NAME = 'ui.bootstrap.module.pager';
 
-	angular.module(MODULE_NAME, ['ui.bootstrap.pager', 'uib/template/pager/pager.html']);
+	angular.module(MODULE_NAME, ['ui.bootstrap.pager']);
 
 	module.exports = MODULE_NAME;
 
 /***/ },
-/* 93 */
+/* 87 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
 
-	__webpack_require__(94);
+	__webpack_require__(88);
 
 	var MODULE_NAME = 'ui.bootstrap.module.paging';
 
@@ -44735,7 +44685,7 @@
 	module.exports = MODULE_NAME;
 
 /***/ },
-/* 94 */
+/* 88 */
 /***/ function(module, exports) {
 
 	'use strict';
@@ -44834,16 +44784,7 @@
 	}]);
 
 /***/ },
-/* 95 */
-/***/ function(module, exports) {
-
-	var path = 'G:/GitHub/_private/laoui-bootstrap/src/template/pager/pager.html';
-	var html = "<li ng-class=\"{disabled: noPrevious()||ngDisabled, previous: align}\"><a href ng-click=\"selectPage(page - 1, $event)\" ng-disabled=\"noPrevious()||ngDisabled\" uib-tabindex-toggle>{{::getText('previous')}}</a></li>\n<li ng-class=\"{disabled: noNext()||ngDisabled, next: align}\"><a href ng-click=\"selectPage(page + 1, $event)\" ng-disabled=\"noNext()||ngDisabled\" uib-tabindex-toggle>{{::getText('next')}}</a></li>\n";
-	window.angular.module('ng').run(['$templateCache', function(c) { c.put(path, html) }]);
-	module.exports = path;
-
-/***/ },
-/* 96 */
+/* 89 */
 /***/ function(module, exports) {
 
 	'use strict';
@@ -44870,7 +44811,7 @@
 	    controller: 'UibPagerController',
 	    controllerAs: 'pager',
 	    templateUrl: function templateUrl(element, attrs) {
-	      return attrs.templateUrl || 'uib/template/pager/pager.html';
+	      return attrs.templateUrl || '../../template/pager/pager.html';
 	    },
 	    link: function link(scope, element, attrs, ctrls) {
 	      element.addClass('pager');
@@ -44887,33 +44828,24 @@
 	}]);
 
 /***/ },
-/* 97 */
+/* 90 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
 
-	__webpack_require__(93);
+	__webpack_require__(87);
 	__webpack_require__(10);
-	__webpack_require__(98);
-	__webpack_require__(99);
+	// require('../../template/pagination/pagination.html');
+	__webpack_require__(91);
 
 	var MODULE_NAME = 'ui.bootstrap.module.pagination';
 
-	angular.module(MODULE_NAME, ['ui.bootstrap.pagination', 'uib/template/pagination/pagination.html']);
+	angular.module(MODULE_NAME, ['ui.bootstrap.pagination']);
 
 	module.exports = MODULE_NAME;
 
 /***/ },
-/* 98 */
-/***/ function(module, exports) {
-
-	var path = 'G:/GitHub/_private/laoui-bootstrap/src/template/pagination/pagination.html';
-	var html = "<li ng-if=\"::boundaryLinks\" ng-class=\"{disabled: noPrevious()||ngDisabled}\" class=\"pagination-first\"><a href ng-click=\"selectPage(1, $event)\" ng-disabled=\"noPrevious()||ngDisabled\" uib-tabindex-toggle>{{::getText('first')}}</a></li>\n<li ng-if=\"::directionLinks\" ng-class=\"{disabled: noPrevious()||ngDisabled}\" class=\"pagination-prev\"><a href ng-click=\"selectPage(page - 1, $event)\" ng-disabled=\"noPrevious()||ngDisabled\" uib-tabindex-toggle>{{::getText('previous')}}</a></li>\n<li ng-repeat=\"page in pages track by $index\" ng-class=\"{active: page.active,disabled: ngDisabled&&!page.active}\" class=\"pagination-page\"><a href ng-click=\"selectPage(page.number, $event)\" ng-disabled=\"ngDisabled&&!page.active\" uib-tabindex-toggle>{{page.text}}</a></li>\n<li ng-if=\"::directionLinks\" ng-class=\"{disabled: noNext()||ngDisabled}\" class=\"pagination-next\"><a href ng-click=\"selectPage(page + 1, $event)\" ng-disabled=\"noNext()||ngDisabled\" uib-tabindex-toggle>{{::getText('next')}}</a></li>\n<li ng-if=\"::boundaryLinks\" ng-class=\"{disabled: noNext()||ngDisabled}\" class=\"pagination-last\"><a href ng-click=\"selectPage(totalPages, $event)\" ng-disabled=\"noNext()||ngDisabled\" uib-tabindex-toggle>{{::getText('last')}}</a></li>\n";
-	window.angular.module('ng').run(['$templateCache', function(c) { c.put(path, html) }]);
-	module.exports = path;
-
-/***/ },
-/* 99 */
+/* 91 */
 /***/ function(module, exports) {
 
 	'use strict';
@@ -45058,7 +44990,7 @@
 	    controller: 'UibPaginationController',
 	    controllerAs: 'pagination',
 	    templateUrl: function templateUrl(element, attrs) {
-	      return attrs.templateUrl || 'uib/template/pagination/pagination.html';
+	      return attrs.templateUrl || '../../template/pagination/pagination.html';
 	    },
 	    link: function link(scope, element, attrs, ctrls) {
 	      element.addClass('pagination');
@@ -45075,91 +45007,64 @@
 	}]);
 
 /***/ },
-/* 100 */
+/* 92 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
 
-	__webpack_require__(101);
-	module.exports = __webpack_require__(102);
+	__webpack_require__(93);
+	module.exports = __webpack_require__(94);
 
 /***/ },
-/* 101 */
+/* 93 */
 /***/ function(module, exports) {
 
 	// removed by extract-text-webpack-plugin
 
 /***/ },
-/* 102 */
+/* 94 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
 
-	__webpack_require__(103);
-	__webpack_require__(108);
-	__webpack_require__(109);
-	__webpack_require__(110);
-	__webpack_require__(111);
+	__webpack_require__(95);
+	// require('../../template/popover/popover.html');
+	// require('../../template/popover/popover-html.html');
+	// require('../../template/popover/popover-template.html');
+	__webpack_require__(97);
 
 	var MODULE_NAME = 'ui.bootstrap.module.popover';
 
-	angular.module(MODULE_NAME, ['ui.bootstrap.popover', 'uib/template/popover/popover.html', 'uib/template/popover/popover-html.html', 'uib/template/popover/popover-template.html']);
+	angular.module(MODULE_NAME, ['ui.bootstrap.popover']);
 
 	module.exports = MODULE_NAME;
 
 /***/ },
-/* 103 */
+/* 95 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
 
-	__webpack_require__(42);
-	__webpack_require__(53);
-	__webpack_require__(104);
-	__webpack_require__(105);
-	__webpack_require__(106);
-	__webpack_require__(107);
+	__webpack_require__(38);
+	__webpack_require__(48);
+	// require('../../template/tooltip/tooltip-popup.html');
+	// require('../../template/tooltip/tooltip-html-popup.html');
+	// require('../../template/tooltip/tooltip-template-popup.html');
+	__webpack_require__(96);
 
 	var MODULE_NAME = 'ui.bootstrap.module.tooltip';
 
-	angular.module(MODULE_NAME, ['ui.bootstrap.tooltip', 'uib/template/tooltip/tooltip-popup.html', 'uib/template/tooltip/tooltip-html-popup.html', 'uib/template/tooltip/tooltip-template-popup.html']);
+	angular.module(MODULE_NAME, ['ui.bootstrap.tooltip']);
 
 	module.exports = MODULE_NAME;
 
 /***/ },
-/* 104 */
-/***/ function(module, exports) {
-
-	var path = 'G:/GitHub/_private/laoui-bootstrap/src/template/tooltip/tooltip-popup.html';
-	var html = "<div class=\"tooltip-arrow\"></div>\n<div class=\"tooltip-inner\" ng-bind=\"content\"></div>\n";
-	window.angular.module('ng').run(['$templateCache', function(c) { c.put(path, html) }]);
-	module.exports = path;
-
-/***/ },
-/* 105 */
-/***/ function(module, exports) {
-
-	var path = 'G:/GitHub/_private/laoui-bootstrap/src/template/tooltip/tooltip-html-popup.html';
-	var html = "<div class=\"tooltip-arrow\"></div>\n<div class=\"tooltip-inner\" ng-bind-html=\"contentExp()\"></div>\n";
-	window.angular.module('ng').run(['$templateCache', function(c) { c.put(path, html) }]);
-	module.exports = path;
-
-/***/ },
-/* 106 */
-/***/ function(module, exports) {
-
-	var path = 'G:/GitHub/_private/laoui-bootstrap/src/template/tooltip/tooltip-template-popup.html';
-	var html = "<div class=\"tooltip-arrow\"></div>\n<div class=\"tooltip-inner\"\n  uib-tooltip-template-transclude=\"contentExp()\"\n  tooltip-template-transclude-scope=\"originScope()\"></div>\n";
-	window.angular.module('ng').run(['$templateCache', function(c) { c.put(path, html) }]);
-	module.exports = path;
-
-/***/ },
-/* 107 */
+/* 96 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
 
-	var _keys = __webpack_require__(57);
+	var _keys = __webpack_require__(51);
 
 	var _keys2 = _interopRequireDefault(_keys);
 
@@ -45831,7 +45736,7 @@
 	  return {
 	    restrict: 'A',
 	    scope: { content: '@' },
-	    templateUrl: 'uib/template/tooltip/tooltip-popup.html'
+	    templateUrl: '../../template/tooltip/tooltip-popup.html'
 	  };
 	}).directive('uibTooltip', ['$uibTooltip', function ($uibTooltip) {
 	  return $uibTooltip('uibTooltip', 'tooltip', 'mouseenter');
@@ -45839,7 +45744,7 @@
 	  return {
 	    restrict: 'A',
 	    scope: { contentExp: '&', originScope: '&' },
-	    templateUrl: 'uib/template/tooltip/tooltip-template-popup.html'
+	    templateUrl: '../../template/tooltip/tooltip-template-popup.html'
 	  };
 	}).directive('uibTooltipTemplate', ['$uibTooltip', function ($uibTooltip) {
 	  return $uibTooltip('uibTooltipTemplate', 'tooltip', 'mouseenter', {
@@ -45849,7 +45754,7 @@
 	  return {
 	    restrict: 'A',
 	    scope: { contentExp: '&' },
-	    templateUrl: 'uib/template/tooltip/tooltip-html-popup.html'
+	    templateUrl: '../../template/tooltip/tooltip-html-popup.html'
 	  };
 	}).directive('uibTooltipHtml', ['$uibTooltip', function ($uibTooltip) {
 	  return $uibTooltip('uibTooltipHtml', 'tooltip', 'mouseenter', {
@@ -45858,34 +45763,7 @@
 	}]);
 
 /***/ },
-/* 108 */
-/***/ function(module, exports) {
-
-	var path = 'G:/GitHub/_private/laoui-bootstrap/src/template/popover/popover.html';
-	var html = "<div class=\"arrow\"></div>\n\n<div class=\"popover-inner\">\n    <h3 class=\"popover-title\" ng-bind=\"uibTitle\" ng-if=\"uibTitle\"></h3>\n    <div class=\"popover-content\" ng-bind=\"content\"></div>\n</div>\n";
-	window.angular.module('ng').run(['$templateCache', function(c) { c.put(path, html) }]);
-	module.exports = path;
-
-/***/ },
-/* 109 */
-/***/ function(module, exports) {
-
-	var path = 'G:/GitHub/_private/laoui-bootstrap/src/template/popover/popover-html.html';
-	var html = "<div class=\"arrow\"></div>\n\n<div class=\"popover-inner\">\n    <h3 class=\"popover-title\" ng-bind=\"uibTitle\" ng-if=\"uibTitle\"></h3>\n    <div class=\"popover-content\" ng-bind-html=\"contentExp()\"></div>\n</div>\n";
-	window.angular.module('ng').run(['$templateCache', function(c) { c.put(path, html) }]);
-	module.exports = path;
-
-/***/ },
-/* 110 */
-/***/ function(module, exports) {
-
-	var path = 'G:/GitHub/_private/laoui-bootstrap/src/template/popover/popover-template.html';
-	var html = "<div class=\"arrow\"></div>\n\n<div class=\"popover-inner\">\n    <h3 class=\"popover-title\" ng-bind=\"uibTitle\" ng-if=\"uibTitle\"></h3>\n    <div class=\"popover-content\"\n      uib-tooltip-template-transclude=\"contentExp()\"\n      tooltip-template-transclude-scope=\"originScope()\"></div>\n</div>\n";
-	window.angular.module('ng').run(['$templateCache', function(c) { c.put(path, html) }]);
-	module.exports = path;
-
-/***/ },
-/* 111 */
+/* 97 */
 /***/ function(module, exports) {
 
 	'use strict';
@@ -45899,7 +45777,7 @@
 	  return {
 	    restrict: 'A',
 	    scope: { uibTitle: '@', contentExp: '&', originScope: '&' },
-	    templateUrl: 'uib/template/popover/popover-template.html'
+	    templateUrl: '../../template/popover/popover-template.html'
 	  };
 	}).directive('uibPopoverTemplate', ['$uibTooltip', function ($uibTooltip) {
 	  return $uibTooltip('uibPopoverTemplate', 'popover', 'click', {
@@ -45909,7 +45787,7 @@
 	  return {
 	    restrict: 'A',
 	    scope: { contentExp: '&', uibTitle: '@' },
-	    templateUrl: 'uib/template/popover/popover-html.html'
+	    templateUrl: '../../template/popover/popover-html.html'
 	  };
 	}).directive('uibPopoverHtml', ['$uibTooltip', function ($uibTooltip) {
 	  return $uibTooltip('uibPopoverHtml', 'popover', 'click', {
@@ -45919,67 +45797,40 @@
 	  return {
 	    restrict: 'A',
 	    scope: { uibTitle: '@', content: '@' },
-	    templateUrl: 'uib/template/popover/popover.html'
+	    templateUrl: '../../template/popover/popover.html'
 	  };
 	}).directive('uibPopover', ['$uibTooltip', function ($uibTooltip) {
 	  return $uibTooltip('uibPopover', 'popover', 'click');
 	}]);
 
 /***/ },
-/* 112 */
+/* 98 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
 
-	__webpack_require__(39);
-	module.exports = __webpack_require__(42);
+	__webpack_require__(35);
+	module.exports = __webpack_require__(38);
 
 /***/ },
-/* 113 */
+/* 99 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
 
-	__webpack_require__(114);
-	__webpack_require__(115);
-	__webpack_require__(116);
-	__webpack_require__(117);
+	// require('../../template/progressbar/progressbar.html');
+	// require('../../template/progressbar/progress.html');
+	// require('../../template/progressbar/bar.html');
+	__webpack_require__(100);
 
 	var MODULE_NAME = 'ui.bootstrap.module.progressbar';
 
-	angular.module(MODULE_NAME, ['ui.bootstrap.progressbar', 'uib/template/progressbar/progressbar.html', 'uib/template/progressbar/progress.html', 'uib/template/progressbar/bar.html']);
+	angular.module(MODULE_NAME, ['ui.bootstrap.progressbar']);
 
 	module.exports = MODULE_NAME;
 
 /***/ },
-/* 114 */
-/***/ function(module, exports) {
-
-	var path = 'G:/GitHub/_private/laoui-bootstrap/src/template/progressbar/progressbar.html';
-	var html = "<div class=\"progress\">\n  <div class=\"progress-bar\" ng-class=\"type && 'progress-bar-' + type\" role=\"progressbar\" aria-valuenow=\"{{value}}\" aria-valuemin=\"0\" aria-valuemax=\"{{max}}\" ng-style=\"{width: (percent < 100 ? percent : 100) + '%'}\" aria-valuetext=\"{{percent | number:0}}%\" aria-labelledby=\"{{::title}}\" ng-transclude></div>\n</div>\n";
-	window.angular.module('ng').run(['$templateCache', function(c) { c.put(path, html) }]);
-	module.exports = path;
-
-/***/ },
-/* 115 */
-/***/ function(module, exports) {
-
-	var path = 'G:/GitHub/_private/laoui-bootstrap/src/template/progressbar/progress.html';
-	var html = "<div class=\"progress\" ng-transclude aria-labelledby=\"{{::title}}\"></div>";
-	window.angular.module('ng').run(['$templateCache', function(c) { c.put(path, html) }]);
-	module.exports = path;
-
-/***/ },
-/* 116 */
-/***/ function(module, exports) {
-
-	var path = 'G:/GitHub/_private/laoui-bootstrap/src/template/progressbar/bar.html';
-	var html = "<div class=\"progress-bar\" ng-class=\"type && 'progress-bar-' + type\" role=\"progressbar\" aria-valuenow=\"{{value}}\" aria-valuemin=\"0\" aria-valuemax=\"{{max}}\" ng-style=\"{width: (percent < 100 ? percent : 100) + '%'}\" aria-valuetext=\"{{percent | number:0}}%\" aria-labelledby=\"{{::title}}\" ng-transclude></div>\n";
-	window.angular.module('ng').run(['$templateCache', function(c) { c.put(path, html) }]);
-	module.exports = path;
-
-/***/ },
-/* 117 */
+/* 100 */
 /***/ function(module, exports) {
 
 	'use strict';
@@ -46052,7 +45903,7 @@
 	    scope: {
 	      maxParam: '=?max'
 	    },
-	    templateUrl: 'uib/template/progressbar/progress.html'
+	    templateUrl: '../../template/progressbar/progress.html'
 	  };
 	}).directive('uibBar', function () {
 	  return {
@@ -46063,7 +45914,7 @@
 	      value: '=',
 	      type: '@'
 	    },
-	    templateUrl: 'uib/template/progressbar/bar.html',
+	    templateUrl: '../../template/progressbar/bar.html',
 	    link: function link(scope, element, attrs, progressCtrl) {
 	      progressCtrl.addBar(scope, element, attrs);
 	    }
@@ -46078,7 +45929,7 @@
 	      maxParam: '=?max',
 	      type: '@'
 	    },
-	    templateUrl: 'uib/template/progressbar/progressbar.html',
+	    templateUrl: '../../template/progressbar/progressbar.html',
 	    link: function link(scope, element, attrs, progressCtrl) {
 	      progressCtrl.addBar(scope, angular.element(element.children()[0]), { title: attrs.title });
 	    }
@@ -46086,31 +45937,22 @@
 	});
 
 /***/ },
-/* 118 */
+/* 101 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
 
-	__webpack_require__(119);
-	__webpack_require__(120);
+	// require('../../template/rating/rating.html');
+	__webpack_require__(102);
 
 	var MODULE_NAME = 'ui.bootstrap.module.rating';
 
-	angular.module(MODULE_NAME, ['ui.bootstrap.rating', 'uib/template/rating/rating.html']);
+	angular.module(MODULE_NAME, ['ui.bootstrap.rating']);
 
 	module.exports = MODULE_NAME;
 
 /***/ },
-/* 119 */
-/***/ function(module, exports) {
-
-	var path = 'G:/GitHub/_private/laoui-bootstrap/src/template/rating/rating.html';
-	var html = "<span ng-mouseleave=\"reset()\" ng-keydown=\"onKeydown($event)\" tabindex=\"0\" role=\"slider\" aria-valuemin=\"0\" aria-valuemax=\"{{range.length}}\" aria-valuenow=\"{{value}}\" aria-valuetext=\"{{title}}\">\n    <span ng-repeat-start=\"r in range track by $index\" class=\"sr-only\">({{ $index < value ? '*' : ' ' }})</span>\n    <i ng-repeat-end ng-mouseenter=\"enter($index + 1)\" ng-click=\"rate($index + 1)\" class=\"glyphicon\" ng-class=\"$index < value && (r.stateOn || 'glyphicon-star') || (r.stateOff || 'glyphicon-star-empty')\" ng-attr-title=\"{{r.title}}\"></i>\n</span>\n";
-	window.angular.module('ng').run(['$templateCache', function(c) { c.put(path, html) }]);
-	module.exports = path;
-
-/***/ },
-/* 120 */
+/* 102 */
 /***/ function(module, exports) {
 
 	'use strict';
@@ -46204,7 +46046,7 @@
 	      onLeave: '&'
 	    },
 	    controller: 'UibRatingController',
-	    templateUrl: 'uib/template/rating/rating.html',
+	    templateUrl: '../../template/rating/rating.html',
 	    link: function link(scope, element, attrs, ctrls) {
 	      var ratingCtrl = ctrls[0],
 	          ngModelCtrl = ctrls[1];
@@ -46214,41 +46056,23 @@
 	});
 
 /***/ },
-/* 121 */
+/* 103 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
 
-	__webpack_require__(122);
-	__webpack_require__(123);
-	__webpack_require__(124);
+	// require('../../template/tabs/tab.html');
+	// require('../../template/tabs/tabset.html');
+	__webpack_require__(104);
 
 	var MODULE_NAME = 'ui.bootstrap.module.tabs';
 
-	angular.module(MODULE_NAME, ['ui.bootstrap.tabs', 'uib/template/tabs/tab.html', 'uib/template/tabs/tabset.html']);
+	angular.module(MODULE_NAME, ['ui.bootstrap.tabs']);
 
 	module.exports = MODULE_NAME;
 
 /***/ },
-/* 122 */
-/***/ function(module, exports) {
-
-	var path = 'G:/GitHub/_private/laoui-bootstrap/src/template/tabs/tab.html';
-	var html = "<li ng-class=\"[{active: active, disabled: disabled}, classes]\" class=\"uib-tab nav-item\">\n  <a href ng-click=\"select($event)\" class=\"nav-link\" uib-tab-heading-transclude>{{heading}}</a>\n</li>\n";
-	window.angular.module('ng').run(['$templateCache', function(c) { c.put(path, html) }]);
-	module.exports = path;
-
-/***/ },
-/* 123 */
-/***/ function(module, exports) {
-
-	var path = 'G:/GitHub/_private/laoui-bootstrap/src/template/tabs/tabset.html';
-	var html = "<div>\n  <ul class=\"nav nav-{{tabset.type || 'tabs'}}\" ng-class=\"{'nav-stacked': vertical, 'nav-justified': justified}\" ng-transclude></ul>\n  <div class=\"tab-content\">\n    <div class=\"tab-pane\"\n         ng-repeat=\"tab in tabset.tabs\"\n         ng-class=\"{active: tabset.active === tab.index}\"\n         uib-tab-content-transclude=\"tab\">\n    </div>\n  </div>\n</div>\n";
-	window.angular.module('ng').run(['$templateCache', function(c) { c.put(path, html) }]);
-	module.exports = path;
-
-/***/ },
-/* 124 */
+/* 104 */
 /***/ function(module, exports) {
 
 	'use strict';
@@ -46358,7 +46182,7 @@
 	    controller: 'UibTabsetController',
 	    controllerAs: 'tabset',
 	    templateUrl: function templateUrl(element, attrs) {
-	      return attrs.templateUrl || 'uib/template/tabs/tabset.html';
+	      return attrs.templateUrl || '../../template/tabs/tabset.html';
 	    },
 	    link: function link(scope, element, attrs) {
 	      scope.vertical = angular.isDefined(attrs.vertical) ? scope.$parent.$eval(attrs.vertical) : false;
@@ -46370,7 +46194,7 @@
 	    require: '^uibTabset',
 	    replace: true,
 	    templateUrl: function templateUrl(element, attrs) {
-	      return attrs.templateUrl || 'uib/template/tabs/tab.html';
+	      return attrs.templateUrl || '../../template/tabs/tab.html';
 	    },
 	    transclude: true,
 	    scope: {
@@ -46472,46 +46296,37 @@
 	});
 
 /***/ },
-/* 125 */
+/* 105 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
 
-	__webpack_require__(126);
-	module.exports = __webpack_require__(127);
+	__webpack_require__(106);
+	module.exports = __webpack_require__(107);
 
 /***/ },
-/* 126 */
+/* 106 */
 /***/ function(module, exports) {
 
 	// removed by extract-text-webpack-plugin
 
 /***/ },
-/* 127 */
+/* 107 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
 
-	__webpack_require__(128);
-	__webpack_require__(129);
+	// require('../../template/timepicker/timepicker.html');
+	__webpack_require__(108);
 
 	var MODULE_NAME = 'ui.bootstrap.module.timepicker';
 
-	angular.module(MODULE_NAME, ['ui.bootstrap.timepicker', 'uib/template/timepicker/timepicker.html']);
+	angular.module(MODULE_NAME, ['ui.bootstrap.timepicker']);
 
 	module.exports = MODULE_NAME;
 
 /***/ },
-/* 128 */
-/***/ function(module, exports) {
-
-	var path = 'G:/GitHub/_private/laoui-bootstrap/src/template/timepicker/timepicker.html';
-	var html = "<table class=\"uib-timepicker\">\n  <tbody>\n    <tr class=\"text-center\" ng-show=\"::showSpinners\">\n      <td class=\"uib-increment hours\"><a ng-click=\"incrementHours()\" ng-class=\"{disabled: noIncrementHours()}\" class=\"btn btn-link\" ng-disabled=\"noIncrementHours()\" tabindex=\"-1\"><span class=\"glyphicon glyphicon-chevron-up\"></span></a></td>\n      <td>&nbsp;</td>\n      <td class=\"uib-increment minutes\"><a ng-click=\"incrementMinutes()\" ng-class=\"{disabled: noIncrementMinutes()}\" class=\"btn btn-link\" ng-disabled=\"noIncrementMinutes()\" tabindex=\"-1\"><span class=\"glyphicon glyphicon-chevron-up\"></span></a></td>\n      <td ng-show=\"showSeconds\">&nbsp;</td>\n      <td ng-show=\"showSeconds\" class=\"uib-increment seconds\"><a ng-click=\"incrementSeconds()\" ng-class=\"{disabled: noIncrementSeconds()}\" class=\"btn btn-link\" ng-disabled=\"noIncrementSeconds()\" tabindex=\"-1\"><span class=\"glyphicon glyphicon-chevron-up\"></span></a></td>\n      <td ng-show=\"showMeridian\"></td>\n    </tr>\n    <tr>\n      <td class=\"form-group uib-time hours\" ng-class=\"{'has-error': invalidHours}\">\n        <input type=\"text\" placeholder=\"HH\" ng-model=\"hours\" ng-change=\"updateHours()\" class=\"form-control text-center\" ng-readonly=\"::readonlyInput\" maxlength=\"2\" tabindex=\"{{::tabindex}}\" ng-disabled=\"noIncrementHours()\" ng-blur=\"blur()\">\n      </td>\n      <td class=\"uib-separator\">:</td>\n      <td class=\"form-group uib-time minutes\" ng-class=\"{'has-error': invalidMinutes}\">\n        <input type=\"text\" placeholder=\"MM\" ng-model=\"minutes\" ng-change=\"updateMinutes()\" class=\"form-control text-center\" ng-readonly=\"::readonlyInput\" maxlength=\"2\" tabindex=\"{{::tabindex}}\" ng-disabled=\"noIncrementMinutes()\" ng-blur=\"blur()\">\n      </td>\n      <td ng-show=\"showSeconds\" class=\"uib-separator\">:</td>\n      <td class=\"form-group uib-time seconds\" ng-class=\"{'has-error': invalidSeconds}\" ng-show=\"showSeconds\">\n        <input type=\"text\" placeholder=\"SS\" ng-model=\"seconds\" ng-change=\"updateSeconds()\" class=\"form-control text-center\" ng-readonly=\"readonlyInput\" maxlength=\"2\" tabindex=\"{{::tabindex}}\" ng-disabled=\"noIncrementSeconds()\" ng-blur=\"blur()\">\n      </td>\n      <td ng-show=\"showMeridian\" class=\"uib-time am-pm\"><button type=\"button\" ng-class=\"{disabled: noToggleMeridian()}\" class=\"btn btn-default text-center\" ng-click=\"toggleMeridian()\" ng-disabled=\"noToggleMeridian()\" tabindex=\"{{::tabindex}}\">{{meridian}}</button></td>\n    </tr>\n    <tr class=\"text-center\" ng-show=\"::showSpinners\">\n      <td class=\"uib-decrement hours\"><a ng-click=\"decrementHours()\" ng-class=\"{disabled: noDecrementHours()}\" class=\"btn btn-link\" ng-disabled=\"noDecrementHours()\" tabindex=\"-1\"><span class=\"glyphicon glyphicon-chevron-down\"></span></a></td>\n      <td>&nbsp;</td>\n      <td class=\"uib-decrement minutes\"><a ng-click=\"decrementMinutes()\" ng-class=\"{disabled: noDecrementMinutes()}\" class=\"btn btn-link\" ng-disabled=\"noDecrementMinutes()\" tabindex=\"-1\"><span class=\"glyphicon glyphicon-chevron-down\"></span></a></td>\n      <td ng-show=\"showSeconds\">&nbsp;</td>\n      <td ng-show=\"showSeconds\" class=\"uib-decrement seconds\"><a ng-click=\"decrementSeconds()\" ng-class=\"{disabled: noDecrementSeconds()}\" class=\"btn btn-link\" ng-disabled=\"noDecrementSeconds()\" tabindex=\"-1\"><span class=\"glyphicon glyphicon-chevron-down\"></span></a></td>\n      <td ng-show=\"showMeridian\"></td>\n    </tr>\n  </tbody>\n</table>\n";
-	window.angular.module('ng').run(['$templateCache', function(c) { c.put(path, html) }]);
-	module.exports = path;
-
-/***/ },
-/* 129 */
+/* 108 */
 /***/ function(module, exports) {
 
 	'use strict';
@@ -46527,7 +46342,7 @@
 	  mousewheel: true,
 	  arrowkeys: true,
 	  showSpinners: true,
-	  templateUrl: 'uib/template/timepicker/timepicker.html'
+	  templateUrl: '../../template/timepicker/timepicker.html'
 	}).controller('UibTimepickerController', ['$scope', '$element', '$attrs', '$parse', '$log', '$locale', 'uibTimepickerConfig', function ($scope, $element, $attrs, $parse, $log, $locale, timepickerConfig) {
 	  var hoursModelCtrl, minutesModelCtrl, secondsModelCtrl;
 	  var selected = new Date(),
@@ -47100,69 +46915,51 @@
 	}]);
 
 /***/ },
-/* 130 */
+/* 109 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
 
-	__webpack_require__(39);
-	__webpack_require__(101);
-	module.exports = __webpack_require__(103);
+	__webpack_require__(35);
+	__webpack_require__(93);
+	module.exports = __webpack_require__(95);
 
 /***/ },
-/* 131 */
+/* 110 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
 
-	__webpack_require__(39);
-	__webpack_require__(132);
-	module.exports = __webpack_require__(133);
+	__webpack_require__(35);
+	__webpack_require__(111);
+	module.exports = __webpack_require__(112);
 
 /***/ },
-/* 132 */
+/* 111 */
 /***/ function(module, exports) {
 
 	// removed by extract-text-webpack-plugin
 
 /***/ },
-/* 133 */
+/* 112 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
 
-	__webpack_require__(46);
-	__webpack_require__(42);
-	__webpack_require__(134);
-	__webpack_require__(135);
-	__webpack_require__(136);
+	__webpack_require__(41);
+	__webpack_require__(38);
+	// require('../../template/typeahead/typeahead-match.html');
+	// require('../../template/typeahead/typeahead-popup.html');
+	__webpack_require__(113);
 
 	var MODULE_NAME = 'ui.bootstrap.module.typeahead';
 
-	angular.module(MODULE_NAME, ['ui.bootstrap.typeahead', 'uib/template/typeahead/typeahead-match.html', 'uib/template/typeahead/typeahead-popup.html']);
+	angular.module(MODULE_NAME, ['ui.bootstrap.typeahead']);
 
 	module.exports = MODULE_NAME;
 
 /***/ },
-/* 134 */
-/***/ function(module, exports) {
-
-	var path = 'G:/GitHub/_private/laoui-bootstrap/src/template/typeahead/typeahead-match.html';
-	var html = "<a href\n   tabindex=\"-1\"\n   ng-bind-html=\"match.label | uibTypeaheadHighlight:query\"\n   ng-attr-title=\"{{match.label}}\"></a>\n";
-	window.angular.module('ng').run(['$templateCache', function(c) { c.put(path, html) }]);
-	module.exports = path;
-
-/***/ },
-/* 135 */
-/***/ function(module, exports) {
-
-	var path = 'G:/GitHub/_private/laoui-bootstrap/src/template/typeahead/typeahead-popup.html';
-	var html = "<ul class=\"dropdown-menu\" ng-show=\"isOpen() && !moveInProgress\" ng-style=\"{top: position().top+'px', left: position().left+'px'}\" role=\"listbox\" aria-hidden=\"{{!isOpen()}}\">\n    <li class=\"uib-typeahead-match\" ng-repeat=\"match in matches track by $index\" ng-class=\"{active: isActive($index) }\" ng-mouseenter=\"selectActive($index)\" ng-click=\"selectMatch($index, $event)\" role=\"option\" id=\"{{::match.id}}\">\n        <div uib-typeahead-match index=\"$index\" match=\"match\" query=\"query\" template-url=\"templateUrl\"></div>\n    </li>\n</ul>\n";
-	window.angular.module('ng').run(['$templateCache', function(c) { c.put(path, html) }]);
-	module.exports = path;
-
-/***/ },
-/* 136 */
+/* 113 */
 /***/ function(module, exports) {
 
 	'use strict';
@@ -47758,7 +47555,7 @@
 	    },
 	    replace: true,
 	    templateUrl: function templateUrl(element, attrs) {
-	      return attrs.popupTemplateUrl || 'uib/template/typeahead/typeahead-popup.html';
+	      return attrs.popupTemplateUrl || '../../template/typeahead/typeahead-popup.html';
 	    },
 	    link: function link(scope, element, attrs) {
 	      scope.templateUrl = attrs.templateUrl;
@@ -47797,7 +47594,7 @@
 	      query: '='
 	    },
 	    link: function link(scope, element, attrs) {
-	      var tplUrl = $parse(attrs.templateUrl)(scope.$parent) || 'uib/template/typeahead/typeahead-match.html';
+	      var tplUrl = $parse(attrs.templateUrl)(scope.$parent) || '../../template/typeahead/typeahead-match.html';
 	      $templateRequest(tplUrl).then(function (tplContent) {
 	        var tplEl = angular.element(tplContent.trim());
 	        element.replaceWith(tplEl);

@@ -1,10 +1,10 @@
 describe('datepicker', function() {
   var $rootScope, $compile, $templateCache, element;
   beforeEach(module('ui.bootstrap.datepicker'));
-  beforeEach(module('uib/template/datepicker/datepicker.html'));
-  beforeEach(module('uib/template/datepicker/day.html'));
-  beforeEach(module('uib/template/datepicker/month.html'));
-  beforeEach(module('uib/template/datepicker/year.html'));
+  beforeEach(module('../../template/datepicker/datepicker.html'));
+  beforeEach(module('../../template/datepicker/day.html'));
+  beforeEach(module('../../template/datepicker/month.html'));
+  beforeEach(module('../../template/datepicker/year.html'));
   beforeEach(module(function($compileProvider) {
     $compileProvider.directive('dateModel', function() {
       return {
@@ -345,7 +345,7 @@ describe('datepicker', function() {
     });
 
     it('should expose the controller in the template', function() {
-      $templateCache.put('uib/template/datepicker/datepicker.html', '<div>{{datepicker.text}}</div>');
+      $templateCache.put('../../template/datepicker/datepicker.html', '<div>{{datepicker.text}}</div>');
 
       element = $compile('<div uib-datepicker ng-model="date"></div>')($rootScope);
       $rootScope.$digest();

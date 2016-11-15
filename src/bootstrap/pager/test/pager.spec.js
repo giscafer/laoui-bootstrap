@@ -1,7 +1,7 @@
 describe('pager directive', function() {
   var $compile, $rootScope, $document, $templateCache, body, element;
   beforeEach(module('ui.bootstrap.pager'));
-  beforeEach(module('uib/template/pager/pager.html'));
+  beforeEach(module('../../template/pager/pager.html'));
   beforeEach(inject(function(_$compile_, _$rootScope_, _$document_, _$templateCache_) {
     $compile = _$compile_;
     $rootScope = _$rootScope_;
@@ -54,7 +54,7 @@ describe('pager directive', function() {
   });
 
   it('exposes the controller on the template', function() {
-    $templateCache.put('uib/template/pager/pager.html', '<div>{{pager.text}}</div>');
+    $templateCache.put('../../template/pager/pager.html', '<div>{{pager.text}}</div>');
 
     element = $compile('<ul uib-pager></ul uib-pager>')($rootScope);
     $rootScope.$digest();

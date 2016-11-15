@@ -1,3 +1,4 @@
+var alertTempl=require('../../template/alert/alert.html');
 angular.module('ui.bootstrap.alert', [])
 
 .controller('UibAlertController', ['$scope', '$element', '$attrs', '$interpolate', '$timeout', function($scope, $element, $attrs, $interpolate, $timeout) {
@@ -24,7 +25,7 @@ angular.module('ui.bootstrap.alert', [])
     controllerAs: 'alert',
     restrict: 'A',
     templateUrl: function(element, attrs) {
-      return attrs.templateUrl || 'uib/template/alert/alert.html';
+      return attrs.templateUrl || alertTempl;
     },
     transclude: true,
     scope: {

@@ -2,7 +2,7 @@ describe('uib-alert', function() {
   var element, scope, $compile, $templateCache, $timeout;
 
   beforeEach(module('ui.bootstrap.alert'));
-  beforeEach(module('uib/template/alert/alert.html'));
+  beforeEach(module('../../template/alert/alert.html'));
 
   beforeEach(inject(function($rootScope, _$compile_, _$templateCache_, _$timeout_) {
     scope = $rootScope;
@@ -40,7 +40,7 @@ describe('uib-alert', function() {
   }
 
   it('should expose the controller to the view', function() {
-    $templateCache.put('uib/template/alert/alert.html', '<div>{{alert.text}}</div>');
+    $templateCache.put('../../template/alert/alert.html', '<div>{{alert.text}}</div>');
 
     element = $compile('<div uib-alert></div>')(scope);
     scope.$digest();

@@ -2,11 +2,11 @@ describe('datepicker popup', function() {
   var inputEl, dropdownEl, $compile, $document, $rootScope, $sniffer,
     $templateCache, $timeout;
   beforeEach(module('ui.bootstrap.datepickerPopup'));
-  beforeEach(module('uib/template/datepicker/datepicker.html'));
-  beforeEach(module('uib/template/datepicker/day.html'));
-  beforeEach(module('uib/template/datepicker/month.html'));
-  beforeEach(module('uib/template/datepicker/year.html'));
-  beforeEach(module('uib/template/datepickerPopup/popup.html'));
+  beforeEach(module('../../template/datepicker/datepicker.html'));
+  beforeEach(module('../../template/datepicker/day.html'));
+  beforeEach(module('../../template/datepicker/month.html'));
+  beforeEach(module('../../template/datepicker/year.html'));
+  beforeEach(module('../../template/datepickerPopup/popup.html'));
   beforeEach(inject(function(_$compile_, _$rootScope_, _$templateCache_) {
     $compile = _$compile_;
     $rootScope = _$rootScope_;

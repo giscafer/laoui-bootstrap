@@ -24,7 +24,7 @@ The datepicker has 3 modes:
   * timezone
 
 * `template-url`
-  _(Default: `uib/template/datepicker/datepicker.html`)_ -
+  _(Default: `../../template/datepicker/datepicker.html`)_ -
   Add the ability to override the template used on the component.
 
 Apart from the previous settings, to configure the uib-datepicker you need to create an object in Javascript with all the options and use it on the `datepicker-options` attribute:

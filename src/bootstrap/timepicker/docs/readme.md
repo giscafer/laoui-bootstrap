@@ -101,7 +101,7 @@ A lightweight & configurable timepicker directive.
 
 * `template-url`
   <small class="badge">C</small>
-  _(Defaults: `uib/template/timepicker/timepicker.html`)_ -
+  _(Defaults: `../../template/timepicker/timepicker.html`)_ -
   Add the ability to override the template used on the component.
 
 **Notes**

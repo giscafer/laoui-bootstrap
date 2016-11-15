@@ -13,7 +13,7 @@ AngularJS version of the tabs directive.
   Whether tabs fill the container and have a consistent width.
 
   * `template-url`
-  _(Default: `uib/template/tabs/tabset.html`)_ -
+  _(Default: `../../template/tabs/tabset.html`)_ -
   A URL representing the location of a template to use for the main component.
 
 * `type`
@@ -52,7 +52,7 @@ AngularJS version of the tabs directive.
   An optional expression called when tab is activated. Supports $event in template for expression.
 
 * `template-url`
-  _(Default: `uib/template/tabs/tab.html`)_ -
+  _(Default: `../../template/tabs/tab.html`)_ -
   A URL representing the location of a template to use for the tab heading.
 
 ### Tabset heading

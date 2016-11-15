@@ -90,7 +90,7 @@ The `$uibModal` service has only one method: `open(options)`.
   Additional CSS class(es) to be added to a modal window template.
 
 * `windowTemplateUrl`
-  _(Type: `string`, Default: `uib/template/modal/window.html`)_ -
+  _(Type: `string`, Default: `../../template/modal/window.html`)_ -
   A path to a template overriding modal's window template.
 
 * `windowTopClass`

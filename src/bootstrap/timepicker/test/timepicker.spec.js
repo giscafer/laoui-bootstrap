@@ -2,7 +2,7 @@ describe('timepicker directive', function() {
   var $rootScope, $compile, $templateCache, element, modelCtrl;
 
   beforeEach(module('ui.bootstrap.timepicker'));
-  beforeEach(module('uib/template/timepicker/timepicker.html'));
+  beforeEach(module('../../template/timepicker/timepicker.html'));
   beforeEach(inject(function(_$compile_, _$rootScope_, _$templateCache_) {
     $compile = _$compile_;
     $rootScope = _$rootScope_;
@@ -2134,7 +2134,7 @@ describe('timepicker directive', function() {
     });
 
     it('should expose the controller on the view', function() {
-      $templateCache.put('uib/template/timepicker/timepicker.html', '<div><div>{{timepicker.text}}</div></div>');
+      $templateCache.put('../../template/timepicker/timepicker.html', '<div><div>{{timepicker.text}}</div></div>');
 
       element = $compile('<div uib-timepicker ng-model="time"></div>')($rootScope);
       $rootScope.$digest();

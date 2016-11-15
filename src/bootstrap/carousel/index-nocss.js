@@ -4,6 +4,6 @@ require('./carousel');
 
 var MODULE_NAME = 'ui.bootstrap.module.carousel';
 
-angular.module(MODULE_NAME, ['ui.bootstrap.carousel', 'uib/template/carousel/carousel.html', 'uib/template/carousel/slide.html']);
+angular.module(MODULE_NAME, ['ui.bootstrap.carousel']);
 
 module.exports = MODULE_NAME;

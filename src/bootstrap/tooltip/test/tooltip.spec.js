@@ -10,7 +10,7 @@ describe('tooltip', function() {
   beforeEach(module('ui.bootstrap.tooltip'));
 
   // load the template
-  beforeEach(module('uib/template/tooltip/tooltip-popup.html'));
+  beforeEach(module('../../template/tooltip/tooltip-popup.html'));
 
   beforeEach(inject(function($rootScope, $compile, _$document_) {
     elmBody = angular.element(
@@ -755,7 +755,7 @@ describe('tooltipWithDifferentSymbols', function() {
     beforeEach(module('ui.bootstrap.tooltip'));
 
     // load the template
-    beforeEach(module('uib/template/tooltip/tooltip-popup.html'));
+    beforeEach(module('../../template/tooltip/tooltip-popup.html'));
 
     // configure interpolate provider to use [[ ]] instead of {{ }}
     beforeEach(module(function($interpolateProvider) {
@@ -791,7 +791,7 @@ describe('tooltip positioning', function() {
   }));
 
   // load the template
-  beforeEach(module('uib/template/tooltip/tooltip-popup.html'));
+  beforeEach(module('../../template/tooltip/tooltip-popup.html'));
 
   beforeEach(inject(function($rootScope, $compile, $uibPosition) {
     $position = $uibPosition;
@@ -849,7 +849,7 @@ describe('tooltipHtml', function() {
   }));
 
   // load the template
-  beforeEach(module('uib/template/tooltip/tooltip-html-popup.html'));
+  beforeEach(module('../../template/tooltip/tooltip-html-popup.html'));
 
   beforeEach(inject(function($rootScope, $compile, $sce) {
     scope = $rootScope;
@@ -915,7 +915,7 @@ describe('$uibTooltipProvider', function() {
     }));
 
     // load the template
-    beforeEach(module('uib/template/tooltip/tooltip-popup.html'));
+    beforeEach(module('../../template/tooltip/tooltip-popup.html'));
 
     beforeEach(inject(function($rootScope, $compile) {
       elmBody = angular.element(
@@ -942,7 +942,7 @@ describe('$uibTooltipProvider', function() {
   describe('appendToBody', function() {
     var $body;
 
-    beforeEach(module('uib/template/tooltip/tooltip-popup.html'));
+    beforeEach(module('../../template/tooltip/tooltip-popup.html'));
     beforeEach(module('ui.bootstrap.tooltip', function($uibTooltipProvider) {
       $uibTooltipProvider.options({ appendToBody: true });
     }));
@@ -1023,7 +1023,7 @@ describe('$uibTooltipProvider', function() {
       }));
 
       // load the template
-      beforeEach(module('uib/template/tooltip/tooltip-popup.html'));
+      beforeEach(module('../../template/tooltip/tooltip-popup.html'));
 
       it('should use the show trigger and the mapped value for the hide trigger', inject(function($rootScope, $compile) {
         elmBody = angular.element(
@@ -1071,7 +1071,7 @@ describe('$uibTooltipProvider', function() {
       }));
 
       // load the template
-      beforeEach(module('uib/template/tooltip/tooltip-popup.html'));
+      beforeEach(module('../../template/tooltip/tooltip-popup.html'));
 
       it('should use the show trigger and the mapped value for the hide trigger', inject(function($rootScope, $compile) {
         elmBody = angular.element(
@@ -1103,7 +1103,7 @@ describe('$uibTooltipProvider', function() {
       }));
 
       // load the template
-      beforeEach(module('uib/template/tooltip/tooltip-popup.html'));
+      beforeEach(module('../../template/tooltip/tooltip-popup.html'));
 
       it('should use the show trigger to hide', inject(function($rootScope, $compile) {
         elmBody = angular.element(
@@ -1132,7 +1132,7 @@ describe('$uibTooltipProvider', function() {
     }));
 
     // load the template
-    beforeEach(module('uib/template/tooltip/tooltip-popup.html'));
+    beforeEach(module('../../template/tooltip/tooltip-popup.html'));
 
     it('should add the classes', inject(function($rootScope, $compile, $timeout) {
       elmBody = angular.element(

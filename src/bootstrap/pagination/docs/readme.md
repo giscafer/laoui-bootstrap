@@ -90,7 +90,7 @@ A lightweight pagination directive that is focused on ... providing pagination &
   Whether to keep current page in the middle of the visible ones.
 
 * `template-url`
-  _(Default: `uib/template/pagination/pagination.html`)_ -
+  _(Default: `../../template/pagination/pagination.html`)_ -
   Override the template for the component with a custom provided template
 
 * `total-items`

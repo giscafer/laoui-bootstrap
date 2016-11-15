@@ -10,7 +10,7 @@ describe('tooltip template', function() {
   beforeEach(module('ui.bootstrap.tooltip'));
 
   // load the template
-  beforeEach(module('uib/template/tooltip/tooltip-template-popup.html'));
+  beforeEach(module('../../template/tooltip/tooltip-template-popup.html'));
 
   beforeEach(inject(function($templateCache) {
     $templateCache.put('myUrl', [200, '<span>{{ myTemplateText }}</span>', {}]);

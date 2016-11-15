@@ -685,7 +685,7 @@ function ($animate, $sce, $compile, $templateRequest) {
   return {
     restrict: 'A',
     scope: { content: '@' },
-    templateUrl: 'uib/template/tooltip/tooltip-popup.html'
+    templateUrl: '../../template/tooltip/tooltip-popup.html'
   };
 })
 
@@ -697,7 +697,7 @@ function ($animate, $sce, $compile, $templateRequest) {
   return {
     restrict: 'A',
     scope: { contentExp: '&', originScope: '&' },
-    templateUrl: 'uib/template/tooltip/tooltip-template-popup.html'
+    templateUrl: '../../template/tooltip/tooltip-template-popup.html'
   };
 })
 
@@ -711,7 +711,7 @@ function ($animate, $sce, $compile, $templateRequest) {
   return {
     restrict: 'A',
     scope: { contentExp: '&' },
-    templateUrl: 'uib/template/tooltip/tooltip-html-popup.html'
+    templateUrl: '../../template/tooltip/tooltip-html-popup.html'
   };
 })
 

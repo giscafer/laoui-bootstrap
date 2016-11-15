@@ -136,7 +136,7 @@ angular.module('ui.bootstrap.pagination', ['ui.bootstrap.paging', 'ui.bootstrap.
     controller: 'UibPaginationController',
     controllerAs: 'pagination',
     templateUrl: function(element, attrs) {
-      return attrs.templateUrl || 'uib/template/pagination/pagination.html';
+      return attrs.templateUrl || '../../template/pagination/pagination.html';
     },
     link: function(scope, element, attrs, ctrls) {
       element.addClass('pagination');

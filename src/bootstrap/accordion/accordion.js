@@ -1,3 +1,6 @@
+var accordiongroupHtml=require('../../template/accordion/accordion-group.html');
+var accordionHtml=require('../../template/accordion/accordion.html');
+
 angular.module('ui.bootstrap.accordion', ['ui.bootstrap.collapse', 'ui.bootstrap.tabindex'])
 
 .constant('uibAccordionConfig', {
@@ -48,7 +51,7 @@ angular.module('ui.bootstrap.accordion', ['ui.bootstrap.collapse', 'ui.bootstrap
     controllerAs: 'accordion',
     transclude: true,
     templateUrl: function(element, attrs) {
-      return attrs.templateUrl || 'uib/template/accordion/accordion.html';
+      return attrs.templateUrl || accordionHtml;
     }
   };
 })
@@ -60,7 +63,7 @@ angular.module('ui.bootstrap.accordion', ['ui.bootstrap.collapse', 'ui.bootstrap
     transclude: true,              // It transcludes the contents of the directive into the template
     restrict: 'A',
     templateUrl: function(element, attrs) {
-      return attrs.templateUrl || 'uib/template/accordion/accordion-group.html';
+      return attrs.templateUrl || accordiongroupHtml;
     },
     scope: {
       heading: '@',               // Interpolate the heading attribute onto this scope

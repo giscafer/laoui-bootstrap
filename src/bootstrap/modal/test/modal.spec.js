@@ -108,7 +108,7 @@ describe('$uibModal', function() {
 
   beforeEach(module('ngAnimateMock'));
   beforeEach(module('ui.bootstrap.modal'));
-  beforeEach(module('uib/template/modal/window.html'));
+  beforeEach(module('../../template/modal/window.html'));
   beforeEach(module(function(_$controllerProvider_, _$uibModalProvider_, $compileProvider) {
     $controllerProvider = _$controllerProvider_;
     $uibModalProvider = _$uibModalProvider_;

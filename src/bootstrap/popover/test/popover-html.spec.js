@@ -9,7 +9,7 @@ describe('popover', function() {
   beforeEach(module('ui.bootstrap.popover'));
 
   // load the template
-  beforeEach(module('uib/template/popover/popover-html.html'));
+  beforeEach(module('../../template/popover/popover-html.html'));
 
   beforeEach(inject(function($rootScope, $compile, $sce, _$document_) {
     $document = _$document_;

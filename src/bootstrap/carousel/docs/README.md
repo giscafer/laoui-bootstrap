@@ -35,7 +35,7 @@ Use a `<uib-carousel>` element with `<uib-slide>` elements inside it.
   Disables the looping of slides. Setting `no-wrap` to an expression which evaluates to a truthy value will prevent looping.
 
 * `template-url`
-  _(Default: `uib/template/carousel/carousel.html`)_ -
+  _(Default: `../../template/carousel/carousel.html`)_ -
   Add the ability to override the template used on the component.
 
 ### uib-slide settings
@@ -53,5 +53,5 @@ Use a `<uib-carousel>` element with `<uib-slide>` elements inside it.
   The index of the slide. Must be unique.
 
 * `template-url`
-  _(Default: `uib/template/carousel/slide.html`)_ -
+  _(Default: `../../template/carousel/slide.html`)_ -
   Add the ability to override the template used on the component.

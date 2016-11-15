@@ -9,7 +9,7 @@ angular.module('ui.bootstrap.popover', ['ui.bootstrap.tooltip'])
   return {
     restrict: 'A',
     scope: { uibTitle: '@', contentExp: '&', originScope: '&' },
-    templateUrl: 'uib/template/popover/popover-template.html'
+    templateUrl: '../../template/popover/popover-template.html'
   };
 })
 
@@ -23,7 +23,7 @@ angular.module('ui.bootstrap.popover', ['ui.bootstrap.tooltip'])
   return {
     restrict: 'A',
     scope: { contentExp: '&', uibTitle: '@' },
-    templateUrl: 'uib/template/popover/popover-html.html'
+    templateUrl: '../../template/popover/popover-html.html'
   };
 })
 
@@ -37,7 +37,7 @@ angular.module('ui.bootstrap.popover', ['ui.bootstrap.tooltip'])
   return {
     restrict: 'A',
     scope: { uibTitle: '@', content: '@' },
-    templateUrl: 'uib/template/popover/popover.html'
+    templateUrl: '../../template/popover/popover.html'
   };
 })
 

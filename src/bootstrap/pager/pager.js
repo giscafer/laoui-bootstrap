@@ -26,7 +26,7 @@ angular.module('ui.bootstrap.pager', ['ui.bootstrap.paging', 'ui.bootstrap.tabin
     controller: 'UibPagerController',
     controllerAs: 'pager',
     templateUrl: function(element, attrs) {
-      return attrs.templateUrl || 'uib/template/pager/pager.html';
+      return attrs.templateUrl || '../../template/pager/pager.html';
     },
     link: function(scope, element, attrs, ctrls) {
       element.addClass('pager');

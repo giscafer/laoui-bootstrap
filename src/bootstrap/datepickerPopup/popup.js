@@ -10,8 +10,8 @@ angular.module('ui.bootstrap.datepickerPopup', ['ui.bootstrap.datepicker', 'ui.b
   closeText: 'Done',
   currentText: 'Today',
   datepickerPopup: 'yyyy-MM-dd',
-  datepickerPopupTemplateUrl: 'uib/template/datepickerPopup/popup.html',
-  datepickerTemplateUrl: 'uib/template/datepicker/datepicker.html',
+  datepickerPopupTemplateUrl: '../../template/datepickerPopup/popup.html',
+  datepickerTemplateUrl: '../../template/datepicker/datepicker.html',
   html5Types: {
     date: 'yyyy-MM-dd',
     'datetime-local': 'yyyy-MM-ddTHH:mm:ss.sss',
@@ -442,7 +442,7 @@ function($scope, $element, $attrs, $compile, $log, $parse, $window, $document, $
     restrict: 'A',
     transclude: true,
     templateUrl: function(element, attrs) {
-      return attrs.templateUrl || 'uib/template/datepickerPopup/popup.html';
+      return attrs.templateUrl || '../../template/datepickerPopup/popup.html';
     }
   };
 });

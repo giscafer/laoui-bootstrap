@@ -2,8 +2,8 @@ describe('tabs', function() {
   var elm, scope;
 
   beforeEach(module('ui.bootstrap.tabs'));
-  beforeEach(module('uib/template/tabs/tabset.html'));
-  beforeEach(module('uib/template/tabs/tab.html'));
+  beforeEach(module('../../template/tabs/tabset.html'));
+  beforeEach(module('../../template/tabs/tab.html'));
 
   function titles() {
     return elm.find('ul.nav-tabs li');
@@ -330,7 +330,7 @@ describe('tabs', function() {
     }));
 
     it('should expose the controller on the view', function() {
-      $templateCache.put('uib/template/tabs/tab.html', '<li class="uib-tab">{{tab.text}}</li>');
+      $templateCache.put('../../template/tabs/tab.html', '<li class="uib-tab">{{tab.text}}</li>');
 
       elm = $compile('<uib-tabset><uib-tab heading="Tab"></uib-tab></uib-tabset>')(scope);
       scope.$digest();

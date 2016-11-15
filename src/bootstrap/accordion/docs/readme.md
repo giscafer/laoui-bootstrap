@@ -33,7 +33,7 @@ The body of each accordion group is transcluded into the body of the collapsible
   Whether accordion group is open or closed.
 
 * `template-url`
-  _(Default: `uib/template/accordion/accordion-group.html`)_ -
+  _(Default: `../../template/accordion/accordion-group.html`)_ -
   Add the ability to override the template used on the component.
 
 ### Accordion heading

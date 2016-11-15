@@ -43,12 +43,12 @@ An object with any combination of the datepicker settings (in camelCase) used to
 
 * `datepicker-popup-template-url`
 <small class="badge">C</small>
-_(Default: `uib/template/datepickerPopup/popup.html`)_ -
+_(Default: `../../template/datepickerPopup/popup.html`)_ -
 Add the ability to override the template used on the component.
 
 * `datepicker-template-url`
 <small class="badge">C</small>
-_(Default: `uib/template/datepicker/datepicker.html`)_ -
+_(Default: `../../template/datepicker/datepicker.html`)_ -
 Add the ability to override the template used on the component (inner uib-datepicker).
 
 * `is-open`

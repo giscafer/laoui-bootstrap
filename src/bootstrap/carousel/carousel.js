@@ -1,3 +1,4 @@
+var carouselTempl=require('../../template/carousel/carousel.html');
 angular.module('ui.bootstrap.carousel', [])
 
 .controller('UibCarouselController', ['$scope', '$element', '$interval', '$timeout', '$animate', function($scope, $element, $interval, $timeout, $animate) {
@@ -288,7 +289,7 @@ angular.module('ui.bootstrap.carousel', [])
     controllerAs: 'carousel',
     restrict: 'A',
     templateUrl: function(element, attrs) {
-      return attrs.templateUrl || 'uib/template/carousel/carousel.html';
+      return attrs.templateUrl || carouselTempl;
     },
     scope: {
       active: '=',
@@ -306,7 +307,7 @@ angular.module('ui.bootstrap.carousel', [])
     restrict: 'A',
     transclude: true,
     templateUrl: function(element, attrs) {
-      return attrs.templateUrl || 'uib/template/carousel/slide.html';
+      return attrs.templateUrl || '../../template/carousel/slide.html';
     },
     scope: {
       actual: '=?',

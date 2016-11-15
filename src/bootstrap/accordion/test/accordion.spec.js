@@ -3,8 +3,8 @@ describe('uib-accordion', function() {
 
   beforeEach(module('ui.bootstrap.accordion'));
   beforeEach(module('ngAnimateMock'));
-  beforeEach(module('uib/template/accordion/accordion.html'));
-  beforeEach(module('uib/template/accordion/accordion-group.html'));
+  beforeEach(module('../../template/accordion/accordion.html'));
+  beforeEach(module('../../template/accordion/accordion-group.html'));
 
   beforeEach(inject(function(_$animate_, $rootScope) {
     $animate = _$animate_;
@@ -130,7 +130,7 @@ describe('uib-accordion', function() {
     });
 
     it('should expose the controller on the view', function() {
-      $templateCache.put('uib/template/accordion/accordion.html', '<div>{{accordion.text}}</div>');
+      $templateCache.put('../../template/accordion/accordion.html', '<div>{{accordion.text}}</div>');
 
       element = $compile('<uib-accordion></uib-accordion>')(scope);
       scope.$digest();

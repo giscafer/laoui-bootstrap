@@ -88,7 +88,7 @@ This directive works with promises, meaning you can retrieve matches using the `
   A callback executed when a match is selected. $event can be undefined if selection not triggered from a user event.
 
 * `typeahead-popup-template-url`
-  _(Default: `uib/template/typeahead/typeahead-popup.html`)_ -
+  _(Default: `../../template/typeahead/typeahead-popup.html`)_ -
   Set custom popup template.
 
 * `typeahead-select-on-blur`
@@ -107,7 +107,7 @@ This directive works with promises, meaning you can retrieve matches using the `
   Show hint when the first option matches.
 
 * `typeahead-template-url`
-  _(Default: `uib/template/typeahead/typeahead-match.html`)_ -
+  _(Default: `../../template/typeahead/typeahead-match.html`)_ -
   Set custom item template.
 
 * `typeahead-wait-ms`

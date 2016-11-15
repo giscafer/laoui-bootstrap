@@ -3,7 +3,7 @@
 import './styles/index.less';
 import angular from 'angular';
 import bootstrap from './bootstrap';
-const MODULE_NAME="laoui";
+const MODULE_NAME="laoui-bootstrap";
 
 angular.module(MODULE_NAME,[bootstrap]);
 
