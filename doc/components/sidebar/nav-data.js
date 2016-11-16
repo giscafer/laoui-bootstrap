@@ -8,8 +8,12 @@ var data = [{
         "name": "面板 - Panel",
         "icon": "caret-right"
     }, {
-        "link": "#/components/tabs/1",
+        "link": "#/components/tabs",
         "name": "选项卡 - Tab",
+        "icon": "caret-right"
+    }, {
+        "link": "#/components/tabs1",
+        "name": "选项卡 - Tab111",
         "icon": "caret-right"
     }, {
         "link": "#/components/accordion",
