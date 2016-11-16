@@ -1,0 +1,154 @@
+@navigation-prefix-cls: ~"ui-navigation";
+.@{navigation-prefix-cls} {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    >li.collapsed {
+        >a:after,
+        >span:after {
+            float: right;
+            font-family: FontAwesome;
+            content: '\F105';
+            color: #bebdbd;
+        }
+    }
+    >li.expanded {
+        >a:after,
+        >span:after {
+            float: right;
+            margin: 2px 0 0;
+            font-size: 12px;
+            font-family: FontAwesome;
+            content: '\F107';
+            color: #fff;
+        }
+    }
+    &-vertical&-light {
+        &>li {
+            cursor: pointer;
+            border-bottom: 1px solid #f1f1f1;
+            ul:before {
+                content: ' ';
+                display: block;
+                height: 5px
+            }
+            &>a:hover {
+                background-color: #eee;
+            }
+            &>span {
+                display: block;
+                text-decoration: none;
+                padding: 10px 15px;
+                background-color: #f8f8f8;
+                color: #5e5e5e;
+                &:hover {
+                    background-color: #eee;
+                }
+            }
+            &.active {
+                >a,
+                >span {
+                    background: #6da4e0;
+                    color: #fff
+                }
+            }
+            &.expanded {
+                >a,
+                >span {
+                    background: #6da4e0;
+                    color: #fff
+                }
+            }
+        }
+        .menu {
+            list-style: none;
+            overflow: hidden;
+            height: 0;
+            -webkit-transition: all .2s cubic-bezier(.78, .14, .15, .86) 0s;
+            transition: all .2s cubic-bezier(.78, .14, .15, .86) 0s;
+            -moz-transition: all .2s cubic-bezier(.78, .14, .15, .86) 0s;
+            -ms-transition: all .2s cubic-bezier(.78, .14, .15, .86) 0s;
+            &>li {
+                a,
+                span {
+                    display: block;
+                    color: #666;
+                    padding: 6px 1px;
+                    cursor: pointer;
+                    text-decoration: none;
+                    transition: all .2s cubic-bezier(.78, .14, .15, .86) 0s;
+                    -webkit-transition: all .2s cubic-bezier(.78, .14, .15, .86) 0s;
+                    -moz-transition: all .2s cubic-bezier(.78, .14, .15, .86) 0s;
+                    -ms-transition: all .2s cubic-bezier(.78, .14, .15, .86) 0s;
+                }
+            }
+            li a:hover {
+                color: #6da4e1;
+            }
+        }
+    }
+    &-vertical&-dark {
+        &>li {
+            cursor: pointer;
+            /*border-bottom: 1px solid #f1f1f1;*/
+            ul:before {
+                content: ' ';
+                display: block;
+                height: 5px;
+            }
+            &>a {
+                background: #293846;
+                color: #c3ccdb;
+                &:hover {
+                    background-color: #11191f;
+                }
+            }
+            &>span {
+                display: block;
+                text-decoration: none;
+                padding: 10px 15px;
+                background-color: #293846;
+                color: #c3ccdb;
+                &:hover {
+                    background-color: #11191f;
+                }
+            }
+        }
+        .menu {
+            background-color: #2d3e4d;
+            list-style: none;
+            overflow: hidden;
+            height: 0;
+            -webkit-transition: all .2s cubic-bezier(.78, .14, .15, .86) 0s;
+            transition: all .2s cubic-bezier(.78, .14, .15, .86) 0s;
+            -moz-transition: all .2s cubic-bezier(.78, .14, .15, .86) 0s;
+            -ms-transition: all .2s cubic-bezier(.78, .14, .15, .86) 0s;
+            &>li {
+                a,
+                span {
+                    display: block;
+                    color: #c3ccdb;
+                    padding: 6px 1px;
+                    cursor: pointer;
+                    text-decoration: none;
+                    transition: all .2s cubic-bezier(.78, .14, .15, .86) 0s;
+                    -webkit-transition: all .2s cubic-bezier(.78, .14, .15, .86) 0s;
+                    -moz-transition: all .2s cubic-bezier(.78, .14, .15, .86) 0s;
+                    -ms-transition: all .2s cubic-bezier(.78, .14, .15, .86) 0s;
+                    &>i {
+                        color: #afb9c9;
+                    }
+                }
+            }
+            li.active {
+                >a,
+                >span {
+                    color: #fff;
+                }
+            }
+            li>a:hover {
+                color: #fff;
+            }
+        }
+    }
+}

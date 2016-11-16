@@ -19,6 +19,142 @@
 /**
  * laoui components style
  */
+.ui-navigation {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+.ui-navigation > li.collapsed > a:after,
+.ui-navigation > li.collapsed > span:after {
+  float: right;
+  font-family: FontAwesome;
+  content: '\F105';
+  color: #bebdbd;
+}
+.ui-navigation > li.expanded > a:after,
+.ui-navigation > li.expanded > span:after {
+  float: right;
+  margin: 2px 0 0;
+  font-size: 12px;
+  font-family: FontAwesome;
+  content: '\F107';
+  color: #fff;
+}
+.ui-navigation-vertical.ui-navigation-light > li {
+  cursor: pointer;
+  border-bottom: 1px solid #f1f1f1;
+}
+.ui-navigation-vertical.ui-navigation-light > li ul:before {
+  content: ' ';
+  display: block;
+  height: 5px;
+}
+.ui-navigation-vertical.ui-navigation-light > li > a:hover {
+  background-color: #eee;
+}
+.ui-navigation-vertical.ui-navigation-light > li > span {
+  display: block;
+  text-decoration: none;
+  padding: 10px 15px;
+  background-color: #f8f8f8;
+  color: #5e5e5e;
+}
+.ui-navigation-vertical.ui-navigation-light > li > span:hover {
+  background-color: #eee;
+}
+.ui-navigation-vertical.ui-navigation-light > li.active > a,
+.ui-navigation-vertical.ui-navigation-light > li.active > span {
+  background: #6da4e0;
+  color: #fff;
+}
+.ui-navigation-vertical.ui-navigation-light > li.expanded > a,
+.ui-navigation-vertical.ui-navigation-light > li.expanded > span {
+  background: #6da4e0;
+  color: #fff;
+}
+.ui-navigation-vertical.ui-navigation-light .menu {
+  list-style: none;
+  overflow: hidden;
+  height: 0;
+  -webkit-transition: all 0.2s cubic-bezier(0.78, 0.14, 0.15, 0.86) 0s;
+  transition: all 0.2s cubic-bezier(0.78, 0.14, 0.15, 0.86) 0s;
+  -moz-transition: all 0.2s cubic-bezier(0.78, 0.14, 0.15, 0.86) 0s;
+  -ms-transition: all 0.2s cubic-bezier(0.78, 0.14, 0.15, 0.86) 0s;
+}
+.ui-navigation-vertical.ui-navigation-light .menu > li a,
+.ui-navigation-vertical.ui-navigation-light .menu > li span {
+  display: block;
+  color: #666;
+  padding: 6px 1px;
+  cursor: pointer;
+  text-decoration: none;
+  transition: all 0.2s cubic-bezier(0.78, 0.14, 0.15, 0.86) 0s;
+  -webkit-transition: all 0.2s cubic-bezier(0.78, 0.14, 0.15, 0.86) 0s;
+  -moz-transition: all 0.2s cubic-bezier(0.78, 0.14, 0.15, 0.86) 0s;
+  -ms-transition: all 0.2s cubic-bezier(0.78, 0.14, 0.15, 0.86) 0s;
+}
+.ui-navigation-vertical.ui-navigation-light .menu li a:hover {
+  color: #6da4e1;
+}
+.ui-navigation-vertical.ui-navigation-dark > li {
+  cursor: pointer;
+  /*border-bottom: 1px solid #f1f1f1;*/
+}
+.ui-navigation-vertical.ui-navigation-dark > li ul:before {
+  content: ' ';
+  display: block;
+  height: 5px;
+}
+.ui-navigation-vertical.ui-navigation-dark > li > a {
+  background: #293846;
+  color: #c3ccdb;
+}
+.ui-navigation-vertical.ui-navigation-dark > li > a:hover {
+  background-color: #11191f;
+}
+.ui-navigation-vertical.ui-navigation-dark > li > span {
+  display: block;
+  text-decoration: none;
+  padding: 10px 15px;
+  background-color: #293846;
+  color: #c3ccdb;
+}
+.ui-navigation-vertical.ui-navigation-dark > li > span:hover {
+  background-color: #11191f;
+}
+.ui-navigation-vertical.ui-navigation-dark .menu {
+  background-color: #2d3e4d;
+  list-style: none;
+  overflow: hidden;
+  height: 0;
+  -webkit-transition: all 0.2s cubic-bezier(0.78, 0.14, 0.15, 0.86) 0s;
+  transition: all 0.2s cubic-bezier(0.78, 0.14, 0.15, 0.86) 0s;
+  -moz-transition: all 0.2s cubic-bezier(0.78, 0.14, 0.15, 0.86) 0s;
+  -ms-transition: all 0.2s cubic-bezier(0.78, 0.14, 0.15, 0.86) 0s;
+}
+.ui-navigation-vertical.ui-navigation-dark .menu > li a,
+.ui-navigation-vertical.ui-navigation-dark .menu > li span {
+  display: block;
+  color: #c3ccdb;
+  padding: 6px 1px;
+  cursor: pointer;
+  text-decoration: none;
+  transition: all 0.2s cubic-bezier(0.78, 0.14, 0.15, 0.86) 0s;
+  -webkit-transition: all 0.2s cubic-bezier(0.78, 0.14, 0.15, 0.86) 0s;
+  -moz-transition: all 0.2s cubic-bezier(0.78, 0.14, 0.15, 0.86) 0s;
+  -ms-transition: all 0.2s cubic-bezier(0.78, 0.14, 0.15, 0.86) 0s;
+}
+.ui-navigation-vertical.ui-navigation-dark .menu > li a > i,
+.ui-navigation-vertical.ui-navigation-dark .menu > li span > i {
+  color: #afb9c9;
+}
+.ui-navigation-vertical.ui-navigation-dark .menu li.active > a,
+.ui-navigation-vertical.ui-navigation-dark .menu li.active > span {
+  color: #fff;
+}
+.ui-navigation-vertical.ui-navigation-dark .menu li > a:hover {
+  color: #fff;
+}
 .ng-animate.item:not(.left):not(.right) {
   -webkit-transition: 0s ease-in-out left;
   transition: 0s ease-in-out left;
