@@ -11,22 +11,14 @@
 </section>
 <br>
 <section>
-    <p class="lead">二、支持两种图标</p>
+    <p class="lead">图标使用示例</p>
     <ul style="font-size:18px">
-        <li>（1）FontAwesome:<code>http://fontawesome.io/cheatsheet/</code></li>
-        <li>（2）Ant-design:<code>https://ant.design/components/icon/</code></li>
+        <li>icons:<code>http://fontawesome.io/icons/</code></li>
+        <li>examples:<code>http://fontawesome.io/examples/</code></li>
     </ul>
 </section>
 <br>
-<!-- <section class="hidden-print">
-    <div class="stripe-ad">
-        <script async="" type="text/javascript" src="//cdn.carbonads.com/carbon.js?zoneid=1673&amp;serve=C6AILKT&amp;placement=fontawesome" id="_carbonads_js"></script>
-        <p class="lead">
-            可以保存本页为PDF文件，提供使用查阅
-        </p>
-    </div>
-</section> -->
-<p class="page-header lead">三、Every Font Awesome 4.7.0 Icon, CSS Class, &amp; Unicode（可以保存本页为PDF文件，提供使用查阅）</p>
+<p class="page-header lead">Every Font Awesome 4.7.0 Icon, CSS Class, &amp; Unicode（可以保存本页为PDF文件，提供使用查阅）</p>
 <div class="row">
     <div class="col-md-4 col-sm-6 col-lg-3">
         <small class="text-muted pull-right">4.4</small>

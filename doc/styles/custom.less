@@ -23,14 +23,14 @@ header {
 }
 
 .sidebar-left {
-    position: absolute;
-    top: 80px;
+    position: fixed;
+    top: 55px;
     z-index: 20;
     background: #fff;
     width: 250px;
     min-height: 100%;
     box-shadow: 2px 0 3px rgba(0, 0, 0, .05);
-    border-bottom-right-radius:15px;
+    padding-top: 10px
 }
 
 .container-fulid {
@@ -39,8 +39,8 @@ header {
     border-radius: 15px;
     background-color: #fff;
     .container-inner {
-        padding: 40px;
-        margin: 20px;
+        padding: 60px 40px 0 40px;
+        margin: 50px 20px 0 20px;
     }
 }
 //重写表格自适应宽度
@@ -49,3 +49,49 @@ header {
   width: 100%;
   overflow: auto;
 }
+.nav{
+    padding-left: 0;
+    margin-bottom: 0;
+    list-style: none;
+}
+.navbar-nav{
+    margin: 0;
+}
+.header-top{
+    background: #3787dd;
+    height: 60px;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    z-index: 100;
+    .navbar-right{
+       margin-right:15px;
+    }
+    .nav{
+        color: #c3dbf5;
+        li>a{
+            color: #c3dbf5;
+            padding: 0 20px;
+            height: 60px;
+            line-height: 60px;
+            border-right: 1px solid #367cc9;
+            border-top: none;
+            border-bottom: none;
+            &:hover{
+                background: #1c6ec7;
+            }
+        }
+        &>li.actived>a{
+            background: #3379c6;
+            color: #fff;
+        }
+    }
+    .branding{
+       background: #1c6ec7;
+        height: 60px;
+        width: 250px;
+        float: left;
+    }
+}
+

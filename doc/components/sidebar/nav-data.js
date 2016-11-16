@@ -1,12 +1,12 @@
 var data = [{
     "link": "",
     "name": "容器组件",
-    "icon": "appstore",
+    "icon": "inbox",
     "children": [{
         "link": "#/components/panel",
         "active": true,
         "name": "面板 - Panel",
-        "icon": "appstore"
+        "icon": "caret-right"
     }, {
         "link": "#/components/tabs/1",
         "name": "选项卡 - Tab",
@@ -72,7 +72,7 @@ var data = [{
 }, {
     "link": "",
     "name": "数据组件",
-    "icon": "setting",
+    "icon": "database",
     "children": [{
         "link": "#/components/table",
         "name": "表格 - Table",
@@ -89,7 +89,7 @@ var data = [{
 }, {
     "link": "",
     "name": "分页组件",
-    "icon": "setting",
+    "icon": "pagelines",
     "children": [{
         "link": "#/components/pagination",
         "name": "分页 - Pagination",
@@ -102,7 +102,7 @@ var data = [{
 }, {
     "link": "",
     "name": "提示、警告组件",
-    "icon": "tag-o",
+    "icon": "commenting",
     "children": [{
         "link": "#/components/tooltip",
         "name": "提示 - Tooltip",
@@ -123,7 +123,7 @@ var data = [{
 }, {
     "link": "",
     "name": "媒体组件",
-    "icon": "setting",
+    "icon": "film",
     "children": [{
         "link": "#/components/carousel",
         "name": "幻灯片 - Carousel",
@@ -136,7 +136,7 @@ var data = [{
 }, {
     "link": "",
     "name": "图表组件",
-    "icon": "line-chart",
+    "icon": "area-chart",
     "children": [{
         "link": "#/components/chart/info",
         "name": "图表 - Chart",
@@ -145,7 +145,7 @@ var data = [{
 }, {
     "link": "",
     "name": "其它组件",
-    "icon": "file",
+    "icon": "file-o",
     "children": [{
         "link": "#/components/rating",
         "name": "投票 - Rating",

@@ -39719,8 +39719,8 @@
 /* 13 */
 /***/ function(module, exports) {
 
-	var path = 'G:/GitHub/_private/laoui-bootstrap/src/template/accordion/accordion-group.html';
-	var html = "<div role=\"tab\" id=\"{{::headingId}}\" aria-selected=\"{{isOpen}}\" class=\"panel-heading\" ng-keypress=\"toggleOpen($event)\">\n  <h4 class=\"panel-title\">\n    <a role=\"button\" data-toggle=\"collapse\" href aria-expanded=\"{{isOpen}}\" aria-controls=\"{{::panelId}}\" tabindex=\"0\" class=\"accordion-toggle\" ng-click=\"toggleOpen()\" uib-accordion-transclude=\"heading\" ng-disabled=\"isDisabled\" uib-tabindex-toggle><span uib-accordion-header ng-class=\"{'text-muted': isDisabled}\">{{heading}}</span></a>\n  </h4>\n</div>\n<div id=\"{{::panelId}}\" aria-labelledby=\"{{::headingId}}\" aria-hidden=\"{{!isOpen}}\" role=\"tabpanel\" class=\"panel-collapse collapse\" uib-collapse=\"!isOpen\">\n  <div class=\"panel-body\" ng-transclude></div>\n</div>\n";
+	var path = 'F:/github/laoui-bootstrap/src/template/accordion/accordion-group.html';
+	var html = "<div role=\"tab\" id=\"{{::headingId}}\" aria-selected=\"{{isOpen}}\" class=\"panel-heading\" ng-keypress=\"toggleOpen($event)\">\r\n  <h4 class=\"panel-title\">\r\n    <a role=\"button\" data-toggle=\"collapse\" href aria-expanded=\"{{isOpen}}\" aria-controls=\"{{::panelId}}\" tabindex=\"0\" class=\"accordion-toggle\" ng-click=\"toggleOpen()\" uib-accordion-transclude=\"heading\" ng-disabled=\"isDisabled\" uib-tabindex-toggle><span uib-accordion-header ng-class=\"{'text-muted': isDisabled}\">{{heading}}</span></a>\r\n  </h4>\r\n</div>\r\n<div id=\"{{::panelId}}\" aria-labelledby=\"{{::headingId}}\" aria-hidden=\"{{!isOpen}}\" role=\"tabpanel\" class=\"panel-collapse collapse\" uib-collapse=\"!isOpen\">\r\n  <div class=\"panel-body\" ng-transclude></div>\r\n</div>\r\n";
 	window.angular.module('ng').run(['$templateCache', function(c) { c.put(path, html) }]);
 	module.exports = path;
 
@@ -39728,7 +39728,7 @@
 /* 14 */
 /***/ function(module, exports) {
 
-	var path = 'G:/GitHub/_private/laoui-bootstrap/src/template/accordion/accordion.html';
+	var path = 'F:/github/laoui-bootstrap/src/template/accordion/accordion.html';
 	var html = "<div role=\"tablist\" class=\"panel-group\" ng-transclude></div>";
 	window.angular.module('ng').run(['$templateCache', function(c) { c.put(path, html) }]);
 	module.exports = path;
@@ -39752,8 +39752,8 @@
 /* 16 */
 /***/ function(module, exports) {
 
-	var path = 'G:/GitHub/_private/laoui-bootstrap/src/template/alert/alert.html';
-	var html = "<button ng-show=\"closeable\" type=\"button\" class=\"close\" ng-click=\"close({$event: $event})\">\n  <span aria-hidden=\"true\">&times;</span>\n  <span class=\"sr-only\">Close</span>\n</button>\n<div ng-transclude></div>\n";
+	var path = 'F:/github/laoui-bootstrap/src/template/alert/alert.html';
+	var html = "<button ng-show=\"closeable\" type=\"button\" class=\"close\" ng-click=\"close({$event: $event})\">\r\n  <span aria-hidden=\"true\">&times;</span>\r\n  <span class=\"sr-only\">Close</span>\r\n</button>\r\n<div ng-transclude></div>\r\n";
 	window.angular.module('ng').run(['$templateCache', function(c) { c.put(path, html) }]);
 	module.exports = path;
 
@@ -39938,8 +39938,8 @@
 /* 23 */
 /***/ function(module, exports) {
 
-	var path = 'G:/GitHub/_private/laoui-bootstrap/src/template/carousel/carousel.html';
-	var html = "<div class=\"carousel-inner\" ng-transclude></div>\n<a role=\"button\" href class=\"left carousel-control\" ng-click=\"prev()\" ng-class=\"{ disabled: isPrevDisabled() }\" ng-show=\"slides.length > 1\">\n  <span aria-hidden=\"true\" class=\"glyphicon glyphicon-chevron-left\"></span>\n  <span class=\"sr-only\">previous</span>\n</a>\n<a role=\"button\" href class=\"right carousel-control\" ng-click=\"next()\" ng-class=\"{ disabled: isNextDisabled() }\" ng-show=\"slides.length > 1\">\n  <span aria-hidden=\"true\" class=\"glyphicon glyphicon-chevron-right\"></span>\n  <span class=\"sr-only\">next</span>\n</a>\n<ol class=\"carousel-indicators\" ng-show=\"slides.length > 1\">\n  <li ng-repeat=\"slide in slides | orderBy:indexOfSlide track by $index\" ng-class=\"{ active: isActive(slide) }\" ng-click=\"select(slide)\">\n    <span class=\"sr-only\">slide {{ $index + 1 }} of {{ slides.length }}<span ng-if=\"isActive(slide)\">, currently active</span></span>\n  </li>\n</ol>\n";
+	var path = 'F:/github/laoui-bootstrap/src/template/carousel/carousel.html';
+	var html = "<div class=\"carousel-inner\" ng-transclude></div>\r\n<a role=\"button\" href class=\"left carousel-control\" ng-click=\"prev()\" ng-class=\"{ disabled: isPrevDisabled() }\" ng-show=\"slides.length > 1\">\r\n  <span aria-hidden=\"true\" class=\"glyphicon glyphicon-chevron-left\"></span>\r\n  <span class=\"sr-only\">previous</span>\r\n</a>\r\n<a role=\"button\" href class=\"right carousel-control\" ng-click=\"next()\" ng-class=\"{ disabled: isNextDisabled() }\" ng-show=\"slides.length > 1\">\r\n  <span aria-hidden=\"true\" class=\"glyphicon glyphicon-chevron-right\"></span>\r\n  <span class=\"sr-only\">next</span>\r\n</a>\r\n<ol class=\"carousel-indicators\" ng-show=\"slides.length > 1\">\r\n  <li ng-repeat=\"slide in slides | orderBy:indexOfSlide track by $index\" ng-class=\"{ active: isActive(slide) }\" ng-click=\"select(slide)\">\r\n    <span class=\"sr-only\">slide {{ $index + 1 }} of {{ slides.length }}<span ng-if=\"isActive(slide)\">, currently active</span></span>\r\n  </li>\r\n</ol>\r\n";
 	window.angular.module('ng').run(['$templateCache', function(c) { c.put(path, html) }]);
 	module.exports = path;
 
@@ -39947,8 +39947,8 @@
 /* 24 */
 /***/ function(module, exports) {
 
-	var path = 'G:/GitHub/_private/laoui-bootstrap/src/template/carousel/slide.html';
-	var html = "<div class=\"text-center\" ng-transclude></div>\n";
+	var path = 'F:/github/laoui-bootstrap/src/template/carousel/slide.html';
+	var html = "<div class=\"text-center\" ng-transclude></div>\r\n";
 	window.angular.module('ng').run(['$templateCache', function(c) { c.put(path, html) }]);
 	module.exports = path;
 
@@ -46306,8 +46306,8 @@
 /* 105 */
 /***/ function(module, exports) {
 
-	var path = 'G:/GitHub/_private/laoui-bootstrap/src/template/tabs/tabset.html';
-	var html = "<div>\n  <ul class=\"nav nav-{{tabset.type || 'tabs'}}\" ng-class=\"{'nav-stacked': vertical, 'nav-justified': justified}\" ng-transclude></ul>\n  <div class=\"tab-content\">\n    <div class=\"tab-pane\"\n         ng-repeat=\"tab in tabset.tabs\"\n         ng-class=\"{active: tabset.active === tab.index}\"\n         ui-tab-content-transclude=\"tab\">\n    </div>\n  </div>\n</div>\n";
+	var path = 'F:/github/laoui-bootstrap/src/template/tabs/tabset.html';
+	var html = "<div>\r\n  <ul class=\"nav nav-{{tabset.type || 'tabs'}}\" ng-class=\"{'nav-stacked': vertical, 'nav-justified': justified}\" ng-transclude></ul>\r\n  <div class=\"tab-content\">\r\n    <div class=\"tab-pane\"\r\n         ng-repeat=\"tab in tabset.tabs\"\r\n         ng-class=\"{active: tabset.active === tab.index}\"\r\n         ui-tab-content-transclude=\"tab\">\r\n    </div>\r\n  </div>\r\n</div>\r\n";
 	window.angular.module('ng').run(['$templateCache', function(c) { c.put(path, html) }]);
 	module.exports = path;
 
@@ -46315,8 +46315,8 @@
 /* 106 */
 /***/ function(module, exports) {
 
-	var path = 'G:/GitHub/_private/laoui-bootstrap/src/template/tabs/tab.html';
-	var html = "<li ng-class=\"[{active: active, disabled: disabled}, classes]\" class=\"uib-tab nav-item\">\n  <a href ng-click=\"select($event)\" class=\"nav-link\" ui-tab-heading-transclude>{{heading}}</a>\n</li>\n";
+	var path = 'F:/github/laoui-bootstrap/src/template/tabs/tab.html';
+	var html = "<li ng-class=\"[{active: active, disabled: disabled}, classes]\" class=\"uib-tab nav-item\">\r\n  <a href ng-click=\"select($event)\" class=\"nav-link\" ui-tab-heading-transclude>{{heading}}</a>\r\n</li>\r\n";
 	window.angular.module('ng').run(['$templateCache', function(c) { c.put(path, html) }]);
 	module.exports = path;
 
@@ -47710,21 +47710,29 @@
 	    value: true
 	});
 
-	var _classCallCheck2 = __webpack_require__(119);
+	var _defineProperty2 = __webpack_require__(119);
+
+	var _defineProperty3 = _interopRequireDefault(_defineProperty2);
+
+	var _classCallCheck2 = __webpack_require__(123);
 
 	var _classCallCheck3 = _interopRequireDefault(_classCallCheck2);
 
-	var _createClass2 = __webpack_require__(120);
+	var _createClass2 = __webpack_require__(124);
 
 	var _createClass3 = _interopRequireDefault(_createClass2);
 
-	var _navigation = __webpack_require__(124);
+	var _navigation = __webpack_require__(125);
 
 	var _navigation2 = _interopRequireDefault(_navigation);
 
-	var _navigationCtrl = __webpack_require__(125);
+	var _navigationCtrl = __webpack_require__(126);
 
 	var _navigationCtrl2 = _interopRequireDefault(_navigationCtrl);
+
+	var _classnames = __webpack_require__(127);
+
+	var _classnames2 = _interopRequireDefault(_classnames);
 
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
@@ -47747,27 +47755,42 @@
 	    (0, _createClass3.default)(Navigation, [{
 	        key: 'link',
 	        value: function link(scope, element, attrs) {
-	            scope.type = attrs.type ? attrs.type : 'navigation-verticle-1';
+	            var _classNames;
 
-	            if (scope.type.indexOf('verticle') !== -1) {
+	            var _attrs$prefixCls = attrs.prefixCls,
+	                prefixCls = _attrs$prefixCls === undefined ? 'ui-navigation' : _attrs$prefixCls,
+	                _attrs$mode = attrs.mode,
+	                mode = _attrs$mode === undefined ? 'vertical' : _attrs$mode,
+	                _attrs$theme = attrs.theme,
+	                theme = _attrs$theme === undefined ? 'light' : _attrs$theme,
+	                _attrs$classname = attrs.classname,
+	                classname = _attrs$classname === undefined ? '' : _attrs$classname,
+	                type = attrs.type;
+
+	            scope.classes = (0, _classnames2.default)((_classNames = {}, (0, _defineProperty3.default)(_classNames, '' + prefixCls, true), (0, _defineProperty3.default)(_classNames, prefixCls + '-' + mode, true), (0, _defineProperty3.default)(_classNames, prefixCls + '-' + theme, true), (0, _defineProperty3.default)(_classNames, 'classname', classname), _classNames));
+	            if (mode.includes('vertical') !== -1) {
 	                element.delegate('li', 'click', function (e) {
-	                    var $this = angular.element(this);
-	                    var $toCloseItems;
-	                    if ($this.hasClass('collapsed')) {
-	                        var children = $this.find('> ul > li');
-	                        var ulHeight = 10; // ul上下padding的和
-	                        angular.forEach(children, function (obj, index) {
-	                            ulHeight += obj.clientHeight;
-	                        });
-	                        $toCloseItems = $this.siblings('li.expanded');
-	                        $this.addClass('expanded').removeClass('collapsed').find('> ul').height(ulHeight);
-	                        var $ul = angular.element(this).find('> ul');
+	                    var _this = this;
 
-	                        setTimeout(function () {
-	                            $ul.height('auto');
-	                        }, 200);
+	                    var $this = angular.element(this);
+	                    var $toCloseItems = void 0;
+	                    if ($this.hasClass('collapsed')) {
+	                        (function () {
+	                            var children = $this.find('> ul > li');
+	                            var ulHeight = 12;
+	                            angular.forEach(children, function (obj, index) {
+	                                ulHeight += obj.clientHeight;
+	                            });
+	                            $toCloseItems = $this.siblings('li.expanded');
+	                            $this.addClass('expanded').removeClass('collapsed').find('> ul').height(ulHeight);
+	                            var $ul = angular.element(_this).find('> ul');
+
+	                            setTimeout(function () {
+	                                $ul.height('auto');
+	                            }, 200);
+	                        })();
 	                    } else if ($this.hasClass('expanded')) {
-	                        // 关闭当前展开的菜单项
+	                        // 关闭展开
 	                        $toCloseItems = $this;
 	                    }
 
@@ -47827,6 +47850,59 @@
 
 /***/ },
 /* 119 */
+/***/ function(module, exports, __webpack_require__) {
+
+	"use strict";
+
+	exports.__esModule = true;
+
+	var _defineProperty = __webpack_require__(120);
+
+	var _defineProperty2 = _interopRequireDefault(_defineProperty);
+
+	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+	exports.default = function (obj, key, value) {
+	  if (key in obj) {
+	    (0, _defineProperty2.default)(obj, key, {
+	      value: value,
+	      enumerable: true,
+	      configurable: true,
+	      writable: true
+	    });
+	  } else {
+	    obj[key] = value;
+	  }
+
+	  return obj;
+	};
+
+/***/ },
+/* 120 */
+/***/ function(module, exports, __webpack_require__) {
+
+	module.exports = { "default": __webpack_require__(121), __esModule: true };
+
+/***/ },
+/* 121 */
+/***/ function(module, exports, __webpack_require__) {
+
+	__webpack_require__(122);
+	var $Object = __webpack_require__(73).Object;
+	module.exports = function defineProperty(it, key, desc){
+	  return $Object.defineProperty(it, key, desc);
+	};
+
+/***/ },
+/* 122 */
+/***/ function(module, exports, __webpack_require__) {
+
+	var $export = __webpack_require__(72);
+	// 19.1.2.4 / 15.2.3.6 Object.defineProperty(O, P, Attributes)
+	$export($export.S + $export.F * !__webpack_require__(81), 'Object', {defineProperty: __webpack_require__(77).f});
+
+/***/ },
+/* 123 */
 /***/ function(module, exports) {
 
 	"use strict";
@@ -47840,14 +47916,14 @@
 	};
 
 /***/ },
-/* 120 */
+/* 124 */
 /***/ function(module, exports, __webpack_require__) {
 
 	"use strict";
 
 	exports.__esModule = true;
 
-	var _defineProperty = __webpack_require__(121);
+	var _defineProperty = __webpack_require__(120);
 
 	var _defineProperty2 = _interopRequireDefault(_defineProperty);
 
@@ -47872,40 +47948,16 @@
 	}();
 
 /***/ },
-/* 121 */
-/***/ function(module, exports, __webpack_require__) {
-
-	module.exports = { "default": __webpack_require__(122), __esModule: true };
-
-/***/ },
-/* 122 */
-/***/ function(module, exports, __webpack_require__) {
-
-	__webpack_require__(123);
-	var $Object = __webpack_require__(73).Object;
-	module.exports = function defineProperty(it, key, desc){
-	  return $Object.defineProperty(it, key, desc);
-	};
-
-/***/ },
-/* 123 */
-/***/ function(module, exports, __webpack_require__) {
-
-	var $export = __webpack_require__(72);
-	// 19.1.2.4 / 15.2.3.6 Object.defineProperty(O, P, Attributes)
-	$export($export.S + $export.F * !__webpack_require__(81), 'Object', {defineProperty: __webpack_require__(77).f});
-
-/***/ },
-/* 124 */
+/* 125 */
 /***/ function(module, exports) {
 
-	var path = 'G:/GitHub/_private/laoui-bootstrap/src/components/navigation/template/navigation.html';
-	var html = "<ul class=\"{{type}} ui-navigation clearfix\">\n    <li class=\"link-root\" ng-repeat=\"link in links\" ng-include=\"'children.html'\" ng-class=\"{'collapsed': link.children && link.children.length > 0, 'active': currentUrl == link.link}\"></li>\n    <script type=\"text/ng-template\" id=\"children.html\">\n        <a ng-if=\"link.link\" ng-href=\"{{link.link}}\"> <i ng-if=\"link.icon\" class=\"fa\" ng-class=\"link.icon && 'fa-' + link.icon\"></i> {{link.name}} </a> <span ng-if=\"!link.link\">  <i ng-if=\"link.icon\" class=\"fa\" ng-class=\"link.icon && 'fa-' + link.icon\"></i> {{link.name}}</span>\n        <ul ng-if=\"link.children\">\n            <li ng-repeat=\"link in link.children\" ng-class=\"{'collapsed': link.children, 'active': currentUrl == link.link}\" ng-include=\"'children.html'\"></li>\n        </ul>\n    </script>\n</ul>\n";
+	var path = 'F:/github/laoui-bootstrap/src/components/navigation/template/navigation.html';
+	var html = "<ul class=\"{{classes}} clearfix\">\r\n    <li class=\"link-root\" ng-repeat=\"link in links\" ng-include=\"'children.html'\" ng-class=\"{'collapsed': link.children && link.children.length > 0, 'active': currentUrl == link.link}\"></li>\r\n    <script type=\"text/ng-template\" id=\"children.html\">\r\n        <a ng-if=\"link.link\" ng-href=\"{{link.link}}\"> <i ng-if=\"link.icon\" class=\"fa\" ng-class=\"link.icon && 'fa-' + link.icon\"></i> {{link.name}} </a> <span ng-if=\"!link.link\">  <i ng-if=\"link.icon\" class=\"fa\" ng-class=\"link.icon && 'fa fa-' + link.icon\"></i> {{link.name}}</span>\r\n        <ul ng-if=\"link.children\" class=\"menu\">\r\n            <li ng-repeat=\"link in link.children\" ng-class=\"{'collapsed': link.children, 'active': currentUrl == link.link}\" ng-include=\"'children.html'\"></li>\r\n        </ul>\r\n    </script>\r\n</ul>\r\n";
 	window.angular.module('ng').run(['$templateCache', function(c) { c.put(path, html) }]);
 	module.exports = path;
 
 /***/ },
-/* 125 */
+/* 126 */
 /***/ function(module, exports, __webpack_require__) {
 
 	"use strict";
@@ -47914,7 +47966,7 @@
 	    value: true
 	});
 
-	var _classCallCheck2 = __webpack_require__(119);
+	var _classCallCheck2 = __webpack_require__(123);
 
 	var _classCallCheck3 = _interopRequireDefault(_classCallCheck2);
 
@@ -47934,6 +47986,60 @@
 	NavigationCtrl.$inject = ["$scope", "$location"];
 
 	exports.default = NavigationCtrl;
+
+/***/ },
+/* 127 */
+/***/ function(module, exports, __webpack_require__) {
+
+	var __WEBPACK_AMD_DEFINE_ARRAY__, __WEBPACK_AMD_DEFINE_RESULT__;/*!
+	  Copyright (c) 2016 Jed Watson.
+	  Licensed under the MIT License (MIT), see
+	  http://jedwatson.github.io/classnames
+	*/
+	/* global define */
+
+	(function () {
+		'use strict';
+
+		var hasOwn = {}.hasOwnProperty;
+
+		function classNames () {
+			var classes = [];
+
+			for (var i = 0; i < arguments.length; i++) {
+				var arg = arguments[i];
+				if (!arg) continue;
+
+				var argType = typeof arg;
+
+				if (argType === 'string' || argType === 'number') {
+					classes.push(arg);
+				} else if (Array.isArray(arg)) {
+					classes.push(classNames.apply(null, arg));
+				} else if (argType === 'object') {
+					for (var key in arg) {
+						if (hasOwn.call(arg, key) && arg[key]) {
+							classes.push(key);
+						}
+					}
+				}
+			}
+
+			return classes.join(' ');
+		}
+
+		if (typeof module !== 'undefined' && module.exports) {
+			module.exports = classNames;
+		} else if (true) {
+			// register as 'classnames', consistent with npm package name
+			!(__WEBPACK_AMD_DEFINE_ARRAY__ = [], __WEBPACK_AMD_DEFINE_RESULT__ = function () {
+				return classNames;
+			}.apply(exports, __WEBPACK_AMD_DEFINE_ARRAY__), __WEBPACK_AMD_DEFINE_RESULT__ !== undefined && (module.exports = __WEBPACK_AMD_DEFINE_RESULT__));
+		} else {
+			window.classNames = classNames;
+		}
+	}());
+
 
 /***/ }
 /******/ ]);
