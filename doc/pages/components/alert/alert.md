@@ -72,7 +72,7 @@
 </div>
 
 
-<div style="display:none">
+<!-- <div style="display:none"> -->
 
 ```html
 <div>
@@ -86,7 +86,7 @@
 
 ```
 
-```js
+
 	export default class AlertCtrl {
     constructor($scope, $location, $timeout) {
         "ngInject";
@@ -106,5 +106,4 @@
 }
 
 
-```
-</div>
+<!-- </div> -->

@@ -47,7 +47,7 @@ function loadFiles() {
         file = list[i];
         // console.log(path.basename(file));
         let text = fs.readFileSync(file, 'utf8');
-        fs.writeFileSync(file.replace(/[^.]+$/, 'html'), '<div class="markdown-body">' + marked(text) + '</div>');
+        fs.writeFileSync(file.replace(/[^.]+$/, 'html'), '<div class="markdown-body">' + marked(text,{ lineNumbers: true }) + '</div>');
     }
 
     return list;
