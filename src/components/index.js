@@ -11,10 +11,10 @@ const MODULE_NAME = "laoui.bootstrap.components";
 
 angular.module(MODULE_NAME, [])
     //Navigation
-    .directive('uiNavigation', Navigation.factory);
+    .directive('uiNavigation', Navigation.factory)
     //Panel
-    .directive('uiPanel', Panel.factory);
-    .directive('uiPanelHeading', PanelHeading.factory);
+    .directive('uiPanel', Panel.factory)
+    .directive('uiPanelHeading', PanelHeading.factory)
     .directive('uiPanelTransclude', PanelTransclude.factory);
 
 

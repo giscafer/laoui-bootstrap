@@ -13,4 +13,7 @@ export default class PanelHeading {
             }
         });
     }
+    static factory(){
+        return new PanelHeading();
+    }
 }

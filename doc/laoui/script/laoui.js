@@ -47672,13 +47672,19 @@
 
 	var _navigation2 = _interopRequireDefault(_navigation);
 
+	var _panel = __webpack_require__(128);
+
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 	var MODULE_NAME = "laoui.bootstrap.components";
+	//Panel
+
 
 	angular.module(MODULE_NAME, [])
 	//Navigation
-	.directive('uiNavigation', _navigation2.default.factory);
+	.directive('uiNavigation', _navigation2.default.factory)
+	//Panel
+	.directive('uiPanel', _panel.Panel.factory).directive('uiPanelHeading', _panel.PanelHeading.factory).directive('uiPanelTransclude', _panel.PanelTransclude.factory);
 
 	exports.default = MODULE_NAME;
 
@@ -48040,6 +48046,232 @@
 		}
 	}());
 
+
+/***/ },
+/* 128 */
+/***/ function(module, exports, __webpack_require__) {
+
+	'use strict';
+
+	Object.defineProperty(exports, "__esModule", {
+	  value: true
+	});
+	exports.PanelTransclude = exports.PanelHeading = exports.Panel = undefined;
+
+	var _panel = __webpack_require__(129);
+
+	var _panel2 = _interopRequireDefault(_panel);
+
+	var _panelHeading = __webpack_require__(131);
+
+	var _panelHeading2 = _interopRequireDefault(_panelHeading);
+
+	var _panelTransclude = __webpack_require__(132);
+
+	var _panelTransclude2 = _interopRequireDefault(_panelTransclude);
+
+	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+	exports.Panel = _panel2.default;
+	exports.PanelHeading = _panelHeading2.default;
+	exports.PanelTransclude = _panelTransclude2.default;
+
+/***/ },
+/* 129 */
+/***/ function(module, exports, __webpack_require__) {
+
+	'use strict';
+
+	Object.defineProperty(exports, "__esModule", {
+	    value: true
+	});
+
+	var _defineProperty2 = __webpack_require__(119);
+
+	var _defineProperty3 = _interopRequireDefault(_defineProperty2);
+
+	var _classCallCheck2 = __webpack_require__(123);
+
+	var _classCallCheck3 = _interopRequireDefault(_classCallCheck2);
+
+	var _createClass2 = __webpack_require__(124);
+
+	var _createClass3 = _interopRequireDefault(_createClass2);
+
+	var _panel = __webpack_require__(130);
+
+	var _panel2 = _interopRequireDefault(_panel);
+
+	var _classnames = __webpack_require__(127);
+
+	var _classnames2 = _interopRequireDefault(_classnames);
+
+	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+	var Panel = function () {
+	    function Panel() {
+	        (0, _classCallCheck3.default)(this, Panel);
+
+	        this.replace = true;
+	        this.transclude = true;
+	        this.scope = {
+	            type: '=',
+	            heading: '@',
+	            shadow: '=?',
+	            border: '=?'
+	        };
+	        this.templateUrl = _panel2.default;
+	        this.link = this.link.bind(this);
+	    }
+
+	    (0, _createClass3.default)(Panel, [{
+	        key: 'link',
+	        value: function link(scope, element, attrs) {
+	            var _classNames;
+
+	            var _attrs$prefixCls = attrs.prefixCls,
+	                prefixCls = _attrs$prefixCls === undefined ? "panel" : _attrs$prefixCls,
+	                _attrs$type = attrs.type,
+	                type = _attrs$type === undefined ? 'default' : _attrs$type,
+	                classname = attrs.classname;
+
+
+	            scope.classes = (0, _classnames2.default)((_classNames = {}, (0, _defineProperty3.default)(_classNames, '' + prefixCls, true), (0, _defineProperty3.default)(_classNames, prefixCls + '-' + type, true), (0, _defineProperty3.default)(_classNames, 'classname', classname), _classNames));
+
+	            if (angular.isDefined(scope.border) && scope.border) {
+	                element.addClass('panel-border');
+	            }
+
+	            if (angular.isDefined(scope.shadow) && !scope.shadow) {
+	                element.addClass('panel-flat');
+	            }
+	        }
+	    }, {
+	        key: 'controller',
+	        value: ["$scope", function controller($scope) {
+	            "ngInject";
+
+	            this.setHeading = function (element) {
+	                this.heading = element;
+	                $scope.heading = true;
+	            };
+	        }]
+	    }], [{
+	        key: 'factory',
+	        value: function factory() {
+	            return new Panel();
+	        }
+	    }]);
+	    return Panel;
+	}();
+
+	exports.default = Panel;
+
+/***/ },
+/* 130 */
+/***/ function(module, exports) {
+
+	var path = 'G:/GitHub/_private/laoui-bootstrap/src/components/panel/template/panel.html';
+	var html = "<div ng-class=\"classes\" ng-hide=\"hidePanel\">\r\n    <div class=\"panel-heading\" ng-if=\"heading\" ui-panel-transclude=\"heading\">\r\n        <h3 class=\"panel-title\">{{heading}}</h3> </div>\r\n    <div class=\"panel-body\" ng-transclude></div>\r\n</div>\r\n";
+	window.angular.module('ng').run(['$templateCache', function(c) { c.put(path, html) }]);
+	module.exports = path;
+
+/***/ },
+/* 131 */
+/***/ function(module, exports, __webpack_require__) {
+
+	'use strict';
+
+	Object.defineProperty(exports, "__esModule", {
+	    value: true
+	});
+
+	var _classCallCheck2 = __webpack_require__(123);
+
+	var _classCallCheck3 = _interopRequireDefault(_classCallCheck2);
+
+	var _createClass2 = __webpack_require__(124);
+
+	var _createClass3 = _interopRequireDefault(_createClass2);
+
+	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+	var PanelTransclude = function () {
+	    function PanelTransclude() {
+	        (0, _classCallCheck3.default)(this, PanelTransclude);
+
+	        this.transclude = true;
+	        this.replace = true;
+	        this.require = '^uiPanel';
+	        this.link = this.link.bind(this);
+	    }
+
+	    (0, _createClass3.default)(PanelTransclude, [{
+	        key: 'link',
+	        value: function link(scope, element, attrs, panelCtrl, transclude) {
+	            panelCtrl.setHeading(transclude(scope, angular.noop));
+	        }
+	    }], [{
+	        key: 'factory',
+	        value: function factory() {
+	            return new PanelTransclude();
+	        }
+	    }]);
+	    return PanelTransclude;
+	}();
+
+	exports.default = PanelTransclude;
+
+/***/ },
+/* 132 */
+/***/ function(module, exports, __webpack_require__) {
+
+	'use strict';
+
+	Object.defineProperty(exports, "__esModule", {
+	    value: true
+	});
+
+	var _classCallCheck2 = __webpack_require__(123);
+
+	var _classCallCheck3 = _interopRequireDefault(_classCallCheck2);
+
+	var _createClass2 = __webpack_require__(124);
+
+	var _createClass3 = _interopRequireDefault(_createClass2);
+
+	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+	var PanelHeading = function () {
+	    function PanelHeading() {
+	        (0, _classCallCheck3.default)(this, PanelHeading);
+
+	        this.require = '?^uiPanel';
+	        this.link = this.link.bind(this);
+	    }
+
+	    (0, _createClass3.default)(PanelHeading, [{
+	        key: 'link',
+	        value: function link(scope, element, attrs, controller) {
+	            scope.$watch(function () {
+	                return controller[attrs.uiPanelTransclude];
+	            }, function (heading) {
+	                if (heading) {
+	                    element.html('');
+	                    element.append(heading);
+	                }
+	            });
+	        }
+	    }], [{
+	        key: 'factory',
+	        value: function factory() {
+	            return new PanelHeading();
+	        }
+	    }]);
+	    return PanelHeading;
+	}();
+
+	exports.default = PanelHeading;
 
 /***/ }
 /******/ ]);

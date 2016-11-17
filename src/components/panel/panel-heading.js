@@ -8,4 +8,7 @@ export default class PanelTransclude {
     link(scope, element, attrs, panelCtrl, transclude) {
         panelCtrl.setHeading(transclude(scope, angular.noop));
     }
+    static factory(){
+        return new PanelTransclude();
+    }
 }

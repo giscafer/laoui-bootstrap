@@ -1,0 +1,47 @@
+<ui-panel>
+    <ui-panel-heading>
+        <h4>这是一个 <code>ui-panel-heading</code>指令,可以快速指定panel-heading</h4></ui-panel-heading>
+    <div>
+        这是<code>panel-body</code>内容，以下是本panel的HTML
+        <pre>
+			&lt;ui-panel>
+				&lt;ui-panel-heading>&lt;h4>这是一个 ui-panel-heading&lt;/h4>&lt;/ui-panel-heading>
+				&lt;div>
+					这是panel-body内容，以下是最简单本panel的HTML
+				&lt;/div>
+			&lt;/ui-panel>
+		</pre>
+    </div>
+</ui-panel>
+<!-- panel-default -->
+<ui-panel type="default">
+	<ui-panel-heading>这是一个<code>type="default"</code>的panel </ui-panel-heading>
+</ui-panel>
+<!-- panel-primary -->
+<ui-panel type="primary">
+	<ui-panel-heading>这是一个<code>type="primary"</code>的panel </ui-panel-heading>
+</ui-panel>
+<!-- panel-success -->
+<ui-panel type="success">
+	<ui-panel-heading>这是一个<code>type="success"</code>的panel </ui-panel-heading>
+</ui-panel>
+<!-- panel-info -->
+<ui-panel type="info">
+	<ui-panel-heading>这是一个<code>type="info"</code>的panel </ui-panel-heading>
+</ui-panel>
+<!-- panel-warning -->
+<ui-panel type="warning">
+	<ui-panel-heading>这是一个<code>type="warning"</code>的panel </ui-panel-heading>
+</ui-panel>
+<!-- panel-danger -->
+<ui-panel type="danger">
+	<ui-panel-heading>这是一个<code>type="danger"</code>的panel </ui-panel-heading>
+</ui-panel>
+<!-- Bootstrap 样式直接书写 -->
+<div class="panel panel-primary">
+    <div class="panel-heading">Bootstrap 样式直接书写</div>
+    <div class="panel-body">
+        <code>ui-panel</code>指令最终也是编译为Bootstrap样式，只是做了简化。所以是可以使用Bootstrap 样式直接书写达到一样的效果
+    </div>
+    <div class="panel-footer">Panel footer</div>
+</div>
