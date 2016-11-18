@@ -280,13 +280,12 @@
   margin: 0;
 }
 
-.markdown-body ul,
+/* .markdown-body ul,
 .markdown-body ol {
   padding-left: 0;
   margin-top: 0;
   margin-bottom: 0;
-}
-
+} 
 .markdown-body ol ol,
 .markdown-body ul ol {
   list-style-type: lower-roman;
@@ -297,7 +296,8 @@
 .markdown-body ol ul ol,
 .markdown-body ol ol ol {
   list-style-type: lower-alpha;
-}
+}*/
+
 
 .markdown-body dd {
   margin-left: 0;
@@ -474,8 +474,8 @@
   font-size: 0.85em;
   color: #777;
 }
-
-.markdown-body ul,
+/*影响tab组件样式*/
+/* .markdown-body ul,
 .markdown-body ol {
   padding-left: 2em;
 }
@@ -604,7 +604,7 @@
   background-color: transparent;
   border: 0;
 }
-
+ */
 .markdown-body pre code::before,
 .markdown-body pre code::after {
   content: normal;

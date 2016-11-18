@@ -1,6 +1,7 @@
 'use strict'
 import templateUrl from './template/panel.html';
 import classNames from 'classnames';
+import existAttr from '../_util/existAttr';
 
 export default class Panel {
     constructor() {
@@ -16,11 +17,14 @@ export default class Panel {
         this.link = this.link.bind(this);
     }
     link(scope, element, attrs) {
-        let { prefixCls = "panel", type = 'default', classname } = attrs;
+        let { prefixCls = "panel",uiprefixCls = "ui-panel", type = '', noborder, classname } = attrs;
 
         scope.classes = classNames({
             [`${prefixCls}`]: true,
-            [`${prefixCls}-${type}`]: true,
+            //不指定样式时，header背景白色，且无border
+            [`${uiprefixCls}-default`]:!type,
+            [`${prefixCls}-${type}`]: !!type,
+            [`${uiprefixCls}-noborder`]: existAttr(noborder),
             classname: classname
         });
 

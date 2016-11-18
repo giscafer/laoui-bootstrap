@@ -39719,8 +39719,8 @@
 /* 13 */
 /***/ function(module, exports) {
 
-	var path = 'G:/GitHub/_private/laoui-bootstrap/src/template/accordion/accordion-group.html';
-	var html = "<div role=\"tab\" id=\"{{::headingId}}\" aria-selected=\"{{isOpen}}\" class=\"panel-heading\" ng-keypress=\"toggleOpen($event)\">\n  <h4 class=\"panel-title\">\n    <a role=\"button\" data-toggle=\"collapse\" href aria-expanded=\"{{isOpen}}\" aria-controls=\"{{::panelId}}\" tabindex=\"0\" class=\"accordion-toggle\" ng-click=\"toggleOpen()\" uib-accordion-transclude=\"heading\" ng-disabled=\"isDisabled\" uib-tabindex-toggle><span uib-accordion-header ng-class=\"{'text-muted': isDisabled}\">{{heading}}</span></a>\n  </h4>\n</div>\n<div id=\"{{::panelId}}\" aria-labelledby=\"{{::headingId}}\" aria-hidden=\"{{!isOpen}}\" role=\"tabpanel\" class=\"panel-collapse collapse\" uib-collapse=\"!isOpen\">\n  <div class=\"panel-body\" ng-transclude></div>\n</div>\n";
+	var path = 'F:/github/laoui-bootstrap/src/template/accordion/accordion-group.html';
+	var html = "<div role=\"tab\" id=\"{{::headingId}}\" aria-selected=\"{{isOpen}}\" class=\"panel-heading\" ng-keypress=\"toggleOpen($event)\">\r\n  <h4 class=\"panel-title\">\r\n    <a role=\"button\" data-toggle=\"collapse\" href aria-expanded=\"{{isOpen}}\" aria-controls=\"{{::panelId}}\" tabindex=\"0\" class=\"accordion-toggle\" ng-click=\"toggleOpen()\" uib-accordion-transclude=\"heading\" ng-disabled=\"isDisabled\" uib-tabindex-toggle><span uib-accordion-header ng-class=\"{'text-muted': isDisabled}\">{{heading}}</span></a>\r\n  </h4>\r\n</div>\r\n<div id=\"{{::panelId}}\" aria-labelledby=\"{{::headingId}}\" aria-hidden=\"{{!isOpen}}\" role=\"tabpanel\" class=\"panel-collapse collapse\" uib-collapse=\"!isOpen\">\r\n  <div class=\"panel-body\" ng-transclude></div>\r\n</div>\r\n";
 	window.angular.module('ng').run(['$templateCache', function(c) { c.put(path, html) }]);
 	module.exports = path;
 
@@ -39728,7 +39728,7 @@
 /* 14 */
 /***/ function(module, exports) {
 
-	var path = 'G:/GitHub/_private/laoui-bootstrap/src/template/accordion/accordion.html';
+	var path = 'F:/github/laoui-bootstrap/src/template/accordion/accordion.html';
 	var html = "<div role=\"tablist\" class=\"panel-group\" ng-transclude></div>";
 	window.angular.module('ng').run(['$templateCache', function(c) { c.put(path, html) }]);
 	module.exports = path;
@@ -39752,8 +39752,8 @@
 /* 16 */
 /***/ function(module, exports) {
 
-	var path = 'G:/GitHub/_private/laoui-bootstrap/src/template/alert/alert.html';
-	var html = "<button ng-show=\"closeable\" type=\"button\" class=\"close\" ng-click=\"close({$event: $event})\">\n  <span aria-hidden=\"true\">&times;</span>\n  <span class=\"sr-only\">Close</span>\n</button>\n<div ng-transclude></div>\n";
+	var path = 'F:/github/laoui-bootstrap/src/template/alert/alert.html';
+	var html = "<button ng-show=\"closeable\" type=\"button\" class=\"close\" ng-click=\"close({$event: $event})\">\r\n  <span aria-hidden=\"true\">&times;</span>\r\n  <span class=\"sr-only\">Close</span>\r\n</button>\r\n<div ng-transclude></div>\r\n";
 	window.angular.module('ng').run(['$templateCache', function(c) { c.put(path, html) }]);
 	module.exports = path;
 
@@ -39938,8 +39938,8 @@
 /* 23 */
 /***/ function(module, exports) {
 
-	var path = 'G:/GitHub/_private/laoui-bootstrap/src/template/carousel/carousel.html';
-	var html = "<div class=\"carousel-inner\" ng-transclude></div>\n<a role=\"button\" href class=\"left carousel-control\" ng-click=\"prev()\" ng-class=\"{ disabled: isPrevDisabled() }\" ng-show=\"slides.length > 1\">\n  <span aria-hidden=\"true\" class=\"glyphicon glyphicon-chevron-left\"></span>\n  <span class=\"sr-only\">previous</span>\n</a>\n<a role=\"button\" href class=\"right carousel-control\" ng-click=\"next()\" ng-class=\"{ disabled: isNextDisabled() }\" ng-show=\"slides.length > 1\">\n  <span aria-hidden=\"true\" class=\"glyphicon glyphicon-chevron-right\"></span>\n  <span class=\"sr-only\">next</span>\n</a>\n<ol class=\"carousel-indicators\" ng-show=\"slides.length > 1\">\n  <li ng-repeat=\"slide in slides | orderBy:indexOfSlide track by $index\" ng-class=\"{ active: isActive(slide) }\" ng-click=\"select(slide)\">\n    <span class=\"sr-only\">slide {{ $index + 1 }} of {{ slides.length }}<span ng-if=\"isActive(slide)\">, currently active</span></span>\n  </li>\n</ol>\n";
+	var path = 'F:/github/laoui-bootstrap/src/template/carousel/carousel.html';
+	var html = "<div class=\"carousel-inner\" ng-transclude></div>\r\n<a role=\"button\" href class=\"left carousel-control\" ng-click=\"prev()\" ng-class=\"{ disabled: isPrevDisabled() }\" ng-show=\"slides.length > 1\">\r\n  <span aria-hidden=\"true\" class=\"glyphicon glyphicon-chevron-left\"></span>\r\n  <span class=\"sr-only\">previous</span>\r\n</a>\r\n<a role=\"button\" href class=\"right carousel-control\" ng-click=\"next()\" ng-class=\"{ disabled: isNextDisabled() }\" ng-show=\"slides.length > 1\">\r\n  <span aria-hidden=\"true\" class=\"glyphicon glyphicon-chevron-right\"></span>\r\n  <span class=\"sr-only\">next</span>\r\n</a>\r\n<ol class=\"carousel-indicators\" ng-show=\"slides.length > 1\">\r\n  <li ng-repeat=\"slide in slides | orderBy:indexOfSlide track by $index\" ng-class=\"{ active: isActive(slide) }\" ng-click=\"select(slide)\">\r\n    <span class=\"sr-only\">slide {{ $index + 1 }} of {{ slides.length }}<span ng-if=\"isActive(slide)\">, currently active</span></span>\r\n  </li>\r\n</ol>\r\n";
 	window.angular.module('ng').run(['$templateCache', function(c) { c.put(path, html) }]);
 	module.exports = path;
 
@@ -39947,8 +39947,8 @@
 /* 24 */
 /***/ function(module, exports) {
 
-	var path = 'G:/GitHub/_private/laoui-bootstrap/src/template/carousel/slide.html';
-	var html = "<div class=\"text-center\" ng-transclude></div>\n";
+	var path = 'F:/github/laoui-bootstrap/src/template/carousel/slide.html';
+	var html = "<div class=\"text-center\" ng-transclude></div>\r\n";
 	window.angular.module('ng').run(['$templateCache', function(c) { c.put(path, html) }]);
 	module.exports = path;
 
@@ -46306,8 +46306,8 @@
 /* 105 */
 /***/ function(module, exports) {
 
-	var path = 'G:/GitHub/_private/laoui-bootstrap/src/template/tabs/tabset.html';
-	var html = "<div>\n  <ul class=\"nav nav-{{tabset.type || 'tabs'}}\" ng-class=\"{'nav-stacked': vertical, 'nav-justified': justified}\" ng-transclude></ul>\n  <div class=\"tab-content\">\n    <div class=\"tab-pane\"\n         ng-repeat=\"tab in tabset.tabs\"\n         ng-class=\"{active: tabset.active === tab.index}\"\n         ui-tab-content-transclude=\"tab\">\n    </div>\n  </div>\n</div>\n";
+	var path = 'F:/github/laoui-bootstrap/src/template/tabs/tabset.html';
+	var html = "<div>\r\n  <ul class=\"nav nav-{{tabset.type || 'tabs'}}\" ng-class=\"{'nav-stacked': vertical, 'nav-justified': justified}\" ng-transclude></ul>\r\n  <div class=\"tab-content\">\r\n    <div class=\"tab-pane\"\r\n         ng-repeat=\"tab in tabset.tabs\"\r\n         ng-class=\"{active: tabset.active === tab.index}\"\r\n         ui-tab-content-transclude=\"tab\">\r\n    </div>\r\n  </div>\r\n</div>\r\n";
 	window.angular.module('ng').run(['$templateCache', function(c) { c.put(path, html) }]);
 	module.exports = path;
 
@@ -46315,8 +46315,8 @@
 /* 106 */
 /***/ function(module, exports) {
 
-	var path = 'G:/GitHub/_private/laoui-bootstrap/src/template/tabs/tab.html';
-	var html = "<li ng-class=\"[{active: active, disabled: disabled}, classes]\" class=\"uib-tab nav-item\">\n  <a href ng-click=\"select($event)\" class=\"nav-link\" ui-tab-heading-transclude>{{heading}}</a>\n</li>\n";
+	var path = 'F:/github/laoui-bootstrap/src/template/tabs/tab.html';
+	var html = "<li ng-class=\"[{active: active, disabled: disabled}, classes]\" class=\"ui-tab nav-item\">\r\n  <a href ng-click=\"select($event)\" class=\"nav-link\" ui-tab-heading-transclude>{{heading}}</a>\r\n</li>\r\n";
 	window.angular.module('ng').run(['$templateCache', function(c) { c.put(path, html) }]);
 	module.exports = path;
 
@@ -47957,7 +47957,7 @@
 /* 125 */
 /***/ function(module, exports) {
 
-	var path = 'G:/GitHub/_private/laoui-bootstrap/src/components/navigation/template/navigation.html';
+	var path = 'F:/github/laoui-bootstrap/src/components/navigation/template/navigation.html';
 	var html = "<ul class=\"{{classes}} clearfix\">\r\n    <li class=\"link-root\" ng-repeat=\"link in links\" ng-include=\"'children.html'\" ng-class=\"{'collapsed': link.children && link.children.length > 0, 'active': currentUrl == link.link}\"></li>\r\n    <script type=\"text/ng-template\" id=\"children.html\">\r\n        <a ng-if=\"link.link\" ng-href=\"{{link.link}}\"> <i ng-if=\"link.icon\" class=\"fa\" ng-class=\"link.icon && 'fa-' + link.icon\"></i> {{link.name}} </a> <span ng-if=\"!link.link\">  <i ng-if=\"link.icon\" class=\"fa\" ng-class=\"link.icon && 'fa fa-' + link.icon\"></i> {{link.name}}</span>\r\n        <ul ng-if=\"link.children\" class=\"menu\">\r\n            <li ng-repeat=\"link in link.children\" ng-class=\"{'collapsed': link.children, 'active': currentUrl == link.link}\" ng-include=\"'children.html'\"></li>\r\n        </ul>\r\n    </script>\r\n</ul>\r\n";
 	window.angular.module('ng').run(['$templateCache', function(c) { c.put(path, html) }]);
 	module.exports = path;
@@ -48062,11 +48062,11 @@
 
 	var _panel2 = _interopRequireDefault(_panel);
 
-	var _panelHeading = __webpack_require__(131);
+	var _panelHeading = __webpack_require__(132);
 
 	var _panelHeading2 = _interopRequireDefault(_panelHeading);
 
-	var _panelTransclude = __webpack_require__(132);
+	var _panelTransclude = __webpack_require__(133);
 
 	var _panelTransclude2 = _interopRequireDefault(_panelTransclude);
 
@@ -48106,6 +48106,10 @@
 
 	var _classnames2 = _interopRequireDefault(_classnames);
 
+	var _existAttr = __webpack_require__(131);
+
+	var _existAttr2 = _interopRequireDefault(_existAttr);
+
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 	var Panel = function () {
@@ -48131,12 +48135,15 @@
 
 	            var _attrs$prefixCls = attrs.prefixCls,
 	                prefixCls = _attrs$prefixCls === undefined ? "panel" : _attrs$prefixCls,
+	                _attrs$uiprefixCls = attrs.uiprefixCls,
+	                uiprefixCls = _attrs$uiprefixCls === undefined ? "ui-panel" : _attrs$uiprefixCls,
 	                _attrs$type = attrs.type,
-	                type = _attrs$type === undefined ? 'default' : _attrs$type,
+	                type = _attrs$type === undefined ? '' : _attrs$type,
+	                noborder = attrs.noborder,
 	                classname = attrs.classname;
 
 
-	            scope.classes = (0, _classnames2.default)((_classNames = {}, (0, _defineProperty3.default)(_classNames, '' + prefixCls, true), (0, _defineProperty3.default)(_classNames, prefixCls + '-' + type, true), (0, _defineProperty3.default)(_classNames, 'classname', classname), _classNames));
+	            scope.classes = (0, _classnames2.default)((_classNames = {}, (0, _defineProperty3.default)(_classNames, '' + prefixCls, true), (0, _defineProperty3.default)(_classNames, uiprefixCls + '-default', !type), (0, _defineProperty3.default)(_classNames, prefixCls + '-' + type, !!type), (0, _defineProperty3.default)(_classNames, uiprefixCls + '-noborder', (0, _existAttr2.default)(noborder)), (0, _defineProperty3.default)(_classNames, 'classname', classname), _classNames));
 
 	            if (angular.isDefined(scope.border) && scope.border) {
 	                element.addClass('panel-border');
@@ -48171,13 +48178,27 @@
 /* 130 */
 /***/ function(module, exports) {
 
-	var path = 'G:/GitHub/_private/laoui-bootstrap/src/components/panel/template/panel.html';
+	var path = 'F:/github/laoui-bootstrap/src/components/panel/template/panel.html';
 	var html = "<div ng-class=\"classes\" ng-hide=\"hidePanel\">\r\n    <div class=\"panel-heading\" ng-if=\"heading\" ui-panel-transclude=\"heading\">\r\n        <h3 class=\"panel-title\">{{heading}}</h3> </div>\r\n    <div class=\"panel-body\" ng-transclude></div>\r\n</div>\r\n";
 	window.angular.module('ng').run(['$templateCache', function(c) { c.put(path, html) }]);
 	module.exports = path;
 
 /***/ },
 /* 131 */
+/***/ function(module, exports) {
+
+	'use strict';
+
+	Object.defineProperty(exports, "__esModule", {
+		value: true
+	});
+	exports.default = existAttr;
+	function existAttr(val) {
+		return val !== undefined && val !== null && val !== 'false';
+	}
+
+/***/ },
+/* 132 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -48223,7 +48244,7 @@
 	exports.default = PanelTransclude;
 
 /***/ },
-/* 132 */
+/* 133 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';

@@ -155,6 +155,17 @@
 .ui-navigation-vertical.ui-navigation-dark .menu li > a:hover {
   color: #fff;
 }
+.ui-panel-noborder {
+  border: none;
+}
+.ui-panel-default {
+  box-shadow: 1px 2px 5px rgba(158, 158, 158, 0.23);
+}
+.ui-panel-default > .panel-heading {
+  color: #333;
+  background-color: #fff;
+  border-color: #eee;
+}
 .ng-animate.item:not(.left):not(.right) {
   -webkit-transition: 0s ease-in-out left;
   transition: 0s ease-in-out left;
