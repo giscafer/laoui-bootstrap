@@ -149,68 +149,43 @@
 </tr>
 <tr>
 <td>xs</td>
-<td><code>&lt;768px</code> 响应式栅格，可为栅格数或一个包含其他属性的对象</td>
-<td>number or object</td>
-<td>-</td>
-</tr>
-<tr>
-<td>sm</td>
-<td><code>≥768px</code> 响应式栅格，可为栅格数或一个包含其他属性的对象</td>
-<td>number or object</td>
-<td>-</td>
-</tr>
-<tr>
-<td>md</td>
-<td><code>≥992px</code> 响应式栅格，可为栅格数或一个包含其他属性的对象</td>
-<td>number or object</td>
-<td>-</td>
-</tr>
-<tr>
-<td>lg</td>
-<td><code>≥1200px</code> 响应式栅格，可为栅格数或一个包含其他属性的对象</td>
-<td>number or object</td>
-<td>-</td>
+<td><code>&lt;768px</code> 响应式栅格，可为栅格数或一个包含其他属性的对象=&quot;&quot;</td>
+<td>=&quot;&quot; number=&quot;&quot; or=&quot;&quot; object=&quot;&quot; -=&quot;&quot; sm=&quot;&quot; <code>≥768px</code>=&quot;&quot; md=&quot;&quot; <code>≥992px</code>=&quot;&quot; lg=&quot;&quot; <code>≥1200px</code>=&quot;&quot; ##=&quot;&quot; 代码演示=&quot;&quot; 从堆叠到水平排列。=&quot;&quot; 使用单一的一组=&quot;&quot; <code>row</code>=&quot;&quot; 和=&quot;&quot; <code>col</code>=&quot;&quot; 栅格组件，就可以创建一个基本的栅格系统，所有列（col）必须放在=&quot;&quot; 内。=&quot;&quot; <div=""></td>
 </tr>
 </tbody>
 </table>
-<h2 id="-">代码演示</h2>
-<p>从堆叠到水平排列。</p>
-<p>使用单一的一组 <code>Row</code> 和 <code>Col</code> 栅格组件，就可以创建一个基本的栅格系统，所有列（Col）必须放在 <code>Row</code> 内。</p>
- <div>
-    <ui-row>
-      <ui-col className='layout' span="12">col-12</ui-col>
-      <ui-col className='layout' span="12">col-12</ui-col>
-    </ui-row>
-    <ui-row>
-      <ui-col className='layout' span="8">col-8</ui-col>
-      <ui-col className='layout' span="8">col-8</ui-col>
-      <ui-col className='layout' span="8">col-8</ui-col>
-    </ui-row>
-    <ui-row>
-      <ui-col className='layout' span="6">col-6</ui-col>
-      <ui-col className='layout' span="6">col-6</ui-col>
-      <ui-col className='layout' span="6">col-6</ui-col>
-      <ui-col className='layout' span="6">col-6</ui-col>
-    </ui-row>
-  </div>
-
-<pre><code class="lang-html">    <span class="hljs-symbol">&lt;div&gt;</span>
-    <span class="hljs-symbol">&lt;ui-row&gt;</span>
-      &lt;ui-<span class="hljs-keyword">col</span> className=<span class="hljs-string">'layout'</span> span=<span class="hljs-string">"12"</span>&gt;<span class="hljs-keyword">col</span>-<span class="hljs-number">12</span>&lt;/ui-<span class="hljs-keyword">col</span>&gt;
-      &lt;ui-<span class="hljs-keyword">col</span> className=<span class="hljs-string">'layout'</span> span=<span class="hljs-string">"12"</span>&gt;<span class="hljs-keyword">col</span>-<span class="hljs-number">12</span>&lt;/ui-<span class="hljs-keyword">col</span>&gt;
-    &lt;/ui-row&gt;
-    <span class="hljs-symbol">&lt;ui-row&gt;</span>
-      &lt;ui-<span class="hljs-keyword">col</span> className=<span class="hljs-string">'layout'</span> span=<span class="hljs-string">"8"</span>&gt;<span class="hljs-keyword">col</span>-<span class="hljs-number">8</span>&lt;/ui-<span class="hljs-keyword">col</span>&gt;
-      &lt;ui-<span class="hljs-keyword">col</span> className=<span class="hljs-string">'layout'</span> span=<span class="hljs-string">"8"</span>&gt;<span class="hljs-keyword">col</span>-<span class="hljs-number">8</span>&lt;/ui-<span class="hljs-keyword">col</span>&gt;
-      &lt;ui-<span class="hljs-keyword">col</span> className=<span class="hljs-string">'layout'</span> span=<span class="hljs-string">"8"</span>&gt;<span class="hljs-keyword">col</span>-<span class="hljs-number">8</span>&lt;/ui-<span class="hljs-keyword">col</span>&gt;
-    &lt;/ui-row&gt;
-    <span class="hljs-symbol">&lt;ui-row&gt;</span>
-      &lt;ui-<span class="hljs-keyword">col</span> className=<span class="hljs-string">'layout'</span> span=<span class="hljs-string">"6"</span>&gt;<span class="hljs-keyword">col</span>-<span class="hljs-number">6</span>&lt;/ui-<span class="hljs-keyword">col</span>&gt;
-      &lt;ui-<span class="hljs-keyword">col</span> className=<span class="hljs-string">'layout'</span> span=<span class="hljs-string">"6"</span>&gt;<span class="hljs-keyword">col</span>-<span class="hljs-number">6</span>&lt;/ui-<span class="hljs-keyword">col</span>&gt;
-      &lt;ui-<span class="hljs-keyword">col</span> className=<span class="hljs-string">'layout'</span> span=<span class="hljs-string">"6"</span>&gt;<span class="hljs-keyword">col</span>-<span class="hljs-number">6</span>&lt;/ui-<span class="hljs-keyword">col</span>&gt;
-      &lt;ui-<span class="hljs-keyword">col</span> className=<span class="hljs-string">'layout'</span> span=<span class="hljs-string">"6"</span>&gt;<span class="hljs-keyword">col</span>-<span class="hljs-number">6</span>&lt;/ui-<span class="hljs-keyword">col</span>&gt;
-    &lt;/ui-row&gt;
+<pre><code>&lt;ui-<span class="hljs-built_in">row</span>&gt;
+  &lt;ui-<span class="hljs-built_in">col</span> classname=<span class="hljs-string">"layout"</span> span=<span class="hljs-string">"12"</span>&gt;<span class="hljs-built_in">col</span>-<span class="hljs-number">12</span>&lt;/ui-<span class="hljs-built_in">col</span>&gt;
+  &lt;ui-<span class="hljs-built_in">col</span> classname=<span class="hljs-string">"layout"</span> span=<span class="hljs-string">"12"</span>&gt;<span class="hljs-built_in">col</span>-<span class="hljs-number">12</span>&lt;/ui-<span class="hljs-built_in">col</span>&gt;
+&lt;/ui-<span class="hljs-built_in">row</span>&gt;
+&lt;ui-<span class="hljs-built_in">row</span>&gt;
+  &lt;ui-<span class="hljs-built_in">col</span> classname=<span class="hljs-string">"layout"</span> span=<span class="hljs-string">"8"</span>&gt;<span class="hljs-built_in">col</span>-<span class="hljs-number">8</span>&lt;/ui-<span class="hljs-built_in">col</span>&gt;
+  &lt;ui-<span class="hljs-built_in">col</span> classname=<span class="hljs-string">"layout"</span> span=<span class="hljs-string">"8"</span>&gt;<span class="hljs-built_in">col</span>-<span class="hljs-number">8</span>&lt;/ui-<span class="hljs-built_in">col</span>&gt;
+  &lt;ui-<span class="hljs-built_in">col</span> classname=<span class="hljs-string">"layout"</span> span=<span class="hljs-string">"8"</span>&gt;<span class="hljs-built_in">col</span>-<span class="hljs-number">8</span>&lt;/ui-<span class="hljs-built_in">col</span>&gt;
+&lt;/ui-<span class="hljs-built_in">row</span>&gt;
+&lt;ui-<span class="hljs-built_in">row</span>&gt;
+  &lt;ui-<span class="hljs-built_in">col</span> classname=<span class="hljs-string">"layout"</span> span=<span class="hljs-string">"6"</span>&gt;<span class="hljs-built_in">col</span>-<span class="hljs-number">6</span>&lt;/ui-<span class="hljs-built_in">col</span>&gt;
+  &lt;ui-<span class="hljs-built_in">col</span> classname=<span class="hljs-string">"layout"</span> span=<span class="hljs-string">"6"</span>&gt;<span class="hljs-built_in">col</span>-<span class="hljs-number">6</span>&lt;/ui-<span class="hljs-built_in">col</span>&gt;
+  &lt;ui-<span class="hljs-built_in">col</span> classname=<span class="hljs-string">"layout"</span> span=<span class="hljs-string">"6"</span>&gt;<span class="hljs-built_in">col</span>-<span class="hljs-number">6</span>&lt;/ui-<span class="hljs-built_in">col</span>&gt;
+  &lt;ui-<span class="hljs-built_in">col</span> classname=<span class="hljs-string">"layout"</span> span=<span class="hljs-string">"6"</span>&gt;<span class="hljs-built_in">col</span>-<span class="hljs-number">6</span>&lt;/ui-<span class="hljs-built_in">col</span>&gt;
+&lt;/ui-<span class="hljs-built_in">row</span>&gt;
+</code></pre><pre><code class="lang-html">    &lt;div&gt;
+    &lt;ui-<span class="hljs-built_in">row</span>&gt;
+      &lt;ui-<span class="hljs-built_in">col</span> classname=<span class="hljs-string">"layout"</span> span=<span class="hljs-string">"12"</span>&gt;<span class="hljs-built_in">col</span>-<span class="hljs-number">12</span>&lt;/ui-<span class="hljs-built_in">col</span>&gt;
+      &lt;ui-<span class="hljs-built_in">col</span> classname=<span class="hljs-string">"layout"</span> span=<span class="hljs-string">"12"</span>&gt;<span class="hljs-built_in">col</span>-<span class="hljs-number">12</span>&lt;/ui-<span class="hljs-built_in">col</span>&gt;
+    &lt;/ui-<span class="hljs-built_in">row</span>&gt;
+    &lt;ui-<span class="hljs-built_in">row</span>&gt;
+      &lt;ui-<span class="hljs-built_in">col</span> classname=<span class="hljs-string">"layout"</span> span=<span class="hljs-string">"8"</span>&gt;<span class="hljs-built_in">col</span>-<span class="hljs-number">8</span>&lt;/ui-<span class="hljs-built_in">col</span>&gt;
+      &lt;ui-<span class="hljs-built_in">col</span> classname=<span class="hljs-string">"layout"</span> span=<span class="hljs-string">"8"</span>&gt;<span class="hljs-built_in">col</span>-<span class="hljs-number">8</span>&lt;/ui-<span class="hljs-built_in">col</span>&gt;
+      &lt;ui-<span class="hljs-built_in">col</span> classname=<span class="hljs-string">"layout"</span> span=<span class="hljs-string">"8"</span>&gt;<span class="hljs-built_in">col</span>-<span class="hljs-number">8</span>&lt;/ui-<span class="hljs-built_in">col</span>&gt;
+    &lt;/ui-<span class="hljs-built_in">row</span>&gt;
+    &lt;ui-<span class="hljs-built_in">row</span>&gt;
+      &lt;ui-<span class="hljs-built_in">col</span> classname=<span class="hljs-string">"layout"</span> span=<span class="hljs-string">"6"</span>&gt;<span class="hljs-built_in">col</span>-<span class="hljs-number">6</span>&lt;/ui-<span class="hljs-built_in">col</span>&gt;
+      &lt;ui-<span class="hljs-built_in">col</span> classname=<span class="hljs-string">"layout"</span> span=<span class="hljs-string">"6"</span>&gt;<span class="hljs-built_in">col</span>-<span class="hljs-number">6</span>&lt;/ui-<span class="hljs-built_in">col</span>&gt;
+      &lt;ui-<span class="hljs-built_in">col</span> classname=<span class="hljs-string">"layout"</span> span=<span class="hljs-string">"6"</span>&gt;<span class="hljs-built_in">col</span>-<span class="hljs-number">6</span>&lt;/ui-<span class="hljs-built_in">col</span>&gt;
+      &lt;ui-<span class="hljs-built_in">col</span> classname=<span class="hljs-string">"layout"</span> span=<span class="hljs-string">"6"</span>&gt;<span class="hljs-built_in">col</span>-<span class="hljs-number">6</span>&lt;/ui-<span class="hljs-built_in">col</span>&gt;
+    &lt;/ui-<span class="hljs-built_in">row</span>&gt;
   &lt;/div&gt;
 </code></pre>
-<hr>
+<p>  -----</768px`></p>
 </div>

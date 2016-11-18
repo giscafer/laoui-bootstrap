@@ -5,6 +5,7 @@
 
 var fs = require('fs'),
     path = require('path'),
+    cheerio = require('cheerio'),
     highlightJS = require('highlight.js'),
     marked = require('marked');
 
@@ -47,7 +48,16 @@ function loadFiles() {
         file = list[i];
         // console.log(path.basename(file));
         let text = fs.readFileSync(file, 'utf8');
-        fs.writeFileSync(file.replace(/[^.]+$/, 'html'), '<div class="markdown-body">' + marked(text,{ lineNumbers: true }) + '</div>');
+        let $text=cheerio.load(''+text,{decodeEntities: false});
+      
+        $text('pre').each(function(i, elem) {
+            // console.log($text(this).html())
+           let code=(highlightJS.highlightAuto($text(this).html()).value);
+           // console.log(code)
+           $text(this).html(code)
+        });
+
+        fs.writeFileSync(file.replace(/[^.]+$/, 'html'), '<div class="markdown-body">' + marked($text.html(),{ lineNumbers: true }) + '</div>');
     }
 
     return list;
