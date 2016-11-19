@@ -14,7 +14,7 @@ gulp.task('clean-dist', () => {
     });
 });
 
-
+//打包发布ui源码
 gulp.task('build', ['clean-dist'], () => {
     webpackConfig.entry.app = config.webpack.entry;
     let copy= new CopyWebpackPlugin([
@@ -34,7 +34,7 @@ gulp.task('build', ['clean-dist'], () => {
     });
 });
 
-//
+//构建压缩ui源码文件到doc下
 gulp.task('clean-doc', () => {
     del([config.paths.doc]).then((paths) => {
         gutil.log("[clean-doc]", paths);

@@ -55585,7 +55585,7 @@
 /***/ function(module, exports) {
 
 	var path = 'G:/GitHub/_private/laoui-bootstrap/src/components/alert/alert.html';
-	var html = "<div ng-hide=\"closing\" ng-class=\"alertCls\">\r\n    <i ng-if=\"showIcon\" ng-class=\"iconCls\"></i>\r\n    <span ng-class=\"messageCls\" ng-bind=\"message\"></span>\r\n    <span ng-class=\"descriptionCls\"  ng-bind=\"description\"></span>\r\n    <a ng-show=\"closable\" ng-class=\"closeCls\" ng-click=\"close({$event: $event})\"><ui-icon type=\"cross\" ng-if=\"!closetext\"></ui-icon>{{closetext?closetext:''}}</a>\r\n</div>\r\n";
+	var html = "<div ng-hide=\"closing\" ng-class=\"alertCls\">\r\n    <i ng-if=\"showIcon\" ng-class=\"iconCls\"></i>\r\n    <span ng-class=\"messageCls\" ng-bind=\"message\"></span>\r\n    <span ng-class=\"descriptionCls\"  ng-bind=\"description\"></span>\r\n    <a ng-show=\"closable\" ng-class=\"closeCls\" ng-click=\"close({$event: $event})\"><span ng-if=\"!closetext\">&times;</span>{{closetext?closetext:''}}</a>\r\n</div>\r\n";
 	window.angular.module('ng').run(['$templateCache', function(c) { c.put(path, html) }]);
 	module.exports = path;
 

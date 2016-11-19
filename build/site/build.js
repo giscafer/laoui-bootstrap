@@ -10,7 +10,7 @@ gulp.task('clean-build-doc', () => {
     })
 });
 
-
+//编译发布doc
 gulp.task('build-doc', ['clean-build-doc'], () => {
     const webpackConfig = require('./webpack.dist.config').default;
 

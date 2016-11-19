@@ -7,6 +7,7 @@ import config   from './config';
 import webpackDevMiddleware from 'webpack-dev-middleware';
 import webpackHotMiddleware from 'webpack-hot-middleware';
 
+//启动doc文档
 gulp.task('serve', () => {
     const webpackConfig = require('./webpack.dev.config').default;
 
