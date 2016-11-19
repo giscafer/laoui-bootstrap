@@ -1,7 +1,220 @@
-<div class="markdown-body"><p><br></p>
-<p><ui-navigation links="ctrl.menus" style="width:240px"></ui-navigation>
-<br></p>
-<p><ui-navigation theme="dark" links="ctrl.menus" style="width:240px"></ui-navigation>
-<br></p>
-<p><ui-navigation mode="horizontal" links="ctrl.menus" style="width:240px"></ui-navigation></p>
+<div class="markdown-body"><h2 id="alert-">Alert 警告信息组件</h2>
+<div class="row">
+<div class="col-md-5">
+<ui-navigation links="ctrl.menus" style="width:240px;margin:20px auto 0 auto"></ui-navigation>
+</div>
+<div class="col-md-7">
+<ui-tabset style="max-height:500px;overflow:auto">
+<ui-tab>
+<ui-tab-heading>HTML</ui-tab-heading>
+
+<pre><code style="width:100%;color:#fff">
+  <span class="hljs-tag">&lt;<span class="hljs-name">ui-navigation</span> <span class="hljs-attr">links</span>=<span class="hljs-string">&quot;ctrl.menus&quot;</span> <span class="hljs-attr">style</span>=<span class="hljs-string">&quot;width:240px&quot;</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">ui-navigation</span>&gt;</span>
+</code></pre>
+
+</ui-tab>
+<ui-tab>
+<ui-tab-heading>Controller</ui-tab-heading>
+
+<pre><code style="width:100%;color:#fff">
+export <span class="hljs-keyword">default</span> <span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">AlertCtrl</span> </span>{
+  constructor($scope, $location, $timeout) {
+    <span class="hljs-string">&quot;ngInject&quot;</span>;
+    $scope.alerts = [
+        { type: <span class="hljs-string">&#39;danger&#39;</span>, msg: <span class="hljs-string">&#39;Oh snap! Change a few things up and try submitting again.&#39;</span> },
+        { type: <span class="hljs-string">&#39;success&#39;</span>, msg: <span class="hljs-string">&#39;Well done! You successfully read this important alert message.&#39;</span> }
+      ];
+
+      $scope.addAlert = <span class="hljs-function"><span class="hljs-keyword">function</span><span class="hljs-params">()</span> </span>{
+        $scope.alerts.push({msg: <span class="hljs-string">&#39;Another alert!&#39;</span>});
+      };
+
+      $scope.closeAlert = <span class="hljs-function"><span class="hljs-keyword">function</span><span class="hljs-params">(index)</span> </span>{
+        $scope.alerts.splice(index, <span class="hljs-number">1</span>);
+      };
+  }
+}
+</code></pre>
+</ui-tab>
+<ui-tab>
+<ui-tab-heading>JSON</ui-tab-heading>
+<pre><code style="width:100%;color:#fff">
+    var data = [{
+    <span class="hljs-string">&quot;link&quot;</span>: <span class="hljs-string">&quot;&quot;</span>,
+    <span class="hljs-string">&quot;name&quot;</span>: <span class="hljs-string">&quot;容器组件&quot;</span>,
+    <span class="hljs-string">&quot;icon&quot;</span>: <span class="hljs-string">&quot;appstore&quot;</span>,
+    <span class="hljs-string">&quot;children&quot;</span>: [{
+        <span class="hljs-string">&quot;link&quot;</span>: <span class="hljs-string">&quot;#/components/panel&quot;</span>,
+        <span class="hljs-string">&quot;active&quot;</span>: true,
+        <span class="hljs-string">&quot;name&quot;</span>: <span class="hljs-string">&quot;面板 - Panel&quot;</span>,
+        <span class="hljs-string">&quot;icon&quot;</span>: <span class="hljs-string">&quot;appstore&quot;</span>
+    }, {
+        <span class="hljs-string">&quot;link&quot;</span>: <span class="hljs-string">&quot;#/components/tabs/1&quot;</span>,
+        <span class="hljs-string">&quot;name&quot;</span>: <span class="hljs-string">&quot;选项卡 - Tab&quot;</span>,
+        <span class="hljs-string">&quot;icon&quot;</span>: <span class="hljs-string">&quot;caret-right&quot;</span>
+    }, {
+        <span class="hljs-string">&quot;link&quot;</span>: <span class="hljs-string">&quot;#/components/accordion&quot;</span>,
+        <span class="hljs-string">&quot;name&quot;</span>: <span class="hljs-string">&quot;手风琴 - Accordion&quot;</span>,
+        <span class="hljs-string">&quot;icon&quot;</span>: <span class="hljs-string">&quot;caret-right&quot;</span>
+    }, {
+        <span class="hljs-string">&quot;link&quot;</span>: <span class="hljs-string">&quot;#/components/modal&quot;</span>,
+        <span class="hljs-string">&quot;name&quot;</span>: <span class="hljs-string">&quot;模态框 - Modal&quot;</span>,
+        <span class="hljs-string">&quot;icon&quot;</span>: <span class="hljs-string">&quot;caret-right&quot;</span>
+    }, {
+        <span class="hljs-string">&quot;link&quot;</span>: <span class="hljs-string">&quot;#/components/dropdown&quot;</span>,
+        <span class="hljs-string">&quot;name&quot;</span>: <span class="hljs-string">&quot;下拉菜单 - Dropdown&quot;</span>,
+        <span class="hljs-string">&quot;icon&quot;</span>: <span class="hljs-string">&quot;caret-right&quot;</span>
+    }]
+}, {
+    <span class="hljs-string">&quot;link&quot;</span>: <span class="hljs-string">&quot;&quot;</span>,
+    <span class="hljs-string">&quot;name&quot;</span>: <span class="hljs-string">&quot;表单组件&quot;</span>,
+    <span class="hljs-string">&quot;icon&quot;</span>: <span class="hljs-string">&quot;check-square-o&quot;</span>,
+    <span class="hljs-string">&quot;children&quot;</span>: [{
+        <span class="hljs-string">&quot;link&quot;</span>: <span class="hljs-string">&quot;#/components/form-validate&quot;</span>,
+        <span class="hljs-string">&quot;name&quot;</span>: <span class="hljs-string">&quot;表单验证 - Form Validate&quot;</span>,
+        <span class="hljs-string">&quot;icon&quot;</span>: <span class="hljs-string">&quot;caret-right&quot;</span>
+    }, {
+        <span class="hljs-string">&quot;link&quot;</span>: <span class="hljs-string">&quot;#/components/select&quot;</span>,
+        <span class="hljs-string">&quot;name&quot;</span>: <span class="hljs-string">&quot;下拉框 - Select&quot;</span>,
+        <span class="hljs-string">&quot;icon&quot;</span>: <span class="hljs-string">&quot;caret-right&quot;</span>
+    }, {
+        <span class="hljs-string">&quot;link&quot;</span>: <span class="hljs-string">&quot;#/components/checkbox&quot;</span>,
+        <span class="hljs-string">&quot;name&quot;</span>: <span class="hljs-string">&quot;多选框 - Checkbox&quot;</span>,
+        <span class="hljs-string">&quot;icon&quot;</span>: <span class="hljs-string">&quot;caret-right&quot;</span>
+    }, {
+        <span class="hljs-string">&quot;link&quot;</span>: <span class="hljs-string">&quot;#/components/radio&quot;</span>,
+        <span class="hljs-string">&quot;name&quot;</span>: <span class="hljs-string">&quot;单选框 - Radio&quot;</span>,
+        <span class="hljs-string">&quot;icon&quot;</span>: <span class="hljs-string">&quot;caret-right&quot;</span>
+    }, {
+        <span class="hljs-string">&quot;link&quot;</span>: <span class="hljs-string">&quot;#/components/switch&quot;</span>,
+        <span class="hljs-string">&quot;name&quot;</span>: <span class="hljs-string">&quot;开关 - Switch&quot;</span>,
+        <span class="hljs-string">&quot;icon&quot;</span>: <span class="hljs-string">&quot;caret-right&quot;</span>
+    }, {
+        <span class="hljs-string">&quot;link&quot;</span>: <span class="hljs-string">&quot;#/components/datepicker&quot;</span>,
+        <span class="hljs-string">&quot;name&quot;</span>: <span class="hljs-string">&quot;日期选择 - Datepicker&quot;</span>,
+        <span class="hljs-string">&quot;icon&quot;</span>: <span class="hljs-string">&quot;caret-right&quot;</span>
+    }, {
+        <span class="hljs-string">&quot;link&quot;</span>: <span class="hljs-string">&quot;#/components/typeahead&quot;</span>,
+        <span class="hljs-string">&quot;name&quot;</span>: <span class="hljs-string">&quot;自动完成 - Typeahead&quot;</span>,
+        <span class="hljs-string">&quot;icon&quot;</span>: <span class="hljs-string">&quot;caret-right&quot;</span>
+    }, {
+        <span class="hljs-string">&quot;link&quot;</span>: <span class="hljs-string">&quot;#/components/wysiwyg&quot;</span>,
+        <span class="hljs-string">&quot;name&quot;</span>: <span class="hljs-string">&quot;编辑器 - WYSIWYG&quot;</span>,
+        <span class="hljs-string">&quot;icon&quot;</span>: <span class="hljs-string">&quot;caret-right&quot;</span>
+    }, {
+        <span class="hljs-string">&quot;link&quot;</span>: <span class="hljs-string">&quot;#/components/inline-edit&quot;</span>,
+        <span class="hljs-string">&quot;name&quot;</span>: <span class="hljs-string">&quot;行内编辑 - Inline Edit&quot;</span>,
+        <span class="hljs-string">&quot;icon&quot;</span>: <span class="hljs-string">&quot;caret-right&quot;</span>
+    }, {
+        <span class="hljs-string">&quot;link&quot;</span>: <span class="hljs-string">&quot;#/components/slider&quot;</span>,
+        <span class="hljs-string">&quot;name&quot;</span>: <span class="hljs-string">&quot;滑动条 - Slider&quot;</span>,
+        <span class="hljs-string">&quot;icon&quot;</span>: <span class="hljs-string">&quot;caret-right&quot;</span>
+    }]
+}, {
+    <span class="hljs-string">&quot;link&quot;</span>: <span class="hljs-string">&quot;&quot;</span>,
+    <span class="hljs-string">&quot;name&quot;</span>: <span class="hljs-string">&quot;数据组件&quot;</span>,
+    <span class="hljs-string">&quot;icon&quot;</span>: <span class="hljs-string">&quot;setting&quot;</span>,
+    <span class="hljs-string">&quot;children&quot;</span>: [{
+        <span class="hljs-string">&quot;link&quot;</span>: <span class="hljs-string">&quot;#/components/table&quot;</span>,
+        <span class="hljs-string">&quot;name&quot;</span>: <span class="hljs-string">&quot;表格 - Table&quot;</span>,
+        <span class="hljs-string">&quot;icon&quot;</span>: <span class="hljs-string">&quot;caret-right&quot;</span>
+    }, {
+        <span class="hljs-string">&quot;link&quot;</span>: <span class="hljs-string">&quot;#/components/tree&quot;</span>,
+        <span class="hljs-string">&quot;name&quot;</span>: <span class="hljs-string">&quot;树 - Tree&quot;</span>,
+        <span class="hljs-string">&quot;icon&quot;</span>: <span class="hljs-string">&quot;caret-right&quot;</span>
+    }, {
+        <span class="hljs-string">&quot;link&quot;</span>: <span class="hljs-string">&quot;#/components/navigation&quot;</span>,
+        <span class="hljs-string">&quot;name&quot;</span>: <span class="hljs-string">&quot;多级导航 - Navigation&quot;</span>,
+        <span class="hljs-string">&quot;icon&quot;</span>: <span class="hljs-string">&quot;caret-right&quot;</span>
+    }]
+}, {
+    <span class="hljs-string">&quot;link&quot;</span>: <span class="hljs-string">&quot;&quot;</span>,
+    <span class="hljs-string">&quot;name&quot;</span>: <span class="hljs-string">&quot;分页组件&quot;</span>,
+    <span class="hljs-string">&quot;icon&quot;</span>: <span class="hljs-string">&quot;setting&quot;</span>,
+    <span class="hljs-string">&quot;children&quot;</span>: [{
+        <span class="hljs-string">&quot;link&quot;</span>: <span class="hljs-string">&quot;#/components/pagination&quot;</span>,
+        <span class="hljs-string">&quot;name&quot;</span>: <span class="hljs-string">&quot;分页 - Pagination&quot;</span>,
+        <span class="hljs-string">&quot;icon&quot;</span>: <span class="hljs-string">&quot;caret-right&quot;</span>
+    }, {
+        <span class="hljs-string">&quot;link&quot;</span>: <span class="hljs-string">&quot;#/components/pager&quot;</span>,
+        <span class="hljs-string">&quot;name&quot;</span>: <span class="hljs-string">&quot;翻页 - Pager&quot;</span>,
+        <span class="hljs-string">&quot;icon&quot;</span>: <span class="hljs-string">&quot;caret-right&quot;</span>
+    }]
+}, {
+    <span class="hljs-string">&quot;link&quot;</span>: <span class="hljs-string">&quot;&quot;</span>,
+    <span class="hljs-string">&quot;name&quot;</span>: <span class="hljs-string">&quot;提示、警告组件&quot;</span>,
+    <span class="hljs-string">&quot;icon&quot;</span>: <span class="hljs-string">&quot;tag-o&quot;</span>,
+    <span class="hljs-string">&quot;children&quot;</span>: [{
+        <span class="hljs-string">&quot;link&quot;</span>: <span class="hljs-string">&quot;#/components/tooltip&quot;</span>,
+        <span class="hljs-string">&quot;name&quot;</span>: <span class="hljs-string">&quot;提示 - Tooltip&quot;</span>,
+        <span class="hljs-string">&quot;icon&quot;</span>: <span class="hljs-string">&quot;caret-right&quot;</span>
+    }, {
+        <span class="hljs-string">&quot;link&quot;</span>: <span class="hljs-string">&quot;#/components/popover&quot;</span>,
+        <span class="hljs-string">&quot;name&quot;</span>: <span class="hljs-string">&quot;弹出框 - Popover&quot;</span>,
+        <span class="hljs-string">&quot;icon&quot;</span>: <span class="hljs-string">&quot;caret-right&quot;</span>
+    }, {
+        <span class="hljs-string">&quot;link&quot;</span>: <span class="hljs-string">&quot;#/components/notification&quot;</span>,
+        <span class="hljs-string">&quot;name&quot;</span>: <span class="hljs-string">&quot;通知消息 - Notification&quot;</span>,
+        <span class="hljs-string">&quot;icon&quot;</span>: <span class="hljs-string">&quot;caret-right&quot;</span>
+    }, {
+        <span class="hljs-string">&quot;link&quot;</span>: <span class="hljs-string">&quot;#/components/alert&quot;</span>,
+        <span class="hljs-string">&quot;name&quot;</span>: <span class="hljs-string">&quot;弹出对话框 - Alert&quot;</span>,
+        <span class="hljs-string">&quot;icon&quot;</span>: <span class="hljs-string">&quot;caret-right&quot;</span>
+    }]
+}, {
+    <span class="hljs-string">&quot;link&quot;</span>: <span class="hljs-string">&quot;&quot;</span>,
+    <span class="hljs-string">&quot;name&quot;</span>: <span class="hljs-string">&quot;媒体组件&quot;</span>,
+    <span class="hljs-string">&quot;icon&quot;</span>: <span class="hljs-string">&quot;setting&quot;</span>,
+    <span class="hljs-string">&quot;children&quot;</span>: [{
+        <span class="hljs-string">&quot;link&quot;</span>: <span class="hljs-string">&quot;#/components/carousel&quot;</span>,
+        <span class="hljs-string">&quot;name&quot;</span>: <span class="hljs-string">&quot;幻灯片 - Carousel&quot;</span>,
+        <span class="hljs-string">&quot;icon&quot;</span>: <span class="hljs-string">&quot;caret-right&quot;</span>
+    }, {
+        <span class="hljs-string">&quot;link&quot;</span>: <span class="hljs-string">&quot;#/components/imghvr&quot;</span>,
+        <span class="hljs-string">&quot;name&quot;</span>: <span class="hljs-string">&quot;图片悬浮提示 - Imghvr&quot;</span>,
+        <span class="hljs-string">&quot;icon&quot;</span>: <span class="hljs-string">&quot;caret-right&quot;</span>
+    }]
+}, {
+    <span class="hljs-string">&quot;link&quot;</span>: <span class="hljs-string">&quot;&quot;</span>,
+    <span class="hljs-string">&quot;name&quot;</span>: <span class="hljs-string">&quot;图表组件&quot;</span>,
+    <span class="hljs-string">&quot;icon&quot;</span>: <span class="hljs-string">&quot;line-chart&quot;</span>,
+    <span class="hljs-string">&quot;children&quot;</span>: [{
+        <span class="hljs-string">&quot;link&quot;</span>: <span class="hljs-string">&quot;#/components/chart/info&quot;</span>,
+        <span class="hljs-string">&quot;name&quot;</span>: <span class="hljs-string">&quot;图表 - Chart&quot;</span>,
+        <span class="hljs-string">&quot;icon&quot;</span>: <span class="hljs-string">&quot;caret-right&quot;</span>
+    }]
+}, {
+    <span class="hljs-string">&quot;link&quot;</span>: <span class="hljs-string">&quot;&quot;</span>,
+    <span class="hljs-string">&quot;name&quot;</span>: <span class="hljs-string">&quot;其它组件&quot;</span>,
+    <span class="hljs-string">&quot;icon&quot;</span>: <span class="hljs-string">&quot;file&quot;</span>,
+    <span class="hljs-string">&quot;children&quot;</span>: [{
+        <span class="hljs-string">&quot;link&quot;</span>: <span class="hljs-string">&quot;#/components/rating&quot;</span>,
+        <span class="hljs-string">&quot;name&quot;</span>: <span class="hljs-string">&quot;投票 - Rating&quot;</span>,
+        <span class="hljs-string">&quot;icon&quot;</span>: <span class="hljs-string">&quot;caret-right&quot;</span>
+    }, {
+        <span class="hljs-string">&quot;link&quot;</span>: <span class="hljs-string">&quot;#/components/context-menu&quot;</span>,
+        <span class="hljs-string">&quot;name&quot;</span>: <span class="hljs-string">&quot;右键菜单 - Conext Menu&quot;</span>,
+        <span class="hljs-string">&quot;icon&quot;</span>: <span class="hljs-string">&quot;caret-right&quot;</span>
+    }, {
+        <span class="hljs-string">&quot;link&quot;</span>: <span class="hljs-string">&quot;#/components/progress&quot;</span>,
+        <span class="hljs-string">&quot;name&quot;</span>: <span class="hljs-string">&quot;进度条 - Progress&quot;</span>,
+        <span class="hljs-string">&quot;icon&quot;</span>: <span class="hljs-string">&quot;caret-right&quot;</span>
+    }, {
+        <span class="hljs-string">&quot;link&quot;</span>: <span class="hljs-string">&quot;#/components/loading&quot;</span>,
+        <span class="hljs-string">&quot;name&quot;</span>: <span class="hljs-string">&quot;加载图标 - Loading&quot;</span>,
+        <span class="hljs-string">&quot;icon&quot;</span>: <span class="hljs-string">&quot;caret-right&quot;</span>
+    }]
+}]
+export <span class="hljs-keyword">default</span> data;
+</code></pre>
+</ui-tab>
+</ui-tabset>
+</div>
+</div>
+
+<!-- 
+<br>
+<ui-navigation theme="dark" links="ctrl.menus" style="width:240px"></ui-navigation>
+<br>
+<ui-navigation mode="horizontal" links="ctrl.menus" style="width:240px"></ui-navigation> -->
 </div>

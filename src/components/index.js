@@ -2,6 +2,8 @@
 //general
 import Icon from './icon';
 import { Panel, PanelHeading, PanelTransclude } from './panel';
+//Layout
+import { Row, Col } from './grid';
 //Data Entry
 import TextAngular from './edit';
 //Navigation
@@ -15,6 +17,9 @@ const MODULE_NAME = "laoui.bootstrap.components";
 angular.module(MODULE_NAME, [TextAngular])
 	//general
 	.directive('uiIcon', Icon.factory)
+    //Layout
+    .directive('uiRow', Row.factory)
+    .directive('uiCol', Col.factory)
 	//Panel
     .directive('uiPanel', Panel.factory)
     .directive('uiPanelHeading', PanelHeading.factory)

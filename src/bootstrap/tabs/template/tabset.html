@@ -4,7 +4,7 @@
     <div class="tab-pane"
          ng-repeat="tab in tabset.tabs"
          ng-class="{active: tabset.active === tab.index}"
-         ui-tab-content-transclude="tab" ng-style="tabset.style">
+         ui-tab-content-transclude="tab" style="{{style}}">
     </div>
   </div>
 </div>

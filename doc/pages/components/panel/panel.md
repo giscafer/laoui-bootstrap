@@ -1,5 +1,6 @@
-<header>
-</header>
+Panel 面板组件
+---
+
 <p class="lead"><code>ui-panel</code>指令是对bootstrap组件 panel 的封装</p>
 
 ## 指令

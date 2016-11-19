@@ -1,4 +1,6 @@
-<h2 class="page-header">Icon 图标组件</h2>
+Icon 图标组件
+---
+
 <section class="markdown-body">
     <p class="lead">
         一、使用方式

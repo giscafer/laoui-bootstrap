@@ -73,12 +73,8 @@ Grid 栅格
 
 Flex 布局是基于 24 栅格来定义每一个『盒子』的宽度，但排版则不拘泥于栅格。
 
-## API
 
-如果 `Grid` 布局组件若不能满足你的需求，你也可以直接使用社区的优秀布局组件：
-
-- [react-flexbox-grid](http://roylee0704.github.io/react-flexbox-grid/)
-- [react-blocks](http://whoisandie.github.io/react-blocks/)
+## 属性
 
 ### Row
 
@@ -98,36 +94,39 @@ Flex 布局是基于 24 栅格来定义每一个『盒子』的宽度，但排�
 | offset   | 栅格左侧的间隔格数，间隔内不可以有栅格  | number | 0        |
 | push     | 栅格向右移动格数   | number | 0        |
 | pull     | 栅格向左移动格数   | number | 0        |
-| xs       | `<768px` 响应式栅格，可为栅格数或一个包含其他属性的对象 | number or object | - |
+| xs       | `&lt;768px` 响应式栅格，可为栅格数或一个包含其他属性的对象 | number or object | - |
 | sm       | `≥768px` 响应式栅格，可为栅格数或一个包含其他属性的对象 | number or object | - |
 | md       | `≥992px` 响应式栅格，可为栅格数或一个包含其他属性的对象 | number or object | - |
-| lg       | `≥1200px` 响应式栅格，可为栅格数或一个包含其他属性的对象 | number or object | - |
+| lg       | `≥1200px` 响应式栅格，可为栅格数或一个包含其他属性的对象 | number or object | - | 
 
-## 代码演示 
+
+## 实例 
 
 从堆叠到水平排列。
 
 使用单一的一组 `Row` 和 `Col` 栅格组件，就可以创建一个基本的栅格系统，所有列（Col）必须放在 `Row` 内。
 
- <div>
-    <ui-row>
-      <ui-col className='layout' span="12">col-12</ui-col>
-      <ui-col className='layout' span="12">col-12</ui-col>
-    </ui-row>
-    <ui-row>
-      <ui-col className='layout' span="8">col-8</ui-col>
-      <ui-col className='layout' span="8">col-8</ui-col>
-      <ui-col className='layout' span="8">col-8</ui-col>
-    </ui-row>
-    <ui-row>
-      <ui-col className='layout' span="6">col-6</ui-col>
-      <ui-col className='layout' span="6">col-6</ui-col>
-      <ui-col className='layout' span="6">col-6</ui-col>
-      <ui-col className='layout' span="6">col-6</ui-col>
-    </ui-row>
-  </div>
 
-```html
+<div class="bs-example">
+  <ui-row>
+    <ui-col className='layout' span="12">col-12</ui-col>
+    <ui-col className='layout' span="12">col-12</ui-col>
+  </ui-row>
+  <ui-row>
+    <ui-col className='layout' span="8">col-8</ui-col>
+    <ui-col className='layout' span="8">col-8</ui-col>
+    <ui-col className='layout' span="8">col-8</ui-col>
+  </ui-row>
+  <ui-row>
+    <ui-col className='layout' span="6">col-6</ui-col>
+    <ui-col className='layout' span="6">col-6</ui-col>
+    <ui-col className='layout' span="6">col-6</ui-col>
+    <ui-col className='layout' span="6">col-6</ui-col>
+  </ui-row>
+</div>
+<div class="zero-clipboard"><span class="btn-clipboard">Copy</span></div>
+<div class="highlight">
+<pre>
     <div>
     <ui-row>
       <ui-col className='layout' span="12">col-12</ui-col>
@@ -145,7 +144,10 @@ Flex 布局是基于 24 栅格来定义每一个『盒子』的宽度，但排�
       <ui-col className='layout' span="6">col-6</ui-col>
     </ui-row>
   </div>
-```
-  
+</pre>
+</div>
 
-  -----
+## Bootstrap栅格
+
+ `Grid` 布局组件是<code>24</code>栅格系统，Bootstrap布局组件则为<code>12</code>栅格系统，
+在适合的场景使用，达到页面的需求效果。

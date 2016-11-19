@@ -63,12 +63,7 @@
 <h2 id="flex-">Flex 布局</h2>
 <p>我们的栅格化系统支持 Flex 布局，允许子元素在父节点内的水平对齐方式 - 居左、居中、居右、等宽排列、分散排列。子元素与子元素之间，支持顶部对齐、垂直居中对齐、底部对齐的方式。同时，支持使用 order 来定义元素的排列顺序。</p>
 <p>Flex 布局是基于 24 栅格来定义每一个『盒子』的宽度，但排版则不拘泥于栅格。</p>
-<h2 id="api">API</h2>
-<p>如果 <code>Grid</code> 布局组件若不能满足你的需求，你也可以直接使用社区的优秀布局组件：</p>
-<ul>
-<li><a href="http://roylee0704.github.io/react-flexbox-grid/">react-flexbox-grid</a></li>
-<li><a href="http://whoisandie.github.io/react-blocks/">react-blocks</a></li>
-</ul>
+<h2 id="-">属性</h2>
 <h3 id="row">Row</h3>
 <table>
 <thead>
@@ -149,43 +144,74 @@
 </tr>
 <tr>
 <td>xs</td>
-<td><code>&lt;768px</code> 响应式栅格，可为栅格数或一个包含其他属性的对象=&quot;&quot;</td>
-<td>=&quot;&quot; number=&quot;&quot; or=&quot;&quot; object=&quot;&quot; -=&quot;&quot; sm=&quot;&quot; <code>≥768px</code>=&quot;&quot; md=&quot;&quot; <code>≥992px</code>=&quot;&quot; lg=&quot;&quot; <code>≥1200px</code>=&quot;&quot; ##=&quot;&quot; 代码演示=&quot;&quot; 从堆叠到水平排列。=&quot;&quot; 使用单一的一组=&quot;&quot; <code>row</code>=&quot;&quot; 和=&quot;&quot; <code>col</code>=&quot;&quot; 栅格组件，就可以创建一个基本的栅格系统，所有列（col）必须放在=&quot;&quot; 内。=&quot;&quot; <div=""></td>
+<td><code>&amp;lt;768px</code> 响应式栅格，可为栅格数或一个包含其他属性的对象</td>
+<td>number or object</td>
+<td>-</td>
+</tr>
+<tr>
+<td>sm</td>
+<td><code>≥768px</code> 响应式栅格，可为栅格数或一个包含其他属性的对象</td>
+<td>number or object</td>
+<td>-</td>
+</tr>
+<tr>
+<td>md</td>
+<td><code>≥992px</code> 响应式栅格，可为栅格数或一个包含其他属性的对象</td>
+<td>number or object</td>
+<td>-</td>
+</tr>
+<tr>
+<td>lg</td>
+<td><code>≥1200px</code> 响应式栅格，可为栅格数或一个包含其他属性的对象</td>
+<td>number or object</td>
+<td>-</td>
 </tr>
 </tbody>
 </table>
-<pre><code>&lt;ui-<span class="hljs-built_in">row</span>&gt;
-  &lt;ui-<span class="hljs-built_in">col</span> classname=<span class="hljs-string">"layout"</span> span=<span class="hljs-string">"12"</span>&gt;<span class="hljs-built_in">col</span>-<span class="hljs-number">12</span>&lt;/ui-<span class="hljs-built_in">col</span>&gt;
-  &lt;ui-<span class="hljs-built_in">col</span> classname=<span class="hljs-string">"layout"</span> span=<span class="hljs-string">"12"</span>&gt;<span class="hljs-built_in">col</span>-<span class="hljs-number">12</span>&lt;/ui-<span class="hljs-built_in">col</span>&gt;
-&lt;/ui-<span class="hljs-built_in">row</span>&gt;
-&lt;ui-<span class="hljs-built_in">row</span>&gt;
-  &lt;ui-<span class="hljs-built_in">col</span> classname=<span class="hljs-string">"layout"</span> span=<span class="hljs-string">"8"</span>&gt;<span class="hljs-built_in">col</span>-<span class="hljs-number">8</span>&lt;/ui-<span class="hljs-built_in">col</span>&gt;
-  &lt;ui-<span class="hljs-built_in">col</span> classname=<span class="hljs-string">"layout"</span> span=<span class="hljs-string">"8"</span>&gt;<span class="hljs-built_in">col</span>-<span class="hljs-number">8</span>&lt;/ui-<span class="hljs-built_in">col</span>&gt;
-  &lt;ui-<span class="hljs-built_in">col</span> classname=<span class="hljs-string">"layout"</span> span=<span class="hljs-string">"8"</span>&gt;<span class="hljs-built_in">col</span>-<span class="hljs-number">8</span>&lt;/ui-<span class="hljs-built_in">col</span>&gt;
-&lt;/ui-<span class="hljs-built_in">row</span>&gt;
-&lt;ui-<span class="hljs-built_in">row</span>&gt;
-  &lt;ui-<span class="hljs-built_in">col</span> classname=<span class="hljs-string">"layout"</span> span=<span class="hljs-string">"6"</span>&gt;<span class="hljs-built_in">col</span>-<span class="hljs-number">6</span>&lt;/ui-<span class="hljs-built_in">col</span>&gt;
-  &lt;ui-<span class="hljs-built_in">col</span> classname=<span class="hljs-string">"layout"</span> span=<span class="hljs-string">"6"</span>&gt;<span class="hljs-built_in">col</span>-<span class="hljs-number">6</span>&lt;/ui-<span class="hljs-built_in">col</span>&gt;
-  &lt;ui-<span class="hljs-built_in">col</span> classname=<span class="hljs-string">"layout"</span> span=<span class="hljs-string">"6"</span>&gt;<span class="hljs-built_in">col</span>-<span class="hljs-number">6</span>&lt;/ui-<span class="hljs-built_in">col</span>&gt;
-  &lt;ui-<span class="hljs-built_in">col</span> classname=<span class="hljs-string">"layout"</span> span=<span class="hljs-string">"6"</span>&gt;<span class="hljs-built_in">col</span>-<span class="hljs-number">6</span>&lt;/ui-<span class="hljs-built_in">col</span>&gt;
-&lt;/ui-<span class="hljs-built_in">row</span>&gt;
-</code></pre><pre><code class="lang-html">    &lt;div&gt;
+<h2 id="-">实例</h2>
+<p>从堆叠到水平排列。</p>
+<p>使用单一的一组 <code>Row</code> 和 <code>Col</code> 栅格组件，就可以创建一个基本的栅格系统，所有列（Col）必须放在 <code>Row</code> 内。</p>
+<div class="bs-example">
+  <ui-row>
+    <ui-col classname="layout" span="12">col-12</ui-col>
+    <ui-col classname="layout" span="12">col-12</ui-col>
+  </ui-row>
+  <ui-row>
+    <ui-col classname="layout" span="8">col-8</ui-col>
+    <ui-col classname="layout" span="8">col-8</ui-col>
+    <ui-col classname="layout" span="8">col-8</ui-col>
+  </ui-row>
+  <ui-row>
+    <ui-col classname="layout" span="6">col-6</ui-col>
+    <ui-col classname="layout" span="6">col-6</ui-col>
+    <ui-col classname="layout" span="6">col-6</ui-col>
+    <ui-col classname="layout" span="6">col-6</ui-col>
+  </ui-row>
+</div>
+<div class="zero-clipboard"><span class="btn-clipboard">Copy</span></div>
+<div class="highlight">
+<pre><code style="width:100%;color:#fff">
+    &lt;div&gt;
     &lt;ui-<span class="hljs-built_in">row</span>&gt;
-      &lt;ui-<span class="hljs-built_in">col</span> classname=<span class="hljs-string">"layout"</span> span=<span class="hljs-string">"12"</span>&gt;<span class="hljs-built_in">col</span>-<span class="hljs-number">12</span>&lt;/ui-<span class="hljs-built_in">col</span>&gt;
-      &lt;ui-<span class="hljs-built_in">col</span> classname=<span class="hljs-string">"layout"</span> span=<span class="hljs-string">"12"</span>&gt;<span class="hljs-built_in">col</span>-<span class="hljs-number">12</span>&lt;/ui-<span class="hljs-built_in">col</span>&gt;
+      &lt;ui-<span class="hljs-built_in">col</span> classname=<span class="hljs-string">&quot;layout&quot;</span> span=<span class="hljs-string">&quot;12&quot;</span>&gt;<span class="hljs-built_in">col</span>-<span class="hljs-number">12</span>&lt;/ui-<span class="hljs-built_in">col</span>&gt;
+      &lt;ui-<span class="hljs-built_in">col</span> classname=<span class="hljs-string">&quot;layout&quot;</span> span=<span class="hljs-string">&quot;12&quot;</span>&gt;<span class="hljs-built_in">col</span>-<span class="hljs-number">12</span>&lt;/ui-<span class="hljs-built_in">col</span>&gt;
     &lt;/ui-<span class="hljs-built_in">row</span>&gt;
     &lt;ui-<span class="hljs-built_in">row</span>&gt;
-      &lt;ui-<span class="hljs-built_in">col</span> classname=<span class="hljs-string">"layout"</span> span=<span class="hljs-string">"8"</span>&gt;<span class="hljs-built_in">col</span>-<span class="hljs-number">8</span>&lt;/ui-<span class="hljs-built_in">col</span>&gt;
-      &lt;ui-<span class="hljs-built_in">col</span> classname=<span class="hljs-string">"layout"</span> span=<span class="hljs-string">"8"</span>&gt;<span class="hljs-built_in">col</span>-<span class="hljs-number">8</span>&lt;/ui-<span class="hljs-built_in">col</span>&gt;
-      &lt;ui-<span class="hljs-built_in">col</span> classname=<span class="hljs-string">"layout"</span> span=<span class="hljs-string">"8"</span>&gt;<span class="hljs-built_in">col</span>-<span class="hljs-number">8</span>&lt;/ui-<span class="hljs-built_in">col</span>&gt;
+      &lt;ui-<span class="hljs-built_in">col</span> classname=<span class="hljs-string">&quot;layout&quot;</span> span=<span class="hljs-string">&quot;8&quot;</span>&gt;<span class="hljs-built_in">col</span>-<span class="hljs-number">8</span>&lt;/ui-<span class="hljs-built_in">col</span>&gt;
+      &lt;ui-<span class="hljs-built_in">col</span> classname=<span class="hljs-string">&quot;layout&quot;</span> span=<span class="hljs-string">&quot;8&quot;</span>&gt;<span class="hljs-built_in">col</span>-<span class="hljs-number">8</span>&lt;/ui-<span class="hljs-built_in">col</span>&gt;
+      &lt;ui-<span class="hljs-built_in">col</span> classname=<span class="hljs-string">&quot;layout&quot;</span> span=<span class="hljs-string">&quot;8&quot;</span>&gt;<span class="hljs-built_in">col</span>-<span class="hljs-number">8</span>&lt;/ui-<span class="hljs-built_in">col</span>&gt;
     &lt;/ui-<span class="hljs-built_in">row</span>&gt;
     &lt;ui-<span class="hljs-built_in">row</span>&gt;
-      &lt;ui-<span class="hljs-built_in">col</span> classname=<span class="hljs-string">"layout"</span> span=<span class="hljs-string">"6"</span>&gt;<span class="hljs-built_in">col</span>-<span class="hljs-number">6</span>&lt;/ui-<span class="hljs-built_in">col</span>&gt;
-      &lt;ui-<span class="hljs-built_in">col</span> classname=<span class="hljs-string">"layout"</span> span=<span class="hljs-string">"6"</span>&gt;<span class="hljs-built_in">col</span>-<span class="hljs-number">6</span>&lt;/ui-<span class="hljs-built_in">col</span>&gt;
-      &lt;ui-<span class="hljs-built_in">col</span> classname=<span class="hljs-string">"layout"</span> span=<span class="hljs-string">"6"</span>&gt;<span class="hljs-built_in">col</span>-<span class="hljs-number">6</span>&lt;/ui-<span class="hljs-built_in">col</span>&gt;
-      &lt;ui-<span class="hljs-built_in">col</span> classname=<span class="hljs-string">"layout"</span> span=<span class="hljs-string">"6"</span>&gt;<span class="hljs-built_in">col</span>-<span class="hljs-number">6</span>&lt;/ui-<span class="hljs-built_in">col</span>&gt;
+      &lt;ui-<span class="hljs-built_in">col</span> classname=<span class="hljs-string">&quot;layout&quot;</span> span=<span class="hljs-string">&quot;6&quot;</span>&gt;<span class="hljs-built_in">col</span>-<span class="hljs-number">6</span>&lt;/ui-<span class="hljs-built_in">col</span>&gt;
+      &lt;ui-<span class="hljs-built_in">col</span> classname=<span class="hljs-string">&quot;layout&quot;</span> span=<span class="hljs-string">&quot;6&quot;</span>&gt;<span class="hljs-built_in">col</span>-<span class="hljs-number">6</span>&lt;/ui-<span class="hljs-built_in">col</span>&gt;
+      &lt;ui-<span class="hljs-built_in">col</span> classname=<span class="hljs-string">&quot;layout&quot;</span> span=<span class="hljs-string">&quot;6&quot;</span>&gt;<span class="hljs-built_in">col</span>-<span class="hljs-number">6</span>&lt;/ui-<span class="hljs-built_in">col</span>&gt;
+      &lt;ui-<span class="hljs-built_in">col</span> classname=<span class="hljs-string">&quot;layout&quot;</span> span=<span class="hljs-string">&quot;6&quot;</span>&gt;<span class="hljs-built_in">col</span>-<span class="hljs-number">6</span>&lt;/ui-<span class="hljs-built_in">col</span>&gt;
     &lt;/ui-<span class="hljs-built_in">row</span>&gt;
   &lt;/div&gt;
 </code></pre>
-<p>  -----</768px`></p>
+</div>
+
+<h2 id="bootstrap-">Bootstrap栅格</h2>
+<p> <code>Grid</code> 布局组件是<code>24</code>栅格系统，Bootstrap布局组件则为<code>12</code>栅格系统，
+在适合的场景使用，达到页面的需求效果。</p>
 </div>

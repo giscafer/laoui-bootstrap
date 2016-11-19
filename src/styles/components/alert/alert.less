@@ -30,6 +30,7 @@
     border: 1px solid tint(@success-color, 80%);
     background-color: tint(@success-color, 90%);
     .@{alert-prefix-cls}-icon {
+
       color: @success-color;
     }
   }
@@ -59,7 +60,7 @@
   }
 
   &-close-icon {
-    font-size: @font-size-base;
+    font-size: 14px;
     position: absolute;
     right: 16px;
     top: 10px;
@@ -67,6 +68,12 @@
     line-height: 12px;
     overflow: hidden;
     cursor: pointer;
+    &>span{
+      font-size: 14px;
+    }
+    &:hover,>span:hover{
+      font-size: 16px;
+    }
 
     .@{iconfont-css-prefix}-cross {
       color: @legend-color;

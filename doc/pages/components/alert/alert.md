@@ -1,3 +1,6 @@
+Alert 警告信息组件
+---
+
 <ui-alert type="error" closing='ctrl.closing' showicon close="ctrl.close()" message="ctrl.message" description="ctrl.description"></ui-alert>
 <br>
 <ui-alert type="info" closing='ctrl.closing' showicon close="ctrl.close()" message="ctrl.message" description="ctrl.description" closetext="关闭"></ui-alert>
