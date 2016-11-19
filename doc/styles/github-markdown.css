@@ -534,10 +534,10 @@
   border-top: 1px solid #ccc;
 }
 .markdown-body table td:first-child {
-  background-color: #f8f8f8;
+  background-color: #fcfcfc;
 }
-.markdown-body table tr:nth-child(2n) {
-  /*background-color: #f8f8f8;*/
+.markdown-body table tr:first-child>th {
+  background-color: #f8f8f8;
 }
 
 /**
