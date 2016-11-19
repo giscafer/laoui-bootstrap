@@ -25,37 +25,44 @@ export default $routeProvider => {
         .when('/components/icon', {
             title: 'icon Demo',
             templateUrl: pageHtml['./components/icon/icon.html'],
-            controller: ctrls('./components/icon/icon.ctrl.js').default
+            controller: ctrls('./components/icon/icon.ctrl.js').default,
+            controllerAs:'ctrl'
         })
         .when('/components/alert', {
             title: 'alert Demo',
             templateUrl: pageHtml['./components/alert/alert.html'],
-            controller: ctrls('./components/alert/alert.ctrl.js').default
+            controller: ctrls('./components/alert/alert.ctrl.js').default,
+            controllerAs:'ctrl'
         })
         .when('/components/tabs', {
             title: 'tabs Demo',
             templateUrl: pageHtml['./components/tabs/tabs.html'],
-            controller: ctrls('./components/tabs/tabs.ctrl.js').default
+            controller: ctrls('./components/tabs/tabs.ctrl.js').default,
+            controllerAs:'ctrl'
         })
         .when('/components/tabs1', {
             title: 'tabs Demo',
             templateUrl: pageHtml['./components/tabs1/tabs.html'],
-            controller: ctrls('./components/tabs1/tabs.ctrl.js').default
+            controller: ctrls('./components/tabs1/tabs.ctrl.js').default,
+            controllerAs:'ctrl'
         })
         .when('/components/panel', {
             title: 'panel Demo',
             templateUrl: pageHtml['./components/panel/panel.html'],
-            controller: ctrls('./components/panel/panel.ctrl.js').default
+            controller: ctrls('./components/panel/panel.ctrl.js').default,
+            controllerAs:'ctrl'
         })
         .when('/components/navigation', {
             title: 'navigation Demo',
             templateUrl: pageHtml['./components/navigation/navigation.html'],
-            controller: ctrls('./components/navigation/navigation.ctrl.js').default
+            controller: ctrls('./components/navigation/navigation.ctrl.js').default,
+            controllerAs:'ctrl'
         })
         .when('/components/edit', {
             title: 'Edit Demo',
             templateUrl: pageHtml['./components/edit/edit.html'],
-            controller: ctrls('./components/edit/edit.ctrl.js').default
+            controller: ctrls('./components/edit/edit.ctrl.js').default,
+            controllerAs:'ctrl'
         })
         .otherwise({
             redirectTo: '/laoui/home'

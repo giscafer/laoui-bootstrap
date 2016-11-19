@@ -512,7 +512,7 @@
   padding: 0 16px;
   margin-bottom: 16px;
 }
-
+*/
 .markdown-body table {
   display: block;
   width: 100%;
@@ -533,11 +533,14 @@
   background-color: #fff;
   border-top: 1px solid #ccc;
 }
-
-.markdown-body table tr:nth-child(2n) {
+.markdown-body table td:first-child {
   background-color: #f8f8f8;
 }
+.markdown-body table tr:nth-child(2n) {
+  /*background-color: #f8f8f8;*/
+}
 
+/**
 .markdown-body img {
   max-width: 100%;
   box-sizing: content-box;

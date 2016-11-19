@@ -1,5 +1,51 @@
-<header>
-</header>
+<div class="markdown-body"><p><header>
+</header></p>
+<p class="lead"><code>ui-panel</code>指令是对bootstrap组件 panel 的封装</p>
+
+<h2 id="-">指令</h2>
+<p><code>ui-panel</code>生成一个<code>panel-body</code></p>
+<p><code>ui-panel-heading</code>生成一个panel-heading</p>
+
+<p><em>heading 也可以作为ui-panel的属性，eg：<code>&lt;ui-panel heading=&quot;我是heading&quot;&gt;&lt;/ui-panel&gt;</code></em></p>
+<h2 id="-">属性</h2>
+<table>
+<thead>
+<tr>
+<th>成员</th>
+<th>说明</th>
+<th>类型</th>
+<th>默认值</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>type</td>
+<td>指定panel样式类型：<code>不提供type属性</code>,<code>default</code>,<code>success</code>,<code>info</code>,<code>warning</code>,<code>danger</code></td>
+<td>string</td>
+<td>空</td>
+</tr>
+<tr>
+<td>heading</td>
+<td>panel标题，可以使用<code>ui-panel-heading</code>代替</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>noborder</td>
+<td>属性存在，则panel将没有border样式</td>
+<td>boolean</td>
+<td>无</td>
+</tr>
+<tr>
+<td>className</td>
+<td>css类样式，最终会添加到标签的class属性里，该属性为了提供用户自定义样式</td>
+<td>className</td>
+<td>无</td>
+</tr>
+</tbody>
+</table>
+<h2 id="-">实例</h2>
+<h3 id="-code-ui-panel-heading-code-panel-heading">使用<code>ui-panel-heading</code>指令添加 panel-heading</h3>
 <div class="bs-example" style="background:#eee">
     <ui-panel>
         <ui-panel-heading>
@@ -11,44 +57,97 @@
 </div>
 <div class="zero-clipboard"><span class="btn-clipboard">Copy</span></div>
 <div class="highlight">
-    <pre>
-		&lt;ui-panel>
-			&lt;ui-panel-heading>&lt;h4>这是一个 ui-panel-heading&lt;/h4>&lt;/ui-panel-heading>
-			&lt;div>
-				此处panel-body内容
-			&lt;/div>
-		&lt;/ui-panel>
-	</pre>
+<pre class="html"><code style="width:100%;color:#fff">
+        <span class="hljs-tag">&lt;<span class="hljs-name">ui-panel</span>&gt;</span>
+            <span class="hljs-tag">&lt;<span class="hljs-name">ui-panel-heading</span>&gt;</span><span class="hljs-tag">&lt;<span class="hljs-name">h4</span>&gt;</span>这是一个 ui-panel-heading<span class="hljs-tag">&lt;/<span class="hljs-name">h4</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">ui-panel-heading</span>&gt;</span>
+            <span class="hljs-tag">&lt;<span class="hljs-name">div</span>&gt;</span>
+                此处panel-body内容
+            <span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
+        <span class="hljs-tag">&lt;/<span class="hljs-name">ui-panel</span>&gt;</span>
+</code></pre>
 </div>
-<!-- panel-default -->
-<ui-panel type="default">
-    <ui-panel-heading>这是一个<code>type="default"</code>的panel </ui-panel-heading>
-</ui-panel>
-<!-- panel-primary -->
-<ui-panel type="primary" noborder>
-    <ui-panel-heading>这是一个<code>type="primary"</code>，带 <code>noborder</code>属性去掉 border 的panel </ui-panel-heading>
-</ui-panel>
-<!-- panel-success -->
-<ui-panel type="success">
-    <ui-panel-heading>这是一个<code>type="success"</code>的panel </ui-panel-heading>
-</ui-panel>
-<!-- panel-info -->
-<ui-panel type="info">
-    <ui-panel-heading>这是一个<code>type="info"</code>的panel </ui-panel-heading>
-</ui-panel>
-<!-- panel-warning -->
-<ui-panel type="warning">
-    <ui-panel-heading>这是一个<code>type="warning"</code>的panel </ui-panel-heading>
-</ui-panel>
-<!-- panel-danger -->
-<ui-panel type="danger">
-    <ui-panel-heading>这是一个<code>type="danger"</code>的panel </ui-panel-heading>
-</ui-panel>
-<!-- Bootstrap 样式直接书写 -->
-<div class="panel panel-primary">
-    <div class="panel-heading">Bootstrap 样式直接书写</div>
-    <div class="panel-body">
-        <code>ui-panel</code>指令最终也是编译为Bootstrap样式，只是做了简化。所以是可以使用Bootstrap 样式直接书写达到一样的效果
+
+<h3 id="-code-type-code-panel-">使用<code>type</code>属性控制 panel 样式</h3>
+<div class="bs-example">
+    <!-- panel-default -->
+    <ui-panel type="default">
+        <ui-panel-heading>这是一个<code>type=&quot;default&quot;</code>的panel </ui-panel-heading>
+    </ui-panel>
+    <!-- panel-primary -->
+    <ui-panel type="primary" noborder="">
+        <ui-panel-heading>这是一个<code>type=&quot;primary&quot;</code>，带 <code>noborder</code>属性去掉 border 的panel </ui-panel-heading>
+    </ui-panel>
+    <!-- panel-success -->
+    <ui-panel type="success">
+        <ui-panel-heading>这是一个<code>type=&quot;success&quot;</code>的panel </ui-panel-heading>
+    </ui-panel>
+    <!-- panel-info -->
+    <ui-panel type="info">
+        <ui-panel-heading>这是一个<code>type=&quot;info&quot;</code>的panel </ui-panel-heading>
+    </ui-panel>
+    <!-- panel-warning -->
+    <ui-panel type="warning">
+        <ui-panel-heading>这是一个<code>type=&quot;warning&quot;</code>的panel </ui-panel-heading>
+    </ui-panel>
+    <!-- panel-danger -->
+    <ui-panel type="danger">
+        <ui-panel-heading>这是一个<code>type=&quot;danger&quot;</code>的panel </ui-panel-heading>
+    </ui-panel>
+</div>
+<div class="zero-clipboard"><span class="btn-clipboard">Copy</span></div>
+<div class="highlight">
+<pre class="html"><code style="width:100%;color:#fff">
+    <span class="hljs-comment">&lt;!-- panel-default --&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-name">ui-panel</span> <span class="hljs-attr">type</span>=<span class="hljs-string">&quot;default&quot;</span>&gt;</span>
+        <span class="hljs-tag">&lt;<span class="hljs-name">ui-panel-heading</span>&gt;</span>这是一个<span class="hljs-tag">&lt;<span class="hljs-name">code</span>&gt;</span>type=&quot;default&quot;<span class="hljs-tag">&lt;/<span class="hljs-name">code</span>&gt;</span>的panel <span class="hljs-tag">&lt;/<span class="hljs-name">ui-panel-heading</span>&gt;</span>
+    <span class="hljs-tag">&lt;/<span class="hljs-name">ui-panel</span>&gt;</span>
+    <span class="hljs-comment">&lt;!-- panel-primary --&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-name">ui-panel</span> <span class="hljs-attr">type</span>=<span class="hljs-string">&quot;primary&quot;</span> <span class="hljs-attr">noborder</span>=<span class="hljs-string">&quot;&quot;</span>&gt;</span>
+        <span class="hljs-tag">&lt;<span class="hljs-name">ui-panel-heading</span>&gt;</span>这是一个<span class="hljs-tag">&lt;<span class="hljs-name">code</span>&gt;</span>type=&quot;primary&quot;<span class="hljs-tag">&lt;/<span class="hljs-name">code</span>&gt;</span>，带 <span class="hljs-tag">&lt;<span class="hljs-name">code</span>&gt;</span>noborder<span class="hljs-tag">&lt;/<span class="hljs-name">code</span>&gt;</span>属性去掉 border 的panel <span class="hljs-tag">&lt;/<span class="hljs-name">ui-panel-heading</span>&gt;</span>
+    <span class="hljs-tag">&lt;/<span class="hljs-name">ui-panel</span>&gt;</span>
+    <span class="hljs-comment">&lt;!-- panel-success --&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-name">ui-panel</span> <span class="hljs-attr">type</span>=<span class="hljs-string">&quot;success&quot;</span>&gt;</span>
+        <span class="hljs-tag">&lt;<span class="hljs-name">ui-panel-heading</span>&gt;</span>这是一个<span class="hljs-tag">&lt;<span class="hljs-name">code</span>&gt;</span>type=&quot;success&quot;<span class="hljs-tag">&lt;/<span class="hljs-name">code</span>&gt;</span>的panel <span class="hljs-tag">&lt;/<span class="hljs-name">ui-panel-heading</span>&gt;</span>
+    <span class="hljs-tag">&lt;/<span class="hljs-name">ui-panel</span>&gt;</span>
+    <span class="hljs-comment">&lt;!-- panel-info --&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-name">ui-panel</span> <span class="hljs-attr">type</span>=<span class="hljs-string">&quot;info&quot;</span>&gt;</span>
+        <span class="hljs-tag">&lt;<span class="hljs-name">ui-panel-heading</span>&gt;</span>这是一个<span class="hljs-tag">&lt;<span class="hljs-name">code</span>&gt;</span>type=&quot;info&quot;<span class="hljs-tag">&lt;/<span class="hljs-name">code</span>&gt;</span>的panel <span class="hljs-tag">&lt;/<span class="hljs-name">ui-panel-heading</span>&gt;</span>
+    <span class="hljs-tag">&lt;/<span class="hljs-name">ui-panel</span>&gt;</span>
+    <span class="hljs-comment">&lt;!-- panel-warning --&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-name">ui-panel</span> <span class="hljs-attr">type</span>=<span class="hljs-string">&quot;warning&quot;</span>&gt;</span>
+        <span class="hljs-tag">&lt;<span class="hljs-name">ui-panel-heading</span>&gt;</span>这是一个<span class="hljs-tag">&lt;<span class="hljs-name">code</span>&gt;</span>type=&quot;warning&quot;<span class="hljs-tag">&lt;/<span class="hljs-name">code</span>&gt;</span>的panel <span class="hljs-tag">&lt;/<span class="hljs-name">ui-panel-heading</span>&gt;</span>
+    <span class="hljs-tag">&lt;/<span class="hljs-name">ui-panel</span>&gt;</span>
+    <span class="hljs-comment">&lt;!-- panel-danger --&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-name">ui-panel</span> <span class="hljs-attr">type</span>=<span class="hljs-string">&quot;danger&quot;</span>&gt;</span>
+        <span class="hljs-tag">&lt;<span class="hljs-name">ui-panel-heading</span>&gt;</span>这是一个<span class="hljs-tag">&lt;<span class="hljs-name">code</span>&gt;</span>type=&quot;danger&quot;<span class="hljs-tag">&lt;/<span class="hljs-name">code</span>&gt;</span>的panel <span class="hljs-tag">&lt;/<span class="hljs-name">ui-panel-heading</span>&gt;</span>
+    <span class="hljs-tag">&lt;/<span class="hljs-name">ui-panel</span>&gt;</span>
+</code></pre>
+</div>
+
+<h3 id="-bootstrap">使用原生 bootstrap</h3>
+<p><p class="lead"><code>ui-panel</code>指令是对bootstrap的panle组件的封装，所以，也可以使用原生的bootstrap样式实现一样的效果</p></p>
+<div class="bs-example">
+    <!-- Bootstrap 样式直接书写 -->
+    <div class="panel panel-primary">
+        <div class="panel-heading">Bootstrap 样式直接书写</div>
+        <div class="panel-body">
+            <code>ui-panel</code>指令最终也是编译为Bootstrap样式，只是做了简化。所以是可以使用Bootstrap 样式直接书写达到一样的效果
+        </div>
+        <div class="panel-footer">Panel footer</div>
     </div>
-    <div class="panel-footer">Panel footer</div>
+</div>
+<div class="zero-clipboard"><span class="btn-clipboard">Copy</span></div>
+<div class="highlight">
+<pre><code style="width:100%;color:#fff">
+        <span class="hljs-comment">&lt;!-- Bootstrap 样式直接书写 --&gt;</span>
+<span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">&quot;panel panel-primary&quot;</span>&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">&quot;panel-heading&quot;</span>&gt;</span>Bootstrap 样式直接书写<span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">&quot;panel-body&quot;</span>&gt;</span>
+        <span class="hljs-tag">&lt;<span class="hljs-name">code</span>&gt;</span>ui-panel<span class="hljs-tag">&lt;/<span class="hljs-name">code</span>&gt;</span>指令最终也是编译为Bootstrap样式，只是做了简化。所以是可以使用Bootstrap 样式直接书写达到一样的效果
+    <span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">&quot;panel-footer&quot;</span>&gt;</span>Panel footer<span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
+<span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
+
+</code></pre>
+</div>
 </div>

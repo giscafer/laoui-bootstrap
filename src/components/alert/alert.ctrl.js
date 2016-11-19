@@ -21,10 +21,8 @@ export default class UiAlertController {
             closable,
             closing,
             close,
-            description,
             type = 'warning',
-            prefixCls = 'lau-alert',
-            message,
+            prefixCls = 'ui-alert',
             closetext,
             showicon,
             banner,
@@ -56,15 +54,15 @@ export default class UiAlertController {
             iconType = 'default';
         }
         // use outline icon in alert with description
-        if (!!description) {
+        if (!!this._$scope.description) {
           iconType += '-o';
         }
-        let iconCls='lauicon lauicon-'+iconType+' '+prefixCls+'-icon';
+        let iconCls='fa fa-'+iconType+' '+prefixCls+'-icon';
         
         let alertCls = classNames({
           [prefixCls]: true,
           [`${prefixCls}-${type}`]: true,
-          [`${prefixCls}-with-description`]: !!description,
+          [`${prefixCls}-with-description`]: !!this._$scope.description,
           [`${prefixCls}-no-icon`]: !showicon,
           [`${prefixCls}-banner`]: banner,
           [classname]: !!classname,

@@ -1,8 +1,0 @@
-require('../../template/alert/alert.html');
-require('./alert');
-
-var MODULE_NAME = 'ui.bootstrap.module.alert';
-
-angular.module(MODULE_NAME, ['ui.bootstrap.alert']);
-
-module.exports = MODULE_NAME;

@@ -166,6 +166,152 @@
   background-color: #fff;
   border-color: #eee;
 }
+.ui-alert {
+  position: relative;
+  padding: 8px 48px 8px 38px;
+  border-radius: 6px;
+  color: #666;
+  font-size: 12px;
+  line-height: 16px;
+  margin-bottom: 10px;
+}
+.ui-alert.ui-alert-no-icon {
+  padding: 8px 48px 8px 16px;
+}
+.ui-alert-icon {
+  font-size: 14px;
+  top: 9px;
+  left: 16px;
+  position: absolute;
+}
+.ui-alert-description {
+  font-size: 12px;
+  line-height: 21px;
+  display: none;
+}
+.ui-alert-success {
+  border: 1px solid #e7f6e1;
+  background-color: #f3faf0;
+}
+.ui-alert-success .ui-alert-icon {
+  color: #87d068;
+}
+.ui-alert-info {
+  border: 1px solid #d5f1fd;
+  background-color: #eaf8fe;
+}
+.ui-alert-info .ui-alert-icon {
+  color: #2db7f5;
+}
+.ui-alert-warning {
+  border: 1px solid #ffeecc;
+  background-color: #fff7e6;
+}
+.ui-alert-warning .ui-alert-icon {
+  color: #fa0;
+}
+.ui-alert-error {
+  border: 1px solid #ffddcc;
+  background-color: #ffeee6;
+}
+.ui-alert-error .ui-alert-icon {
+  color: #f50;
+}
+.ui-alert-close-icon {
+  font-size: 12px;
+  position: absolute;
+  right: 16px;
+  top: 10px;
+  height: 12px;
+  line-height: 12px;
+  overflow: hidden;
+  cursor: pointer;
+}
+.ui-alert-close-icon .lauicon-cross {
+  color: #999;
+  transition: color .3s ease;
+}
+.ui-alert-close-icon .lauicon-cross:hover {
+  color: #404040;
+}
+.ui-alert-close-text {
+  position: absolute;
+  right: 16px;
+}
+.ui-alert-with-description {
+  padding: 16px 16px 16px 60px;
+  position: relative;
+  border-radius: 6px;
+  margin-bottom: 10px;
+  color: #666;
+  line-height: 1.5;
+}
+.ui-alert-with-description.ui-alert-no-icon {
+  padding: 16px;
+}
+.ui-alert-with-description .ui-alert-icon {
+  position: absolute;
+  top: 16px;
+  left: 20px;
+  font-size: 24px;
+}
+.ui-alert-with-description .ui-alert-close-icon {
+  position: absolute;
+  top: 16px;
+  right: 16px;
+  cursor: pointer;
+  font-size: 12px;
+}
+.ui-alert-with-description .ui-alert-message {
+  font-size: 14px;
+  color: #404040;
+  display: block;
+  margin-bottom: 4px;
+}
+.ui-alert-with-description .ui-alert-description {
+  display: block;
+}
+.ui-alert.ui-alert-close {
+  height: 0 !important;
+  margin: 0;
+  padding-top: 0;
+  padding-bottom: 0;
+  transition: all 0.3s cubic-bezier(0.78, 0.14, 0.15, 0.86);
+  transform-origin: 50% 0;
+}
+.ui-alert-slide-up-leave {
+  animation: antAlertSlideUpOut 0.3s cubic-bezier(0.78, 0.14, 0.15, 0.86);
+  animation-fill-mode: both;
+}
+.ui-alert-banner {
+  border-radius: 0;
+  border: 0;
+  margin-bottom: 0;
+}
+@keyframes antAlertSlideUpIn {
+  0% {
+    opacity: 0;
+    transform-origin: 0% 0%;
+    transform: scaleY(0);
+  }
+  100% {
+    opacity: 1;
+    transform-origin: 0% 0%;
+    transform: scaleY(1);
+  }
+}
+@keyframes antAlertSlideUpOut {
+  0% {
+    opacity: 1;
+    transform-origin: 0% 0%;
+    transform: scaleY(1);
+  }
+  100% {
+    opacity: 0;
+    transform-origin: 0% 0%;
+    transform: scaleY(0);
+  }
+}
 .ng-animate.item:not(.left):not(.right) {
   -webkit-transition: 0s ease-in-out left;
   transition: 0s ease-in-out left;

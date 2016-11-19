@@ -1,7 +1,6 @@
 'use strict'
 
 var accordion = require("./accordion");
-var alert = require("./alert");
 var buttons = require("./buttons");
 var carousel = require("./carousel");
 var collapse = require("./collapse");
@@ -30,7 +29,6 @@ var typeahead = require("./typeahead");
 const MODULE_NAME = "ui.bootstrap";
 
 angular.module(MODULE_NAME, [accordion,
-    alert,
     buttons,
     carousel,
     collapse,

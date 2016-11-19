@@ -9,7 +9,7 @@ export default class Panel {
         this.transclude = true;
         this.scope = {
             type: '=',
-            heading: '@',
+            heading: '=',
             shadow: '=?',
             border: '=?'
         };

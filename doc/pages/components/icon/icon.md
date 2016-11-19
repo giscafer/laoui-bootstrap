@@ -4,14 +4,16 @@
         一、使用方式
     </p>
     <p class="lead">
-        指令为<code>ui-icon</code>，<code>type</code>属性指定图标名称；如：
-        <ui-icon type="github" /> - <code>&lt;ui-icon type="github"/></code>，
-        <ui-icon type="apple" /> - <code>&lt;ui-icon type="apple"/></code>
+        指令为<code>ui-icon</code>，<code>type</code>属性指定图标名称。
     </p>
+        <ui-icon type="github"></ui-icon>
+        <pre><ui-icon type="github"/></pre>
+        <ui-icon type="apple"></ui-icon>
+        <pre><ui-icon type="apple"/></pre>
 </section>
 <br>
 <section>
-    <p class="lead">图标使用示例</p>
+    <p class="lead"> 二、图标使用示例</p>
     <ul style="font-size:18px">
         <li>icons:<code>http://fontawesome.io/icons/</code></li>
         <li>examples:<code>http://fontawesome.io/examples/</code></li>

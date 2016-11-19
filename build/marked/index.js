@@ -1,3 +1,6 @@
+/**
+ * 编译doc md文件
+ */
 'use strict'
 /**
  * Modules
@@ -25,7 +28,7 @@ function loadFiles() {
         files = {},
         list = [],
         file, i, l;
-    console.log(dir);
+    // console.log(dir);
     let travel = (dir) => {
         fs.readdirSync(dir)
             .forEach((file) => {
@@ -43,7 +46,6 @@ function loadFiles() {
     travel(dir);
     i = 0;
     l = list.length;
-    console.log(list);
     for (; i < l; i++) {
         file = list[i];
         // console.log(path.basename(file));
@@ -52,9 +54,11 @@ function loadFiles() {
       
         $text('pre').each(function(i, elem) {
             // console.log($text(this).html())
+           let language=$text(this).hasClass('html')?'html':'javascript';
            let code=(highlightJS.highlightAuto($text(this).html()).value);
            // console.log(code)
-           $text(this).html(code)
+           $text(this).html('<code style="width:100%;color:#fff">'+code+'</code>');
+           // $text(this).html(code);
         });
 
         fs.writeFileSync(file.replace(/[^.]+$/, 'html'), '<div class="markdown-body">' + marked($text.html(),{ lineNumbers: true }) + '</div>');
