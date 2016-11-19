@@ -1,7 +1,22 @@
-Alert 警告信息组件
+Navigation 警告信息组件
 ---
+<p class="lead"><code>ui-navigation</code>指令可以快速创建导航菜单</p>
 
-<div class="row">
+## 属性
+
+| 成员       | 说明             | 类型               | 默认值       |
+|-----------|-----------------|--------------------|-------------|
+| mode    | 菜单类型，现在支持垂直、水平、和内嵌模式三种   | String: `vertical` `horizontal` `inline` | `vertical`       |
+| theme      | 主题颜色 | String: `light` `dark`  |     `light`    |
+| links     | 菜单数组  | Array |  -     |
+| className     | 根节点样式  | string |  -     |
+
+## 实例
+
+默认导航样式，只需要将菜单数组传参给`links`属性即可
+
+<div class="bs-example" style="background:#fff">
+	<div class="row">
 <div class="col-md-5">
 <ui-navigation links="ctrl.menus" style="width:240px;margin:20px auto 0 auto"></ui-navigation>
 </div>
@@ -213,7 +228,26 @@ export default data;
 </ui-tabset>
 </div>
 </div>
+</div>
 
+切换<code>dark</code>主题颜色
+
+<div class="bs-example">
+	<div class="row">
+<div class="col-md-5">
+<ui-navigation  theme="dark" links="ctrl.menus" style="width:240px;margin:20px auto 0 auto"></ui-navigation>
+</div>
+<div class="col-md-7">
+<ui-tabset  style="max-height:500px;overflow:auto">
+<ui-tab>
+<ui-tab-heading>HTML</ui-tab-heading>
+
+<pre>
+  <ui-navigation theme="dark" links="ctrl.menus" style="width:240px"></ui-navigation>
+</pre>
+
+</ui-tab>
+<ui-tab>
 <!-- 
 <br>
 <ui-navigation theme="dark" links="ctrl.menus" style="width:240px"></ui-navigation>

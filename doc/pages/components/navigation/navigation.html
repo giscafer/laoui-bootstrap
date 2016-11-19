@@ -1,5 +1,47 @@
-<div class="markdown-body"><h2 id="alert-">Alert 警告信息组件</h2>
-<div class="row">
+<div class="markdown-body"><h2 id="navigation-">Navigation 警告信息组件</h2>
+<p class="lead"><code>ui-navigation</code>指令可以快速创建导航菜单</p>
+
+<h2 id="-">属性</h2>
+<table>
+<thead>
+<tr>
+<th>成员</th>
+<th>说明</th>
+<th>类型</th>
+<th>默认值</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>mode</td>
+<td>菜单类型，现在支持垂直、水平、和内嵌模式三种</td>
+<td>String: <code>vertical</code> <code>horizontal</code> <code>inline</code></td>
+<td><code>vertical</code></td>
+</tr>
+<tr>
+<td>theme</td>
+<td>主题颜色</td>
+<td>String: <code>light</code> <code>dark</code></td>
+<td><code>light</code></td>
+</tr>
+<tr>
+<td>links</td>
+<td>菜单数组</td>
+<td>Array</td>
+<td>-</td>
+</tr>
+<tr>
+<td>className</td>
+<td>根节点样式</td>
+<td>string</td>
+<td>-</td>
+</tr>
+</tbody>
+</table>
+<h2 id="-">实例</h2>
+<p>默认导航样式，只需要将菜单数组传参给<code>links</code>属性即可</p>
+<div class="bs-example" style="background:#fff">
+    <div class="row">
 <div class="col-md-5">
 <ui-navigation links="ctrl.menus" style="width:240px;margin:20px auto 0 auto"></ui-navigation>
 </div>
@@ -211,10 +253,29 @@ export <span class="hljs-keyword">default</span> data;
 </ui-tabset>
 </div>
 </div>
+</div>
 
+<p>切换<code>dark</code>主题颜色</p>
+<div class="bs-example">
+    <div class="row">
+<div class="col-md-5">
+<ui-navigation theme="dark" links="ctrl.menus" style="width:240px;margin:20px auto 0 auto"></ui-navigation>
+</div>
+<div class="col-md-7">
+<ui-tabset style="max-height:500px;overflow:auto">
+<ui-tab>
+<ui-tab-heading>HTML</ui-tab-heading>
+
+<pre><code style="width:100%;color:#fff">
+  <span class="hljs-tag">&lt;<span class="hljs-name">ui-navigation</span> <span class="hljs-attr">theme</span>=<span class="hljs-string">&quot;dark&quot;</span> <span class="hljs-attr">links</span>=<span class="hljs-string">&quot;ctrl.menus&quot;</span> <span class="hljs-attr">style</span>=<span class="hljs-string">&quot;width:240px&quot;</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">ui-navigation</span>&gt;</span>
+</code></pre>
+
+</ui-tab>
+<ui-tab>
 <!-- 
 <br>
 <ui-navigation theme="dark" links="ctrl.menus" style="width:240px"></ui-navigation>
 <br>
 <ui-navigation mode="horizontal" links="ctrl.menus" style="width:240px"></ui-navigation> -->
-</div>
+
+</ui-tab></ui-tabset></div></div></div></div>
