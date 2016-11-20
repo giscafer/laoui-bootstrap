@@ -2,18 +2,18 @@ var data = [{
     "link": "",
     "name": "General 基础组件",
     "icon": "cube",
-    "children": [{
+    "children": [/*{
         "link": "#/components/button",
         "active": true,
-        "name": "Button 按钮",
+        "name": "Button - 按钮",
         "icon": ""
-    }, {
+    }, */{
         "link": "#/components/icon",
-        "name": "Icon 图标",
+        "name": "Icon - 图标",
         "icon": ""
     },{
         "link": "#/components/panel",
-        "name": "Panel 面板",
+        "name": "Panel - 面板",
         "icon": ""
     }]
 },{
@@ -22,7 +22,7 @@ var data = [{
     "icon": "columns ",
     "children": [ {
         "link": "#/components/grid",
-        "name": "Grid 栅格",
+        "name": "Grid - 栅格",
         "icon": " "
     }]
 },{
@@ -31,7 +31,7 @@ var data = [{
     "icon": "navicon",
     "children": [{
         "link": "#/components/navigation",
-        "name": "导航 - Navigation",
+        "name": "Navigation - 导航",
         "icon": ""
     }]
 }, {
@@ -41,13 +41,13 @@ var data = [{
     "children": [{
         "link": "#/components/edit",
         "active": true,
-        "name": "Edit 编辑器/Wysiwyg",
+        "name": "Edit - 编辑器/Wysiwyg",
         "icon": ""
-    },{
+    }/*,{
         "link": "#/components/typeahead",
         "name": "自动完成 - Typeahead",
         "icon": ""
-    }]
+    }*/]
 }, {
     "link": "",
     "name": "Data Display 数据展示",
