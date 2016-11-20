@@ -39719,7 +39719,7 @@
 /***/ function(module, exports) {
 
 	var path = 'G:/GitHub/_private/laoui-bootstrap/src/template/accordion/accordion-group.html';
-	var html = "<div role=\"tab\" id=\"{{::headingId}}\" aria-selected=\"{{isOpen}}\" class=\"panel-heading\" ng-keypress=\"toggleOpen($event)\">\n  <h4 class=\"panel-title\">\n    <a role=\"button\" data-toggle=\"collapse\" href aria-expanded=\"{{isOpen}}\" aria-controls=\"{{::panelId}}\" tabindex=\"0\" class=\"accordion-toggle\" ng-click=\"toggleOpen()\" uib-accordion-transclude=\"heading\" ng-disabled=\"isDisabled\" uib-tabindex-toggle><span uib-accordion-header ng-class=\"{'text-muted': isDisabled}\">{{heading}}</span></a>\n  </h4>\n</div>\n<div id=\"{{::panelId}}\" aria-labelledby=\"{{::headingId}}\" aria-hidden=\"{{!isOpen}}\" role=\"tabpanel\" class=\"panel-collapse collapse\" uib-collapse=\"!isOpen\">\n  <div class=\"panel-body\" ng-transclude></div>\n</div>\n";
+	var html = "<div role=\"tab\" id=\"{{::headingId}}\" aria-selected=\"{{isOpen}}\" class=\"panel-heading\" ng-keypress=\"toggleOpen($event)\">\r\n  <h4 class=\"panel-title\">\r\n    <a role=\"button\" data-toggle=\"collapse\" href aria-expanded=\"{{isOpen}}\" aria-controls=\"{{::panelId}}\" tabindex=\"0\" class=\"accordion-toggle\" ng-click=\"toggleOpen()\" uib-accordion-transclude=\"heading\" ng-disabled=\"isDisabled\" uib-tabindex-toggle><span uib-accordion-header ng-class=\"{'text-muted': isDisabled}\">{{heading}}</span></a>\r\n  </h4>\r\n</div>\r\n<div id=\"{{::panelId}}\" aria-labelledby=\"{{::headingId}}\" aria-hidden=\"{{!isOpen}}\" role=\"tabpanel\" class=\"panel-collapse collapse\" uib-collapse=\"!isOpen\">\r\n  <div class=\"panel-body\" ng-transclude></div>\r\n</div>\r\n";
 	window.angular.module('ng').run(['$templateCache', function(c) { c.put(path, html) }]);
 	module.exports = path;
 
@@ -39877,7 +39877,7 @@
 /***/ function(module, exports) {
 
 	var path = 'G:/GitHub/_private/laoui-bootstrap/src/template/carousel/carousel.html';
-	var html = "<div class=\"carousel-inner\" ng-transclude></div>\n<a role=\"button\" href class=\"left carousel-control\" ng-click=\"prev()\" ng-class=\"{ disabled: isPrevDisabled() }\" ng-show=\"slides.length > 1\">\n  <span aria-hidden=\"true\" class=\"glyphicon glyphicon-chevron-left\"></span>\n  <span class=\"sr-only\">previous</span>\n</a>\n<a role=\"button\" href class=\"right carousel-control\" ng-click=\"next()\" ng-class=\"{ disabled: isNextDisabled() }\" ng-show=\"slides.length > 1\">\n  <span aria-hidden=\"true\" class=\"glyphicon glyphicon-chevron-right\"></span>\n  <span class=\"sr-only\">next</span>\n</a>\n<ol class=\"carousel-indicators\" ng-show=\"slides.length > 1\">\n  <li ng-repeat=\"slide in slides | orderBy:indexOfSlide track by $index\" ng-class=\"{ active: isActive(slide) }\" ng-click=\"select(slide)\">\n    <span class=\"sr-only\">slide {{ $index + 1 }} of {{ slides.length }}<span ng-if=\"isActive(slide)\">, currently active</span></span>\n  </li>\n</ol>\n";
+	var html = "<div class=\"carousel-inner\" ng-transclude></div>\r\n<a role=\"button\" href class=\"left carousel-control\" ng-click=\"prev()\" ng-class=\"{ disabled: isPrevDisabled() }\" ng-show=\"slides.length > 1\">\r\n  <span aria-hidden=\"true\" class=\"glyphicon glyphicon-chevron-left\"></span>\r\n  <span class=\"sr-only\">previous</span>\r\n</a>\r\n<a role=\"button\" href class=\"right carousel-control\" ng-click=\"next()\" ng-class=\"{ disabled: isNextDisabled() }\" ng-show=\"slides.length > 1\">\r\n  <span aria-hidden=\"true\" class=\"glyphicon glyphicon-chevron-right\"></span>\r\n  <span class=\"sr-only\">next</span>\r\n</a>\r\n<ol class=\"carousel-indicators\" ng-show=\"slides.length > 1\">\r\n  <li ng-repeat=\"slide in slides | orderBy:indexOfSlide track by $index\" ng-class=\"{ active: isActive(slide) }\" ng-click=\"select(slide)\">\r\n    <span class=\"sr-only\">slide {{ $index + 1 }} of {{ slides.length }}<span ng-if=\"isActive(slide)\">, currently active</span></span>\r\n  </li>\r\n</ol>\r\n";
 	window.angular.module('ng').run(['$templateCache', function(c) { c.put(path, html) }]);
 	module.exports = path;
 
@@ -39886,7 +39886,7 @@
 /***/ function(module, exports) {
 
 	var path = 'G:/GitHub/_private/laoui-bootstrap/src/template/carousel/slide.html';
-	var html = "<div class=\"text-center\" ng-transclude></div>\n";
+	var html = "<div class=\"text-center\" ng-transclude></div>\r\n";
 	window.angular.module('ng').run(['$templateCache', function(c) { c.put(path, html) }]);
 	module.exports = path;
 
@@ -46248,7 +46248,7 @@
 /***/ function(module, exports) {
 
 	var path = 'G:/GitHub/_private/laoui-bootstrap/src/bootstrap/tabs/template/tabset.html';
-	var html = "<div>\n  <ul class=\"ui-tab nav nav-{{tabset.type || 'tabs'}}\" ng-class=\"{'nav-stacked': vertical, 'nav-justified': justified}\" ng-transclude></ul>\n  <div class=\"tab-content\">\n    <div class=\"tab-pane\"\n         ng-repeat=\"tab in tabset.tabs\"\n         ng-class=\"{active: tabset.active === tab.index}\"\n         ui-tab-content-transclude=\"tab\" style=\"{{style}}\">\n    </div>\n  </div>\n</div>\n";
+	var html = "<div>\r\n  <ul class=\"ui-tab nav nav-{{tabset.type || 'tabs'}}\" ng-class=\"{'nav-stacked': vertical, 'nav-justified': justified}\" ng-transclude></ul>\r\n  <div class=\"tab-content\">\r\n    <div class=\"tab-pane\"\r\n         ng-repeat=\"tab in tabset.tabs\"\r\n         ng-class=\"{active: tabset.active === tab.index}\"\r\n         ui-tab-content-transclude=\"tab\" style=\"{{style}}\">\r\n    </div>\r\n  </div>\r\n</div>\r\n";
 	window.angular.module('ng').run(['$templateCache', function(c) { c.put(path, html) }]);
 	module.exports = path;
 

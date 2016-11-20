@@ -41,7 +41,7 @@ var data = [{
     "children": [{
         "link": "#/components/edit",
         "active": true,
-        "name": "Edit - 编辑器/Wysiwyg",
+        "name": "Editor - 编辑器/Wysiwyg",
         "icon": ""
     }/*,{
         "link": "#/components/typeahead",
