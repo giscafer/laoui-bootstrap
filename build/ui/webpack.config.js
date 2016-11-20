@@ -43,7 +43,7 @@ export default {
         /**
          * 压缩js
          */
-        /*new webpack.optimize.UglifyJsPlugin({
+        new webpack.optimize.UglifyJsPlugin({
             compress: {
                 warnings: false //去掉警告信息
             },
@@ -52,7 +52,7 @@ export default {
                 //不混淆类名（避免controller注入后，无法通过原来的名称找到）
                 keep_fnames: true
             }
-        }),*/
+        }),
 
         /**
          * 将webpack中css抽出存入单独文件
