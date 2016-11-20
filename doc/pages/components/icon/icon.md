@@ -1,20 +1,21 @@
 # Icon 图标
+<p class="lead">
+    <code>ui-icon</code>组件可以快速创建图标，<code>type</code>属性指定图标名称。
+</p>
 
-<section class="markdown-body">
-    <p class="lead">
-        一、使用方式
-    </p>
-    <p class="lead">
-        指令为<code>ui-icon</code>，<code>type</code>属性指定图标名称。
-    </p>
-        <ui-icon type="github"></ui-icon>
-        <pre><ui-icon type="github"/></pre>
-        <ui-icon type="apple"></ui-icon>
-        <pre><ui-icon type="apple"/></pre>
-</section>
-<br>
+## 实例
+
+<ui-icon type="github"></ui-icon>
+<pre><ui-icon type="github"/></pre>
+<ui-icon type="apple"></ui-icon>
+<pre><ui-icon type="apple"/></pre>
+
+## 超500多个图标支持
+
+<p class="lead">也可以直接使用fontawesome或者bootstrap样式创建icon</p>
+
 <section>
-    <p class="lead"> 二、图标使用示例</p>
+    <p class="lead"> 参考链接 </p>
     <ul style="font-size:18px">
         <li>icons:<code>http://fontawesome.io/icons/</code></li>
         <li>examples:<code>http://fontawesome.io/examples/</code></li>
