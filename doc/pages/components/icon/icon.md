@@ -1,5 +1,4 @@
-Icon 图标组件
----
+# Icon 图标
 
 <section class="markdown-body">
     <p class="lead">

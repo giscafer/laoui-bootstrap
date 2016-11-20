@@ -1,7 +1,6 @@
-Grid 栅格
----
+# Grid 栅格
 
-24 栅格系统。
+<p class="lead"><code>Grid</code>组件分为<code>Row</code>和<code>Col</code>两部分,也就是行和列，它们组合成 <code>24</code> 栅格系统。</p>
 
 ## 设计理念
 

@@ -1,5 +1,5 @@
-Navigation 警告信息组件
----
+# Navigation 警告信息
+
 <p class="lead"><code>ui-navigation</code>指令可以快速创建导航菜单</p>
 
 ## 属性
