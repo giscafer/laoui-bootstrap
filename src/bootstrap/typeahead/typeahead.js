@@ -323,7 +323,7 @@ angular.module('ui.bootstrap.typeahead', ['ui.bootstrap.debounce', 'ui.bootstrap
       // console.log($position.position(element))
       // console.log('offsetHeight',element.prop('offsetHeight'))
       scope.position = appendToBody ? $position.offset(element) : $position.position(element);
-      scope.position.top += (element.prop('offsetHeight')-$window.scrollY);//modified by Giscafer
+      scope.position.top += (element.prop('offsetHeight'));//-$window.scrollYmodified by Giscafer
       // scope.position.top += element.prop('offsetHeight');
     }
 

@@ -1,65 +1,13 @@
-<div class="markdown-body"><script type="text/ng-template" id="customTemplate.html">
-  <a>
-      <img ng-src="http://upload.wikimedia.org/wikipedia/commons/thumb/{{match.model.flag}}" width="16">
-      <span ng-bind-html="match.label | uiTypeaheadHighlight:query"></span>
-  </a>
-</script>
+<div class="markdown-body"><h1 id="typeahead-">Typeahead 自动完成</h1>
+<p class="lead"><code>ui-typeahead</code> 指令可以用来快速创建优雅Typeahead（自动完成）与任何形式的文本输入。</p>
 
-<script type="text/ng-template" id="customPopupTemplate.html">
-  <div class="custom-popup-wrapper"
-     ng-style="{top: position().top+'px', left: position().left+'px'}"
-     style="display: block;"
-     ng-show="isOpen() && !moveInProgress"
-     aria-hidden="{{!isOpen()}}">
-    <p class="message">select location from drop down.</p>
-
-    <ul class="dropdown-menu" role="listbox">
-      <li class="ui-typeahead-match" ng-repeat="match in matches track by $index" ng-class="{active: isActive($index) }"
-        ng-mouseenter="selectActive($index)" ng-click="selectMatch($index)" role="option" id="{{::match.id}}">
-        <div ui-typeahead-match index="$index" match="match" query="query" template-url="templateUrl"></div>
-      </li>
-    </ul>
-  </div>
-</script>
-
-<div class="container-fluid typeahead-demo">
-
-<h4>Static arrays</h4>
-<p>Model: {{ctrl.selected | json}}</p>
-<input type="text" ng-model="ctrl.selected" ui-typeahead="state for state in ctrl.states | filter:$viewValue | limitTo:8" class="form-control">
-
-<h4>Asynchronous results</h4>
-<p>Model: {{ctrl.asyncSelected | json}}</p>
-<input type="text" ng-model="ctrl.asyncSelected" placeholder="Locations loaded via $http" ui-typeahead="address for address in ctrl.getLocation($viewValue)" typeahead-loading="ctrl.loadingLocations" typeahead-no-results="ctrl.noResults" class="form-control">
-<i ng-show="ctrl.loadingLocations" class="glyphicon glyphicon-refresh"></i>
-<div ng-show="ctrl.noResults">
-  <i class="glyphicon glyphicon-remove"></i> No Results Found
-</div>
-
-<p><h4>ngModelOptions support</h4></p>
-<p><p>Model: {{ctrl.ngModelOptionsSelected | json}}</p></p>
-<input type="text" ng-model="ctrl.ngModelOptionsSelected" ng-model-options="ctrl.modelOptions" ui-typeahead="state for state in ctrl.states | filter:$viewValue | limitTo:8" class="form-control">
-
-<p><h4>Custom templates for results</h4></p>
-<p><p>Model: {{ctrl.customSelected | json}}</p></p>
-<input type="text" ng-model="ctrl.customSelected" placeholder="Custom template" ui-typeahead="state as state.name for state in ctrl.statesWithFlags | filter:{name:$viewValue}" typeahead-template-url="customTemplate.html" class="form-control" typeahead-show-hint="true" typeahead-min-length="0">
-
-<p><h4>Custom popup templates for typeahead&#39;s dropdown</h4></p>
-<p><p>Model: {{ctrl.customPopupSelected | json}}</p></p>
-<p><input type="text" ng-model="ctrl.customPopupSelected" placeholder="Custom popup template" ui-typeahead="state as state.name for state in ctrl.statesWithFlags | filter:{name:$viewValue}" typeahead-popup-template-url="customPopupTemplate.html" class="form-control">
-</div></p>
-<hr>
-<p>Typeahead is a AngularJS version of <a href="http://getbootstrap.com/2.3.2/javascript.html#typeahead">Bootstrap v2&#39;s typeahead plugin</a>.
-This directive can be used to quickly create elegant typeaheads with any form text input.</p>
-<p>It is very well integrated into AngularJS as it uses a subset of the
-<a href="http://docs.angularjs.org/api/ng.directive:select">select directive</a> syntax, which is very flexible. Supported expressions are:</p>
+<p>它很好融入AngularJS使用选择指令语法的一个子集，它是非常灵活的。支持表达式:</p>
 <ul>
 <li><em>label</em> for <em>value</em> in <em>sourceArray</em></li>
 <li><em>select</em> as <em>label</em> for <em>value</em> in <em>sourceArray</em></li>
 </ul>
-<p>The <code>sourceArray</code> expression can use a special <code>$viewValue</code> variable that corresponds to the value entered inside the input.</p>
-<p>This directive works with promises, meaning you can retrieve matches using the <code>$http</code> service with minimal effort.</p>
-<h3 id="ui-typeahead-settings">ui-typeahead settings</h3>
+<p><code>sourceArray</code>的表达式可以使用一个特殊的<code>$viewValue</code>变量对应于输入的值再输入。</p>
+<p>该指令支撑于<code>promises</code>，意味着你可以轻易的使用 <code>$http</code> 服务</p>
 <h2 id="-">属性</h2>
 <table>
 <thead>
@@ -73,31 +21,31 @@ This directive can be used to quickly create elegant typeaheads with any form te
 <tbody>
 <tr>
 <td>ng-model</td>
-<td>Assignable angular expression to data-bind to</td>
+<td><code>data-bind</code> 数据绑定表达式</td>
 <td>-</td>
 <td>-</td>
 </tr>
 <tr>
 <td>ng-model-options</td>
-<td>Options for ng-model (see <a href="https://docs.angularjs.org/api/ng/directive/ngModelOptions">ng-model-options directive</a>). Currently supports the <code>debounce</code> and <code>getterSetter</code> options.</td>
+<td><code>ng-model</code>选项 (see <a href="https://docs.angularjs.org/api/ng/directive/ngModelOptions">ng-model-options directive</a>). 目前支持 <code>debounce</code> and <code>getterSetter</code> 属性选项</td>
 <td></td>
 <td>-</td>
 </tr>
 <tr>
 <td>typeahead-append-to</td>
-<td>Should the typeahead popup be appended to an element instead of the parent element?</td>
+<td>下拉框append对象，取代原有的parent</td>
 <td>boolean</td>
 <td><code>null</code></td>
 </tr>
 <tr>
 <td>typeahead-append-to-body</td>
-<td>是否将下拉框的代码插入<body>中。默认插入到当前元素的父级元素中。用于处理下拉框所在容器overflow:hidden情况。</td>
+<td>是否将下拉框的代码插入&lt;body&gt;中。默认插入到当前元素的父级元素中。用于处理下拉框所在容器overflow:hidden情况。</td>
 <td>boolean</td>
 <td><code>false</code></td>
 </tr>
 <tr>
 <td>typeahead-editable</td>
-<td>Should it restrict model values to the ones selected from the popup only?</td>
+<td>是否只能选择，不能输入</td>
 <td>boolean</td>
 <td><code>true</code></td>
 </tr>
@@ -115,13 +63,13 @@ This directive can be used to quickly create elegant typeaheads with any form te
 </tr>
 <tr>
 <td>typeahead-input-formatter</td>
-<td>Format the ng-model result after selection</td>
+<td>格式化选择后 ng-model 结果</td>
 <td>-</td>
 <td><code>undefined</code></td>
 </tr>
 <tr>
 <td>typeahead-is-open</td>
-<td>Binding to a variable that indicates if the dropdown is open.</td>
+<td>控制下拉是否开着的。</td>
 <td>-</td>
 <td><code>angular.noop</code></td>
 </tr>
@@ -133,7 +81,7 @@ This directive can be used to quickly create elegant typeaheads with any form te
 </tr>
 <tr>
 <td>typeahead-min-length</td>
-<td>触发自动完成所需最小字符数。. Must be greater than or equal to 0.</td>
+<td>触发自动完成所需最小字符数。大于等于0</td>
 <td>-</td>
 <td><code>1</code></td>
 </tr>
@@ -163,7 +111,7 @@ This directive can be used to quickly create elegant typeaheads with any form te
 </tr>
 <tr>
 <td>typeahead-show-hint</td>
-<td>Show hint when the first option matches.</td>
+<td>当匹配的第一个选项显示提示</td>
 <td>-</td>
 <td><code>false</code></td>
 </tr>
@@ -171,7 +119,7 @@ This directive can be used to quickly create elegant typeaheads with any form te
 <td>typeahead-template-url</td>
 <td>自定义单条结果模版Url</td>
 <td>-</td>
-<td><code>./template/typeahead-match.html</code></td>
+<td>-</td>
 </tr>
 <tr>
 <td>typeahead-wait-ms</td>
@@ -200,7 +148,7 @@ This directive can be used to quickly create elegant typeaheads with any form te
 <tbody>
 <tr>
 <td>typeahead-should-select($event)</td>
-<td>A callback executed when a <code>keyup</code> event that might trigger a selection occurs. Selection will only occur if this function returns true.</td>
+<td>当选择时，按键 <code>keyup</code> 事件触发此回调函数</td>
 <td>Function</td>
 <td><code>null</code></td>
 </tr>
@@ -212,7 +160,161 @@ This directive can be used to quickly create elegant typeaheads with any form te
 </tr>
 </tbody>
 </table>
-<p><strong>Notes</strong></p>
-<p>If a custom template for the popup is used, the wrapper selector used for the match items is the <code>ui-typeahead-match</code> class.</p>
-<p></body></p>
+<p><strong>提示</strong></p>
+<p>如果使用自定义弹出的模板,使用的包装选择器匹配项为<code>ui-typeahead-match</code>类。</p>
+<h2 id="-">实例</h2>
+<div class="bs-example">
+<div class="row">
+<div class="col-md-5">
+<script type="text/ng-template" id="customTemplate.html">
+<a>
+    <img ng-src="http://upload.wikimedia.org/wikipedia/commons/thumb/{{match.model.flag}}" width="16">
+    <span ng-bind-html="match.label | uiTypeaheadHighlight:query"></span>
+</a>
+</script>
+
+<script type="text/ng-template" id="customPopupTemplate.html">
+<div class="custom-popup-wrapper"
+   ng-style="{top: position().top+'px', left: position().left+'px'}"
+   style="display: block;"
+   ng-show="isOpen() && !moveInProgress"
+   aria-hidden="{{!isOpen()}}">
+  <p class="message">select location from drop down.</p>
+
+  <ul class="dropdown-menu" role="listbox">
+    <li class="ui-typeahead-match" ng-repeat="match in matches track by $index" ng-class="{active: isActive($index) }"
+      ng-mouseenter="selectActive($index)" ng-click="selectMatch($index)" role="option" id="{{::match.id}}">
+      <div ui-typeahead-match index="$index" match="match" query="query" template-url="templateUrl"></div>
+    </li>
+  </ul>
 </div>
+</script>
+
+<div class="container-fluid typeahead-demo">
+
+<h4>静态数组</h4>
+<p>Model: {{ctrl.selected | json}}</p>
+<input type="text" ng-model="ctrl.selected" ui-typeahead="state for state in ctrl.states | filter:$viewValue | limitTo:8" class="form-control">
+
+<h4>异步结果</h4>
+<p>Model: {{ctrl.asyncSelected | json}}</p>
+<input type="text" ng-model="ctrl.asyncSelected" placeholder="Locations loaded via $http" ui-typeahead="address for address in ctrl.getLocation($viewValue)" typeahead-loading="ctrl.loadingLocations" typeahead-no-results="ctrl.noResults" class="form-control">
+<i ng-show="ctrl.loadingLocations" class="glyphicon glyphicon-refresh"></i>
+<div ng-show="ctrl.noResults">
+<i class="glyphicon glyphicon-remove"></i> No Results Found
+</div>
+
+<p><h4>ngModelOptions 支持</h4></p>
+<p><p>Model: {{ctrl.ngModelOptionsSelected | json}}</p></p>
+<input type="text" ng-model="ctrl.ngModelOptionsSelected" ng-model-options="ctrl.modelOptions" ui-typeahead="state for state in ctrl.states | filter:$viewValue | limitTo:8" class="form-control">
+
+<p><h4>自定义结果模板</h4></p>
+<p><p>Model: {{ctrl.customSelected | json}}</p></p>
+<input type="text" ng-model="ctrl.customSelected" placeholder="Custom template" ui-typeahead="state as state.name for state in ctrl.statesWithFlags | filter:{name:$viewValue}" typeahead-template-url="customTemplate.html" class="form-control" typeahead-show-hint="true" typeahead-min-length="0">
+
+<p><h4>自定义下拉弹出模板</h4></p>
+<p><p>Model: {{ctrl.customPopupSelected | json}}</p></p>
+<p><input type="text" ng-model="ctrl.customPopupSelected" placeholder="Custom popup template" ui-typeahead="state as state.name for state in ctrl.statesWithFlags | filter:{name:$viewValue}" typeahead-popup-template-url="customPopupTemplate.html" class="form-control">
+</div>
+</div></p>
+<div class="col-md-7">
+<ui-tabset style="max-height:700px;overflow:auto">
+    <ui-tab heading="HTML">
+<pre><code style="width:100%;color:#fff"><span class="xml">
+  <span class="hljs-tag">&lt;<span class="hljs-name">script</span> <span class="hljs-attr">type</span>=<span class="hljs-string">&quot;text/ng-template&quot;</span> <span class="hljs-attr">id</span>=<span class="hljs-string">&quot;customTemplate.html&quot;</span>&gt;</span><span class="handlebars"><span class="xml">
+  <span class="hljs-tag">&lt;<span class="hljs-name">a</span>&gt;</span>
+      <span class="hljs-tag">&lt;<span class="hljs-name">img</span> <span class="hljs-attr">ng-src</span>=<span class="hljs-string">&quot;<a href="http://upload.wikimedia.org/wikipedia/commons/thumb/">http://upload.wikimedia.org/wikipedia/commons/thumb/</a></span></span></span></span></span><span class="hljs-template-variable">{{match.model.flag}}</span><span class="xml"><span class="handlebars"><span class="xml">&quot; width=&quot;16&quot;&gt;
+      <span class="hljs-tag">&lt;<span class="hljs-name">span</span> <span class="hljs-attr">ng-bind-html</span>=<span class="hljs-string">&quot;match.label | uiTypeaheadHighlight:query&quot;</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">span</span>&gt;</span>
+  <span class="hljs-tag">&lt;/<span class="hljs-name">a</span>&gt;</span>
+</span></span><span class="hljs-tag">&lt;/<span class="hljs-name">script</span>&gt;</span>
+<span class="hljs-tag">&lt;<span class="hljs-name">script</span> <span class="hljs-attr">type</span>=<span class="hljs-string">&quot;text/ng-template&quot;</span> <span class="hljs-attr">id</span>=<span class="hljs-string">&quot;customPopupTemplate.html&quot;</span>&gt;</span><span class="javascript">
+  &lt;div <span class="hljs-class"><span class="hljs-keyword">class</span></span>=<span class="hljs-string">&quot;custom-popup-wrapper&quot;</span>
+     ng-style=<span class="hljs-string">&quot;{top: position().top+&#39;px&#39;, left: position().left+&#39;px&#39;}&quot;</span>
+     style=<span class="hljs-string">&quot;display: block;&quot;</span>
+     ng-show=<span class="hljs-string">&quot;isOpen() &amp;&amp; !moveInProgress&quot;</span>
+     aria-hidden=<span class="hljs-string">&quot;</span></span></span><span class="hljs-comment">{{!isOpen()}}</span><span class="xml"><span class="handlebars"><span class="xml">&quot;&gt;
+    <span class="hljs-tag">&lt;<span class="hljs-name">p</span> <span class="hljs-attr">class</span>=<span class="hljs-string">&quot;message&quot;</span>&gt;</span>select location from drop down.<span class="hljs-tag">&lt;/<span class="hljs-name">p</span>&gt;</span>
+
+    <span class="hljs-tag">&lt;<span class="hljs-name">ul</span> <span class="hljs-attr">class</span>=<span class="hljs-string">&quot;dropdown-menu&quot;</span> <span class="hljs-attr">role</span>=<span class="hljs-string">&quot;listbox&quot;</span>&gt;</span>
+      <span class="hljs-tag">&lt;<span class="hljs-name">li</span> <span class="hljs-attr">class</span>=<span class="hljs-string">&quot;ui-typeahead-match&quot;</span> <span class="hljs-attr">ng-repeat</span>=<span class="hljs-string">&quot;match in matches track by $index&quot;</span> <span class="hljs-attr">ng-class</span>=<span class="hljs-string">&quot;{active: isActive($index) }&quot;</span>
+        <span class="hljs-attr">ng-mouseenter</span>=<span class="hljs-string">&quot;selectActive($index)&quot;</span> <span class="hljs-attr">ng-click</span>=<span class="hljs-string">&quot;selectMatch($index)&quot;</span> <span class="hljs-attr">role</span>=<span class="hljs-string">&quot;option&quot;</span> <span class="hljs-attr">id</span>=<span class="hljs-string">&quot;</span></span></span><span class="hljs-template-variable">{{::match.id}}</span><span class="xml"><span class="hljs-tag"><span class="hljs-string">&quot;</span>&gt;</span>
+        <span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">ui-typeahead-match</span> <span class="hljs-attr">index</span>=<span class="hljs-string">&quot;$index&quot;</span> <span class="hljs-attr">match</span>=<span class="hljs-string">&quot;match&quot;</span> <span class="hljs-attr">query</span>=<span class="hljs-string">&quot;query&quot;</span> <span class="hljs-attr">template-url</span>=<span class="hljs-string">&quot;templateUrl&quot;</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
+      <span class="hljs-tag">&lt;/<span class="hljs-name">li</span>&gt;</span>
+    <span class="hljs-tag">&lt;/<span class="hljs-name">ul</span>&gt;</span>
+  <span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
+</span></span><span class="hljs-tag">&lt;/<span class="hljs-name">script</span>&gt;</span>
+<span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">&quot;container-fluid typeahead-demo&quot;</span>&gt;</span>
+<span class="hljs-tag">&lt;<span class="hljs-name">h4</span>&gt;</span>静态数组<span class="hljs-tag">&lt;/<span class="hljs-name">h4</span>&gt;</span>
+<span class="hljs-tag">&lt;<span class="hljs-name">p</span>&gt;</span>Model: </span><span class="hljs-template-variable">{{ctrl.selected | json}}</span><span class="xml"><span class="hljs-tag">&lt;/<span class="hljs-name">p</span>&gt;</span>
+<span class="hljs-tag">&lt;<span class="hljs-name">input</span> <span class="hljs-attr">type</span>=<span class="hljs-string">&quot;text&quot;</span> <span class="hljs-attr">ng-model</span>=<span class="hljs-string">&quot;ctrl.selected&quot;</span> <span class="hljs-attr">ui-typeahead</span>=<span class="hljs-string">&quot;state for state in ctrl.states | filter:$viewValue | limitTo:8&quot;</span> <span class="hljs-attr">class</span>=<span class="hljs-string">&quot;form-control&quot;</span>&gt;</span>
+
+<span class="hljs-tag">&lt;<span class="hljs-name">h4</span>&gt;</span>异步结果<span class="hljs-tag">&lt;/<span class="hljs-name">h4</span>&gt;</span>
+<span class="hljs-tag">&lt;<span class="hljs-name">p</span>&gt;</span>Model: </span><span class="hljs-template-variable">{{ctrl.asyncSelected | json}}</span><span class="xml"><span class="hljs-tag">&lt;/<span class="hljs-name">p</span>&gt;</span>
+<span class="hljs-tag">&lt;<span class="hljs-name">input</span> <span class="hljs-attr">type</span>=<span class="hljs-string">&quot;text&quot;</span> <span class="hljs-attr">ng-model</span>=<span class="hljs-string">&quot;ctrl.asyncSelected&quot;</span> <span class="hljs-attr">placeholder</span>=<span class="hljs-string">&quot;Locations loaded via $http&quot;</span> <span class="hljs-attr">ui-typeahead</span>=<span class="hljs-string">&quot;address for address in ctrl.getLocation($viewValue)&quot;</span> <span class="hljs-attr">typeahead-loading</span>=<span class="hljs-string">&quot;ctrl.loadingLocations&quot;</span> <span class="hljs-attr">typeahead-no-results</span>=<span class="hljs-string">&quot;ctrl.noResults&quot;</span> <span class="hljs-attr">class</span>=<span class="hljs-string">&quot;form-control&quot;</span>&gt;</span>
+<span class="hljs-tag">&lt;<span class="hljs-name">i</span> <span class="hljs-attr">ng-show</span>=<span class="hljs-string">&quot;ctrl.loadingLocations&quot;</span> <span class="hljs-attr">class</span>=<span class="hljs-string">&quot;glyphicon glyphicon-refresh&quot;</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">i</span>&gt;</span>
+<span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">ng-show</span>=<span class="hljs-string">&quot;ctrl.noResults&quot;</span>&gt;</span>
+  <span class="hljs-tag">&lt;<span class="hljs-name">i</span> <span class="hljs-attr">class</span>=<span class="hljs-string">&quot;glyphicon glyphicon-remove&quot;</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">i</span>&gt;</span> No Results Found
+<span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
+
+<span class="hljs-tag">&lt;<span class="hljs-name">h4</span>&gt;</span>ngModelOptions 支持<span class="hljs-tag">&lt;/<span class="hljs-name">h4</span>&gt;</span>
+<span class="hljs-tag">&lt;<span class="hljs-name">p</span>&gt;</span>Model: </span><span class="hljs-template-variable">{{ctrl.ngModelOptionsSelected | json}}</span><span class="xml"><span class="hljs-tag">&lt;/<span class="hljs-name">p</span>&gt;</span>
+<span class="hljs-tag">&lt;<span class="hljs-name">input</span> <span class="hljs-attr">type</span>=<span class="hljs-string">&quot;text&quot;</span> <span class="hljs-attr">ng-model</span>=<span class="hljs-string">&quot;ctrl.ngModelOptionsSelected&quot;</span> <span class="hljs-attr">ng-model-options</span>=<span class="hljs-string">&quot;ctrl.modelOptions&quot;</span> <span class="hljs-attr">ui-typeahead</span>=<span class="hljs-string">&quot;state for state in ctrl.states | filter:$viewValue | limitTo:8&quot;</span> <span class="hljs-attr">class</span>=<span class="hljs-string">&quot;form-control&quot;</span>&gt;</span>
+
+<span class="hljs-tag">&lt;<span class="hljs-name">h4</span>&gt;</span>自定义结果模板<span class="hljs-tag">&lt;/<span class="hljs-name">h4</span>&gt;</span>
+<span class="hljs-tag">&lt;<span class="hljs-name">p</span>&gt;</span>Model: </span><span class="hljs-template-variable">{{ctrl.customSelected | json}}</span><span class="xml"><span class="hljs-tag">&lt;/<span class="hljs-name">p</span>&gt;</span>
+<span class="hljs-tag">&lt;<span class="hljs-name">input</span> <span class="hljs-attr">type</span>=<span class="hljs-string">&quot;text&quot;</span> <span class="hljs-attr">ng-model</span>=<span class="hljs-string">&quot;ctrl.customSelected&quot;</span> <span class="hljs-attr">placeholder</span>=<span class="hljs-string">&quot;Custom template&quot;</span> <span class="hljs-attr">ui-typeahead</span>=<span class="hljs-string">&quot;state as state.name for state in ctrl.statesWithFlags | filter:{name:$viewValue}&quot;</span> <span class="hljs-attr">typeahead-template-url</span>=<span class="hljs-string">&quot;customTemplate.html&quot;</span> <span class="hljs-attr">class</span>=<span class="hljs-string">&quot;form-control&quot;</span> <span class="hljs-attr">typeahead-show-hint</span>=<span class="hljs-string">&quot;true&quot;</span> <span class="hljs-attr">typeahead-min-length</span>=<span class="hljs-string">&quot;0&quot;</span>&gt;</span>
+
+<span class="hljs-tag">&lt;<span class="hljs-name">h4</span>&gt;</span>自定义下拉弹出模板<span class="hljs-tag">&lt;/<span class="hljs-name">h4</span>&gt;</span>
+<span class="hljs-tag">&lt;<span class="hljs-name">p</span>&gt;</span>Model: </span><span class="hljs-template-variable">{{ctrl.customPopupSelected | json}}</span><span class="xml"><span class="hljs-tag">&lt;/<span class="hljs-name">p</span>&gt;</span>
+<span class="hljs-tag">&lt;<span class="hljs-name">input</span> <span class="hljs-attr">type</span>=<span class="hljs-string">&quot;text&quot;</span> <span class="hljs-attr">ng-model</span>=<span class="hljs-string">&quot;ctrl.customPopupSelected&quot;</span> <span class="hljs-attr">placeholder</span>=<span class="hljs-string">&quot;Custom popup template&quot;</span> <span class="hljs-attr">ui-typeahead</span>=<span class="hljs-string">&quot;state as state.name for state in ctrl.statesWithFlags | filter:{name:$viewValue}&quot;</span> <span class="hljs-attr">typeahead-popup-template-url</span>=<span class="hljs-string">&quot;customPopupTemplate.html&quot;</span> <span class="hljs-attr">class</span>=<span class="hljs-string">&quot;form-control&quot;</span>&gt;</span>
+<span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
+</span></code></pre>
+</ui-tab>
+<ui-tab heading="Controller">
+<pre><code style="width:100%;color:#fff">
+export <span class="hljs-keyword">default</span> class TypeaheadCtrl{
+  constructor($scope, $http){
+    this.<em>selected=null;
+    this.<span class="hljs-number"></em></span>$scope=$scope;
+    this.selected = undefined;
+    this.states = [<span class="hljs-string">&#39;Alabama&#39;</span>, <span class="hljs-string">&#39;Alaska&#39;</span>, <span class="hljs-string">&#39;Arizona&#39;</span>, <span class="hljs-string">&#39;Arkansas&#39;</span>, <span class="hljs-string">&#39;California&#39;</span>, <span class="hljs-string">&#39;Colorado&#39;</span>, <span class="hljs-string">&#39;Connecticut&#39;</span>, <span class="hljs-string">&#39;Delaware&#39;</span>, <span class="hljs-string">&#39;Florida&#39;</span>, <span class="hljs-string">&#39;Georgia&#39;</span>, <span class="hljs-string">&#39;Hawaii&#39;</span>, <span class="hljs-string">&#39;Idaho&#39;</span>, <span class="hljs-string">&#39;Illinois&#39;</span>, <span class="hljs-string">&#39;Indiana&#39;</span>, <span class="hljs-string">&#39;Iowa&#39;</span>, <span class="hljs-string">&#39;Kansas&#39;</span>, <span class="hljs-string">&#39;Kentucky&#39;</span>, <span class="hljs-string">&#39;Louisiana&#39;</span>, <span class="hljs-string">&#39;Maine&#39;</span>, <span class="hljs-string">&#39;Maryland&#39;</span>, <span class="hljs-string">&#39;Massachusetts&#39;</span>, <span class="hljs-string">&#39;Michigan&#39;</span>, <span class="hljs-string">&#39;Minnesota&#39;</span>, <span class="hljs-string">&#39;Mississippi&#39;</span>, <span class="hljs-string">&#39;Missouri&#39;</span>, <span class="hljs-string">&#39;Montana&#39;</span>, <span class="hljs-string">&#39;Nebraska&#39;</span>, <span class="hljs-string">&#39;Nevada&#39;</span>, <span class="hljs-string">&#39;New Hampshire&#39;</span>, <span class="hljs-string">&#39;New Jersey&#39;</span>, <span class="hljs-string">&#39;New Mexico&#39;</span>, <span class="hljs-string">&#39;New York&#39;</span>, <span class="hljs-string">&#39;North Dakota&#39;</span>, <span class="hljs-string">&#39;North Carolina&#39;</span>, <span class="hljs-string">&#39;Ohio&#39;</span>, <span class="hljs-string">&#39;Oklahoma&#39;</span>, <span class="hljs-string">&#39;Oregon&#39;</span>, <span class="hljs-string">&#39;Pennsylvania&#39;</span>, <span class="hljs-string">&#39;Rhode Island&#39;</span>, <span class="hljs-string">&#39;South Carolina&#39;</span>, <span class="hljs-string">&#39;South Dakota&#39;</span>, <span class="hljs-string">&#39;Tennessee&#39;</span>, <span class="hljs-string">&#39;Texas&#39;</span>, <span class="hljs-string">&#39;Utah&#39;</span>, <span class="hljs-string">&#39;Vermont&#39;</span>, <span class="hljs-string">&#39;Virginia&#39;</span>, <span class="hljs-string">&#39;Washington&#39;</span>, <span class="hljs-string">&#39;West Virginia&#39;</span>, <span class="hljs-string">&#39;Wisconsin&#39;</span>, <span class="hljs-string">&#39;Wyoming&#39;</span>];
+    // Any function returning a promise object can be used to load values asynchronously
+    this.getLocation = function(val) {
+      return $http.get(<span class="hljs-string">&#39;//maps.googleapis.com/maps/api/geocode/json&#39;</span>, {
+        params: {
+          address: val,
+          sensor: false
+        }
+      }).then(function(response){
+        return response.data.results.map(function(item){
+          return item.formatted_address;
+        });
+      });
+    };
+
+    this.ngModelOptionsSelected = function(value) {
+      if (arguments.length) {
+        this._selected = value;
+      } else {
+        return this._selected;
+      }
+    };
+
+    this.modelOptions = {
+      debounce: {
+        default: <span class="hljs-number">500</span>,
+        blur: <span class="hljs-number">250</span>
+      },
+      getterSetter: true
+    };
+
+    this.statesWithFlags = [{<span class="hljs-string">&#39;name&#39;</span>:<span class="hljs-string">&#39;Alabama&#39;</span>,<span class="hljs-string">&#39;flag&#39;</span>:<span class="hljs-string">&#39;5/5c/Flag_of_Alabama.svg/45px-Flag_of_Alabama.svg.png&#39;</span>},{<span class="hljs-string">&#39;name&#39;</span>:<span class="hljs-string">&#39;Alaska&#39;</span>,<span class="hljs-string">&#39;flag&#39;</span>:<span class="hljs-string">&#39;e/e6/Flag_of_Alaska.svg/43px-Flag_of_Alaska.svg.png&#39;</span>},{<span class="hljs-string">&#39;name&#39;</span>:<span class="hljs-string">&#39;Arizona&#39;</span>,<span class="hljs-string">&#39;flag&#39;</span>:<span class="hljs-string">&#39;9/9d/Flag_of_Arizona.svg/45px-Flag_of_Arizona.svg.png&#39;</span>},{<span class="hljs-string">&#39;name&#39;</span>:<span class="hljs-string">&#39;Arkansas&#39;</span>,<span class="hljs-string">&#39;flag&#39;</span>:<span class="hljs-string">&#39;9/9d/Flag_of_Arkansas.svg/45px-Flag_of_Arkansas.svg.png&#39;</span>},{<span class="hljs-string">&#39;name&#39;</span>:<span class="hljs-string">&#39;California&#39;</span>,<span class="hljs-string">&#39;flag&#39;</span>:<span class="hljs-string">&#39;0/01/Flag_of_California.svg/45px-Flag_of_California.svg.png&#39;</span>},{<span class="hljs-string">&#39;name&#39;</span>:<span class="hljs-string">&#39;Colorado&#39;</span>,<span class="hljs-string">&#39;flag&#39;</span>:<span class="hljs-string">&#39;4/46/Flag_of_Colorado.svg/45px-Flag_of_Colorado.svg.png&#39;</span>},{<span class="hljs-string">&#39;name&#39;</span>:<span class="hljs-string">&#39;Connecticut&#39;</span>,<span class="hljs-string">&#39;flag&#39;</span>:<span class="hljs-string">&#39;9/96/Flag_of_Connecticut.svg/39px-Flag_of_Connecticut.svg.png&#39;</span>},{<span class="hljs-string">&#39;name&#39;</span>:<span class="hljs-string">&#39;Delaware&#39;</span>,<span class="hljs-string">&#39;flag&#39;</span>:<span class="hljs-string">&#39;c/c6/Flag_of_Delaware.svg/45px-Flag_of_Delaware.svg.png&#39;</span>},{<span class="hljs-string">&#39;name&#39;</span>:<span class="hljs-string">&#39;Florida&#39;</span>,<span class="hljs-string">&#39;flag&#39;</span>:<span class="hljs-string">&#39;f/f7/Flag_of_Florida.svg/45px-Flag_of_Florida.svg.png&#39;</span>},{<span class="hljs-string">&#39;name&#39;</span>:<span class="hljs-string">&#39;Georgia&#39;</span>,<span class="hljs-string">&#39;flag&#39;</span>:<span class="hljs-string">&#39;5/54/Flag_of<em>Georgia</em>%28U.S._state%29.svg/46px-Flag_of<em>Georgia</em>%28U.S._state%29.svg.png&#39;</span>},{<span class="hljs-string">&#39;name&#39;</span>:<span class="hljs-string">&#39;Hawaii&#39;</span>,<span class="hljs-string">&#39;flag&#39;</span>:<span class="hljs-string">&#39;e/ef/Flag_of_Hawaii.svg/46px-Flag_of_Hawaii.svg.png&#39;</span>},{<span class="hljs-string">&#39;name&#39;</span>:<span class="hljs-string">&#39;Idaho&#39;</span>,<span class="hljs-string">&#39;flag&#39;</span>:<span class="hljs-string">&#39;a/a4/Flag_of_Idaho.svg/38px-Flag_of_Idaho.svg.png&#39;</span>},{<span class="hljs-string">&#39;name&#39;</span>:<span class="hljs-string">&#39;Illinois&#39;</span>,<span class="hljs-string">&#39;flag&#39;</span>:<span class="hljs-string">&#39;0/01/Flag_of_Illinois.svg/46px-Flag_of_Illinois.svg.png&#39;</span>},{<span class="hljs-string">&#39;name&#39;</span>:<span class="hljs-string">&#39;Indiana&#39;</span>,<span class="hljs-string">&#39;flag&#39;</span>:<span class="hljs-string">&#39;a/ac/Flag_of_Indiana.svg/45px-Flag_of_Indiana.svg.png&#39;</span>},{<span class="hljs-string">&#39;name&#39;</span>:<span class="hljs-string">&#39;Iowa&#39;</span>,<span class="hljs-string">&#39;flag&#39;</span>:<span class="hljs-string">&#39;a/aa/Flag_of_Iowa.svg/44px-Flag_of_Iowa.svg.png&#39;</span>},{<span class="hljs-string">&#39;name&#39;</span>:<span class="hljs-string">&#39;Kansas&#39;</span>,<span class="hljs-string">&#39;flag&#39;</span>:<span class="hljs-string">&#39;d/da/Flag_of_Kansas.svg/46px-Flag_of_Kansas.svg.png&#39;</span>},{<span class="hljs-string">&#39;name&#39;</span>:<span class="hljs-string">&#39;Kentucky&#39;</span>,<span class="hljs-string">&#39;flag&#39;</span>:<span class="hljs-string">&#39;8/8d/Flag_of_Kentucky.svg/46px-Flag_of_Kentucky.svg.png&#39;</span>},{<span class="hljs-string">&#39;name&#39;</span>:<span class="hljs-string">&#39;Louisiana&#39;</span>,<span class="hljs-string">&#39;flag&#39;</span>:<span class="hljs-string">&#39;e/e0/Flag_of_Louisiana.svg/46px-Flag_of_Louisiana.svg.png&#39;</span>},{<span class="hljs-string">&#39;name&#39;</span>:<span class="hljs-string">&#39;Maine&#39;</span>,<span class="hljs-string">&#39;flag&#39;</span>:<span class="hljs-string">&#39;3/35/Flag_of_Maine.svg/45px-Flag_of_Maine.svg.png&#39;</span>},{<span class="hljs-string">&#39;name&#39;</span>:<span class="hljs-string">&#39;Maryland&#39;</span>,<span class="hljs-string">&#39;flag&#39;</span>:<span class="hljs-string">&#39;a/a0/Flag_of_Maryland.svg/45px-Flag_of_Maryland.svg.png&#39;</span>},{<span class="hljs-string">&#39;name&#39;</span>:<span class="hljs-string">&#39;Massachusetts&#39;</span>,<span class="hljs-string">&#39;flag&#39;</span>:<span class="hljs-string">&#39;f/f2/Flag_of_Massachusetts.svg/46px-Flag_of_Massachusetts.svg.png&#39;</span>},{<span class="hljs-string">&#39;name&#39;</span>:<span class="hljs-string">&#39;Michigan&#39;</span>,<span class="hljs-string">&#39;flag&#39;</span>:<span class="hljs-string">&#39;b/b5/Flag_of_Michigan.svg/45px-Flag_of_Michigan.svg.png&#39;</span>},{<span class="hljs-string">&#39;name&#39;</span>:<span class="hljs-string">&#39;Minnesota&#39;</span>,<span class="hljs-string">&#39;flag&#39;</span>:<span class="hljs-string">&#39;b/b9/Flag_of_Minnesota.svg/46px-Flag_of_Minnesota.svg.png&#39;</span>},{<span class="hljs-string">&#39;name&#39;</span>:<span class="hljs-string">&#39;Mississippi&#39;</span>,<span class="hljs-string">&#39;flag&#39;</span>:<span class="hljs-string">&#39;4/42/Flag_of_Mississippi.svg/45px-Flag_of_Mississippi.svg.png&#39;</span>},{<span class="hljs-string">&#39;name&#39;</span>:<span class="hljs-string">&#39;Missouri&#39;</span>,<span class="hljs-string">&#39;flag&#39;</span>:<span class="hljs-string">&#39;5/5a/Flag_of_Missouri.svg/46px-Flag_of_Missouri.svg.png&#39;</span>},{<span class="hljs-string">&#39;name&#39;</span>:<span class="hljs-string">&#39;Montana&#39;</span>,<span class="hljs-string">&#39;flag&#39;</span>:<span class="hljs-string">&#39;c/cb/Flag_of_Montana.svg/45px-Flag_of_Montana.svg.png&#39;</span>},{<span class="hljs-string">&#39;name&#39;</span>:<span class="hljs-string">&#39;Nebraska&#39;</span>,<span class="hljs-string">&#39;flag&#39;</span>:<span class="hljs-string">&#39;4/4d/Flag_of_Nebraska.svg/46px-Flag_of_Nebraska.svg.png&#39;</span>},{<span class="hljs-string">&#39;name&#39;</span>:<span class="hljs-string">&#39;Nevada&#39;</span>,<span class="hljs-string">&#39;flag&#39;</span>:<span class="hljs-string">&#39;f/f1/Flag_of_Nevada.svg/45px-Flag_of_Nevada.svg.png&#39;</span>},{<span class="hljs-string">&#39;name&#39;</span>:<span class="hljs-string">&#39;New Hampshire&#39;</span>,<span class="hljs-string">&#39;flag&#39;</span>:<span class="hljs-string">&#39;2/28/Flag_of_New_Hampshire.svg/45px-Flag_of_New_Hampshire.svg.png&#39;</span>},{<span class="hljs-string">&#39;name&#39;</span>:<span class="hljs-string">&#39;New Jersey&#39;</span>,<span class="hljs-string">&#39;flag&#39;</span>:<span class="hljs-string">&#39;9/92/Flag_of_New_Jersey.svg/45px-Flag_of_New_Jersey.svg.png&#39;</span>},{<span class="hljs-string">&#39;name&#39;</span>:<span class="hljs-string">&#39;New Mexico&#39;</span>,<span class="hljs-string">&#39;flag&#39;</span>:<span class="hljs-string">&#39;c/c3/Flag_of_New_Mexico.svg/45px-Flag_of_New_Mexico.svg.png&#39;</span>},{<span class="hljs-string">&#39;name&#39;</span>:<span class="hljs-string">&#39;New York&#39;</span>,<span class="hljs-string">&#39;flag&#39;</span>:<span class="hljs-string">&#39;1/1a/Flag_of_New_York.svg/46px-Flag_of_New_York.svg.png&#39;</span>},{<span class="hljs-string">&#39;name&#39;</span>:<span class="hljs-string">&#39;North Carolina&#39;</span>,<span class="hljs-string">&#39;flag&#39;</span>:<span class="hljs-string">&#39;b/bb/Flag_of_North_Carolina.svg/45px-Flag_of_North_Carolina.svg.png&#39;</span>},{<span class="hljs-string">&#39;name&#39;</span>:<span class="hljs-string">&#39;North Dakota&#39;</span>,<span class="hljs-string">&#39;flag&#39;</span>:<span class="hljs-string">&#39;e/ee/Flag_of_North_Dakota.svg/38px-Flag_of_North_Dakota.svg.png&#39;</span>},{<span class="hljs-string">&#39;name&#39;</span>:<span class="hljs-string">&#39;Ohio&#39;</span>,<span class="hljs-string">&#39;flag&#39;</span>:<span class="hljs-string">&#39;4/4c/Flag_of_Ohio.svg/46px-Flag_of_Ohio.svg.png&#39;</span>},{<span class="hljs-string">&#39;name&#39;</span>:<span class="hljs-string">&#39;Oklahoma&#39;</span>,<span class="hljs-string">&#39;flag&#39;</span>:<span class="hljs-string">&#39;6/6e/Flag_of_Oklahoma.svg/45px-Flag_of_Oklahoma.svg.png&#39;</span>},{<span class="hljs-string">&#39;name&#39;</span>:<span class="hljs-string">&#39;Oregon&#39;</span>,<span class="hljs-string">&#39;flag&#39;</span>:<span class="hljs-string">&#39;b/b9/Flag_of_Oregon.svg/46px-Flag_of_Oregon.svg.png&#39;</span>},{<span class="hljs-string">&#39;name&#39;</span>:<span class="hljs-string">&#39;Pennsylvania&#39;</span>,<span class="hljs-string">&#39;flag&#39;</span>:<span class="hljs-string">&#39;f/f7/Flag_of_Pennsylvania.svg/45px-Flag_of_Pennsylvania.svg.png&#39;</span>},{<span class="hljs-string">&#39;name&#39;</span>:<span class="hljs-string">&#39;Rhode Island&#39;</span>,<span class="hljs-string">&#39;flag&#39;</span>:<span class="hljs-string">&#39;f/f3/Flag_of_Rhode_Island.svg/32px-Flag_of_Rhode_Island.svg.png&#39;</span>},{<span class="hljs-string">&#39;name&#39;</span>:<span class="hljs-string">&#39;South Carolina&#39;</span>,<span class="hljs-string">&#39;flag&#39;</span>:<span class="hljs-string">&#39;6/69/Flag_of_South_Carolina.svg/45px-Flag_of_South_Carolina.svg.png&#39;</span>},{<span class="hljs-string">&#39;name&#39;</span>:<span class="hljs-string">&#39;South Dakota&#39;</span>,<span class="hljs-string">&#39;flag&#39;</span>:<span class="hljs-string">&#39;1/1a/Flag_of_South_Dakota.svg/46px-Flag_of_South_Dakota.svg.png&#39;</span>},{<span class="hljs-string">&#39;name&#39;</span>:<span class="hljs-string">&#39;Tennessee&#39;</span>,<span class="hljs-string">&#39;flag&#39;</span>:<span class="hljs-string">&#39;9/9e/Flag_of_Tennessee.svg/46px-Flag_of_Tennessee.svg.png&#39;</span>},{<span class="hljs-string">&#39;name&#39;</span>:<span class="hljs-string">&#39;Texas&#39;</span>,<span class="hljs-string">&#39;flag&#39;</span>:<span class="hljs-string">&#39;f/f7/Flag_of_Texas.svg/45px-Flag_of_Texas.svg.png&#39;</span>},{<span class="hljs-string">&#39;name&#39;</span>:<span class="hljs-string">&#39;Utah&#39;</span>,<span class="hljs-string">&#39;flag&#39;</span>:<span class="hljs-string">&#39;f/f6/Flag_of_Utah.svg/45px-Flag_of_Utah.svg.png&#39;</span>},{<span class="hljs-string">&#39;name&#39;</span>:<span class="hljs-string">&#39;Vermont&#39;</span>,<span class="hljs-string">&#39;flag&#39;</span>:<span class="hljs-string">&#39;4/49/Flag_of_Vermont.svg/46px-Flag_of_Vermont.svg.png&#39;</span>},{<span class="hljs-string">&#39;name&#39;</span>:<span class="hljs-string">&#39;Virginia&#39;</span>,<span class="hljs-string">&#39;flag&#39;</span>:<span class="hljs-string">&#39;4/47/Flag_of_Virginia.svg/44px-Flag_of_Virginia.svg.png&#39;</span>},{<span class="hljs-string">&#39;name&#39;</span>:<span class="hljs-string">&#39;Washington&#39;</span>,<span class="hljs-string">&#39;flag&#39;</span>:<span class="hljs-string">&#39;5/54/Flag_of_Washington.svg/46px-Flag_of_Washington.svg.png&#39;</span>},{<span class="hljs-string">&#39;name&#39;</span>:<span class="hljs-string">&#39;West Virginia&#39;</span>,<span class="hljs-string">&#39;flag&#39;</span>:<span class="hljs-string">&#39;2/22/Flag_of_West_Virginia.svg/46px-Flag_of_West_Virginia.svg.png&#39;</span>},{<span class="hljs-string">&#39;name&#39;</span>:<span class="hljs-string">&#39;Wisconsin&#39;</span>,<span class="hljs-string">&#39;flag&#39;</span>:<span class="hljs-string">&#39;2/22/Flag_of_Wisconsin.svg/45px-Flag_of_Wisconsin.svg.png&#39;</span>},{<span class="hljs-string">&#39;name&#39;</span>:<span class="hljs-string">&#39;Wyoming&#39;</span>,<span class="hljs-string">&#39;flag&#39;</span>:<span class="hljs-string">&#39;b/bc/Flag_of_Wyoming.svg/43px-Flag_of_Wyoming.svg.png&#39;</span>}];
+  }
+}
+
+</code></pre>
+</ui-tab>
+</ui-tabset>
+</div>
+</div>
+</div></div>
