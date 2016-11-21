@@ -33,6 +33,10 @@ var data = [{
         "link": "#/components/navigation",
         "name": "Navigation - 导航",
         "icon": ""
+    },{
+        "link": "#/components/tabs",
+        "name": "Tabs - 标签页",
+        "icon": ""
     }]
 }, {
     "link": "",
