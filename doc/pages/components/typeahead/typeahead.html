@@ -1,0 +1,218 @@
+<div class="markdown-body"><script type="text/ng-template" id="customTemplate.html">
+  <a>
+      <img ng-src="http://upload.wikimedia.org/wikipedia/commons/thumb/{{match.model.flag}}" width="16">
+      <span ng-bind-html="match.label | uiTypeaheadHighlight:query"></span>
+  </a>
+</script>
+
+<script type="text/ng-template" id="customPopupTemplate.html">
+  <div class="custom-popup-wrapper"
+     ng-style="{top: position().top+'px', left: position().left+'px'}"
+     style="display: block;"
+     ng-show="isOpen() && !moveInProgress"
+     aria-hidden="{{!isOpen()}}">
+    <p class="message">select location from drop down.</p>
+
+    <ul class="dropdown-menu" role="listbox">
+      <li class="ui-typeahead-match" ng-repeat="match in matches track by $index" ng-class="{active: isActive($index) }"
+        ng-mouseenter="selectActive($index)" ng-click="selectMatch($index)" role="option" id="{{::match.id}}">
+        <div ui-typeahead-match index="$index" match="match" query="query" template-url="templateUrl"></div>
+      </li>
+    </ul>
+  </div>
+</script>
+
+<div class="container-fluid typeahead-demo">
+
+<h4>Static arrays</h4>
+<p>Model: {{ctrl.selected | json}}</p>
+<input type="text" ng-model="ctrl.selected" ui-typeahead="state for state in ctrl.states | filter:$viewValue | limitTo:8" class="form-control">
+
+<h4>Asynchronous results</h4>
+<p>Model: {{ctrl.asyncSelected | json}}</p>
+<input type="text" ng-model="ctrl.asyncSelected" placeholder="Locations loaded via $http" ui-typeahead="address for address in ctrl.getLocation($viewValue)" typeahead-loading="ctrl.loadingLocations" typeahead-no-results="ctrl.noResults" class="form-control">
+<i ng-show="ctrl.loadingLocations" class="glyphicon glyphicon-refresh"></i>
+<div ng-show="ctrl.noResults">
+  <i class="glyphicon glyphicon-remove"></i> No Results Found
+</div>
+
+<p><h4>ngModelOptions support</h4></p>
+<p><p>Model: {{ctrl.ngModelOptionsSelected | json}}</p></p>
+<input type="text" ng-model="ctrl.ngModelOptionsSelected" ng-model-options="ctrl.modelOptions" ui-typeahead="state for state in ctrl.states | filter:$viewValue | limitTo:8" class="form-control">
+
+<p><h4>Custom templates for results</h4></p>
+<p><p>Model: {{ctrl.customSelected | json}}</p></p>
+<input type="text" ng-model="ctrl.customSelected" placeholder="Custom template" ui-typeahead="state as state.name for state in ctrl.statesWithFlags | filter:{name:$viewValue}" typeahead-template-url="customTemplate.html" class="form-control" typeahead-show-hint="true" typeahead-min-length="0">
+
+<p><h4>Custom popup templates for typeahead&#39;s dropdown</h4></p>
+<p><p>Model: {{ctrl.customPopupSelected | json}}</p></p>
+<p><input type="text" ng-model="ctrl.customPopupSelected" placeholder="Custom popup template" ui-typeahead="state as state.name for state in ctrl.statesWithFlags | filter:{name:$viewValue}" typeahead-popup-template-url="customPopupTemplate.html" class="form-control">
+</div></p>
+<hr>
+<p>Typeahead is a AngularJS version of <a href="http://getbootstrap.com/2.3.2/javascript.html#typeahead">Bootstrap v2&#39;s typeahead plugin</a>.
+This directive can be used to quickly create elegant typeaheads with any form text input.</p>
+<p>It is very well integrated into AngularJS as it uses a subset of the
+<a href="http://docs.angularjs.org/api/ng.directive:select">select directive</a> syntax, which is very flexible. Supported expressions are:</p>
+<ul>
+<li><em>label</em> for <em>value</em> in <em>sourceArray</em></li>
+<li><em>select</em> as <em>label</em> for <em>value</em> in <em>sourceArray</em></li>
+</ul>
+<p>The <code>sourceArray</code> expression can use a special <code>$viewValue</code> variable that corresponds to the value entered inside the input.</p>
+<p>This directive works with promises, meaning you can retrieve matches using the <code>$http</code> service with minimal effort.</p>
+<h3 id="ui-typeahead-settings">ui-typeahead settings</h3>
+<h2 id="-">属性</h2>
+<table>
+<thead>
+<tr>
+<th>成员</th>
+<th>说明</th>
+<th>类型</th>
+<th>默认值</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>ng-model</td>
+<td>Assignable angular expression to data-bind to</td>
+<td>-</td>
+<td>-</td>
+</tr>
+<tr>
+<td>ng-model-options</td>
+<td>Options for ng-model (see <a href="https://docs.angularjs.org/api/ng/directive/ngModelOptions">ng-model-options directive</a>). Currently supports the <code>debounce</code> and <code>getterSetter</code> options.</td>
+<td></td>
+<td>-</td>
+</tr>
+<tr>
+<td>typeahead-append-to</td>
+<td>Should the typeahead popup be appended to an element instead of the parent element?</td>
+<td>boolean</td>
+<td><code>null</code></td>
+</tr>
+<tr>
+<td>typeahead-append-to-body</td>
+<td>是否将下拉框的代码插入<body>中。默认插入到当前元素的父级元素中。用于处理下拉框所在容器overflow:hidden情况。</td>
+<td>boolean</td>
+<td><code>false</code></td>
+</tr>
+<tr>
+<td>typeahead-editable</td>
+<td>Should it restrict model values to the ones selected from the popup only?</td>
+<td>boolean</td>
+<td><code>true</code></td>
+</tr>
+<tr>
+<td>typeahead-focus-first</td>
+<td>是否默认选择下拉框中第一行</td>
+<td>boolean</td>
+<td><code>true</code></td>
+</tr>
+<tr>
+<td>typeahead-focus-on-select</td>
+<td>当输入框 <code>onFocus</code> 时触发自动完成功能</td>
+<td>boolean</td>
+<td><code>true</code></td>
+</tr>
+<tr>
+<td>typeahead-input-formatter</td>
+<td>Format the ng-model result after selection</td>
+<td>-</td>
+<td><code>undefined</code></td>
+</tr>
+<tr>
+<td>typeahead-is-open</td>
+<td>Binding to a variable that indicates if the dropdown is open.</td>
+<td>-</td>
+<td><code>angular.noop</code></td>
+</tr>
+<tr>
+<td>typeahead-loading</td>
+<td>当数据为异步加载时绑定一个变量，控制是否显示loading图标</td>
+<td>-</td>
+<td><code>angular.noop</code></td>
+</tr>
+<tr>
+<td>typeahead-min-length</td>
+<td>触发自动完成所需最小字符数。. Must be greater than or equal to 0.</td>
+<td>-</td>
+<td><code>1</code></td>
+</tr>
+<tr>
+<td>typeahead-no-results</td>
+<td>绑定一个变量，控制是否显示“无结果”的提示信息。</td>
+<td>-</td>
+<td><code>angular.noop</code></td>
+</tr>
+<tr>
+<td>typeahead-popup-template-url</td>
+<td>自定义下拉框模版Url</td>
+<td>-</td>
+<td>-</td>
+</tr>
+<tr>
+<td>typeahead-select-on-blur</td>
+<td>当输入框 onBlur 时选中高亮的一条结果</td>
+<td>-</td>
+<td><code>false</code></td>
+</tr>
+<tr>
+<td>typeahead-select-on-exact</td>
+<td>当用户所输入的文字和结果完全匹配时，自动选中完全匹配的结果</td>
+<td>-</td>
+<td><code>false</code></td>
+</tr>
+<tr>
+<td>typeahead-show-hint</td>
+<td>Show hint when the first option matches.</td>
+<td>-</td>
+<td><code>false</code></td>
+</tr>
+<tr>
+<td>typeahead-template-url</td>
+<td>自定义单条结果模版Url</td>
+<td>-</td>
+<td><code>./template/typeahead-match.html</code></td>
+</tr>
+<tr>
+<td>typeahead-wait-ms</td>
+<td>延迟时间</td>
+<td>-</td>
+<td><code>0</code></td>
+</tr>
+<tr>
+<td>ui-typeahead</td>
+<td>所筛选的对象，使用 AngularJS select指令相同的语法 (see <a href="http://docs.angularjs.org/api/ng.directive:select">select directive</a>).</td>
+<td>-</td>
+<td>-</td>
+</tr>
+</tbody>
+</table>
+<h2 id="-">方法</h2>
+<table>
+<thead>
+<tr>
+<th>成员</th>
+<th>说明</th>
+<th>类型</th>
+<th>默认值</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>typeahead-should-select($event)</td>
+<td>A callback executed when a <code>keyup</code> event that might trigger a selection occurs. Selection will only occur if this function returns true.</td>
+<td>Function</td>
+<td><code>null</code></td>
+</tr>
+<tr>
+<td>typeahead-on-select($item, $model, $label, $event)</td>
+<td>当选中结果后触发该事件。 $event 可以为空</td>
+<td>Function</td>
+<td><code>null</code></td>
+</tr>
+</tbody>
+</table>
+<p><strong>Notes</strong></p>
+<p>If a custom template for the popup is used, the wrapper selector used for the match items is the <code>ui-typeahead-match</code> class.</p>
+<p></body></p>
+</div>

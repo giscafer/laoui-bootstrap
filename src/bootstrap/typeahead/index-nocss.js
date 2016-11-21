@@ -1,7 +1,6 @@
 require('../debounce');
 require('../position/index-nocss.js');
-// require('../../template/typeahead/typeahead-match.html');
-// require('../../template/typeahead/typeahead-popup.html');
+
 require('./typeahead');
 
 var MODULE_NAME = 'ui.bootstrap.module.typeahead';
