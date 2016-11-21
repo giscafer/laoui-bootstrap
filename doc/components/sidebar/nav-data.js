@@ -43,11 +43,11 @@ var data = [{
         "active": true,
         "name": "Editor - 编辑器/Wysiwyg",
         "icon": ""
-    }/*,{
+    },{
         "link": "#/components/typeahead",
-        "name": "自动完成 - Typeahead",
+        "name": "Typeahead - 自动完成",
         "icon": ""
-    }*/]
+    }]
 }, {
     "link": "",
     "name": "Data Display 数据展示",

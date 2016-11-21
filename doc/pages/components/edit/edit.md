@@ -8,11 +8,13 @@
 
 <p class="lead">简单实例</p>
 <div class="bs-example">
-	<ui-editor ng-model="htmlVariable" style="height:540px"></ui-editor> 
+	<ui-editor ng-model="ctrl.htmlVariable" style="height:540px"></ui-editor> 
 </div>
 <ui-clipboard></ui-clipboard>
 <div class="highlight">
 	<pre>
-		<ui-editor ng-model="htmlVariable" style="height:540px"></ui-editor> 
+		<ui-editor ng-model="ctrl.htmlVariable" style="height:540px"></ui-editor> 
 	</pre>
 </div>
+<p>输入文本转HTML结果：</p>
+<div>{{ctrl.htmlVariable}}</div>

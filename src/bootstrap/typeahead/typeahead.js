@@ -1,11 +1,14 @@
+var typeaheadMatchTemp=require('./template/typeahead-match.html');
+var typeaheadPopupTemp=require('./template/typeahead-popup.html');
+// 
 angular.module('ui.bootstrap.typeahead', ['ui.bootstrap.debounce', 'ui.bootstrap.position'])
 
 /**
  * A helper service that can parse typeahead's syntax (string provided by users)
  * Extracted to a separate service for ease of unit testing
  */
-  .factory('uibTypeaheadParser', ['$parse', function($parse) {
-    //                      000001111111100000000000002222222200000000000000003333333333333330000000000044444444000
+  .factory('uiTypeaheadParser', ['$parse', function($parse) {
+    // 000001111111100000000000002222222200000000000000003333333333333330000000000044444444000
     var TYPEAHEAD_REGEXP = /^\s*([\s\S]+?)(?:\s+as\s+([\s\S]+?))?\s+for\s+(?:([\$\w][\$\w\d]*))\s+in\s+([\s\S]+?)$/;
     return {
       parse: function(input) {
@@ -26,7 +29,7 @@ angular.module('ui.bootstrap.typeahead', ['ui.bootstrap.debounce', 'ui.bootstrap
     };
   }])
 
-  .controller('UibTypeaheadController', ['$scope', '$element', '$attrs', '$compile', '$parse', '$q', '$timeout', '$document', '$window', '$rootScope', '$$debounce', '$uibPosition', 'uibTypeaheadParser',
+  .controller('UiTypeaheadController', ['$scope', '$element', '$attrs', '$compile', '$parse', '$q', '$timeout', '$document', '$window', '$rootScope', '$$debounce', '$uiPosition', 'uiTypeaheadParser',
     function(originalScope, element, attrs, $compile, $parse, $q, $timeout, $document, $window, $rootScope, $$debounce, $position, typeaheadParser) {
     var HOT_KEYS = [9, 13, 27, 38, 40];
     var eventDebounceTime = 200;
@@ -102,7 +105,7 @@ angular.module('ui.bootstrap.typeahead', ['ui.bootstrap.debounce', 'ui.bootstrap
     };
 
     //expressions used by typeahead
-    var parserResult = typeaheadParser.parse(attrs.uibTypeahead);
+    var parserResult = typeaheadParser.parse(attrs.uiTypeahead);
 
     var hasFocus;
 
@@ -161,7 +164,7 @@ angular.module('ui.bootstrap.typeahead', ['ui.bootstrap.debounce', 'ui.bootstrap
     }
 
     //pop-up element used to display matches
-    var popUpEl = angular.element('<div uib-typeahead-popup></div>');
+    var popUpEl = angular.element('<div ui-typeahead-popup></div>');
     popUpEl.attr({
       id: popupId,
       matches: 'matches',
@@ -317,8 +320,11 @@ angular.module('ui.bootstrap.typeahead', ['ui.bootstrap.debounce', 'ui.bootstrap
     // recalculate actual position and set new values to scope
     // after digest loop is popup in right position
     function recalculatePosition() {
+      // console.log($position.position(element))
+      // console.log('offsetHeight',element.prop('offsetHeight'))
       scope.position = appendToBody ? $position.offset(element) : $position.position(element);
-      scope.position.top += element.prop('offsetHeight');
+      scope.position.top += (element.prop('offsetHeight'));//-$window.scrollYmodified by Giscafer
+      // scope.position.top += element.prop('offsetHeight');
     }
 
     //we need to propagate user's query so we can higlight matches
@@ -406,13 +412,13 @@ angular.module('ui.bootstrap.typeahead', ['ui.bootstrap.debounce', 'ui.bootstrap
         case 38: // up arrow
           scope.activeIdx = (scope.activeIdx > 0 ? scope.activeIdx : scope.matches.length) - 1;
           scope.$digest();
-          target = popUpEl[0].querySelectorAll('.uib-typeahead-match')[scope.activeIdx];
+          target = popUpEl[0].querySelectorAll('.ui-typeahead-match')[scope.activeIdx];
           target.parentNode.scrollTop = target.offsetTop;
           break;
         case 40: // down arrow
           scope.activeIdx = (scope.activeIdx + 1) % scope.matches.length;
           scope.$digest();
-          target = popUpEl[0].querySelectorAll('.uib-typeahead-match')[scope.activeIdx];
+          target = popUpEl[0].querySelectorAll('.ui-typeahead-match')[scope.activeIdx];
           target.parentNode.scrollTop = target.offsetTop;
           break;
         default:
@@ -573,17 +579,17 @@ angular.module('ui.bootstrap.typeahead', ['ui.bootstrap.debounce', 'ui.bootstrap
     };
   }])
 
-  .directive('uibTypeahead', function() {
+  .directive('uiTypeahead', function() {
     return {
-      controller: 'UibTypeaheadController',
-      require: ['ngModel', '^?ngModelOptions', 'uibTypeahead'],
+      controller: 'UiTypeaheadController',
+      require: ['ngModel', '^?ngModelOptions', 'uiTypeahead'],
       link: function(originalScope, element, attrs, ctrls) {
         ctrls[2].init(ctrls[0], ctrls[1]);
       }
     };
   })
 
-  .directive('uibTypeaheadPopup', ['$$debounce', function($$debounce) {
+  .directive('uiTypeaheadPopup', ['$$debounce', function($$debounce) {
     return {
       scope: {
         matches: '=',
@@ -597,7 +603,7 @@ angular.module('ui.bootstrap.typeahead', ['ui.bootstrap.debounce', 'ui.bootstrap
       },
       replace: true,
       templateUrl: function(element, attrs) {
-        return attrs.popupTemplateUrl || '../../template/typeahead/typeahead-popup.html';
+        return attrs.popupTemplateUrl || typeaheadPopupTemp;
       },
       link: function(scope, element, attrs) {
         scope.templateUrl = attrs.templateUrl;
@@ -630,7 +636,7 @@ angular.module('ui.bootstrap.typeahead', ['ui.bootstrap.debounce', 'ui.bootstrap
     };
   }])
 
-  .directive('uibTypeaheadMatch', ['$templateRequest', '$compile', '$parse', function($templateRequest, $compile, $parse) {
+  .directive('uiTypeaheadMatch', ['$templateRequest', '$compile', '$parse', function($templateRequest, $compile, $parse) {
     return {
       scope: {
         index: '=',
@@ -638,7 +644,7 @@ angular.module('ui.bootstrap.typeahead', ['ui.bootstrap.debounce', 'ui.bootstrap
         query: '='
       },
       link: function(scope, element, attrs) {
-        var tplUrl = $parse(attrs.templateUrl)(scope.$parent) || '../../template/typeahead/typeahead-match.html';
+        var tplUrl = $parse(attrs.templateUrl)(scope.$parent) || typeaheadMatchTemp;
         $templateRequest(tplUrl).then(function(tplContent) {
           var tplEl = angular.element(tplContent.trim());
           element.replaceWith(tplEl);
@@ -648,7 +654,7 @@ angular.module('ui.bootstrap.typeahead', ['ui.bootstrap.debounce', 'ui.bootstrap
     };
   }])
 
-  .filter('uibTypeaheadHighlight', ['$sce', '$injector', '$log', function($sce, $injector, $log) {
+  .filter('uiTypeaheadHighlight', ['$sce', '$injector', '$log', function($sce, $injector, $log) {
     var isSanitizePresent;
     isSanitizePresent = $injector.has('$sanitize');
 

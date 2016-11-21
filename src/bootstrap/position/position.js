@@ -6,7 +6,7 @@ angular.module('ui.bootstrap.position', [])
  * relation to another element (this is the case for tooltips, popovers,
  * typeahead suggestions etc.).
  */
-  .factory('$uibPosition', ['$document', '$window', function($document, $window) {
+  .factory('$uiPosition', ['$document', '$window', function($document, $window) {
     /**
      * Used by scrollbarWidth() function to cache scrollbar's width.
      * Do not access this variable directly, use scrollbarWidth() instead.
@@ -90,16 +90,16 @@ angular.module('ui.bootstrap.position', [])
         if (isBody) {
           if (angular.isUndefined(BODY_SCROLLBAR_WIDTH)) {
             var bodyElem = $document.find('body');
-            bodyElem.addClass('uib-position-body-scrollbar-measure');
+            bodyElem.addClass('ui-position-body-scrollbar-measure');
             BODY_SCROLLBAR_WIDTH = $window.innerWidth - bodyElem[0].clientWidth;
             BODY_SCROLLBAR_WIDTH = isFinite(BODY_SCROLLBAR_WIDTH) ? BODY_SCROLLBAR_WIDTH : 0;
-            bodyElem.removeClass('uib-position-body-scrollbar-measure');
+            bodyElem.removeClass('ui-position-body-scrollbar-measure');
           }
           return BODY_SCROLLBAR_WIDTH;
         }
 
         if (angular.isUndefined(SCROLLBAR_WIDTH)) {
-          var scrollElem = angular.element('<div class="uib-position-scrollbar-measure"></div>');
+          var scrollElem = angular.element('<div class="ui-position-scrollbar-measure"></div>');
           $document.find('body').append(scrollElem);
           SCROLLBAR_WIDTH = scrollElem[0].offsetWidth - scrollElem[0].clientWidth;
           SCROLLBAR_WIDTH = isFinite(SCROLLBAR_WIDTH) ? SCROLLBAR_WIDTH : 0;

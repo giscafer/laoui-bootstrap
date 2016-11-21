@@ -64,6 +64,12 @@ export default $routeProvider => {
             controller: ctrls('./components/edit/edit.ctrl.js').default,
             controllerAs:'ctrl'
         })
+        .when('/components/typeahead', {
+            title: 'typeahead Demo',
+            templateUrl: pageHtml['./components/typeahead/typeahead.html'],
+            controller: ctrls('./components/typeahead/typeahead.ctrl.js').default,
+            controllerAs:'ctrl'
+        })
         .otherwise({
             redirectTo: '/laoui/home'
         });
