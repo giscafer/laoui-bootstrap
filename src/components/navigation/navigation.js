@@ -20,10 +20,10 @@ export default class Navigation {
         scope.classes = classNames({
             [`${prefixCls}`]:true,
             [`${prefixCls}-${mode}`]:true,
-            [`${prefixCls}-${theme}`]:true,
+            [`${prefixCls}-${mode}-${theme}`]:true,
             classname:classname
         })
-        if (mode.includes('vertical') !== -1) {
+        if (mode.includes('vertical')) {
             element.delegate('li', 'click', function(e) {
                 let $this = angular.element(this);
                 let $toCloseItems;

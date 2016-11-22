@@ -39718,7 +39718,7 @@
 /* 13 */
 /***/ function(module, exports) {
 
-	var path = 'G:/GitHub/_private/laoui-bootstrap/src/template/accordion/accordion-group.html';
+	var path = 'F:/github/laoui-bootstrap/src/template/accordion/accordion-group.html';
 	var html = "<div role=\"tab\" id=\"{{::headingId}}\" aria-selected=\"{{isOpen}}\" class=\"panel-heading\" ng-keypress=\"toggleOpen($event)\">\r\n  <h4 class=\"panel-title\">\r\n    <a role=\"button\" data-toggle=\"collapse\" href aria-expanded=\"{{isOpen}}\" aria-controls=\"{{::panelId}}\" tabindex=\"0\" class=\"accordion-toggle\" ng-click=\"toggleOpen()\" uib-accordion-transclude=\"heading\" ng-disabled=\"isDisabled\" uib-tabindex-toggle><span uib-accordion-header ng-class=\"{'text-muted': isDisabled}\">{{heading}}</span></a>\r\n  </h4>\r\n</div>\r\n<div id=\"{{::panelId}}\" aria-labelledby=\"{{::headingId}}\" aria-hidden=\"{{!isOpen}}\" role=\"tabpanel\" class=\"panel-collapse collapse\" uib-collapse=\"!isOpen\">\r\n  <div class=\"panel-body\" ng-transclude></div>\r\n</div>\r\n";
 	window.angular.module('ng').run(['$templateCache', function(c) { c.put(path, html) }]);
 	module.exports = path;
@@ -39727,7 +39727,7 @@
 /* 14 */
 /***/ function(module, exports) {
 
-	var path = 'G:/GitHub/_private/laoui-bootstrap/src/template/accordion/accordion.html';
+	var path = 'F:/github/laoui-bootstrap/src/template/accordion/accordion.html';
 	var html = "<div role=\"tablist\" class=\"panel-group\" ng-transclude></div>";
 	window.angular.module('ng').run(['$templateCache', function(c) { c.put(path, html) }]);
 	module.exports = path;
@@ -39876,7 +39876,7 @@
 /* 20 */
 /***/ function(module, exports) {
 
-	var path = 'G:/GitHub/_private/laoui-bootstrap/src/template/carousel/carousel.html';
+	var path = 'F:/github/laoui-bootstrap/src/template/carousel/carousel.html';
 	var html = "<div class=\"carousel-inner\" ng-transclude></div>\r\n<a role=\"button\" href class=\"left carousel-control\" ng-click=\"prev()\" ng-class=\"{ disabled: isPrevDisabled() }\" ng-show=\"slides.length > 1\">\r\n  <span aria-hidden=\"true\" class=\"glyphicon glyphicon-chevron-left\"></span>\r\n  <span class=\"sr-only\">previous</span>\r\n</a>\r\n<a role=\"button\" href class=\"right carousel-control\" ng-click=\"next()\" ng-class=\"{ disabled: isNextDisabled() }\" ng-show=\"slides.length > 1\">\r\n  <span aria-hidden=\"true\" class=\"glyphicon glyphicon-chevron-right\"></span>\r\n  <span class=\"sr-only\">next</span>\r\n</a>\r\n<ol class=\"carousel-indicators\" ng-show=\"slides.length > 1\">\r\n  <li ng-repeat=\"slide in slides | orderBy:indexOfSlide track by $index\" ng-class=\"{ active: isActive(slide) }\" ng-click=\"select(slide)\">\r\n    <span class=\"sr-only\">slide {{ $index + 1 }} of {{ slides.length }}<span ng-if=\"isActive(slide)\">, currently active</span></span>\r\n  </li>\r\n</ol>\r\n";
 	window.angular.module('ng').run(['$templateCache', function(c) { c.put(path, html) }]);
 	module.exports = path;
@@ -39885,7 +39885,7 @@
 /* 21 */
 /***/ function(module, exports) {
 
-	var path = 'G:/GitHub/_private/laoui-bootstrap/src/template/carousel/slide.html';
+	var path = 'F:/github/laoui-bootstrap/src/template/carousel/slide.html';
 	var html = "<div class=\"text-center\" ng-transclude></div>\r\n";
 	window.angular.module('ng').run(['$templateCache', function(c) { c.put(path, html) }]);
 	module.exports = path;
@@ -46247,7 +46247,7 @@
 /* 102 */
 /***/ function(module, exports) {
 
-	var path = 'G:/GitHub/_private/laoui-bootstrap/src/bootstrap/tabs/template/tabset.html';
+	var path = 'F:/github/laoui-bootstrap/src/bootstrap/tabs/template/tabset.html';
 	var html = "<div>\r\n  <ul class=\"ui-tab nav nav-{{tabset.type || 'tabs'}}\" ng-class=\"{'nav-stacked': vertical, 'nav-justified': justified}\" ng-transclude></ul>\r\n  <div class=\"tab-content\">\r\n    <div class=\"tab-pane\"\r\n         ng-repeat=\"tab in tabset.tabs\"\r\n         ng-class=\"{active: tabset.active === tab.index}\"\r\n         ui-tab-content-transclude=\"tab\" style=\"{{style}}\">\r\n    </div>\r\n  </div>\r\n</div>\r\n";
 	window.angular.module('ng').run(['$templateCache', function(c) { c.put(path, html) }]);
 	module.exports = path;
@@ -46256,7 +46256,7 @@
 /* 103 */
 /***/ function(module, exports) {
 
-	var path = 'G:/GitHub/_private/laoui-bootstrap/src/bootstrap/tabs/template/tab.html';
+	var path = 'F:/github/laoui-bootstrap/src/bootstrap/tabs/template/tab.html';
 	var html = "<li ng-class=\"[{active: active, disabled: disabled}, classes]\" class=\"ui-tab nav-item\">\r\n  <a href ng-click=\"select($event)\" class=\"nav-link\" ui-tab-heading-transclude>{{heading}}</a>\r\n</li>\r\n";
 	window.angular.module('ng').run(['$templateCache', function(c) { c.put(path, html) }]);
 	module.exports = path;
@@ -47604,7 +47604,7 @@
 /* 113 */
 /***/ function(module, exports) {
 
-	var path = 'G:/GitHub/_private/laoui-bootstrap/src/bootstrap/typeahead/template/typeahead-match.html';
+	var path = 'F:/github/laoui-bootstrap/src/bootstrap/typeahead/template/typeahead-match.html';
 	var html = "<a href\r\n   tabindex=\"-1\"\r\n   ng-bind-html=\"match.label | uiTypeaheadHighlight:query\"\r\n   ng-attr-title=\"{{match.label}}\"></a>\r\n";
 	window.angular.module('ng').run(['$templateCache', function(c) { c.put(path, html) }]);
 	module.exports = path;
@@ -47613,7 +47613,7 @@
 /* 114 */
 /***/ function(module, exports) {
 
-	var path = 'G:/GitHub/_private/laoui-bootstrap/src/bootstrap/typeahead/template/typeahead-popup.html';
+	var path = 'F:/github/laoui-bootstrap/src/bootstrap/typeahead/template/typeahead-popup.html';
 	var html = "<ul class=\"dropdown-menu\" ng-show=\"isOpen() && !moveInProgress\" ng-style=\"{top: position().top+'px', left: position().left+'px'}\" role=\"listbox\" aria-hidden=\"{{!isOpen()}}\">\r\n    <li class=\"ui-typeahead-match\" ng-repeat=\"match in matches track by $index\" ng-class=\"{active: isActive($index) }\" ng-mouseenter=\"selectActive($index)\" ng-click=\"selectMatch($index, $event)\" role=\"option\" id=\"{{::match.id}}\">\r\n        <div ui-typeahead-match index=\"$index\" match=\"match\" query=\"query\" template-url=\"templateUrl\"></div>\r\n    </li>\r\n</ul>\r\n";
 	window.angular.module('ng').run(['$templateCache', function(c) { c.put(path, html) }]);
 	module.exports = path;
@@ -47854,7 +47854,7 @@
 /* 123 */
 /***/ function(module, exports) {
 
-	var path = 'G:/GitHub/_private/laoui-bootstrap/src/components/icon/icon.html';
+	var path = 'F:/github/laoui-bootstrap/src/components/icon/icon.html';
 	var html = "<i ng-class=\"iconCls\"></i>";
 	window.angular.module('ng').run(['$templateCache', function(c) { c.put(path, html) }]);
 	module.exports = path;
@@ -48044,7 +48044,7 @@
 /* 127 */
 /***/ function(module, exports) {
 
-	var path = 'G:/GitHub/_private/laoui-bootstrap/src/components/panel/template/panel.html';
+	var path = 'F:/github/laoui-bootstrap/src/components/panel/template/panel.html';
 	var html = "<div ng-class=\"classes\" ng-hide=\"hidePanel\">\r\n    <div class=\"panel-heading\" ng-if=\"heading\" ui-panel-transclude=\"heading\">\r\n        <h3 class=\"panel-title\">{{heading}}</h3> </div>\r\n    <div class=\"panel-body\" ng-transclude></div>\r\n</div>\r\n";
 	window.angular.module('ng').run(['$templateCache', function(c) { c.put(path, html) }]);
 	module.exports = path;
@@ -48801,7 +48801,7 @@
 /* 159 */
 /***/ function(module, exports) {
 
-	var path = 'G:/GitHub/_private/laoui-bootstrap/src/components/grid/row.html';
+	var path = 'F:/github/laoui-bootstrap/src/components/grid/row.html';
 	var html = "<div {{...others}} ng-class=\"classes\" ng-style=\"rowStyle\" ng-transclude></div>";
 	window.angular.module('ng').run(['$templateCache', function(c) { c.put(path, html) }]);
 	module.exports = path;
@@ -50076,7 +50076,7 @@
 /* 184 */
 /***/ function(module, exports) {
 
-	var path = 'G:/GitHub/_private/laoui-bootstrap/src/components/grid/col.html';
+	var path = 'F:/github/laoui-bootstrap/src/components/grid/col.html';
 	var html = "<div {{...others}} ng-class=\"classes\" ng-transclude></div>";
 	window.angular.module('ng').run(['$templateCache', function(c) { c.put(path, html) }]);
 	module.exports = path;
@@ -55857,8 +55857,8 @@
 	                classname = _attrs$classname === undefined ? '' : _attrs$classname,
 	                type = attrs.type;
 
-	            scope.classes = (0, _classnames2.default)((_classNames = {}, (0, _defineProperty3.default)(_classNames, '' + prefixCls, true), (0, _defineProperty3.default)(_classNames, prefixCls + '-' + mode, true), (0, _defineProperty3.default)(_classNames, prefixCls + '-' + theme, true), (0, _defineProperty3.default)(_classNames, 'classname', classname), _classNames));
-	            if (mode.includes('vertical') !== -1) {
+	            scope.classes = (0, _classnames2.default)((_classNames = {}, (0, _defineProperty3.default)(_classNames, '' + prefixCls, true), (0, _defineProperty3.default)(_classNames, prefixCls + '-' + mode, true), (0, _defineProperty3.default)(_classNames, prefixCls + '-' + mode + '-' + theme, true), (0, _defineProperty3.default)(_classNames, 'classname', classname), _classNames));
+	            if (mode.includes('vertical')) {
 	                element.delegate('li', 'click', function (e) {
 	                    var _this = this;
 
@@ -55942,7 +55942,7 @@
 /* 192 */
 /***/ function(module, exports) {
 
-	var path = 'G:/GitHub/_private/laoui-bootstrap/src/components/navigation/template/navigation.html';
+	var path = 'F:/github/laoui-bootstrap/src/components/navigation/template/navigation.html';
 	var html = "<ul class=\"{{classes}} clearfix\">\r\n    <li class=\"link-root\" ng-repeat=\"link in links\" ng-include=\"'children.html'\" ng-class=\"{'collapsed': link.children && link.children.length > 0, 'active': currentUrl == link.link}\"></li>\r\n    <script type=\"text/ng-template\" id=\"children.html\">\r\n        <a ng-if=\"link.link\" ng-href=\"{{link.link}}\"> <i ng-if=\"link.icon\" class=\"fa\" ng-class=\"link.icon && 'fa-' + link.icon\"></i> {{link.name}} </a> <span ng-if=\"!link.link\">  <i ng-if=\"link.icon\" class=\"fa\" ng-class=\"link.icon && 'fa fa-' + link.icon\"></i> {{link.name}}</span>\r\n        <ul ng-if=\"link.children\" class=\"menu\">\r\n            <li ng-repeat=\"link in link.children\" ng-class=\"{'collapsed': link.children, 'active': currentUrl == link.link}\" ng-include=\"'children.html'\"></li>\r\n        </ul>\r\n    </script>\r\n</ul>\r\n";
 	window.angular.module('ng').run(['$templateCache', function(c) { c.put(path, html) }]);
 	module.exports = path;
@@ -56179,7 +56179,7 @@
 /* 196 */
 /***/ function(module, exports) {
 
-	var path = 'G:/GitHub/_private/laoui-bootstrap/src/components/alert/alert.html';
+	var path = 'F:/github/laoui-bootstrap/src/components/alert/alert.html';
 	var html = "<div ng-hide=\"closing\" ng-class=\"alertCls\">\r\n    <i ng-if=\"showIcon\" ng-class=\"iconCls\"></i>\r\n    <span ng-class=\"messageCls\" ng-bind=\"message\"></span>\r\n    <span ng-class=\"descriptionCls\"  ng-bind=\"description\"></span>\r\n    <a ng-show=\"closable\" ng-class=\"closeCls\" ng-click=\"close({$event: $event})\"><span ng-if=\"!closetext\">&times;</span>{{closetext?closetext:''}}</a>\r\n</div>\r\n";
 	window.angular.module('ng').run(['$templateCache', function(c) { c.put(path, html) }]);
 	module.exports = path;

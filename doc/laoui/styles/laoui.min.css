@@ -24,15 +24,15 @@
   padding: 0;
   margin: 0;
 }
-.ui-navigation > li.collapsed > a:after,
-.ui-navigation > li.collapsed > span:after {
+.ui-navigation-vertical > li.collapsed > a:after,
+.ui-navigation-vertical > li.collapsed > span:after {
   float: right;
   font-family: FontAwesome;
   content: '\F105';
   color: #bebdbd;
 }
-.ui-navigation > li.expanded > a:after,
-.ui-navigation > li.expanded > span:after {
+.ui-navigation-vertical > li.expanded > a:after,
+.ui-navigation-vertical > li.expanded > span:after {
   float: right;
   margin: 2px 0 0;
   font-size: 12px;
@@ -40,39 +40,39 @@
   content: '\F107';
   color: #fff;
 }
-.ui-navigation-vertical.ui-navigation-light > li {
+.ui-navigation-vertical-light > li {
   cursor: pointer;
   border-bottom: 1px solid #f1f1f1;
 }
-.ui-navigation-vertical.ui-navigation-light > li ul:before {
+.ui-navigation-vertical-light > li ul:before {
   content: ' ';
   display: block;
   height: 5px;
 }
-.ui-navigation-vertical.ui-navigation-light > li > a:hover {
+.ui-navigation-vertical-light > li > a:hover {
   background-color: #eee;
 }
-.ui-navigation-vertical.ui-navigation-light > li > span {
+.ui-navigation-vertical-light > li > span {
   display: block;
   text-decoration: none;
   padding: 10px 15px;
   background-color: #f8f8f8;
   color: #5e5e5e;
 }
-.ui-navigation-vertical.ui-navigation-light > li > span:hover {
+.ui-navigation-vertical-light > li > span:hover {
   background-color: #eee;
 }
-.ui-navigation-vertical.ui-navigation-light > li.active > a,
-.ui-navigation-vertical.ui-navigation-light > li.active > span {
+.ui-navigation-vertical-light > li.active > a,
+.ui-navigation-vertical-light > li.active > span {
   background: #6da4e0;
   color: #fff;
 }
-.ui-navigation-vertical.ui-navigation-light > li.expanded > a,
-.ui-navigation-vertical.ui-navigation-light > li.expanded > span {
+.ui-navigation-vertical-light > li.expanded > a,
+.ui-navigation-vertical-light > li.expanded > span {
   background: #6da4e0;
   color: #fff;
 }
-.ui-navigation-vertical.ui-navigation-light .menu {
+.ui-navigation-vertical-light .menu {
   list-style: none;
   overflow: hidden;
   height: 0;
@@ -82,8 +82,8 @@
   -moz-transition: all 0.2s cubic-bezier(0.78, 0.14, 0.15, 0.86) 0s;
   -ms-transition: all 0.2s cubic-bezier(0.78, 0.14, 0.15, 0.86) 0s;
 }
-.ui-navigation-vertical.ui-navigation-light .menu > li a,
-.ui-navigation-vertical.ui-navigation-light .menu > li span {
+.ui-navigation-vertical-light .menu > li a,
+.ui-navigation-vertical-light .menu > li span {
   display: block;
   color: #666;
   padding: 6px 1px;
@@ -94,36 +94,36 @@
   -moz-transition: all 0.2s cubic-bezier(0.78, 0.14, 0.15, 0.86) 0s;
   -ms-transition: all 0.2s cubic-bezier(0.78, 0.14, 0.15, 0.86) 0s;
 }
-.ui-navigation-vertical.ui-navigation-light .menu li a:hover {
+.ui-navigation-vertical-light .menu li a:hover {
   color: #6da4e1;
 }
-.ui-navigation-vertical.ui-navigation-dark > li {
+.ui-navigation-vertical-dark > li {
   cursor: pointer;
   /*border-bottom: 1px solid #f1f1f1;*/
 }
-.ui-navigation-vertical.ui-navigation-dark > li ul:before {
+.ui-navigation-vertical-dark > li ul:before {
   content: ' ';
   display: block;
   height: 5px;
 }
-.ui-navigation-vertical.ui-navigation-dark > li > a {
+.ui-navigation-vertical-dark > li > a {
   background: #293846;
   color: #c3ccdb;
 }
-.ui-navigation-vertical.ui-navigation-dark > li > a:hover {
+.ui-navigation-vertical-dark > li > a:hover {
   background-color: #11191f;
 }
-.ui-navigation-vertical.ui-navigation-dark > li > span {
+.ui-navigation-vertical-dark > li > span {
   display: block;
   text-decoration: none;
   padding: 10px 15px;
   background-color: #293846;
   color: #c3ccdb;
 }
-.ui-navigation-vertical.ui-navigation-dark > li > span:hover {
+.ui-navigation-vertical-dark > li > span:hover {
   background-color: #11191f;
 }
-.ui-navigation-vertical.ui-navigation-dark .menu {
+.ui-navigation-vertical-dark .menu {
   background-color: #2d3e4d;
   list-style: none;
   overflow: hidden;
@@ -134,8 +134,8 @@
   -moz-transition: all 0.2s cubic-bezier(0.78, 0.14, 0.15, 0.86) 0s;
   -ms-transition: all 0.2s cubic-bezier(0.78, 0.14, 0.15, 0.86) 0s;
 }
-.ui-navigation-vertical.ui-navigation-dark .menu > li a,
-.ui-navigation-vertical.ui-navigation-dark .menu > li span {
+.ui-navigation-vertical-dark .menu > li a,
+.ui-navigation-vertical-dark .menu > li span {
   display: block;
   color: #c3ccdb;
   padding: 6px 1px;
@@ -146,16 +146,61 @@
   -moz-transition: all 0.2s cubic-bezier(0.78, 0.14, 0.15, 0.86) 0s;
   -ms-transition: all 0.2s cubic-bezier(0.78, 0.14, 0.15, 0.86) 0s;
 }
-.ui-navigation-vertical.ui-navigation-dark .menu > li a > i,
-.ui-navigation-vertical.ui-navigation-dark .menu > li span > i {
+.ui-navigation-vertical-dark .menu > li a > i,
+.ui-navigation-vertical-dark .menu > li span > i {
   color: #afb9c9;
 }
-.ui-navigation-vertical.ui-navigation-dark .menu li.active > a,
-.ui-navigation-vertical.ui-navigation-dark .menu li.active > span {
+.ui-navigation-vertical-dark .menu li.active > a,
+.ui-navigation-vertical-dark .menu li.active > span {
   color: #fff;
 }
-.ui-navigation-vertical.ui-navigation-dark .menu li > a:hover {
+.ui-navigation-vertical-dark .menu li > a:hover {
   color: #fff;
+}
+.ui-navigation-horizontal {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  position: relative;
+}
+.ui-navigation-horizontal > li {
+  float: left;
+  position: relative;
+  cursor: pointer;
+  -webkit-transition: all 0.2s cubic-bezier(0.78, 0.14, 0.15, 0.86) 0s;
+  -moz-transition: all 0.2s cubic-bezier(0.78, 0.14, 0.15, 0.86) 0s;
+  -ms-transition: all 0.2s cubic-bezier(0.78, 0.14, 0.15, 0.86) 0s;
+  transition: all 0.2s cubic-bezier(0.78, 0.14, 0.15, 0.86) 0s;
+}
+.ui-navigation-horizontal-light:before {
+  height: 3px;
+  width: 100%;
+  top: 0;
+  left: 0;
+  background: #eee;
+}
+.ui-navigation-horizontal-light > li {
+  float: left;
+  position: relative;
+  cursor: pointer;
+  -webkit-transition: all 0.2s cubic-bezier(0.78, 0.14, 0.15, 0.86) 0s;
+  -moz-transition: all 0.2s cubic-bezier(0.78, 0.14, 0.15, 0.86) 0s;
+  -ms-transition: all 0.2s cubic-bezier(0.78, 0.14, 0.15, 0.86) 0s;
+  transition: all 0.2s cubic-bezier(0.78, 0.14, 0.15, 0.86) 0s;
+}
+.ui-navigation-horizontal-light > li > a,
+.ui-navigation-horizontal-light > li span {
+  color: #666;
+  text-decoration: none;
+  display: inline-block;
+  padding: 10px 15px;
+}
+.ui-navigation-horizontal-light > li > a:focus,
+.ui-navigation-horizontal-light > li span:focus {
+  background: none;
+}
+.ui-navigation-horizontal-light > li:hover {
+  background: #eee;
 }
 .ui-panel-noborder {
   border: none;

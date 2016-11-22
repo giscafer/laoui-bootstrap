@@ -2,6 +2,8 @@
 
 <p class="lead"><code>ui-navigation</code>指令可以快速创建导航菜单</p>
 
+<ui-navigation links="ctrl.data2" mode="horizontal" ></ui-navigation>
+
 ## 属性
 
 | 成员       | 说明             | 类型               | 默认值       |
