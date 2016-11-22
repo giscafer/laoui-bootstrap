@@ -39,7 +39,7 @@ export default {
          * 合并公用代码
          */
         new webpack.optimize.CommonsChunkPlugin({
-            name: '_vendor',
+            name: 'vendor',
             minChunks: function(module, count) {
                 return module.resource && module.resource.indexOf(docPath) === -1;
             }

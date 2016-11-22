@@ -105,12 +105,12 @@ To use clickable elements within the tab, you have override the tab template to 
 		<div>
 			Bootstrap 使用到的某些 HTML 元素和 CSS 属性需要将页面设置为 HTML5 文档类型。在你项目中的每个页面都要参照下面的格式进行设置。
 		</div>
-		<pre>
+		<code>
 			<!DOCTYPE html>
 			<html lang="zh-CN">
 			  ...
 			</html>
-		</pre>
+		</code>
     </ui-tab>
     <ui-tab index="1" heading="移动设备优先">
 		<div>
