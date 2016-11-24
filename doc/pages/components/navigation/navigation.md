@@ -8,7 +8,8 @@
 
 ## 如何使用
 
-<p class="lead"><code>&lt;ui-navigation&gt;</code>标签声明组件，菜单数组数据通过<code>links</code>属性指定</p>
+<code>&lt;ui-navigation /&gt;</code>标签声明组件，菜单数组数据通过<code>links</code>属性指定。
+
 
 ## 属性
 

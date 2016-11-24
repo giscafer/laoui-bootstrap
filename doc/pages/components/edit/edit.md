@@ -1,7 +1,7 @@
 
 # Editor 编辑器
 
-<p class="lead"><code>ui-editor</code>创建一个markdown样式的<code>Wysiwyg</code>编辑器。</p>
+<p class="lead"><code>&lt;ui-editor /&gt;</code>创建一个markdown样式的<code>Wysiwyg</code>编辑器。</p>
 
 
 ## 实例

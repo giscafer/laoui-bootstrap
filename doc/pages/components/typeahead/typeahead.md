@@ -10,7 +10,7 @@
 
 ## 属性
 
-<p class="lead"><code>ui-typeahead</code> 指令可以用来快速创建优雅Typeahead（自动完成）与任何形式的文本输入。</p>
+<code>&lt;ui-typeahead /&gt;</code> 指令可以用来快速创建优雅Typeahead（自动完成）与任何形式的文本输入。
 
 它很好融入AngularJS使用选择指令语法的一个子集，它是非常灵活的。支持表达式:
 
