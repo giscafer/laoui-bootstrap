@@ -39633,6 +39633,7 @@
 	    require: '^uiAccordion', // We need this directive to be inside an accordion
 	    transclude: true, // It transcludes the contents of the directive into the template
 	    restrict: 'AE',
+	    replace: true,
 	    templateUrl: function templateUrl(element, attrs) {
 	      return attrs.templateUrl || accordiongroupHtml;
 	    },
@@ -39719,7 +39720,7 @@
 /***/ function(module, exports) {
 
 	var path = 'G:/GitHub/_private/laoui-bootstrap/src/bootstrap/accordion/template/accordion-group.html';
-	var html = "<div role=\"tab\" id=\"{{::headingId}}\" aria-selected=\"{{isOpen}}\" class=\"panel-heading\" ng-keypress=\"toggleOpen($event)\">\r\n  <h4 class=\"panel-title\">\r\n    <a role=\"button\" data-toggle=\"collapse\" href aria-expanded=\"{{isOpen}}\" aria-controls=\"{{::panelId}}\" tabindex=\"0\" class=\"accordion-toggle\" ng-click=\"toggleOpen()\" ui-accordion-transclude=\"heading\" ng-disabled=\"isDisabled\" ui-tabindex-toggle><span ui-accordion-header ng-class=\"{'text-muted': isDisabled}\">{{heading}}</span></a>\r\n  </h4>\r\n</div>\r\n<div id=\"{{::panelId}}\" aria-labelledby=\"{{::headingId}}\" aria-hidden=\"{{!isOpen}}\" role=\"tabpanel\" class=\"panel-collapse collapse\" ui-collapse=\"!isOpen\">\r\n  <div class=\"panel-body\" ng-transclude></div>\r\n</div>\r\n";
+	var html = "<div>\r\n  <div role=\"tab\" id=\"{{::headingId}}\" aria-selected=\"{{isOpen}}\" class=\"panel-heading\" ng-keypress=\"toggleOpen($event)\">\r\n    <h4 class=\"panel-title\">\r\n      <a role=\"button\" data-toggle=\"collapse\" href aria-expanded=\"{{isOpen}}\" aria-controls=\"{{::panelId}}\" tabindex=\"0\" class=\"accordion-toggle\"\r\n        ng-click=\"toggleOpen()\" ui-accordion-transclude=\"heading\" ng-disabled=\"isDisabled\" ui-tabindex-toggle><span ui-accordion-header ng-class=\"{'text-muted': isDisabled}\">{{heading}}</span></a>\r\n    </h4>\r\n  </div>\r\n  <div id=\"{{::panelId}}\" aria-labelledby=\"{{::headingId}}\" aria-hidden=\"{{!isOpen}}\" role=\"tabpanel\" class=\"panel-collapse collapse\"\r\n    ui-collapse=\"!isOpen\">\r\n    <div class=\"panel-body\" ng-transclude></div>\r\n  </div>\r\n</div>";
 	window.angular.module('ng').run(['$templateCache', function(c) { c.put(path, html) }]);
 	module.exports = path;
 

@@ -62,6 +62,7 @@ angular.module('ui.bootstrap.accordion', ['ui.bootstrap.collapse', 'ui.bootstrap
     require: '^uiAccordion',         // We need this directive to be inside an accordion
     transclude: true,              // It transcludes the contents of the directive into the template
     restrict: 'AE',
+    replace:true,
     templateUrl: function(element, attrs) {
       return attrs.templateUrl || accordiongroupHtml;
     },
