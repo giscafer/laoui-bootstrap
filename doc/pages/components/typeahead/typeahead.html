@@ -206,19 +206,19 @@
 <i class="glyphicon glyphicon-remove"></i> No Results Found
 </div>
 
-<p><h4>ngModelOptions 支持</h4></p>
-<p><p>Model: {{ctrl.ngModelOptionsSelected | json}}</p></p>
+<p></p><h4>ngModelOptions 支持</h4><p></p>
+<p></p><p>Model: {{ctrl.ngModelOptionsSelected | json}}</p><p></p>
 <input type="text" ng-model="ctrl.ngModelOptionsSelected" ng-model-options="ctrl.modelOptions" ui-typeahead="state for state in ctrl.states | filter:$viewValue | limitTo:8" class="form-control">
 
-<p><h4>自定义结果模板</h4></p>
-<p><p>Model: {{ctrl.customSelected | json}}</p></p>
+<p></p><h4>自定义结果模板</h4><p></p>
+<p></p><p>Model: {{ctrl.customSelected | json}}</p><p></p>
 <input type="text" ng-model="ctrl.customSelected" placeholder="Custom template" ui-typeahead="state as state.name for state in ctrl.statesWithFlags | filter:{name:$viewValue}" typeahead-template-url="customTemplate.html" class="form-control" typeahead-show-hint="true" typeahead-min-length="0">
 
-<p><h4>自定义下拉弹出模板</h4></p>
-<p><p>Model: {{ctrl.customPopupSelected | json}}</p></p>
+<p></p><h4>自定义下拉弹出模板</h4><p></p>
+<p></p><p>Model: {{ctrl.customPopupSelected | json}}</p><p></p>
 <p><input type="text" ng-model="ctrl.customPopupSelected" placeholder="Custom popup template" ui-typeahead="state as state.name for state in ctrl.statesWithFlags | filter:{name:$viewValue}" typeahead-popup-template-url="customPopupTemplate.html" class="form-control">
-</div>
-</div></p>
+</p></div>
+</div><p></p>
 <div class="col-md-7">
 <ui-tabset style="max-height:700px;overflow:auto">
     <ui-tab heading="HTML">
@@ -277,7 +277,7 @@
 export <span class="hljs-keyword">default</span> class TypeaheadCtrl{
   constructor($scope, $http){
     this.<em>selected=null;
-    this.<span class="hljs-number"></em></span>$scope=$scope;
+    this.<span class="hljs-number"></span></em>$scope=$scope;
     this.selected = undefined;
     this.states = [<span class="hljs-string">&#39;Alabama&#39;</span>, <span class="hljs-string">&#39;Alaska&#39;</span>, <span class="hljs-string">&#39;Arizona&#39;</span>, <span class="hljs-string">&#39;Arkansas&#39;</span>, <span class="hljs-string">&#39;California&#39;</span>, <span class="hljs-string">&#39;Colorado&#39;</span>, <span class="hljs-string">&#39;Connecticut&#39;</span>, <span class="hljs-string">&#39;Delaware&#39;</span>, <span class="hljs-string">&#39;Florida&#39;</span>, <span class="hljs-string">&#39;Georgia&#39;</span>, <span class="hljs-string">&#39;Hawaii&#39;</span>, <span class="hljs-string">&#39;Idaho&#39;</span>, <span class="hljs-string">&#39;Illinois&#39;</span>, <span class="hljs-string">&#39;Indiana&#39;</span>, <span class="hljs-string">&#39;Iowa&#39;</span>, <span class="hljs-string">&#39;Kansas&#39;</span>, <span class="hljs-string">&#39;Kentucky&#39;</span>, <span class="hljs-string">&#39;Louisiana&#39;</span>, <span class="hljs-string">&#39;Maine&#39;</span>, <span class="hljs-string">&#39;Maryland&#39;</span>, <span class="hljs-string">&#39;Massachusetts&#39;</span>, <span class="hljs-string">&#39;Michigan&#39;</span>, <span class="hljs-string">&#39;Minnesota&#39;</span>, <span class="hljs-string">&#39;Mississippi&#39;</span>, <span class="hljs-string">&#39;Missouri&#39;</span>, <span class="hljs-string">&#39;Montana&#39;</span>, <span class="hljs-string">&#39;Nebraska&#39;</span>, <span class="hljs-string">&#39;Nevada&#39;</span>, <span class="hljs-string">&#39;New Hampshire&#39;</span>, <span class="hljs-string">&#39;New Jersey&#39;</span>, <span class="hljs-string">&#39;New Mexico&#39;</span>, <span class="hljs-string">&#39;New York&#39;</span>, <span class="hljs-string">&#39;North Dakota&#39;</span>, <span class="hljs-string">&#39;North Carolina&#39;</span>, <span class="hljs-string">&#39;Ohio&#39;</span>, <span class="hljs-string">&#39;Oklahoma&#39;</span>, <span class="hljs-string">&#39;Oregon&#39;</span>, <span class="hljs-string">&#39;Pennsylvania&#39;</span>, <span class="hljs-string">&#39;Rhode Island&#39;</span>, <span class="hljs-string">&#39;South Carolina&#39;</span>, <span class="hljs-string">&#39;South Dakota&#39;</span>, <span class="hljs-string">&#39;Tennessee&#39;</span>, <span class="hljs-string">&#39;Texas&#39;</span>, <span class="hljs-string">&#39;Utah&#39;</span>, <span class="hljs-string">&#39;Vermont&#39;</span>, <span class="hljs-string">&#39;Virginia&#39;</span>, <span class="hljs-string">&#39;Washington&#39;</span>, <span class="hljs-string">&#39;West Virginia&#39;</span>, <span class="hljs-string">&#39;Wisconsin&#39;</span>, <span class="hljs-string">&#39;Wyoming&#39;</span>];
     // Any function returning a promise object can be used to load values asynchronously
