@@ -1,6 +1,6 @@
 angular.module('ui.bootstrap.collapse', [])
 
-  .directive('uibCollapse', ['$animate', '$q', '$parse', '$injector', function($animate, $q, $parse, $injector) {
+  .directive('uiCollapse', ['$animate', '$q', '$parse', '$injector', function($animate, $q, $parse, $injector) {
     var $animateCss = $injector.has('$animateCss') ? $injector.get('$animateCss') : null;
     return {
       link: function(scope, element, attrs) {
@@ -27,7 +27,7 @@ angular.module('ui.bootstrap.collapse', [])
             };
             cssTo = {height: '0'};
           }
-          if (!scope.$eval(attrs.uibCollapse)) {
+          if (!scope.$eval(attrs.uiCollapse)) {
             element.addClass('in')
               .addClass('collapse')
               .attr('aria-expanded', true)
@@ -121,7 +121,7 @@ angular.module('ui.bootstrap.collapse', [])
           collapsedExpr(scope);
         }
 
-        scope.$watch(attrs.uibCollapse, function(shouldCollapse) {
+        scope.$watch(attrs.uiCollapse, function(shouldCollapse) {
           if (shouldCollapse) {
             collapse();
           } else {

@@ -70,6 +70,12 @@ export default $routeProvider => {
             controller: ctrls('./components/typeahead/typeahead.ctrl.js').default,
             controllerAs:'ctrl'
         })
+        .when('/components/accordion', {
+            title: 'accordion Demo',
+            templateUrl: pageHtml['./components/accordion/accordion.html'],
+            controller: ctrls('./components/accordion/accordion.ctrl.js').default,
+            controllerAs:''
+        })
         .otherwise({
             redirectTo: '/laoui/home'
         });

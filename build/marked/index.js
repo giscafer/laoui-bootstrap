@@ -51,17 +51,27 @@ function loadFiles() {
         // console.log(path.basename(file));
         let text = fs.readFileSync(file, 'utf8');
         let $text=cheerio.load(''+text,{decodeEntities: false});
-      
+        //取出不使用markdown样式的部分
+        
+        
+
         $text('pre').each(function(i, elem) {
             // console.log($text(this).html())
-           let language=$text(this).hasClass('html')?'html':'javascript';
+           // let language=$text(this).hasClass('html')?'html':'javascript';
            let code=(highlightJS.highlightAuto($text(this).html()).value);
            // console.log(code)
            $text(this).html('<code style="width:100%;color:#fff">'+code+'</code>');
            // $text(this).html(code);
         });
-
-        fs.writeFileSync(file.replace(/[^.]+$/, 'html'), '<div class="markdown-body">' + marked($text.html(),{ lineNumbers: true }) + '</div>');
+        let notMarkdownHTML=$text('.not-markdown').html();
+        notMarkdownHTML=notMarkdownHTML?notMarkdownHTML:'';
+        
+        $text('.not-markdown').html('');
+        //marked 
+        let markedHtml=marked($text.html(),{ lineNumbers: true });
+        let $text2=cheerio.load(''+markedHtml,{decodeEntities: false});
+        let content='<div class="markdown-body">' + $text2.html() + '</div>'+notMarkdownHTML;
+        fs.writeFileSync(file.replace(/[^.]+$/, 'html'), content);
     }
 
     return list;

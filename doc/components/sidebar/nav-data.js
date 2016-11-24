@@ -56,7 +56,11 @@ var data = [{
     "link": "",
     "name": "Data Display 数据展示",
     "icon": "windows",
-    "children": []
+    "children": [{
+        "link": "#/components/accordion",
+        "name": "Accordion - 手风琴",
+        "icon": ""
+    }]
 }, {
     "link": "",
     "name": "Feedback 反馈提示",

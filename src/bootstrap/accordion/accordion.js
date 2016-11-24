@@ -1,13 +1,13 @@
-var accordiongroupHtml=require('../../template/accordion/accordion-group.html');
-var accordionHtml=require('../../template/accordion/accordion.html');
+var accordiongroupHtml=require('./template/accordion-group.html');
+var accordionHtml=require('./template/accordion.html');
 
 angular.module('ui.bootstrap.accordion', ['ui.bootstrap.collapse', 'ui.bootstrap.tabindex'])
 
-.constant('uibAccordionConfig', {
+.constant('uiAccordionConfig', {
   closeOthers: true
 })
 
-.controller('UibAccordionController', ['$scope', '$attrs', 'uibAccordionConfig', function($scope, $attrs, accordionConfig) {
+.controller('UiAccordionController', ['$scope', '$attrs', 'uiAccordionConfig', function($scope, $attrs, accordionConfig) {
   // This array keeps track of the accordion groups
   this.groups = [];
 
@@ -45,9 +45,9 @@ angular.module('ui.bootstrap.accordion', ['ui.bootstrap.collapse', 'ui.bootstrap
 
 // The accordion directive simply sets up the directive controller
 // and adds an accordion CSS class to itself element.
-.directive('uibAccordion', function() {
+.directive('uiAccordion', function() {
   return {
-    controller: 'UibAccordionController',
+    controller: 'UiAccordionController',
     controllerAs: 'accordion',
     transclude: true,
     templateUrl: function(element, attrs) {
@@ -57,11 +57,11 @@ angular.module('ui.bootstrap.accordion', ['ui.bootstrap.collapse', 'ui.bootstrap
 })
 
 // The accordion-group directive indicates a block of html that will expand and collapse in an accordion
-.directive('uibAccordionGroup', function() {
+.directive('uiAccordionGroup', function() {
   return {
-    require: '^uibAccordion',         // We need this directive to be inside an accordion
+    require: '^uiAccordion',         // We need this directive to be inside an accordion
     transclude: true,              // It transcludes the contents of the directive into the template
-    restrict: 'A',
+    restrict: 'AE',
     templateUrl: function(element, attrs) {
       return attrs.templateUrl || accordiongroupHtml;
     },
@@ -105,12 +105,12 @@ angular.module('ui.bootstrap.accordion', ['ui.bootstrap.collapse', 'ui.bootstrap
 })
 
 // Use accordion-heading below an accordion-group to provide a heading containing HTML
-.directive('uibAccordionHeading', function() {
+.directive('uiAccordionHeading', function() {
   return {
     transclude: true,   // Grab the contents to be used as the heading
     template: '',       // In effect remove this element!
     replace: true,
-    require: '^uibAccordionGroup',
+    require: '^uiAccordionGroup',
     link: function(scope, element, attrs, accordionGroupCtrl, transclude) {
       // Pass the heading to the accordion-group controller
       // so that it can be transcluded into the right place in the template
@@ -122,11 +122,11 @@ angular.module('ui.bootstrap.accordion', ['ui.bootstrap.collapse', 'ui.bootstrap
 
 // Use in the accordion-group template to indicate where you want the heading to be transcluded
 // You must provide the property on the accordion-group controller that will hold the transcluded element
-.directive('uibAccordionTransclude', function() {
+.directive('uiAccordionTransclude', function() {
   return {
-    require: '^uibAccordionGroup',
+    require: '^uiAccordionGroup',
     link: function(scope, element, attrs, controller) {
-      scope.$watch(function() { return controller[attrs.uibAccordionTransclude]; }, function(heading) {
+      scope.$watch(function() { return controller[attrs.uiAccordionTransclude]; }, function(heading) {
         if (heading) {
           var elem = angular.element(element[0].querySelector(getHeaderSelectors()));
           elem.html('');
@@ -137,12 +137,12 @@ angular.module('ui.bootstrap.accordion', ['ui.bootstrap.collapse', 'ui.bootstrap
   };
 
   function getHeaderSelectors() {
-      return 'uib-accordion-header,' +
-          'data-uib-accordion-header,' +
-          'x-uib-accordion-header,' +
-          'uib\\:accordion-header,' +
-          '[uib-accordion-header],' +
-          '[data-uib-accordion-header],' +
-          '[x-uib-accordion-header]';
+      return 'ui-accordion-header,' +
+          'data-ui-accordion-header,' +
+          'x-ui-accordion-header,' +
+          'ui\\:accordion-header,' +
+          '[ui-accordion-header],' +
+          '[data-ui-accordion-header],' +
+          '[x-ui-accordion-header]';
   }
 });
