@@ -1,3 +1,18 @@
+
+# Accordion 手风琴/折叠面板
+
+可以折叠/展开的内容区域。
+
+
+## 何时使用
+
+- 对复杂区域进行分组和隐藏，保持页面的整洁。
+- 手风琴 是一种特殊的折叠面板，只允许单个内容区域展开。
+
+## 如何使用
+
+  <code>&lt;ui-accordion /&gt;</code> 与 <code>&lt;ui-accordion-group /&gt;</code> 嵌套创建一个手风琴容器
+
 The **accordion directive** builds on top of the collapse directive to provide a list of items, with collapsible bodies that are collapsed or expanded by clicking on the item's header.
 
 The body of each accordion group is transcluded into the body of the collapsible element.
