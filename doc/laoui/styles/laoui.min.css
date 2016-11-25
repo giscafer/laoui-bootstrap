@@ -2690,7 +2690,11 @@
 }
 .ui-accordion-compact {
   border: none !important;
+  border-bottom: 1px solid #e6e6e6 !important;
   margin-top: 0px !important;
+}
+.ui-accordion-highlight {
+  background: #96c6fb !important;
 }
 .ng-animate.item:not(.left):not(.right) {
   -webkit-transition: 0s ease-in-out left;

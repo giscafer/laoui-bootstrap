@@ -39596,10 +39596,9 @@
 	      });
 	    }
 	  };
-	  var uiMode = angular.isDefined($attrs.isCompact) ? $scope.$eval($attrs.isCompact) : accordionConfig.isCompact;
-	  angular.forEach(this.groups, function (group) {
-	    group.isCompact = 'compact';
-	  });
+	  //修改样式
+	  this.isCompact = angular.isDefined($attrs.isCompact) ? $scope.$eval($attrs.isCompact) : accordionConfig.isCompact;
+
 	  // This is called from the accordion-group directive to add itself to the accordion
 	  this.addGroup = function (groupScope) {
 	    var that = this;
@@ -39654,15 +39653,14 @@
 	      };
 	    },
 	    link: function link(scope, element, attrs, accordionCtrl) {
-	      element.addClass('panel');
-	      accordionCtrl.addGroup(scope);
-
-	      var mode = attrs.mode ? attrs.mode : 'default';
-
-	      scope.classes = classNames({
+	      //修改样式 by giscafer
+	      var classes = classNames({
+	        'panel': true,
 	        'panel-default': true,
-	        'ui-accordion-compact': mode === 'compact'
+	        'ui-accordion-compact': !!accordionCtrl.isCompact
 	      });
+	      element.addClass(classes);
+	      accordionCtrl.addGroup(scope);
 
 	      scope.openClass = attrs.openClass || 'panel-open';
 	      scope.panelClass = attrs.panelClass || 'panel-default';
@@ -39732,7 +39730,7 @@
 /***/ function(module, exports) {
 
 	var path = 'G:/GitHub/_private/laoui-bootstrap/src/bootstrap/accordion/template/accordion-group.html';
-	var html = "<div ng-class=\"{'ui-accordion-compact':isCompact}\" class=\"panel-default\">\r\n  <div role=\"tab\" id=\"{{::headingId}}\" aria-selected=\"{{isOpen}}\" class=\"panel-heading\" ng-keypress=\"toggleOpen($event)\">\r\n    <h4 class=\"panel-title\">\r\n      <a role=\"button\" data-toggle=\"collapse\" href aria-expanded=\"{{isOpen}}\" aria-controls=\"{{::panelId}}\" tabindex=\"0\" class=\"accordion-toggle\"\r\n        ng-click=\"toggleOpen()\" ui-accordion-transclude=\"heading\" ng-disabled=\"isDisabled\" ui-tabindex-toggle><span ui-accordion-header ng-class=\"{'text-muted': isDisabled}\">{{heading}}</span></a>\r\n    </h4>\r\n  </div>\r\n  <div id=\"{{::panelId}}\" aria-labelledby=\"{{::headingId}}\" aria-hidden=\"{{!isOpen}}\" role=\"tabpanel\" class=\"panel-collapse collapse\"\r\n    ui-collapse=\"!isOpen\">\r\n    <div class=\"panel-body\" ng-transclude></div>\r\n  </div>\r\n</div>";
+	var html = "<div>\r\n  <div role=\"tab\" id=\"{{::headingId}}\" aria-selected=\"{{isOpen}}\" class=\"panel-heading\" ng-class=\"{'ui-accordion-highlight':isOpen}\" ng-keypress=\"toggleOpen($event)\">\r\n    <h4 class=\"panel-title\">\r\n      <a role=\"button\" data-toggle=\"collapse\" href aria-expanded=\"{{isOpen}}\" aria-controls=\"{{::panelId}}\" tabindex=\"0\" class=\"accordion-toggle\"\r\n        ng-click=\"toggleOpen()\" ui-accordion-transclude=\"heading\" ng-disabled=\"isDisabled\" ui-tabindex-toggle><span ui-accordion-header ng-class=\"{'text-muted': isDisabled}\">{{heading}}</span></a>\r\n    </h4>\r\n  </div>\r\n  <div id=\"{{::panelId}}\" aria-labelledby=\"{{::headingId}}\" aria-hidden=\"{{!isOpen}}\" role=\"tabpanel\" class=\"panel-collapse collapse\"\r\n    ui-collapse=\"!isOpen\">\r\n    <div class=\"panel-body\" ng-transclude></div>\r\n  </div>\r\n</div>";
 	window.angular.module('ng').run(['$templateCache', function(c) { c.put(path, html) }]);
 	module.exports = path;
 

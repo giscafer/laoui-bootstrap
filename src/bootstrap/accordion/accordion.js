@@ -25,11 +25,10 @@ angular.module('ui.bootstrap.accordion', ['ui.bootstrap.collapse', 'ui.bootstrap
       });
     }
   };
-   var uiMode = angular.isDefined($attrs.isCompact) ?
+  //修改样式
+  this.isCompact = angular.isDefined($attrs.isCompact) ?
       $scope.$eval($attrs.isCompact) :  accordionConfig.isCompact;
-   angular.forEach(this.groups, function(group) {
-         group.isCompact = 'compact';
-      });
+   
   // This is called from the accordion-group directive to add itself to the accordion
   this.addGroup = function(groupScope) {
     var that = this;
@@ -84,16 +83,15 @@ angular.module('ui.bootstrap.accordion', ['ui.bootstrap.collapse', 'ui.bootstrap
       };
     },
     link: function(scope, element, attrs, accordionCtrl) {
-      element.addClass('panel');
-      accordionCtrl.addGroup(scope);
-
-      var mode=attrs.mode?attrs.mode:'default';
-     
-       scope.classes=classNames({
+      //修改样式 by giscafer
+      var classes=classNames({
+          'panel':true,
           'panel-default':true,
-          'ui-accordion-compact':mode==='compact'
+          'ui-accordion-compact':!! accordionCtrl.isCompact
         });
-
+      element.addClass(classes);
+      accordionCtrl.addGroup(scope);
+      
       scope.openClass = attrs.openClass || 'panel-open';
       scope.panelClass = attrs.panelClass || 'panel-default';
       scope.$watch('isOpen', function(value) {
