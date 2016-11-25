@@ -1,10 +1,12 @@
 var accordiongroupHtml=require('./template/accordion-group.html');
 var accordionHtml=require('./template/accordion.html');
+var classNames=require('classnames');
 
 angular.module('ui.bootstrap.accordion', ['ui.bootstrap.collapse', 'ui.bootstrap.tabindex'])
 
 .constant('uiAccordionConfig', {
-  closeOthers: true
+  closeOthers: true,
+  isCompact:false
 })
 
 .controller('UiAccordionController', ['$scope', '$attrs', 'uiAccordionConfig', function($scope, $attrs, accordionConfig) {
@@ -23,7 +25,11 @@ angular.module('ui.bootstrap.accordion', ['ui.bootstrap.collapse', 'ui.bootstrap
       });
     }
   };
-
+   var uiMode = angular.isDefined($attrs.isCompact) ?
+      $scope.$eval($attrs.isCompact) :  accordionConfig.isCompact;
+   angular.forEach(this.groups, function(group) {
+         group.isCompact = 'compact';
+      });
   // This is called from the accordion-group directive to add itself to the accordion
   this.addGroup = function(groupScope) {
     var that = this;
@@ -80,6 +86,13 @@ angular.module('ui.bootstrap.accordion', ['ui.bootstrap.collapse', 'ui.bootstrap
     link: function(scope, element, attrs, accordionCtrl) {
       element.addClass('panel');
       accordionCtrl.addGroup(scope);
+
+      var mode=attrs.mode?attrs.mode:'default';
+     
+       scope.classes=classNames({
+          'panel-default':true,
+          'ui-accordion-compact':mode==='compact'
+        });
 
       scope.openClass = attrs.openClass || 'panel-open';
       scope.panelClass = attrs.panelClass || 'panel-default';

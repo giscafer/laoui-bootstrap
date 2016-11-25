@@ -78,22 +78,22 @@ If custom classes on the accordion-group element are desired, one needs to eithe
       Open only one at a time
     </label>
   </div>
-  <ui-accordion close-others="oneAtATime">
-    <div ui-accordion-group class="panel-default" heading="Static Header, initially expanded" is-open="status.isFirstOpen" is-disabled="status.isFirstDisabled">
+  <ui-accordion close-others="oneAtATime" isCompact='true'>
+    <div ui-accordion-group  heading="Static Header, initially expanded" is-open="status.isFirstOpen" is-disabled="status.isFirstDisabled">
       This content is straight in the template.
     </div>
-    <div ui-accordion-group class="panel-default" heading="{{group.title}}" ng-repeat="group in groups">
+    <div ui-accordion-group  heading="{{group.title}}" ng-repeat="group in groups">
       {{group.content}}
     </div>
-    <div ui-accordion-group class="panel-default" heading="Dynamic Body Content">
+    <div ui-accordion-group  heading="Dynamic Body Content">
       <p>The body of the ui-accordion group grows to fit the contents</p>
       <button type="button" class="btn btn-default btn-sm" ng-click="addItem()">Add Item</button>
       <div ng-repeat="item in items">{{item}}</div>
     </div>
-    <div ui-accordion-group class="panel-default" heading="Custom template" template-url="group-template.html">
+    <div ui-accordion-group  heading="Custom template" template-url="group-template.html">
       Hello
     </div>
-    <div ui-accordion-group class="panel-default" is-open="status.isCustomHeaderOpen" template-url="group-template.html">
+    <div ui-accordion-group  is-open="status.isCustomHeaderOpen" template-url="group-template.html">
       <ui-accordion-heading>
         Custom template with custom header template <i class="pull-right glyphicon" ng-class="{'glyphicon-chevron-down': status.isCustomHeaderOpen, 'glyphicon-chevron-right': !status.isCustomHeaderOpen}"></i>
       </ui-accordion-heading>
@@ -103,7 +103,7 @@ If custom classes on the accordion-group element are desired, one needs to eithe
       <p>Please, to delete your account, click the button below</p>
       <button class="btn btn-danger">Delete</button>
     </div>
-    <div ui-accordion-group class="panel-default" is-open="status.open">
+    <div ui-accordion-group  is-open="status.open">
       <ui-accordion-heading>
         I can have markup, too! <i class="pull-right glyphicon" ng-class="{'glyphicon-chevron-down': status.open, 'glyphicon-chevron-right': !status.open}"></i>
       </ui-accordion-heading>
@@ -111,14 +111,14 @@ If custom classes on the accordion-group element are desired, one needs to eithe
     </div>
   </ui-accordion>
 
-  <ui-accordion  class="margin-bottom-20">
-    <ui-accordion-group is-open="true" heading="列表一" class="panel-default" >
+  <ui-accordion  class="margin-bottom-20" isCompact='true'>
+    <ui-accordion-group is-open="true" heading="列表一" >
         Duis donec aptent. Eros aliquam torquent hendrerit quisque taciti. Mi magnis diam curae; malesuada tempus. Hendrerit turpis est natoque maecenas tellus euismod etiam nullam. Torquent ridiculus euismod parturient pretium malesuada, malesuada viverra, ante dictum nisi feugiat nisl facilisis suspendisse. Maecenas. At purus fames rutrum rutrum commodo facilisi augue tempus ultricies, bibendum, hymenaeos curabitur, consectetuer integer. Turpis interdum nullam sed semper sem tincidunt dis. Eget ad. Egestas ligula leo aptent auctor Ultrices massa nullam nullam blandit penatibus urna torquent primis vel risus varius pretium nonummy adipiscing mattis dolor. Volutpat. Nonummy cum eros maecenas sed tristique adipiscing gravida litora cursus. Scelerisque luctus.
     </ui-accordion-group>
-    <ui-accordion-group heading="列表二" class="panel-default" >
+    <ui-accordion-group heading="列表二">
         Duis donec aptent. Eros aliquam torquent hendrerit quisque taciti. Mi magnis diam curae; malesuada tempus. Hendrerit turpis est natoque maecenas tellus euismod etiam nullam. Torquent ridiculus euismod parturient pretium malesuada, malesuada viverra, ante dictum nisi feugiat nisl facilisis suspendisse. Maecenas. At purus fames rutrum rutrum commodo facilisi augue tempus ultricies, bibendum, hymenaeos curabitur, consectetuer integer. Turpis interdum nullam sed semper sem tincidunt dis. Eget ad. Egestas ligula leo aptent auctor Ultrices massa nullam nullam blandit penatibus urna torquent primis vel risus varius pretium nonummy adipiscing mattis dolor. Volutpat. Nonummy cum eros maecenas sed tristique adipiscing gravida litora cursus. Scelerisque luctus.
     </ui-accordion-group>
-    <ui-accordion-group class="panel-default" >
+    <ui-accordion-group>
         <ui-accordion-heading is-open="true"><em>列表三</em></ui-accordion-heading>
         Duis donec aptent. Eros aliquam torquent hendrerit quisque taciti. Mi magnis diam curae; malesuada tempus. Hendrerit turpis est natoque maecenas tellus euismod etiam nullam. Torquent ridiculus euismod parturient pretium malesuada, malesuada viverra, ante dictum nisi feugiat nisl facilisis suspendisse. Maecenas. At purus fames rutrum rutrum commodo facilisi augue tempus ultricies, bibendum, hymenaeos curabitur, consectetuer integer. Turpis interdum nullam sed semper sem tincidunt dis. Eget ad. Egestas ligula leo aptent auctor Ultrices massa nullam nullam blandit penatibus urna torquent primis vel risus varius pretium nonummy adipiscing mattis dolor. Volutpat. Nonummy cum eros maecenas sed tristique adipiscing gravida litora cursus. Scelerisque luctus.
     </ui-accordion-group>
