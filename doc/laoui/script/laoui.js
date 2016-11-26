@@ -39943,7 +39943,7 @@
 /* 21 */
 /***/ function(module, exports) {
 
-	var path = 'G:/GitHub/_private/laoui-bootstrap/src/template/carousel/carousel.html';
+	var path = 'G:/GitHub/_private/laoui-bootstrap/src/bootstrap/carousel/template/carousel.html';
 	var html = "<div class=\"carousel-inner\" ng-transclude></div>\r\n<a role=\"button\" href class=\"left carousel-control\" ng-click=\"prev()\" ng-class=\"{ disabled: isPrevDisabled() }\" ng-show=\"slides.length > 1\">\r\n  <span aria-hidden=\"true\" class=\"glyphicon glyphicon-chevron-left\"></span>\r\n  <span class=\"sr-only\">previous</span>\r\n</a>\r\n<a role=\"button\" href class=\"right carousel-control\" ng-click=\"next()\" ng-class=\"{ disabled: isNextDisabled() }\" ng-show=\"slides.length > 1\">\r\n  <span aria-hidden=\"true\" class=\"glyphicon glyphicon-chevron-right\"></span>\r\n  <span class=\"sr-only\">next</span>\r\n</a>\r\n<ol class=\"carousel-indicators\" ng-show=\"slides.length > 1\">\r\n  <li ng-repeat=\"slide in slides | orderBy:indexOfSlide track by $index\" ng-class=\"{ active: isActive(slide) }\" ng-click=\"select(slide)\">\r\n    <span class=\"sr-only\">slide {{ $index + 1 }} of {{ slides.length }}<span ng-if=\"isActive(slide)\">, currently active</span></span>\r\n  </li>\r\n</ol>\r\n";
 	window.angular.module('ng').run(['$templateCache', function(c) { c.put(path, html) }]);
 	module.exports = path;
@@ -39952,7 +39952,7 @@
 /* 22 */
 /***/ function(module, exports) {
 
-	var path = 'G:/GitHub/_private/laoui-bootstrap/src/template/carousel/slide.html';
+	var path = 'G:/GitHub/_private/laoui-bootstrap/src/bootstrap/carousel/template/slide.html';
 	var html = "<div class=\"text-center\" ng-transclude></div>\r\n";
 	window.angular.module('ng').run(['$templateCache', function(c) { c.put(path, html) }]);
 	module.exports = path;
@@ -39964,10 +39964,11 @@
 	'use strict';
 
 	var carouselTempl = __webpack_require__(21);
-	angular.module('ui.bootstrap.carousel', []).controller('UibCarouselController', ['$scope', '$element', '$interval', '$timeout', '$animate', function ($scope, $element, $interval, $timeout, $animate) {
+	var carouselSlideTempl = __webpack_require__(22);
+	angular.module('ui.bootstrap.carousel', []).controller('UiCarouselController', ['$scope', '$element', '$interval', '$timeout', '$animate', function ($scope, $element, $interval, $timeout, $animate) {
 	  var self = this,
 	      slides = self.slides = $scope.slides = [],
-	      SLIDE_DIRECTION = 'uib-slideDirection',
+	      SLIDE_DIRECTION = 'ui-slideDirection',
 	      currentIndex = $scope.active,
 	      currentInterval,
 	      isPlaying,
@@ -40243,10 +40244,10 @@
 	      $scope.pause();
 	    }
 	  }
-	}]).directive('uibCarousel', function () {
+	}]).directive('uiCarousel', function () {
 	  return {
 	    transclude: true,
-	    controller: 'UibCarouselController',
+	    controller: 'UiCarouselController',
 	    controllerAs: 'carousel',
 	    restrict: 'A',
 	    templateUrl: function templateUrl(element, attrs) {
@@ -40260,13 +40261,13 @@
 	      noWrap: '&'
 	    }
 	  };
-	}).directive('uibSlide', ['$animate', function ($animate) {
+	}).directive('uiSlide', ['$animate', function ($animate) {
 	  return {
-	    require: '^uibCarousel',
+	    require: '^uiCarousel',
 	    restrict: 'A',
 	    transclude: true,
 	    templateUrl: function templateUrl(element, attrs) {
-	      return attrs.templateUrl || '../../template/carousel/slide.html';
+	      return attrs.templateUrl || carouselSlideTempl;
 	    },
 	    scope: {
 	      actual: '=?',
@@ -40286,7 +40287,7 @@
 	    }
 	  };
 	}]).animation('.item', ['$animateCss', function ($animateCss) {
-	  var SLIDE_DIRECTION = 'uib-slideDirection';
+	  var SLIDE_DIRECTION = 'ui-slideDirection';
 
 	  function removeClass(element, className, callback) {
 	    element.removeClass(className);

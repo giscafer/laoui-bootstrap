@@ -1,5 +1,5 @@
-require('../../template/carousel/carousel.html');
-require('../../template/carousel/slide.html');
+require('./template/carousel.html');
+require('./template/slide.html');
 require('./carousel');
 
 var MODULE_NAME = 'ui.bootstrap.module.carousel';

@@ -1,10 +1,11 @@
-var carouselTempl=require('../../template/carousel/carousel.html');
+var carouselTempl=require('./template/carousel.html');
+var carouselSlideTempl=require('./template/slide.html');
 angular.module('ui.bootstrap.carousel', [])
 
-.controller('UibCarouselController', ['$scope', '$element', '$interval', '$timeout', '$animate', function($scope, $element, $interval, $timeout, $animate) {
+.controller('UiCarouselController', ['$scope', '$element', '$interval', '$timeout', '$animate', function($scope, $element, $interval, $timeout, $animate) {
   var self = this,
     slides = self.slides = $scope.slides = [],
-    SLIDE_DIRECTION = 'uib-slideDirection',
+    SLIDE_DIRECTION = 'ui-slideDirection',
     currentIndex = $scope.active,
     currentInterval, isPlaying, bufferedTransitions = [];
 
@@ -282,10 +283,10 @@ angular.module('ui.bootstrap.carousel', [])
   }
 }])
 
-.directive('uibCarousel', function() {
+.directive('uiCarousel', function() {
   return {
     transclude: true,
-    controller: 'UibCarouselController',
+    controller: 'UiCarouselController',
     controllerAs: 'carousel',
     restrict: 'A',
     templateUrl: function(element, attrs) {
@@ -301,13 +302,13 @@ angular.module('ui.bootstrap.carousel', [])
   };
 })
 
-.directive('uibSlide', ['$animate', function($animate) {
+.directive('uiSlide', ['$animate', function($animate) {
   return {
-    require: '^uibCarousel',
+    require: '^uiCarousel',
     restrict: 'A',
     transclude: true,
     templateUrl: function(element, attrs) {
-      return attrs.templateUrl || '../../template/carousel/slide.html';
+      return attrs.templateUrl || carouselSlideTempl;
     },
     scope: {
       actual: '=?',
@@ -330,7 +331,7 @@ angular.module('ui.bootstrap.carousel', [])
 
 .animation('.item', ['$animateCss',
 function($animateCss) {
-  var SLIDE_DIRECTION = 'uib-slideDirection';
+  var SLIDE_DIRECTION = 'ui-slideDirection';
 
   function removeClass(element, className, callback) {
     element.removeClass(className);

@@ -2,18 +2,14 @@ var data = [{
     "link": "",
     "name": "General 基础组件",
     "icon": "cube",
-    "children": [/*{
+    "children": [{
         "link": "#/components/button",
         "active": true,
         "name": "Button - 按钮",
         "icon": ""
-    }, */{
+    }, {
         "link": "#/components/icon",
         "name": "Icon - 图标",
-        "icon": ""
-    },{
-        "link": "#/components/panel",
-        "name": "Panel - 面板",
         "icon": ""
     }]
 },{
@@ -37,6 +33,10 @@ var data = [{
         "link": "#/components/tabs",
         "name": "Tabs - 标签页",
         "icon": ""
+    },{
+        "link": "#/components/panel",
+        "name": "Panel - 面板",
+        "icon": ""
     }]
 }, {
     "link": "",
@@ -59,6 +59,10 @@ var data = [{
     "children": [{
         "link": "#/components/accordion",
         "name": "Accordion - 手风琴",
+        "icon": ""
+    },{
+        "link": "#/components/carousel",
+        "name": "Carousel - 走马灯",
         "icon": ""
     }]
 }, {

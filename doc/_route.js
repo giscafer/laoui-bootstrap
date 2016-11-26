@@ -76,6 +76,18 @@ export default $routeProvider => {
             controller: ctrls('./components/accordion/accordion.ctrl.js').default,
             controllerAs:'ctrl'
         })
+        .when('/components/button', {
+            title: 'button Demo',
+            templateUrl: pageHtml['./components/button/button.html'],
+            controller: ctrls('./components/button/button.ctrl.js').default,
+            controllerAs:'ctrl'
+        })
+        .when('/components/carousel', {
+            title: 'carousel Demo',
+            templateUrl: pageHtml['./components/carousel/carousel.html'],
+            controller: ctrls('./components/carousel/carousel.ctrl.js').default,
+            controllerAs:'ctrl'
+        })
         .otherwise({
             redirectTo: '/laoui/home'
         });
