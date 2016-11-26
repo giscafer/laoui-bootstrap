@@ -87,8 +87,10 @@ angular.module('ui.bootstrap.accordion', ['ui.bootstrap.collapse', 'ui.bootstrap
       var classes=classNames({
           'panel':true,
           'panel-default':true,
+          'ui-accordion':true,
           'ui-accordion-compact':!! accordionCtrl.isCompact
         });
+      scope.isCompact =accordionCtrl.isCompact
       element.addClass(classes);
       accordionCtrl.addGroup(scope);
       

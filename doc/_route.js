@@ -74,7 +74,7 @@ export default $routeProvider => {
             title: 'accordion Demo',
             templateUrl: pageHtml['./components/accordion/accordion.html'],
             controller: ctrls('./components/accordion/accordion.ctrl.js').default,
-            controllerAs:''
+            controllerAs:'ctrl'
         })
         .otherwise({
             redirectTo: '/laoui/home'

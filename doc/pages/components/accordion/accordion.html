@@ -1,95 +1,134 @@
-<div class="markdown-body"><p>The <strong>accordion directive</strong> builds on top of the collapse directive to provide a list of items, with collapsible bodies that are collapsed or expanded by clicking on the item&#39;s header.</p>
-<p>The body of each accordion group is transcluded into the body of the collapsible element.</p>
-<h3 id="ui-accordion-settings">ui-accordion settings</h3>
+<div class="markdown-body"><h1 id="accordion-">Accordion 手风琴/折叠面板</h1>
+<p>可以折叠/展开的内容区域。</p>
+<h2 id="-">何时使用</h2>
 <ul>
-<li><p><code>close-others</code>
-<small class="badge">$</small>
-<small class="badge">C</small>
-<em>(Default: <code>true</code>)</em> -
-Control whether expanding an item will cause the other items to close.</p>
-</li>
-<li><p><code>template-url</code>
-<em>(Default: <code>template/accordion/accordion.html</code>)</em> -
-Add the ability to override the template used on the component.</p>
-</li>
+<li>对复杂区域进行分组和隐藏，保持页面的整洁。</li>
+<li>手风琴 是一种特殊的折叠面板，只允许单个内容区域展开。</li>
 </ul>
-<h3 id="ui-accordion-group-settings">ui-accordion-group settings</h3>
-<ul>
-<li><p><code>heading</code>
-<em>(Default: <code>none</code>)</em> -
-The clickable text on the group&#39;s header. You need one to be able to click on the header for toggling.</p>
-</li>
-<li><p><code>is-disabled</code>
-<small class="badge">$</small>
-<i class="glyphicon glyphicon-eye-open"></i>
-<em>(Default: <code>false</code>)</em> -
- Whether the accordion group is disabled or not.</p>
-</li>
-<li><p><code>is-open</code>
-<small class="badge">$</small>
-<i class="glyphicon glyphicon-eye-open"></i>
-<em>(Default: <code>false</code>)</em> -
-Whether accordion group is open or closed.</p>
-</li>
-<li><p><code>template-url</code>
-<em>(Default: <code>../../template/accordion/accordion-group.html</code>)</em> -
-Add the ability to override the template used on the component.</p>
-</li>
-</ul>
+<h2 id="-">如何使用</h2>
+<p>  <code>&lt;ui-accordion /&gt;</code> 与 <code>&lt;ui-accordion-group /&gt;</code> 嵌套创建一个手风琴容器</p>
+<h2 id="-">指令属性</h2>
+<h3 id="ui-accordion">ui-accordion</h3>
+<table>
+<thead>
+<tr>
+<th>成员</th>
+<th>说明</th>
+<th>类型</th>
+<th>默认值</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>close-others</td>
+<td>控制是否在展开的时候关闭其他面板</td>
+<td>boolean</td>
+<td>true</td>
+</tr>
+<tr>
+<td>is-compact</td>
+<td>是否是紧靠模式</td>
+<td>boolean</td>
+<td>false</td>
+</tr>
+<tr>
+<td>template-url</td>
+<td>自定义模板路径，覆盖默认的模板</td>
+<td>string</td>
+<td>-</td>
+</tr>
+</tbody>
+</table>
+<h3 id="ui-accordion-group">ui-accordion-group</h3>
+<table>
+<thead>
+<tr>
+<th>成员</th>
+<th>说明</th>
+<th>类型</th>
+<th>默认值</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>heading</td>
+<td>group的头部标题(点击标题字体可以触发折叠展开)</td>
+<td>boolean</td>
+<td>none</td>
+</tr>
+<tr>
+<td>is-disabled</td>
+<td>禁用group面板</td>
+<td>boolean</td>
+<td>false</td>
+</tr>
+<tr>
+<td>is-open</td>
+<td>默认是否展开</td>
+<td>boolean</td>
+<td>false</td>
+</tr>
+<tr>
+<td>template-url</td>
+<td>自定义模板路径，覆盖默认的模板</td>
+<td>string</td>
+<td>-</td>
+</tr>
+</tbody>
+</table>
 <h3 id="accordion-heading">Accordion heading</h3>
-<p>Instead of the <code>heading</code> attribute on the <code>ui-accordion-group</code>, you can use an <code>ui-accordion-heading</code> element inside a group that will be used as the group&#39;s header.</p>
-<p>If you&#39;re using a custom template for the <code>ui-accordion-group</code>, you&#39;ll need to have an element for the heading to be transcluded into using <code>ui-accordion-header</code> (e.g. <code>&lt;div ui-accordion-header=&quot;&quot;&gt;&lt;/div&gt;</code>).</p>
-<h3 id="known-issues">Known issues</h3>
-<p>To use clickable elements within the accordion, you have to override the accordion-group template to use div elements instead of anchor elements, and add <code>cursor: pointer</code> in your CSS. This is due to browsers interpreting anchor elements as the target of any click event, which triggers routing when certain elements such as buttons are nested inside the anchor element.</p>
-<p>If custom classes on the accordion-group element are desired, one needs to either modify the template to remove the <code>ng-class</code> usage in the accordion-group template and use ng-class on the accordion-group element (not recommended), or use an interpolated expression in the class attribute, i.e. <code>&lt;ui-accordion-group class=&quot;{{customClass()}}&quot;&gt;&lt;/ui-accordion-group&gt;</code>.</p>
-<div class="not-markdown"></div>
-</div>
+<p> 在<code>ui-accordion-group</code>组件上，可以使用<code>heading</code>属性或者 <code>&lt;ui-accordion-heading&gt;</code> 指令元素创建group的header</p>
+<p>如果你为 <code>ui-accordion-group</code>创建一个自定义模板, 你将需要使用<code>ui-accordion-header</code>来创建header (e.g. <code>&lt;div ui-accordion-header=&quot;&quot;&gt;&lt;/div&gt;</code>).</p>
+<h2 id="-">代码演示</h2>
+<h3 id="-">默认样式</h3>
+<div class="row">
+  <div class="col-md-5">
   <script type="text/ng-template" id="group-template.html">
     <div class="panel panel-default">
       <div class="panel-heading">
         <h4 class="panel-title" style="color:#fa39c3">
-          <a href tabindex="0" class="accordion-toggle" ng-click="toggleOpen()" ui-accordion-transclude="heading">
-            <span ui-accordion-header ng-class="{'text-muted': isDisabled}">
+          <a href tabindex="0" class="accordion-toggle" ng-click="ctrl.toggleOpen()" ui-accordion-transclude="heading">
+            <span ui-accordion-header ng-class="{'text-muted': ctrl.isDisabled}">
               {{heading}}
             </span>
           </a>
         </h4>
       </div>
-      <div class="panel-collapse collapse" ui-collapse="!isOpen">
+      <div class="panel-collapse collapse" ui-collapse="!ctrl.isOpen">
         <div class="panel-body" style="text-align: right" ng-transclude></div>
       </div>
     </div>
   </script>
 
   <p>
-    <button type="button" class="btn btn-default btn-sm" ng-click="status.open = !status.open">Toggle last panel</button>
-    <button type="button" class="btn btn-default btn-sm" ng-click="status.isFirstDisabled = ! status.isFirstDisabled">Enable / Disable first panel</button>
+    <button type="button" class="btn btn-default btn-sm" ng-click="ctrl.status.open = !ctrl.status.open">Toggle last panel</button>
+    <button type="button" class="btn btn-default btn-sm" ng-click="ctrl.status.isFirstDisabled = ! ctrl.status.isFirstDisabled">Enable / Disable first panel</button>
   </p>
 
   <div class="checkbox">
     <label>
-      <input type="checkbox" ng-model="oneAtATime">
+      <input type="checkbox" ng-model="ctrl.oneAtATime">
       Open only one at a time
     </label>
   </div>
-  <ui-accordion close-others="oneAtATime">
-    <div ui-accordion-group="" heading="Static Header, initially expanded" is-open="status.isFirstOpen" is-disabled="status.isFirstDisabled">
+  <ui-accordion close-others="ctrl.oneAtATime">
+    <div ui-accordion-group="" heading="Static Header, initially expanded" is-open="ctrl.status.isFirstOpen" is-disabled="ctrl.status.isFirstDisabled">
       This content is straight in the template.
     </div>
-    <div ui-accordion-group="" heading="{{group.title}}" ng-repeat="group in groups">
+    <div ui-accordion-group="" heading="{{group.title}}" ng-repeat="group in ctrl.groups">
       {{group.content}}
     </div>
     <div ui-accordion-group="" heading="Dynamic Body Content">
       <p>The body of the ui-accordion group grows to fit the contents</p>
-      <button type="button" class="btn btn-default btn-sm" ng-click="addItem()">Add Item</button>
-      <div ng-repeat="item in items">{{item}}</div>
+      <button type="button" class="btn btn-default btn-sm" ng-click="ctrl.addItem()">Add Item</button>
+      <div ng-repeat="item in ctrl.items">{{item}}</div>
     </div>
     <div ui-accordion-group="" heading="Custom template" template-url="group-template.html">
       Hello
     </div>
-    <div ui-accordion-group="" is-open="status.isCustomHeaderOpen" template-url="group-template.html">
+    <div ui-accordion-group="" is-open="ctrl.status.isCustomHeaderOpen" template-url="group-template.html">
       <ui-accordion-heading>
-        Custom template with custom header template <i class="pull-right glyphicon" ng-class="{'glyphicon-chevron-down': status.isCustomHeaderOpen, 'glyphicon-chevron-right': !status.isCustomHeaderOpen}"></i>
+        Custom template with custom header template <i class="pull-right glyphicon" ng-class="{'glyphicon-chevron-down': ctrl.status.isCustomHeaderOpen, 'glyphicon-chevron-right': !ctrl.status.isCustomHeaderOpen}"></i>
       </ui-accordion-heading>
       World
     </div>
@@ -97,23 +136,174 @@ Add the ability to override the template used on the component.</p>
       <p>Please, to delete your account, click the button below</p>
       <button class="btn btn-danger">Delete</button>
     </div>
-    <div ui-accordion-group="" is-open="status.open">
+    <div ui-accordion-group="" is-open="ctrl.status.open">
       <ui-accordion-heading>
-        I can have markup, too! <i class="pull-right glyphicon" ng-class="{'glyphicon-chevron-down': status.open, 'glyphicon-chevron-right': !status.open}"></i>
+        I can have markup, too! <i class="pull-right glyphicon" ng-class="{'glyphicon-chevron-down': ctrl.status.open, 'glyphicon-chevron-right': !ctrl.status.open}"></i>
       </ui-accordion-heading>
       This is just some content to illustrate fancy headings.
     </div>
   </ui-accordion>
+  </div>
+  <div class="col-md-7">
+<ui-tabset style="max-height:500px;overflow:auto">
+<ui-tab heading="HTML">
+<pre><code style="width:100%;color:#fff">
+  &lt;<span class="hljs-keyword">script</span> type=<span class="hljs-string">&quot;text/ng-template&quot;</span> <span class="hljs-built_in">id</span>=<span class="hljs-string">&quot;group-template.html&quot;</span>&gt;
+    &lt;<span class="hljs-keyword">div</span> <span class="hljs-built_in">class</span>=<span class="hljs-string">&quot;panel panel-default&quot;</span>&gt;
+      &lt;<span class="hljs-keyword">div</span> <span class="hljs-built_in">class</span>=<span class="hljs-string">&quot;panel-heading&quot;</span>&gt;
+        &lt;h4 <span class="hljs-built_in">class</span>=<span class="hljs-string">&quot;panel-title&quot;</span> style=<span class="hljs-string">&quot;color:#fa39c3&quot;</span>&gt;
+          &lt;a href tabindex=<span class="hljs-string">&quot;0&quot;</span> <span class="hljs-built_in">class</span>=<span class="hljs-string">&quot;accordion-toggle&quot;</span> ng-click=<span class="hljs-string">&quot;toggleOpen()&quot;</span> ui-accordion-transclude=<span class="hljs-string">&quot;heading&quot;</span>&gt;
+            &lt;span ui-accordion-header ng-<span class="hljs-built_in">class</span>=<span class="hljs-string">&quot;{&#39;text-muted&#39;: isDisabled}&quot;</span>&gt;
+              {{heading}}
+            &lt;/span&gt;
+          &lt;/a&gt;
+        &lt;/h4&gt;
+      &lt;/<span class="hljs-keyword">div</span>&gt;
+      &lt;<span class="hljs-keyword">div</span> <span class="hljs-built_in">class</span>=<span class="hljs-string">&quot;panel-collapse collapse&quot;</span> ui-collapse=<span class="hljs-string">&quot;!isOpen&quot;</span>&gt;
+        &lt;<span class="hljs-keyword">div</span> <span class="hljs-built_in">class</span>=<span class="hljs-string">&quot;panel-body&quot;</span> style=<span class="hljs-string">&quot;text-align: right&quot;</span> ng-transclude&gt;&lt;/<span class="hljs-keyword">div</span>&gt;
+      &lt;/<span class="hljs-keyword">div</span>&gt;
+    &lt;/<span class="hljs-keyword">div</span>&gt;
+  &lt;/<span class="hljs-keyword">script</span>&gt;
 
-  <ui-accordion class="margin-bottom-20" is-compact="true">
-    <ui-accordion-group is-open="true" heading="列表一">
-        Duis donec aptent. Eros aliquam torquent hendrerit quisque taciti. Mi magnis diam curae; malesuada tempus. Hendrerit turpis est natoque maecenas tellus euismod etiam nullam. Torquent ridiculus euismod parturient pretium malesuada, malesuada viverra, ante dictum nisi feugiat nisl facilisis suspendisse. Maecenas. At purus fames rutrum rutrum commodo facilisi augue tempus ultricies, bibendum, hymenaeos curabitur, consectetuer integer. Turpis interdum nullam sed semper sem tincidunt dis. Eget ad. Egestas ligula leo aptent auctor Ultrices massa nullam nullam blandit penatibus urna torquent primis vel risus varius pretium nonummy adipiscing mattis dolor. Volutpat. Nonummy cum eros maecenas sed tristique adipiscing gravida litora cursus. Scelerisque luctus.
-    </ui-accordion-group>
-    <ui-accordion-group heading="列表二">
-        Duis donec aptent. Eros aliquam torquent hendrerit quisque taciti. Mi magnis diam curae; malesuada tempus. Hendrerit turpis est natoque maecenas tellus euismod etiam nullam. Torquent ridiculus euismod parturient pretium malesuada, malesuada viverra, ante dictum nisi feugiat nisl facilisis suspendisse. Maecenas. At purus fames rutrum rutrum commodo facilisi augue tempus ultricies, bibendum, hymenaeos curabitur, consectetuer integer. Turpis interdum nullam sed semper sem tincidunt dis. Eget ad. Egestas ligula leo aptent auctor Ultrices massa nullam nullam blandit penatibus urna torquent primis vel risus varius pretium nonummy adipiscing mattis dolor. Volutpat. Nonummy cum eros maecenas sed tristique adipiscing gravida litora cursus. Scelerisque luctus.
-    </ui-accordion-group>
-    <ui-accordion-group>
-        <ui-accordion-heading is-open="true"><em>列表三</em></ui-accordion-heading>
-        Duis donec aptent. Eros aliquam torquent hendrerit quisque taciti. Mi magnis diam curae; malesuada tempus. Hendrerit turpis est natoque maecenas tellus euismod etiam nullam. Torquent ridiculus euismod parturient pretium malesuada, malesuada viverra, ante dictum nisi feugiat nisl facilisis suspendisse. Maecenas. At purus fames rutrum rutrum commodo facilisi augue tempus ultricies, bibendum, hymenaeos curabitur, consectetuer integer. Turpis interdum nullam sed semper sem tincidunt dis. Eget ad. Egestas ligula leo aptent auctor Ultrices massa nullam nullam blandit penatibus urna torquent primis vel risus varius pretium nonummy adipiscing mattis dolor. Volutpat. Nonummy cum eros maecenas sed tristique adipiscing gravida litora cursus. Scelerisque luctus.
-    </ui-accordion-group>
-</ui-accordion>
+  &lt;p&gt;
+    &lt;button type=<span class="hljs-string">&quot;button&quot;</span> <span class="hljs-built_in">class</span>=<span class="hljs-string">&quot;btn btn-default btn-sm&quot;</span> ng-click=<span class="hljs-string">&quot;status.open = !status.open&quot;</span>&gt;Toggle <span class="hljs-keyword">last</span> panel&lt;/button&gt;
+    &lt;button type=<span class="hljs-string">&quot;button&quot;</span> <span class="hljs-built_in">class</span>=<span class="hljs-string">&quot;btn btn-default btn-sm&quot;</span> ng-click=<span class="hljs-string">&quot;status.isFirstDisabled = ! status.isFirstDisabled&quot;</span>&gt;Enable / Disable <span class="hljs-keyword">first</span> panel&lt;/button&gt;
+  &lt;/p&gt;
+
+  &lt;<span class="hljs-keyword">div</span> <span class="hljs-built_in">class</span>=<span class="hljs-string">&quot;checkbox&quot;</span>&gt;
+    &lt;label&gt;
+      &lt;input type=<span class="hljs-string">&quot;checkbox&quot;</span> ng-model=<span class="hljs-string">&quot;oneAtATime&quot;</span>&gt;
+      Open only one <span class="hljs-keyword">at</span> a <span class="hljs-built_in">time</span>
+    &lt;/label&gt;
+  &lt;/<span class="hljs-keyword">div</span>&gt;
+  &lt;ui-accordion close-others=<span class="hljs-string">&quot;oneAtATime&quot;</span>&gt;
+    &lt;<span class="hljs-keyword">div</span> ui-accordion-group=<span class="hljs-string">&quot;&quot;</span> heading=<span class="hljs-string">&quot;Static Header, initially expanded&quot;</span> <span class="hljs-keyword">is</span>-open=<span class="hljs-string">&quot;status.isFirstOpen&quot;</span> <span class="hljs-keyword">is</span>-disabled=<span class="hljs-string">&quot;status.isFirstDisabled&quot;</span>&gt;
+      This content <span class="hljs-keyword">is</span> straight <span class="hljs-keyword">in</span> <span class="hljs-keyword">the</span> template.
+    &lt;/<span class="hljs-keyword">div</span>&gt;
+    &lt;<span class="hljs-keyword">div</span> ui-accordion-group=<span class="hljs-string">&quot;&quot;</span> heading=<span class="hljs-string">&quot;{{group.title}}&quot;</span> ng-<span class="hljs-keyword">repeat</span>=<span class="hljs-string">&quot;group in groups&quot;</span>&gt;
+      {{group.content}}
+    &lt;/<span class="hljs-keyword">div</span>&gt;
+    &lt;<span class="hljs-keyword">div</span> ui-accordion-group=<span class="hljs-string">&quot;&quot;</span> heading=<span class="hljs-string">&quot;Dynamic Body Content&quot;</span>&gt;
+      &lt;p&gt;The body <span class="hljs-keyword">of</span> <span class="hljs-keyword">the</span> ui-accordion group grows <span class="hljs-keyword">to</span> fit <span class="hljs-keyword">the</span> <span class="hljs-built_in">contents</span>&lt;/p&gt;
+      &lt;button type=<span class="hljs-string">&quot;button&quot;</span> <span class="hljs-built_in">class</span>=<span class="hljs-string">&quot;btn btn-default btn-sm&quot;</span> ng-click=<span class="hljs-string">&quot;addItem()&quot;</span>&gt;Add Item&lt;/button&gt;
+      &lt;<span class="hljs-keyword">div</span> ng-<span class="hljs-keyword">repeat</span>=<span class="hljs-string">&quot;item in items&quot;</span>&gt;{{<span class="hljs-built_in">item</span>}}&lt;/<span class="hljs-keyword">div</span>&gt;
+    &lt;/<span class="hljs-keyword">div</span>&gt;
+    &lt;<span class="hljs-keyword">div</span> ui-accordion-group=<span class="hljs-string">&quot;&quot;</span> heading=<span class="hljs-string">&quot;Custom template&quot;</span> template-url=<span class="hljs-string">&quot;group-template.html&quot;</span>&gt;
+      Hello
+    &lt;/<span class="hljs-keyword">div</span>&gt;
+    &lt;<span class="hljs-keyword">div</span> ui-accordion-group=<span class="hljs-string">&quot;&quot;</span> <span class="hljs-keyword">is</span>-open=<span class="hljs-string">&quot;status.isCustomHeaderOpen&quot;</span> template-url=<span class="hljs-string">&quot;group-template.html&quot;</span>&gt;
+      &lt;ui-accordion-heading&gt;
+        Custom template <span class="hljs-keyword">with</span> custom header template &lt;i <span class="hljs-built_in">class</span>=<span class="hljs-string">&quot;pull-right glyphicon&quot;</span> ng-<span class="hljs-built_in">class</span>=<span class="hljs-string">&quot;{&#39;glyphicon-chevron-down&#39;: status.isCustomHeaderOpen, &#39;glyphicon-chevron-right&#39;: !status.isCustomHeaderOpen}&quot;</span>&gt;&lt;/i&gt;
+      &lt;/ui-accordion-heading&gt;
+      World
+    &lt;/<span class="hljs-keyword">div</span>&gt;
+    &lt;<span class="hljs-keyword">div</span> ui-accordion-group=<span class="hljs-string">&quot;&quot;</span> <span class="hljs-built_in">class</span>=<span class="hljs-string">&quot;panel-danger&quot;</span> heading=<span class="hljs-string">&quot;Delete account&quot;</span>&gt;
+      &lt;p&gt;Please, <span class="hljs-keyword">to</span> delete your account, click <span class="hljs-keyword">the</span> button <span class="hljs-keyword">below</span>&lt;/p&gt;
+      &lt;button <span class="hljs-built_in">class</span>=<span class="hljs-string">&quot;btn btn-danger&quot;</span>&gt;Delete&lt;/button&gt;
+    &lt;/<span class="hljs-keyword">div</span>&gt;
+    &lt;<span class="hljs-keyword">div</span> ui-accordion-group=<span class="hljs-string">&quot;&quot;</span> <span class="hljs-keyword">is</span>-open=<span class="hljs-string">&quot;status.open&quot;</span>&gt;
+      &lt;ui-accordion-heading&gt;
+        I can have markup, too! &lt;i <span class="hljs-built_in">class</span>=<span class="hljs-string">&quot;pull-right glyphicon&quot;</span> ng-<span class="hljs-built_in">class</span>=<span class="hljs-string">&quot;{&#39;glyphicon-chevron-down&#39;: status.open, &#39;glyphicon-chevron-right&#39;: !status.open}&quot;</span>&gt;&lt;/i&gt;
+      &lt;/ui-accordion-heading&gt;
+      This <span class="hljs-keyword">is</span> just <span class="hljs-keyword">some</span> content <span class="hljs-keyword">to</span> illustrate fancy headings.
+    &lt;/<span class="hljs-keyword">div</span>&gt;
+  &lt;/ui-accordion&gt;
+</code></pre>
+</ui-tab>
+<ui-tab heading="Controller">
+<pre><code style="width:100%;color:#fff">
+  export <span class="hljs-keyword">default</span> <span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">AccordionCtrl</span> </span>{
+    <span class="hljs-keyword">constructor</span>($scope) {
+        <span class="hljs-keyword">this</span>._$scope=$scope;
+       <span class="hljs-keyword">this</span>.oneAtATime = <span class="hljs-literal">true</span>;
+
+       <span class="hljs-keyword">this</span>.groups = [{
+            title: <span class="hljs-string">&#39;Dynamic Group Header - 1&#39;</span>,
+            content: <span class="hljs-string">&#39;Dynamic Group Body - 1&#39;</span>
+        }, {
+            title: <span class="hljs-string">&#39;Dynamic Group Header - 2&#39;</span>,
+            content: <span class="hljs-string">&#39;Dynamic Group Body - 2&#39;</span>
+        }];
+
+       <span class="hljs-keyword">this</span>.items = [<span class="hljs-string">&#39;Item 1&#39;</span>, <span class="hljs-string">&#39;Item 2&#39;</span>, <span class="hljs-string">&#39;Item 3&#39;</span>];
+
+       <span class="hljs-keyword">this</span>.addItem = ()=&gt;{
+           let newItemNo =<span class="hljs-keyword">this</span>.items.length + <span class="hljs-number">1</span>;
+           <span class="hljs-keyword">this</span>.items.push(<span class="hljs-string">&#39;Item &#39;</span> + newItemNo);
+        };
+
+       <span class="hljs-keyword">this</span>.status = {
+            isCustomHeaderOpen: <span class="hljs-literal">false</span>,
+            isFirstOpen: <span class="hljs-literal">true</span>,
+            isFirstDisabled: <span class="hljs-literal">false</span>
+        };
+    }
+}
+ </code></pre>
+</ui-tab>
+ </ui-tabset>
+</div>
+</div>
+
+<h3 id="-">紧靠样式</h3>
+<p>添加<code>is-compact=&#39;true&#39;</code>控制紧靠样式</p>
+<p><div class="row"></div></p>
+<p><div class="col-md-5">
+  <ui-accordion is-compact="true">
+      <ui-accordion-group is-open="true" heading="Understanding CSRF">
+          The Express team&#39;s csrf and csurf modules frequently have issues popping up concerned about our usage of cryptographic functions. 
+          These concerns are unwarranted due to a misunderstanding of how CSRF tokens work. So here&#39;s a quick run down!
+          Read this and still have questions? Want to tell us we&#39;re wrong? Open an issue!
+      </ui-accordion-group>
+      <ui-accordion-group heading="How does a CSRF attack work?">
+          On their own (phishing site), an attacker could create an AJAX button or form that creates a request against your site:
+          <pre><code style="width:100%;color:#fff">
+          &lt;form action=<span class="hljs-string">&quot;<a href="https://my.site.com/me/something-destructive">https://my.site.com/me/something-destructive</a>&quot;</span> method=<span class="hljs-string">&quot;<span class="hljs-keyword">POST</span>&quot;</span>&gt;
+            &lt;button type=<span class="hljs-string">&quot;submit&quot;</span>&gt;Click here for free money!&lt;/button&gt;
+          &lt;/form&gt;
+          </code></pre>
+          This is worse with AJAX as the attacker could use other methods like DELETE as well as read the result.
+          This is particularly important when the user has some sort of session with very personal details on your site. 
+          If this is in the context of a technologically illiterate user, there might be some inputs for credit card and social security info.
+      </ui-accordion-group>
+      <ui-accordion-group>
+          <ui-accordion-heading is-open="true"><em>How to mitigate CSRF attacks?</em></ui-accordion-heading>
+          This is where the salt comes along. The BREACH attack is pretty simple: if the server sends the same or very similar response over HTTPS+gzip multiple times,
+          an attacker could guess the contents of response body (making HTTPS utterly useless). Solution? Make each response a tiny bit different.
+      </ui-accordion-group>
+   </ui-accordion>
+</div></p>
+<p><div class="col-md-7">
+  <ui-tabset style="max-height:400px;overflow:auto"> 
+  <ui-tab heading="HTML">
+  <pre><code style="width:100%;color:#fff">
+    &lt;ui-accordion <span class="hljs-keyword">is</span>-compact=<span class="hljs-string">&quot;true&quot;</span>&gt;
+      &lt;ui-accordion-<span class="hljs-keyword">group</span> <span class="hljs-keyword">is</span>-<span class="hljs-keyword">open</span>=<span class="hljs-string">&quot;true&quot;</span> heading=<span class="hljs-string">&quot;Understanding CSRF&quot;</span>&gt;
+          The Express team<span class="hljs-symbol">&#39;s</span> csrf <span class="hljs-keyword">and</span> csurf modules frequently have issues popping up concerned about our usage <span class="hljs-keyword">of</span> cryptographic functions. 
+          These concerns are unwarranted due <span class="hljs-keyword">to</span> a misunderstanding <span class="hljs-keyword">of</span> how CSRF tokens work. So here<span class="hljs-symbol">&#39;s</span> a quick run down!
+          Read this <span class="hljs-keyword">and</span> still have questions? Want <span class="hljs-keyword">to</span> tell us we<span class="hljs-symbol">&#39;re</span> wrong? <span class="hljs-keyword">Open</span> an issue!
+      &lt;/ui-accordion-<span class="hljs-keyword">group</span>&gt;
+      &lt;ui-accordion-<span class="hljs-keyword">group</span> heading=<span class="hljs-string">&quot;How does a CSRF attack work?&quot;</span>&gt;
+          <span class="hljs-keyword">On</span> their own (phishing site), an attacker could create an AJAX button <span class="hljs-keyword">or</span> form that creates a request against your site:
+          &lt;pre&gt;
+          &lt;form action=<span class="hljs-string">&quot;<a href="https://my.site.com/me/something-destructive">https://my.site.com/me/something-destructive</a>&quot;</span> method=<span class="hljs-string">&quot;POST&quot;</span>&gt;
+            &lt;button <span class="hljs-keyword">type</span>=<span class="hljs-string">&quot;submit&quot;</span>&gt;Click here <span class="hljs-keyword">for</span> free money!&lt;/button&gt;
+          &lt;/form&gt;
+          &lt;/pre&gt;
+          This <span class="hljs-keyword">is</span> worse <span class="hljs-keyword">with</span> AJAX as the attacker could <span class="hljs-keyword">use</span> other methods like DELETE as well as read the result.
+          This <span class="hljs-keyword">is</span> particularly important <span class="hljs-keyword">when</span> the user has some sort <span class="hljs-keyword">of</span> session <span class="hljs-keyword">with</span> very personal details <span class="hljs-keyword">on</span> your site. 
+          <span class="hljs-keyword">If</span> this <span class="hljs-keyword">is</span> <span class="hljs-keyword">in</span> the <span class="hljs-keyword">context</span> <span class="hljs-keyword">of</span> a technologically illiterate user, there might be some inputs <span class="hljs-keyword">for</span> credit card <span class="hljs-keyword">and</span> social security info.
+      &lt;/ui-accordion-<span class="hljs-keyword">group</span>&gt;
+      &lt;ui-accordion-<span class="hljs-keyword">group</span>&gt;
+          &lt;ui-accordion-heading <span class="hljs-keyword">is</span>-<span class="hljs-keyword">open</span>=<span class="hljs-string">&quot;true&quot;</span>&gt;&lt;em&gt;How <span class="hljs-keyword">to</span> mitigate CSRF attacks?&lt;/em&gt;&lt;/ui-accordion-heading&gt;
+          This <span class="hljs-keyword">is</span> where the salt comes along. The BREACH attack <span class="hljs-keyword">is</span> pretty simple: <span class="hljs-keyword">if</span> the server sends the same <span class="hljs-keyword">or</span> very similar response over HTTPS+gzip multiple times,
+          an attacker could guess the contents <span class="hljs-keyword">of</span> response <span class="hljs-keyword">body</span> (making HTTPS utterly useless). Solution? Make each response a tiny <span class="hljs-built_in">bit</span> different.
+      &lt;/ui-accordion-<span class="hljs-keyword">group</span>&gt;
+    &lt;/ui-accordion&gt;
+  </code></pre>
+  </ui-tab>
+</ui-tabset>
+</div>
+
+</p>
+</div>
