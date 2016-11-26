@@ -7,16 +7,16 @@ var data = [{
     "name": "产品",
     "icon": "columns ",
     "children": [{
-        "link": "#/components/button",
+        "link": "",
         "active": true,
         "name": "Button 按钮",
         "icon": ""
     }, {
-        "link": "#/components/icon",
+        "link": "",
         "name": "Icon 图标",
         "icon": ""
     }, {
-        "link": "#/components/panel",
+        "link": "",
         "name": "Panel 面板",
         "icon": ""
     }]
@@ -25,7 +25,7 @@ var data = [{
     "name": "服务",
     "icon": "navicon",
     "children": [{
-        "link": "#/components/navigation",
+        "link": "",
         "name": "Navigation",
         "icon": ""
     }]
@@ -34,12 +34,12 @@ var data = [{
     "name": "新闻",
     "icon": "edit",
     "children": [{
-        "link": "#",
+        "link": "",
         "active": true,
         "name": "新闻发布1",
         "icon": ""
     }, {
-        "link": "#",
+        "link": "",
         "name": "新闻发布2",
         "icon": ""
     }]
@@ -52,15 +52,15 @@ var data = [{
         "name": "二级菜单",
         "icon": "info-circle",
         "children": [{
-            "link": "#",
+            "link": "",
             "name": "菜单一",
             "icon": ""
         },{
-            "link": "#",
+            "link": "",
             "name": "菜单二",
             "icon": ""
         },{
-            "link": "#",
+            "link": "",
             "name": "菜单三",
             "icon": ""
         }]
