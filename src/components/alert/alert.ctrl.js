@@ -45,18 +45,18 @@ export default class UiAlertController {
             iconType = 'info-circle';
             break;
           case 'error':
-            iconType = 'cross-circle';
+            iconType = 'times-circle';
             break;
           case 'warning':
-            iconType = 'exclamation-circle';
+            iconType = 'warning';
             break;
           default:
             iconType = 'default';
         }
         // use outline icon in alert with description
-        if (!!this._$scope.description) {
-          iconType += '-o';
-        }
+        // if (!!this._$scope.description) {
+        //   iconType += '-o';
+        // }
         let iconCls='fa fa-'+iconType+' '+prefixCls+'-icon';
         
         let alertCls = classNames({

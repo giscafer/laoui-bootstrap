@@ -13,8 +13,8 @@ export default class UiAlert {
         this.scope = {
             close: '&',
             closing:'=',
-            message:'=',
-            description:'=',
+            message:'=?',
+            description:'=?',
             showicon:'='
         };
         this.templateUrl = UiAlertTemp;

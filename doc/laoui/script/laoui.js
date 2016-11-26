@@ -56031,8 +56031,8 @@
 	        this.scope = {
 	            close: '&',
 	            closing: '=',
-	            message: '=',
-	            description: '=',
+	            message: '=?',
+	            description: '=?',
 	            showicon: '='
 	        };
 	        this.templateUrl = _alert2.default;
@@ -56137,18 +56137,18 @@
 	                    iconType = 'info-circle';
 	                    break;
 	                case 'error':
-	                    iconType = 'cross-circle';
+	                    iconType = 'times-circle';
 	                    break;
 	                case 'warning':
-	                    iconType = 'exclamation-circle';
+	                    iconType = 'warning';
 	                    break;
 	                default:
 	                    iconType = 'default';
 	            }
 	            // use outline icon in alert with description
-	            if (!!this._$scope.description) {
-	                iconType += '-o';
-	            }
+	            // if (!!this._$scope.description) {
+	            //   iconType += '-o';
+	            // }
 	            var iconCls = 'fa fa-' + iconType + ' ' + prefixCls + '-icon';
 
 	            var alertCls = (0, _classnames2.default)((_classNames = {}, (0, _defineProperty3.default)(_classNames, prefixCls, true), (0, _defineProperty3.default)(_classNames, prefixCls + '-' + type, true), (0, _defineProperty3.default)(_classNames, prefixCls + '-with-description', !!this._$scope.description), (0, _defineProperty3.default)(_classNames, prefixCls + '-no-icon', !showicon), (0, _defineProperty3.default)(_classNames, prefixCls + '-banner', banner), (0, _defineProperty3.default)(_classNames, classname, !!classname), _classNames));

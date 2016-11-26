@@ -7,6 +7,10 @@ export default class AlertCtrl {
         this.description = "传入的值为fontawesome的图标名称";
         this.banner = "这是一个banner！！";
         this.notabanner = "这不是一个banner！！";
+        this.success="Success Text"
+        this.error="Error Text"
+        this.info="Info Text"
+        this.warning="Warning Text"
     }
     close(e) {
         this.closing = true;
@@ -14,6 +18,10 @@ export default class AlertCtrl {
     }
     close2(e) {
         this.closing2 = true;
+        console.info('click close', e)
+    }
+    close3(e) {
+        this.closing3 = true;
         console.info('click close', e)
     }
 }
