@@ -3,6 +3,10 @@
  * function, placement as a function, inside, support for more triggers than
  * just mouse enter/leave, html tooltips, and selector delegation.
  */
+var tooltipPopupTemp=require('./template/tooltip-popup.html');
+var tooltipHtmlPopupTemp=require('./template/tooltip-html-popup.html');
+var tooltipTemplatePopupTemp=require('./template/tooltip-template-popup.html');
+
 angular.module('ui.bootstrap.tooltip', ['ui.bootstrap.position', 'ui.bootstrap.stackedMap'])
 
 /**
@@ -69,7 +73,7 @@ angular.module('ui.bootstrap.tooltip', ['ui.bootstrap.position', 'ui.bootstrap.s
    * Returns the actual instance of the $tooltip service.
    * TODO support multiple triggers
    */
-  this.$get = ['$window', '$compile', '$timeout', '$document', '$uibPosition', '$interpolate', '$rootScope', '$parse', '$$stackedMap', function($window, $compile, $timeout, $document, $position, $interpolate, $rootScope, $parse, $$stackedMap) {
+  this.$get = ['$window', '$compile', '$timeout', '$document', '$uiPosition', '$interpolate', '$rootScope', '$parse', '$$stackedMap', function($window, $compile, $timeout, $document, $position, $interpolate, $rootScope, $parse, $$stackedMap) {
     var openedTooltips = $$stackedMap.createNew();
     $document.on('keyup', keypressListener);
 
@@ -656,7 +660,7 @@ function ($animate, $sce, $compile, $templateRequest) {
  * They must not be animated as they're expected to be present on the tooltip on
  * initialization.
  */
-.directive('uibTooltipClasses', ['$uibPosition', function($uibPosition) {
+.directive('uibTooltipClasses', ['$uiPosition', function($uiPosition) {
   return {
     restrict: 'A',
     link: function(scope, element, attrs) {
@@ -666,7 +670,7 @@ function ($animate, $sce, $compile, $templateRequest) {
       if (scope.placement) {
         // // There are no top-left etc... classes
         // // in TWBS, so we need the primary position.
-        var position = $uibPosition.parsePlacement(scope.placement);
+        var position = $uiPosition.parsePlacement(scope.placement);
         element.addClass(position[0]);
       }
 
@@ -685,7 +689,7 @@ function ($animate, $sce, $compile, $templateRequest) {
   return {
     restrict: 'A',
     scope: { content: '@' },
-    templateUrl: '../../template/tooltip/tooltip-popup.html'
+    templateUrl: tooltipPopupTemp
   };
 })
 
@@ -697,7 +701,7 @@ function ($animate, $sce, $compile, $templateRequest) {
   return {
     restrict: 'A',
     scope: { contentExp: '&', originScope: '&' },
-    templateUrl: '../../template/tooltip/tooltip-template-popup.html'
+    templateUrl: tooltipTemplatePopupTemp
   };
 })
 
@@ -711,7 +715,7 @@ function ($animate, $sce, $compile, $templateRequest) {
   return {
     restrict: 'A',
     scope: { contentExp: '&' },
-    templateUrl: '../../template/tooltip/tooltip-html-popup.html'
+    templateUrl: tooltipHtmlPopupTemp
   };
 })
 

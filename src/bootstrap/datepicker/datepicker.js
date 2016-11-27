@@ -1,3 +1,8 @@
+var datepickerTemp=require('./template/datepicker.html');
+var dayTemp=require('./template/day.html');
+var monthTemp=require('./template/month.html');
+var yearTemp=require('./template/year.html');
+
 angular.module('ui.bootstrap.datepicker', ['ui.bootstrap.dateparser', 'ui.bootstrap.isClass'])
 
 .value('$datepickerSuppressError', false)
@@ -585,7 +590,7 @@ angular.module('ui.bootstrap.datepicker', ['ui.bootstrap.dateparser', 'ui.bootst
 .directive('uibDatepicker', function() {
   return {
     templateUrl: function(element, attrs) {
-      return attrs.templateUrl || '../../template/datepicker/datepicker.html';
+      return attrs.templateUrl || datepickerTemp;
     },
     scope: {
       datepickerOptions: '=?'
@@ -605,7 +610,7 @@ angular.module('ui.bootstrap.datepicker', ['ui.bootstrap.dateparser', 'ui.bootst
 .directive('uibDaypicker', function() {
   return {
     templateUrl: function(element, attrs) {
-      return attrs.templateUrl || '../../template/datepicker/day.html';
+      return attrs.templateUrl || dayTemp;
     },
     require: ['^uibDatepicker', 'uibDaypicker'],
     restrict: 'A',
@@ -622,7 +627,7 @@ angular.module('ui.bootstrap.datepicker', ['ui.bootstrap.dateparser', 'ui.bootst
 .directive('uibMonthpicker', function() {
   return {
     templateUrl: function(element, attrs) {
-      return attrs.templateUrl || '../../template/datepicker/month.html';
+      return attrs.templateUrl || monthTemp;
     },
     require: ['^uibDatepicker', 'uibMonthpicker'],
     restrict: 'A',
@@ -639,7 +644,7 @@ angular.module('ui.bootstrap.datepicker', ['ui.bootstrap.dateparser', 'ui.bootst
 .directive('uibYearpicker', function() {
   return {
     templateUrl: function(element, attrs) {
-      return attrs.templateUrl || '../../template/datepicker/year.html';
+      return attrs.templateUrl || yearTemp;
     },
     require: ['^uibDatepicker', 'uibYearpicker'],
     restrict: 'A',

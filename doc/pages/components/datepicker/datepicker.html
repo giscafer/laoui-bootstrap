@@ -1,0 +1,191 @@
+<div class="markdown-body"><p>Our datepicker is flexible and fully customizable.</p>
+<p>You can navigate through days, months and years.</p>
+<p>The datepicker has 3 modes:</p>
+<ul>
+<li><code>day</code> - In this mode you&#39;re presented with a 6-week calendar for a specified month.</li>
+<li><code>month</code> - In this mode you can select a month within a selected year.</li>
+<li><code>year</code> - In this mode you are presented with a range of years (20 by default).</li>
+</ul>
+<h3 id="uib-datepicker-settings">uib-datepicker settings</h3>
+<ul>
+<li><p><code>ng-model</code>
+<small class="badge">$</small>
+<i class="glyphicon glyphicon-eye-open"></i> -
+The date object. Must be a Javascript <code>Date</code> object. You may use the <code>uibDateParser</code> service to assist in string-to-object conversion.</p>
+</li>
+<li><p><code>ng-model-options</code>
+<small class="badge">$</small>
+<small class="badge">C</small>
+<em>(Default: <code>{}</code>)</em> -
+Supported <a href="https://docs.angularjs.org/api/ng/directive/ngModelOptions">angular ngModelOptions</a>:</p>
+<ul>
+<li>allowInvalid</li>
+<li>timezone</li>
+</ul>
+</li>
+<li><p><code>template-url</code>
+<em>(Default: <code>../../template/datepicker/datepicker.html</code>)</em> -
+Add the ability to override the template used on the component.</p>
+</li>
+</ul>
+<p>Apart from the previous settings, to configure the uib-datepicker you need to create an object in Javascript with all the options and use it on the <code>datepicker-options</code> attribute:</p>
+<ul>
+<li><p><code>datepicker-options</code>
+<small class="badge">$</small> -
+An object to configure the datepicker in one place.</p>
+<ul>
+<li><p><code>customClass ({date: date, mode: mode})</code> -
+An optional expression to add classes based on passing an object with date and current mode properties.</p>
+</li>
+<li><p><code>dateDisabled ({date: date, mode: mode})</code> -
+An optional expression to disable visible options based on passing an object with date and current mode properties.</p>
+</li>
+<li><p><code>datepickerMode</code>
+<small class="badge">C</small>
+<i class="glyphicon glyphicon-eye-open"></i>
+<em>(Default: <code>day</code>)</em> -
+Current mode of the datepicker <em>(day|month|year)</em>. Can be used to initialize the datepicker in a specific mode.</p>
+</li>
+<li><p><code>formatDay</code>
+<small class="badge">C</small>
+<em>(Default: <code>dd</code>)</em> -
+Format of day in month.</p>
+</li>
+<li><p><code>formatMonth</code>
+<small class="badge">C</small>
+<em>(Default: <code>MMMM</code>)</em> -
+Format of month in year.</p>
+</li>
+<li><p><code>formatYear</code>
+<small class="badge">C</small>
+<em>(Default: <code>yyyy</code>)</em> -
+Format of year in year range.</p>
+</li>
+<li><p><code>formatDayHeader</code>
+<small class="badge">C</small>
+<em>(Default: <code>EEE</code>)</em> -
+Format of day in week header.</p>
+</li>
+<li><p><code>formatDayTitle</code>
+<small class="badge">C</small>
+<em>(Default: <code>MMMM yyyy</code>)</em> -
+Format of title when selecting day.</p>
+</li>
+<li><p><code>formatMonthTitle</code>
+<small class="badge">C</small>
+<em>(Default: <code>yyyy</code>)</em> -
+Format of title when selecting month.</p>
+</li>
+<li><p><code>initDate</code>
+<i class="glyphicon glyphicon-eye-open"></i>
+<em>(Default: <code>null</code>)</em> -
+The initial date view when no model value is specified.</p>
+</li>
+<li><p><code>maxDate</code>
+<small class="badge">C</small>
+<i class="glyphicon glyphicon-eye-open"></i>
+<em>(Default: <code>null</code>)</em> -
+Defines the maximum available date. Requires a Javascript Date object.</p>
+</li>
+<li><p><code>maxMode</code>
+<small class="badge">C</small>
+  <i class="glyphicon glyphicon-eye-open"></i>
+<em>(Default: <code>year</code>)</em> -
+Sets an upper limit for mode.</p>
+</li>
+<li><p><code>minDate</code>
+<small class="badge">C</small>
+<i class="glyphicon glyphicon-eye-open"></i>
+<em>(Default: <code>null</code>)</em> -
+Defines the minimum available date. Requires a Javascript Date object.</p>
+</li>
+<li><p><code>minMode</code>
+<small class="badge">C</small>
+<i class="glyphicon glyphicon-eye-open"></i>
+<em>(Default: <code>day</code>)</em> -
+Sets a lower limit for mode.</p>
+</li>
+<li><p><code>monthColumns</code>
+<small class="badge">C</small>
+<em>(Default: <code>3</code>)</em> -
+Number of columns displayed in month selection.</p>
+</li>
+<li><p><code>ngModelOptions</code>
+<small class="badge">C</small>
+<em>(Default: <code>null</code>)</em> -
+Sets <code>ngModelOptions</code> for datepicker. This can be overridden through attribute usage</p>
+</li>
+<li><p><code>shortcutPropagation</code>
+<small class="badge">C</small>
+<em>(Default: <code>false</code>)</em> -
+An option to disable the propagation of the keydown event.</p>
+</li>
+<li><p><code>showWeeks</code>
+<small class="badge">C</small>
+<em>(Default: <code>true</code>)</em> -
+Whether to display week numbers.</p>
+</li>
+<li><p><code>startingDay</code>
+<small class="badge">C</small>
+<em>(Default: <code>$locale.DATETIME_FORMATS.FIRSTDAYOFWEEK</code>)</em> -
+Starting day of the week from 0-6 (0=Sunday, ..., 6=Saturday).</p>
+</li>
+<li><p><code>yearRows</code>
+<small class="badge">C</small>
+<em>(Default: <code>4</code>)</em> -
+Number of rows displayed in year selection.</p>
+</li>
+<li><p><code>yearColumns</code>
+<small class="badge">C</small>
+<em>(Default: <code>5</code>)</em> -
+Number of columns displayed in year selection.</p>
+</li>
+</ul>
+</li>
+</ul>
+<h3 id="keyboard-support">Keyboard support</h3>
+<p>Depending on datepicker&#39;s current mode, the date may refer either to day, month or year. Accordingly, the term view refers either to a month, year or year range.</p>
+<ul>
+<li><code>Left</code>: Move focus to the previous date. Will move to the last date of the previous view, if the current date is the first date of a view.</li>
+<li><code>Right</code>: Move focus to the next date. Will move to the first date of the following view, if the current date is the last date of a view.</li>
+<li><code>Up</code>: Move focus to the same column of the previous row. Will wrap to the appropriate row in the previous view.</li>
+<li><code>Down</code>: Move focus to the same column of the following row. Will wrap to the appropriate row in the following view.</li>
+<li><code>PgUp</code>: Move focus to the same date of the previous view. If that date does not exist, focus is placed on the last date of the month.</li>
+<li><code>PgDn</code>: Move focus to the same date of the following view. If that date does not exist, focus is placed on the last date of the month.</li>
+<li><code>Home</code>: Move to the first date of the view.</li>
+<li><code>End</code>: Move to the last date of the view.</li>
+<li><code>Enter</code>/<code>Space</code>: Select date.</li>
+<li><code>Ctrl</code>+<code>Up</code>: Move to an upper mode.</li>
+<li><code>Ctrl</code>+<code>Down</code>: Move to a lower mode.</li>
+<li><code>Esc</code>: Will close popup, and move focus to the input.</li>
+</ul>
+<p><strong>Notes</strong></p>
+<p>If the date a user enters falls outside of the min-/max-date range, a <code>dateDisabled</code> validation error will show on the form.</p>
+<h2 id="-">代码演示</h2>
+<p><style>
+  .full button span {
+    background-color: limegreen;
+    border-radius: 32px;
+    color: black;
+  }
+  .partially button span {
+    background-color: orange;
+    border-radius: 32px;
+    color: black;
+  }
+</style></p>
+<div>
+    <code>Selected date is: <em>{{ctrl.dt | date:&#39;fullDate&#39; }}</em></code>
+
+<h4>Inline</h4>
+<div style="display:inline-block; min-height:290px;">
+    <div uib-datepicker="" ng-model="ctrl.dt" class="well well-sm" datepicker-options="ctrl.options"></div>
+</div>
+
+<p><hr></p>
+<p><button type="button" class="btn btn-sm btn-info" ng-click="ctrl.today()">Today</button></p>
+<p><button type="button" class="btn btn-sm btn-default" ng-click="ctrl.setDate(2009, 7, 24)">2009-08-24</button></p>
+<p><button type="button" class="btn btn-sm btn-danger" ng-click="ctrl.clear()">Clear</button></p>
+<p><button type="button" class="btn btn-sm btn-default" ng-click="ctrl.toggleMin()" uib-tooltip="After today restriction">Min date</button>
+</p></div><p></p>
+</div>

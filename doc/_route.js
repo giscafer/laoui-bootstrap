@@ -88,6 +88,18 @@ export default $routeProvider => {
             controller: ctrls('./components/carousel/carousel.ctrl.js').default,
             controllerAs:'ctrl'
         })
+         .when('/components/collapse', {
+            title: 'collapse Demo',
+            templateUrl: pageHtml['./components/collapse/collapse.html'],
+            controller: ctrls('./components/collapse/collapse.ctrl.js').default,
+            controllerAs:'ctrl'
+        })
+         .when('/components/datepicker', {
+            title: 'datepicker Demo',
+            templateUrl: pageHtml['./components/datepicker/datepicker.html'],
+            controller: ctrls('./components/datepicker/datepicker.ctrl.js').default,
+            controllerAs:'ctrl'
+        })
         .otherwise({
             redirectTo: '/laoui/home'
         });

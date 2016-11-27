@@ -51,12 +51,20 @@ var data = [{
         "link": "#/components/typeahead",
         "name": "Typeahead - 自动完成",
         "icon": ""
+    },{
+        "link": "#/components/datepicker",
+        "name": "Datepicker - 日期",
+        "icon": ""
     }]
 }, {
     "link": "",
     "name": "Data Display 数据展示",
     "icon": "windows",
     "children": [{
+        "link": "#/components/collapse",
+        "name": "Collapse - 折叠面板",
+        "icon": ""
+    },{
         "link": "#/components/accordion",
         "name": "Accordion - 手风琴",
         "icon": ""
