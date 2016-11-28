@@ -175,17 +175,17 @@ Number of columns displayed in year selection.</p>
   }
 </style></p>
 <div>
-    <code>Selected date is: <em>{{ctrl.dt | date:&#39;fullDate&#39; }}</em></code>
+    <code>Selected date is: <em>{{dt | date:&#39;fullDate&#39; }}</em></code>
 
 <h4>Inline</h4>
 <div style="display:inline-block; min-height:290px;">
-    <div uib-datepicker="" ng-model="ctrl.dt" class="well well-sm" datepicker-options="ctrl.options"></div>
+    <div uib-datepicker="" ng-model="dt" class="well well-sm" datepicker-options="options"></div>
 </div>
 
 <p><hr></p>
-<p><button type="button" class="btn btn-sm btn-info" ng-click="ctrl.today()">Today</button></p>
-<p><button type="button" class="btn btn-sm btn-default" ng-click="ctrl.setDate(2009, 7, 24)">2009-08-24</button></p>
-<p><button type="button" class="btn btn-sm btn-danger" ng-click="ctrl.clear()">Clear</button></p>
-<p><button type="button" class="btn btn-sm btn-default" ng-click="ctrl.toggleMin()" uib-tooltip="After today restriction">Min date</button>
+<p><button type="button" class="btn btn-sm btn-info" ng-click="today()">Today</button></p>
+<p><button type="button" class="btn btn-sm btn-default" ng-click="setDate(2009, 7, 24)">2009-08-24</button></p>
+<p><button type="button" class="btn btn-sm btn-danger" ng-click="clear()">Clear</button></p>
+<p><button type="button" class="btn btn-sm btn-default" ng-click="toggleMin()" uib-tooltip="After today restriction">Min date</button>
 </p></div><p></p>
 </div>

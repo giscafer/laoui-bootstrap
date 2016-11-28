@@ -55,6 +55,10 @@ var data = [{
         "link": "#/components/datepicker",
         "name": "Datepicker - 日期",
         "icon": ""
+    },{
+        "link": "#/components/datepickerPopup",
+        "name": "DatepickerPopup - 日期选择",
+        "icon": ""
     }]
 }, {
     "link": "",

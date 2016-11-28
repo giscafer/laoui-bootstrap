@@ -100,6 +100,12 @@ export default $routeProvider => {
             controller: ctrls('./components/datepicker/datepicker.ctrl.js').default,
             controllerAs:'ctrl'
         })
+         .when('/components/datepickerPopup', {
+            title: 'datepickerPopup Demo',
+            templateUrl: pageHtml['./components/datepickerPopup/datepickerPopup.html'],
+            controller: ctrls('./components/datepickerPopup/datepickerPopup.ctrl.js').default,
+            controllerAs:'ctrl'
+        })
         .otherwise({
             redirectTo: '/laoui/home'
         });
