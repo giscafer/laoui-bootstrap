@@ -1,6 +1,6 @@
 AngularJS version of the tabs directive.
 
-### uib-tabset settings
+### ui-tabset settings
 
 * `active`
   <i class="glyphicon glyphicon-eye-open"></i>
@@ -25,7 +25,7 @@ AngularJS version of the tabs directive.
   _(Default: `false`)_ -
   Whether tabs appear vertically stacked.
 
-### uib-tab settings
+### ui-tab settings
 
 * `classes`
   <small class="badge">$</small> -
@@ -57,7 +57,7 @@ AngularJS version of the tabs directive.
 
 ### Tabset heading
 
-Instead of the `heading` attribute on the `uib-tabset`, you can use an `uib-tab-heading` element inside a tabset that will be used as the tabset's header. There you can use HTML as well.
+Instead of the `heading` attribute on the `ui-tabset`, you can use an `ui-tab-heading` element inside a tabset that will be used as the tabset's header. There you can use HTML as well.
 
 ### Known issues
 

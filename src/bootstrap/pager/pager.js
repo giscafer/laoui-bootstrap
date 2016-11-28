@@ -1,19 +1,19 @@
 angular.module('ui.bootstrap.pager', ['ui.bootstrap.paging', 'ui.bootstrap.tabindex'])
 
-.controller('UibPagerController', ['$scope', '$attrs', 'uibPaging', 'uibPagerConfig', function($scope, $attrs, uibPaging, uibPagerConfig) {
-  $scope.align = angular.isDefined($attrs.align) ? $scope.$parent.$eval($attrs.align) : uibPagerConfig.align;
+.controller('UiPagerController', ['$scope', '$attrs', 'uiPaging', 'uiPagerConfig', function($scope, $attrs, uiPaging, uiPagerConfig) {
+  $scope.align = angular.isDefined($attrs.align) ? $scope.$parent.$eval($attrs.align) : uiPagerConfig.align;
 
-  uibPaging.create(this, $scope, $attrs);
+  uiPaging.create(this, $scope, $attrs);
 }])
 
-.constant('uibPagerConfig', {
+.constant('uiPagerConfig', {
   itemsPerPage: 10,
   previousText: '« Previous',
   nextText: 'Next »',
   align: true
 })
 
-.directive('uibPager', ['uibPagerConfig', function(uibPagerConfig) {
+.directive('uiPager', ['uiPagerConfig', function(uiPagerConfig) {
   return {
     scope: {
       totalItems: '=',
@@ -21,9 +21,9 @@ angular.module('ui.bootstrap.pager', ['ui.bootstrap.paging', 'ui.bootstrap.tabin
       nextText: '@',
       ngDisabled: '='
     },
-    require: ['uibPager', '?ngModel'],
+    require: ['uiPager', '?ngModel'],
     restrict: 'A',
-    controller: 'UibPagerController',
+    controller: 'UiPagerController',
     controllerAs: 'pager',
     templateUrl: function(element, attrs) {
       return attrs.templateUrl || '../../template/pager/pager.html';
@@ -36,7 +36,7 @@ angular.module('ui.bootstrap.pager', ['ui.bootstrap.paging', 'ui.bootstrap.tabin
         return; // do nothing if no ng-model
       }
 
-      paginationCtrl.init(ngModelCtrl, uibPagerConfig);
+      paginationCtrl.init(ngModelCtrl, uiPagerConfig);
     }
   };
 }]);

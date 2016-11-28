@@ -7,18 +7,18 @@ module.
 __Note to mobile developers__:  Please note that while popovers may work correctly on mobile devices (including tablets),
   we have made the decision to not officially support such a use-case because it does not make sense from a UX perspective.
 
-There are three versions of the popover: `uib-popover` and `uib-popover-template`, and `uib-popover-html`:
+There are three versions of the popover: `ui-popover` and `ui-popover-template`, and `ui-popover-html`:
 
-* `uib-popover` -
+* `ui-popover` -
   Takes text only and will escape any HTML provided for the popover body.
-* `uib-popover-html`
+* `ui-popover-html`
   <small class="badge">$</small> -
-  Takes an expression that evaluates to an HTML string. Note that this HTML is not compiled. If compilation is required, please use the `uib-popover-template` attribute option instead.  *The user is responsible for ensuring the content is safe to put into the DOM!*
-* `uib-popover-template`
+  Takes an expression that evaluates to an HTML string. Note that this HTML is not compiled. If compilation is required, please use the `ui-popover-template` attribute option instead.  *The user is responsible for ensuring the content is safe to put into the DOM!*
+* `ui-popover-template`
   <small class="badge">$</small> -
   A URL representing the location of a template to use for the popover body. Note that the contents of this template need to be wrapped in a tag, e.g., `<div></div>`.
 
-### uib-popover-* settings
+### ui-popover-* settings
 
 All these settings are available for the three types of popovers.
 
@@ -83,7 +83,7 @@ All these settings are available for the three types of popovers.
   _(Default: `'click'`)_ -
   What should trigger a show of the popover? Supports a space separated list of event names, or objects (see below).
 
-**Note:** To configure the tooltips, you need to do it on `$uibTooltipProvider` (also see below).
+**Note:** To configure the tooltips, you need to do it on `$uiTooltipProvider` (also see below).
 
 ### Triggers
 
@@ -101,9 +101,9 @@ For any non-supported value, the trigger will be used to both show and hide the
 popover. Using the 'none' trigger will disable the internal trigger(s), one can
 then use the `popover-is-open` attribute exclusively to show and hide the popover.
 
-### $uibTooltipProvider
+### $uiTooltipProvider
 
-Through the `$uibTooltipProvider`, you can change the way tooltips and popovers
+Through the `$uiTooltipProvider`, you can change the way tooltips and popovers
 behave by default; the attributes above always take precedence. The following
 methods are available:
 
@@ -119,7 +119,7 @@ methods are available:
 For Safari 7+ support, if you want to use **focus** `popover-trigger`, you need to use an anchor tag with a tab index. For example:
 
 ```
-<a tabindex="0" uib-popover="Test" popover-trigger="focus" class="btn btn-default">
+<a tabindex="0" ui-popover="Test" popover-trigger="focus" class="btn btn-default">
   Click Me
 </a>
 ```

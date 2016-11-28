@@ -5,7 +5,7 @@ import { Panel, PanelHeading, PanelTransclude } from './panel';
 //Layout
 import { Row, Col } from './grid';
 //Data Entry
-import TextAngular from './edit';
+import TextAngular from './editor';
 //Navigation
 import Navigation from './navigation';
 //Data Display

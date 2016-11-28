@@ -8,12 +8,12 @@ The datepicker has 3 modes:
 * `month` - In this mode you can select a month within a selected year.
 * `year` - In this mode you are presented with a range of years (20 by default).
 
-### uib-datepicker settings
+### ui-datepicker settings
 
 * `ng-model`
   <small class="badge">$</small>
   <i class="glyphicon glyphicon-eye-open"></i> -
-  The date object. Must be a Javascript `Date` object. You may use the `uibDateParser` service to assist in string-to-object conversion.
+  The date object. Must be a Javascript `Date` object. You may use the `uiDateParser` service to assist in string-to-object conversion.
 
 * `ng-model-options`
   <small class="badge">$</small>
@@ -27,7 +27,7 @@ The datepicker has 3 modes:
   _(Default: `../../template/datepicker/datepicker.html`)_ -
   Add the ability to override the template used on the component.
 
-Apart from the previous settings, to configure the uib-datepicker you need to create an object in Javascript with all the options and use it on the `datepicker-options` attribute:
+Apart from the previous settings, to configure the ui-datepicker you need to create an object in Javascript with all the options and use it on the `datepicker-options` attribute:
 
 * `datepicker-options`
   <small class="badge">$</small> -

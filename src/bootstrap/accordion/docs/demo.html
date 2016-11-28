@@ -3,14 +3,14 @@
     <div class="panel panel-default">
       <div class="panel-heading">
         <h4 class="panel-title" style="color:#fa39c3">
-          <a href tabindex="0" class="accordion-toggle" ng-click="toggleOpen()" uib-accordion-transclude="heading">
-            <span uib-accordion-header ng-class="{'text-muted': isDisabled}">
+          <a href tabindex="0" class="accordion-toggle" ng-click="toggleOpen()" ui-accordion-transclude="heading">
+            <span ui-accordion-header ng-class="{'text-muted': isDisabled}">
               {{heading}}
             </span>
           </a>
         </h4>
       </div>
-      <div class="panel-collapse collapse" uib-collapse="!isOpen">
+      <div class="panel-collapse collapse" ui-collapse="!isOpen">
         <div class="panel-body" style="text-align: right" ng-transclude></div>
       </div>
     </div>
@@ -27,36 +27,36 @@
       Open only one at a time
     </label>
   </div>
-  <uib-accordion close-others="oneAtATime">
-    <div uib-accordion-group class="panel-default" heading="Static Header, initially expanded" is-open="status.isFirstOpen" is-disabled="status.isFirstDisabled">
+  <ui-accordion close-others="oneAtATime">
+    <div ui-accordion-group class="panel-default" heading="Static Header, initially expanded" is-open="status.isFirstOpen" is-disabled="status.isFirstDisabled">
       This content is straight in the template.
     </div>
-    <div uib-accordion-group class="panel-default" heading="{{group.title}}" ng-repeat="group in groups">
+    <div ui-accordion-group class="panel-default" heading="{{group.title}}" ng-repeat="group in groups">
       {{group.content}}
     </div>
-    <div uib-accordion-group class="panel-default" heading="Dynamic Body Content">
-      <p>The body of the uib-accordion group grows to fit the contents</p>
+    <div ui-accordion-group class="panel-default" heading="Dynamic Body Content">
+      <p>The body of the ui-accordion group grows to fit the contents</p>
       <button type="button" class="btn btn-default btn-sm" ng-click="addItem()">Add Item</button>
       <div ng-repeat="item in items">{{item}}</div>
     </div>
-    <div uib-accordion-group class="panel-default" heading="Custom template" template-url="group-template.html">
+    <div ui-accordion-group class="panel-default" heading="Custom template" template-url="group-template.html">
       Hello
     </div>
-    <div uib-accordion-group class="panel-default" is-open="status.isCustomHeaderOpen" template-url="group-template.html">
-      <uib-accordion-heading>
+    <div ui-accordion-group class="panel-default" is-open="status.isCustomHeaderOpen" template-url="group-template.html">
+      <ui-accordion-heading>
         Custom template with custom header template <i class="pull-right glyphicon" ng-class="{'glyphicon-chevron-down': status.isCustomHeaderOpen, 'glyphicon-chevron-right': !status.isCustomHeaderOpen}"></i>
-      </uib-accordion-heading>
+      </ui-accordion-heading>
       World
     </div>
-    <div uib-accordion-group class="panel-danger" heading="Delete account">
+    <div ui-accordion-group class="panel-danger" heading="Delete account">
       <p>Please, to delete your account, click the button below</p>
       <button class="btn btn-danger">Delete</button>
     </div>
-    <div uib-accordion-group class="panel-default" is-open="status.open">
-      <uib-accordion-heading>
+    <div ui-accordion-group class="panel-default" is-open="status.open">
+      <ui-accordion-heading>
         I can have markup, too! <i class="pull-right glyphicon" ng-class="{'glyphicon-chevron-down': status.open, 'glyphicon-chevron-right': !status.open}"></i>
-      </uib-accordion-heading>
+      </ui-accordion-heading>
       This is just some content to illustrate fancy headings.
     </div>
-  </uib-accordion>
+  </ui-accordion>
 </div>

@@ -6,12 +6,12 @@
 <li><code>month</code> - In this mode you can select a month within a selected year.</li>
 <li><code>year</code> - In this mode you are presented with a range of years (20 by default).</li>
 </ul>
-<h3 id="uib-datepicker-settings">uib-datepicker settings</h3>
+<h3 id="ui-datepicker-settings">ui-datepicker settings</h3>
 <ul>
 <li><p><code>ng-model</code>
 <small class="badge">$</small>
 <i class="glyphicon glyphicon-eye-open"></i> -
-The date object. Must be a Javascript <code>Date</code> object. You may use the <code>uibDateParser</code> service to assist in string-to-object conversion.</p>
+The date object. Must be a Javascript <code>Date</code> object. You may use the <code>uiDateParser</code> service to assist in string-to-object conversion.</p>
 </li>
 <li><p><code>ng-model-options</code>
 <small class="badge">$</small>
@@ -28,7 +28,7 @@ Supported <a href="https://docs.angularjs.org/api/ng/directive/ngModelOptions">a
 Add the ability to override the template used on the component.</p>
 </li>
 </ul>
-<p>Apart from the previous settings, to configure the uib-datepicker you need to create an object in Javascript with all the options and use it on the <code>datepicker-options</code> attribute:</p>
+<p>Apart from the previous settings, to configure the ui-datepicker you need to create an object in Javascript with all the options and use it on the <code>datepicker-options</code> attribute:</p>
 <ul>
 <li><p><code>datepicker-options</code>
 <small class="badge">$</small> -
@@ -179,13 +179,13 @@ Number of columns displayed in year selection.</p>
 
 <h4>Inline</h4>
 <div style="display:inline-block; min-height:290px;">
-    <div uib-datepicker="" ng-model="dt" class="well well-sm" datepicker-options="options"></div>
+    <div ui-datepicker="" ng-model="dt" class="well well-sm" datepicker-options="options"></div>
 </div>
 
 <p><hr></p>
 <p><button type="button" class="btn btn-sm btn-info" ng-click="today()">Today</button></p>
 <p><button type="button" class="btn btn-sm btn-default" ng-click="setDate(2009, 7, 24)">2009-08-24</button></p>
 <p><button type="button" class="btn btn-sm btn-danger" ng-click="clear()">Clear</button></p>
-<p><button type="button" class="btn btn-sm btn-default" ng-click="toggleMin()" uib-tooltip="After today restriction">Min date</button>
+<p><button type="button" class="btn btn-sm btn-default" ng-click="toggleMin()" ui-tooltip="After today restriction">Min date</button>
 </p></div><p></p>
 </div>

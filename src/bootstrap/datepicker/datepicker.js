@@ -9,7 +9,7 @@ angular.module('ui.bootstrap.datepicker', ['ui.bootstrap.dateparser', 'ui.bootst
 
 .value('$datepickerLiteralWarning', true)
 
-.constant('uibDatepickerConfig', {
+.constant('uiDatepickerConfig', {
   datepickerMode: 'day',
   formatDay: 'dd',
   formatMonth: 'MMMM',
@@ -29,14 +29,14 @@ angular.module('ui.bootstrap.datepicker', ['ui.bootstrap.dateparser', 'ui.bootst
   yearRows: 4
 })
 
-.controller('UibDatepickerController', ['$scope', '$element', '$attrs', '$parse', '$interpolate', '$locale', '$log', 'dateFilter', 'uibDatepickerConfig', '$datepickerLiteralWarning', '$datepickerSuppressError', 'uibDateParser',
+.controller('UiDatepickerController', ['$scope', '$element', '$attrs', '$parse', '$interpolate', '$locale', '$log', 'dateFilter', 'uiDatepickerConfig', '$datepickerLiteralWarning', '$datepickerSuppressError', 'uiDateParser',
   function($scope, $element, $attrs, $parse, $interpolate, $locale, $log, dateFilter, datepickerConfig, $datepickerLiteralWarning, $datepickerSuppressError, dateParser) {
   var self = this,
       ngModelCtrl = { $setViewValue: angular.noop }, // nullModelCtrl;
       ngModelOptions = {},
       watchListeners = [];
 
-  $element.addClass('uib-datepicker');
+  $element.addClass('ui-datepicker');
   $attrs.$set('role', 'application');
 
   if (!$scope.datepickerOptions) {
@@ -279,10 +279,10 @@ angular.module('ui.bootstrap.datepicker', ['ui.bootstrap.dateparser', 'ui.bootst
       self.activeDate = date;
       setMode(self.modes[self.modes.indexOf($scope.datepickerMode) - 1]);
 
-      $scope.$emit('uib:datepicker.mode');
+      $scope.$emit('ui:datepicker.mode');
     }
 
-    $scope.$broadcast('uib:datepicker.focus');
+    $scope.$broadcast('ui:datepicker.focus');
   };
 
   $scope.move = function(direction) {
@@ -302,7 +302,7 @@ angular.module('ui.bootstrap.datepicker', ['ui.bootstrap.dateparser', 'ui.bootst
 
     setMode(self.modes[self.modes.indexOf($scope.datepickerMode) + direction]);
 
-    $scope.$emit('uib:datepicker.mode');
+    $scope.$emit('ui:datepicker.mode');
   };
 
   // Key event mapper
@@ -313,7 +313,7 @@ angular.module('ui.bootstrap.datepicker', ['ui.bootstrap.dateparser', 'ui.bootst
   };
 
   // Listen for focus requests from popup directive
-  $scope.$on('uib:datepicker.focus', focusElement);
+  $scope.$on('ui:datepicker.focus', focusElement);
 
   $scope.keydown = function(evt) {
     var key = $scope.keys[evt.which];
@@ -359,7 +359,7 @@ angular.module('ui.bootstrap.datepicker', ['ui.bootstrap.dateparser', 'ui.bootst
   }
 }])
 
-.controller('UibDaypickerController', ['$scope', '$element', 'dateFilter', function(scope, $element, dateFilter) {
+.controller('UiDaypickerController', ['$scope', '$element', 'dateFilter', function(scope, $element, dateFilter) {
   var DAYS_IN_MONTH = [31, 28, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31];
 
   this.step = { months: 1 };
@@ -473,7 +473,7 @@ angular.module('ui.bootstrap.datepicker', ['ui.bootstrap.dateparser', 'ui.bootst
   };
 }])
 
-.controller('UibMonthpickerController', ['$scope', '$element', 'dateFilter', function(scope, $element, dateFilter) {
+.controller('UiMonthpickerController', ['$scope', '$element', 'dateFilter', function(scope, $element, dateFilter) {
   this.step = { years: 1 };
   this.element = $element;
 
@@ -531,7 +531,7 @@ angular.module('ui.bootstrap.datepicker', ['ui.bootstrap.dateparser', 'ui.bootst
   };
 }])
 
-.controller('UibYearpickerController', ['$scope', '$element', 'dateFilter', function(scope, $element, dateFilter) {
+.controller('UiYearpickerController', ['$scope', '$element', 'dateFilter', function(scope, $element, dateFilter) {
   var columns, range;
   this.element = $element;
 
@@ -587,7 +587,7 @@ angular.module('ui.bootstrap.datepicker', ['ui.bootstrap.dateparser', 'ui.bootst
   };
 }])
 
-.directive('uibDatepicker', function() {
+.directive('uiDatepicker', function() {
   return {
     templateUrl: function(element, attrs) {
       return attrs.templateUrl || datepickerTemp;
@@ -595,9 +595,9 @@ angular.module('ui.bootstrap.datepicker', ['ui.bootstrap.dateparser', 'ui.bootst
     scope: {
       datepickerOptions: '=?'
     },
-    require: ['uibDatepicker', '^ngModel'],
+    require: ['uiDatepicker', '^ngModel'],
     restrict: 'A',
-    controller: 'UibDatepickerController',
+    controller: 'UiDatepickerController',
     controllerAs: 'datepicker',
     link: function(scope, element, attrs, ctrls) {
       var datepickerCtrl = ctrls[0], ngModelCtrl = ctrls[1];
@@ -607,14 +607,14 @@ angular.module('ui.bootstrap.datepicker', ['ui.bootstrap.dateparser', 'ui.bootst
   };
 })
 
-.directive('uibDaypicker', function() {
+.directive('uiDaypicker', function() {
   return {
     templateUrl: function(element, attrs) {
       return attrs.templateUrl || dayTemp;
     },
-    require: ['^uibDatepicker', 'uibDaypicker'],
+    require: ['^uiDatepicker', 'uiDaypicker'],
     restrict: 'A',
-    controller: 'UibDaypickerController',
+    controller: 'UiDaypickerController',
     link: function(scope, element, attrs, ctrls) {
       var datepickerCtrl = ctrls[0],
         daypickerCtrl = ctrls[1];
@@ -624,14 +624,14 @@ angular.module('ui.bootstrap.datepicker', ['ui.bootstrap.dateparser', 'ui.bootst
   };
 })
 
-.directive('uibMonthpicker', function() {
+.directive('uiMonthpicker', function() {
   return {
     templateUrl: function(element, attrs) {
       return attrs.templateUrl || monthTemp;
     },
-    require: ['^uibDatepicker', 'uibMonthpicker'],
+    require: ['^uiDatepicker', 'uiMonthpicker'],
     restrict: 'A',
-    controller: 'UibMonthpickerController',
+    controller: 'UiMonthpickerController',
     link: function(scope, element, attrs, ctrls) {
       var datepickerCtrl = ctrls[0],
         monthpickerCtrl = ctrls[1];
@@ -641,14 +641,14 @@ angular.module('ui.bootstrap.datepicker', ['ui.bootstrap.dateparser', 'ui.bootst
   };
 })
 
-.directive('uibYearpicker', function() {
+.directive('uiYearpicker', function() {
   return {
     templateUrl: function(element, attrs) {
       return attrs.templateUrl || yearTemp;
     },
-    require: ['^uibDatepicker', 'uibYearpicker'],
+    require: ['^uiDatepicker', 'uiYearpicker'],
     restrict: 'A',
-    controller: 'UibYearpickerController',
+    controller: 'UiYearpickerController',
     link: function(scope, element, attrs, ctrls) {
       var ctrl = ctrls[0];
       angular.extend(ctrl, ctrls[1]);

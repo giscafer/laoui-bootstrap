@@ -1,6 +1,6 @@
 angular.module('ui.bootstrap.timepicker', [])
 
-.constant('uibTimepickerConfig', {
+.constant('uiTimepickerConfig', {
   hourStep: 1,
   minuteStep: 1,
   secondStep: 1,
@@ -14,7 +14,7 @@ angular.module('ui.bootstrap.timepicker', [])
   templateUrl: '../../template/timepicker/timepicker.html'
 })
 
-.controller('UibTimepickerController', ['$scope', '$element', '$attrs', '$parse', '$log', '$locale', 'uibTimepickerConfig', function($scope, $element, $attrs, $parse, $log, $locale, timepickerConfig) {
+.controller('UiTimepickerController', ['$scope', '$element', '$attrs', '$parse', '$log', '$locale', 'uiTimepickerConfig', function($scope, $element, $attrs, $parse, $log, $locale, timepickerConfig) {
   var hoursModelCtrl, minutesModelCtrl, secondsModelCtrl;
   var selected = new Date(),
     watchers = [],
@@ -570,15 +570,15 @@ angular.module('ui.bootstrap.timepicker', [])
   });
 }])
 
-.directive('uibTimepicker', ['uibTimepickerConfig', function(uibTimepickerConfig) {
+.directive('uiTimepicker', ['uiTimepickerConfig', function(uiTimepickerConfig) {
   return {
-    require: ['uibTimepicker', '?^ngModel'],
+    require: ['uiTimepicker', '?^ngModel'],
     restrict: 'A',
-    controller: 'UibTimepickerController',
+    controller: 'UiTimepickerController',
     controllerAs: 'timepicker',
     scope: {},
     templateUrl: function(element, attrs) {
-      return attrs.templateUrl || uibTimepickerConfig.templateUrl;
+      return attrs.templateUrl || uiTimepickerConfig.templateUrl;
     },
     link: function(scope, element, attrs, ctrls) {
       var timepickerCtrl = ctrls[0], ngModelCtrl = ctrls[1];

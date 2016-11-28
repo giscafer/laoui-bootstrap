@@ -1,4 +1,4 @@
-The `$uibPosition` service provides a set of DOM utilities used internally to absolute-position an element in relation to another element (tooltips, popovers, typeaheads etc...).
+The `$uiPosition` service provides a set of DOM utilities used internally to absolute-position an element in relation to another element (tooltips, popovers, typeaheads etc...).
 
 #### getRawNode(element)
 

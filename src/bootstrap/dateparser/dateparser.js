@@ -1,6 +1,6 @@
 angular.module('ui.bootstrap.dateparser', [])
 
-.service('uibDateParser', ['$log', '$locale', 'dateFilter', 'orderByFilter', function($log, $locale, dateFilter, orderByFilter) {
+.service('uiDateParser', ['$log', '$locale', 'dateFilter', 'orderByFilter', function($log, $locale, dateFilter, orderByFilter) {
   // Pulled from https://github.com/mbostock/d3/blob/master/src/format/requote.js
   var SPECIAL_CHARACTERS_REGEXP = /[\\\^\$\*\+\?\|\[\]\(\)\.\{\}]/g;
 

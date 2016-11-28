@@ -2,13 +2,13 @@ Dropdown is a simple directive which will toggle a dropdown menu on click or pro
 
 This directive is composed by three parts:
 
-* `uib-dropdown` which transforms a node into a dropdown.
-* `uib-dropdown-toggle` which allows the dropdown to be toggled via click. This directive is optional.
-* `uib-dropdown-menu` which transforms a node into the popup menu.
+* `ui-dropdown` which transforms a node into a dropdown.
+* `ui-dropdown-toggle` which allows the dropdown to be toggled via click. This directive is optional.
+* `ui-dropdown-menu` which transforms a node into the popup menu.
 
 Each of these parts need to be used as attribute directives.
 
-### uib-dropdown settings
+### ui-dropdown settings
 
 * `auto-close`
   _(Default: `always`)_ -
@@ -31,7 +31,7 @@ Each of these parts need to be used as attribute directives.
   <small class="badge">$</small>
   <i class="glyphicon glyphicon-eye-open"></i>
   _(Default: `false`)_ -
-  Defines whether or not the dropdown-menu is open. The `uib-dropdown-toggle` will toggle this attribute on click.
+  Defines whether or not the dropdown-menu is open. The `ui-dropdown-toggle` will toggle this attribute on click.
 
 * `keyboard-nav`:
   <small class="badge">B</small>
@@ -42,16 +42,16 @@ Each of these parts need to be used as attribute directives.
   <small class="badge">$</small> -
   An optional expression called when the dropdown menu is opened or closed.
 
-### uib-dropdown-menu settings
+### ui-dropdown-menu settings
 
 * `template-url`
   _(Default: `none`)_ -
   You may specify a template for the dropdown menu. Check the demos for an example.
 
-### Additional settings `uibDropdownConfig`
+### Additional settings `uiDropdownConfig`
 
 * `appendToOpenClass`
-  _(Default: `uib-dropdown-open`)_ -
+  _(Default: `ui-dropdown-open`)_ -
   Class to apply when the dropdown is open and appended to a different DOM element.
 
 * `openClass`

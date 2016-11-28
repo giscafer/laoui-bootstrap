@@ -1,7 +1,7 @@
 
 The datepicker popup is meant to be used with an input element. To understand usage of the datepicker, please refer to its documentation [here](https://angular-ui.github.io/bootstrap/#/datepicker).
 
-### uib-datepicker-popup settings
+### ui-datepicker-popup settings
 
 The popup is a wrapper that you can use in an input to toggle a datepicker. To configure the datepicker, use `datepicker-options` as documented in the [inline datepicker](https://angular-ui.github.io/bootstrap/#/datepicker).
 
@@ -50,7 +50,7 @@ Add the ability to override the template used on the component.
 * `datepicker-template-url`
 <small class="badge">C</small>
 _(Default: `../../template/datepicker/datepicker.html`)_ -
-Add the ability to override the template used on the component (inner uib-datepicker).
+Add the ability to override the template used on the component (inner ui-datepicker).
 
 * `is-open`
 <small class="badge">$</small>
@@ -61,7 +61,7 @@ Whether or not to show the datepicker.
 * `ng-model`
   <small class="badge">$</small>
   <i class="glyphicon glyphicon-eye-open"></i> -
-  The date object. Must be a Javascript `Date` object. You may use the `uibDateParser` service to assist in string-to-object conversion.
+  The date object. Must be a Javascript `Date` object. You may use the `uiDateParser` service to assist in string-to-object conversion.
 
 * `on-open-focus`
 <small class="badge">$</small>
@@ -73,7 +73,7 @@ Whether or not to focus the datepicker popup upon opening.
 <small class="badge">$</small>
 <small class="badge">C</small>
 _(Default: `true`)_ -
-Whether or not to display a button bar underneath the uib-datepicker.
+Whether or not to display a button bar underneath the ui-datepicker.
 
 * `type`
 <small class="badge">C</small>
@@ -98,7 +98,7 @@ Passing in 'auto' separated by a space before the placement will enable auto pos
  * `right-top` - popup on right, top edge aligned with input element top edge.
  * `right-bottom` - popup on right, bottom edge aligned with input element bottom edge.
 
-* `uib-datepicker-popup`
+* `ui-datepicker-popup`
 <small class="badge">C</small>
 _(Default: `yyyy-MM-dd`, Config: `datepickerConfig`)_ -
 The format for displayed dates. This string can take string literals by surrounding the value with single quotes, i.e. `yyyy-MM-dd h 'o\'clock'`.
@@ -126,7 +126,7 @@ If using this directive on input type date, a native browser datepicker could al
     <div class="row">
       <div class="col-md-6">
         <p class="input-group">
-          <input type="text" class="form-control" uib-datepicker-popup="{{format}}" ng-model="dt" is-open="popup1.opened" datepicker-options="dateOptions" ng-required="true" close-text="Close" alt-input-formats="altInputFormats" />
+          <input type="text" class="form-control" ui-datepicker-popup="{{format}}" ng-model="dt" is-open="popup1.opened" datepicker-options="dateOptions" ng-required="true" close-text="Close" alt-input-formats="altInputFormats" />
           <span class="input-group-btn">
             <button type="button" class="btn btn-default" ng-click="open1()"><i class="glyphicon glyphicon-calendar"></i></button>
           </span>
@@ -135,7 +135,7 @@ If using this directive on input type date, a native browser datepicker could al
 
       <div class="col-md-6">
         <p class="input-group">
-          <input type="text" class="form-control" uib-datepicker-popup ng-model="dt" is-open="popup2.opened" datepicker-options="dateOptions" ng-required="true" close-text="Close" />
+          <input type="text" class="form-control" ui-datepicker-popup ng-model="dt" is-open="popup2.opened" datepicker-options="dateOptions" ng-required="true" close-text="Close" />
           <span class="input-group-btn">
             <button type="button" class="btn btn-default" ng-click="open2()"><i class="glyphicon glyphicon-calendar"></i></button>
           </span>
@@ -152,5 +152,5 @@ If using this directive on input type date, a native browser datepicker could al
     <button type="button" class="btn btn-sm btn-info" ng-click="today()">Today</button>
     <button type="button" class="btn btn-sm btn-default" ng-click="setDate(2009, 7, 24)">2009-08-24</button>
     <button type="button" class="btn btn-sm btn-danger" ng-click="clear()">Clear</button>
-    <button type="button" class="btn btn-sm btn-default" ng-click="toggleMin()" uib-tooltip="After today restriction">Min date</button>
+    <button type="button" class="btn btn-sm btn-default" ng-click="toggleMin()" ui-tooltip="After today restriction">Min date</button>
 </div>

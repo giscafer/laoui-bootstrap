@@ -1,4 +1,4 @@
-angular.module('ui.bootstrap.demo').controller('ModalDemoCtrl', function ($uibModal, $log, $document) {
+angular.module('ui.bootstrap.demo').controller('ModalDemoCtrl', function ($uiModal, $log, $document) {
   var $ctrl = this;
   $ctrl.items = ['item1', 'item2', 'item3'];
 
@@ -7,7 +7,7 @@ angular.module('ui.bootstrap.demo').controller('ModalDemoCtrl', function ($uibMo
   $ctrl.open = function (size, parentSelector) {
     var parentElem = parentSelector ? 
       angular.element($document[0].querySelector('.modal-demo ' + parentSelector)) : undefined;
-    var modalInstance = $uibModal.open({
+    var modalInstance = $uiModal.open({
       animation: $ctrl.animationsEnabled,
       ariaLabelledBy: 'modal-title',
       ariaDescribedBy: 'modal-body',
@@ -31,7 +31,7 @@ angular.module('ui.bootstrap.demo').controller('ModalDemoCtrl', function ($uibMo
   };
 
   $ctrl.openComponentModal = function () {
-    var modalInstance = $uibModal.open({
+    var modalInstance = $uiModal.open({
       animation: $ctrl.animationsEnabled,
       component: 'modalComponent',
       resolve: {
@@ -49,7 +49,7 @@ angular.module('ui.bootstrap.demo').controller('ModalDemoCtrl', function ($uibMo
   };
 
   $ctrl.openMultipleModals = function () {
-    $uibModal.open({
+    $uiModal.open({
       animation: $ctrl.animationsEnabled,
       ariaLabelledBy: 'modal-title-bottom',
       ariaDescribedBy: 'modal-body-bottom',
@@ -60,7 +60,7 @@ angular.module('ui.bootstrap.demo').controller('ModalDemoCtrl', function ($uibMo
       }
     });
 
-    $uibModal.open({
+    $uiModal.open({
       animation: $ctrl.animationsEnabled,
       ariaLabelledBy: 'modal-title-top',
       ariaDescribedBy: 'modal-body-top',
@@ -77,10 +77,10 @@ angular.module('ui.bootstrap.demo').controller('ModalDemoCtrl', function ($uibMo
   };
 });
 
-// Please note that $uibModalInstance represents a modal window (instance) dependency.
-// It is not the same as the $uibModal service used above.
+// Please note that $uiModalInstance represents a modal window (instance) dependency.
+// It is not the same as the $uiModal service used above.
 
-angular.module('ui.bootstrap.demo').controller('ModalInstanceCtrl', function ($uibModalInstance, items) {
+angular.module('ui.bootstrap.demo').controller('ModalInstanceCtrl', function ($uiModalInstance, items) {
   var $ctrl = this;
   $ctrl.items = items;
   $ctrl.selected = {
@@ -88,15 +88,15 @@ angular.module('ui.bootstrap.demo').controller('ModalInstanceCtrl', function ($u
   };
 
   $ctrl.ok = function () {
-    $uibModalInstance.close($ctrl.selected.item);
+    $uiModalInstance.close($ctrl.selected.item);
   };
 
   $ctrl.cancel = function () {
-    $uibModalInstance.dismiss('cancel');
+    $uiModalInstance.dismiss('cancel');
   };
 });
 
-// Please note that the close and dismiss bindings are from $uibModalInstance.
+// Please note that the close and dismiss bindings are from $uiModalInstance.
 
 angular.module('ui.bootstrap.demo').component('modalComponent', {
   templateUrl: 'myModalContent.html',

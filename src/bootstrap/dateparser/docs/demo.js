@@ -1,4 +1,4 @@
-angular.module('ui.bootstrap.demo').controller('DateParserDemoCtrl', function ($scope, uibDateParser) {
+angular.module('ui.bootstrap.demo').controller('DateParserDemoCtrl', function ($scope, uiDateParser) {
   $scope.format = 'yyyy/MM/dd';
   $scope.date = new Date();
 });

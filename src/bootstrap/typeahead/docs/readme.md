@@ -11,7 +11,7 @@ The `sourceArray` expression can use a special `$viewValue` variable that corres
 
 This directive works with promises, meaning you can retrieve matches using the `$http` service with minimal effort.
 
-### uib-typeahead settings
+### ui-typeahead settings
 
 * `ng-model`
   <small class="badge">$</small>
@@ -116,11 +116,11 @@ This directive works with promises, meaning you can retrieve matches using the `
   _(Default: `0`)_ -
   Minimal wait time after last character typed before typeahead kicks-in.
 
-* `uib-typeahead`
+* `ui-typeahead`
   <small class="badge">$</small>
   <i class="glyphicon glyphicon-eye-open"></i> -
   Comprehension Angular expression (see [select directive](http://docs.angularjs.org/api/ng.directive:select)).
 
 **Notes**
 
-If a custom template for the popup is used, the wrapper selector used for the match items is the `uib-typeahead-match` class.
+If a custom template for the popup is used, the wrapper selector used for the match items is the `ui-typeahead-match` class.

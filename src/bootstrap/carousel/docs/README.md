@@ -2,9 +2,9 @@ Carousel creates a carousel similar to bootstrap's image carousel.
 
 The carousel also offers support for touchscreen devices in the form of swiping. To enable swiping, load the `ngTouch` module as a dependency.
 
-Use a `<uib-carousel>` element with `<uib-slide>` elements inside it.
+Use a `<ui-carousel>` element with `<ui-slide>` elements inside it.
 
-### uib-carousel settings
+### ui-carousel settings
 
 * `active`
   <i class="glyphicon glyphicon-eye-open"></i>
@@ -38,7 +38,7 @@ Use a `<uib-carousel>` element with `<uib-slide>` elements inside it.
   _(Default: `../../template/carousel/carousel.html`)_ -
   Add the ability to override the template used on the component.
 
-### uib-slide settings
+### ui-slide settings
 
 * `actual`
   <small class="badge">$</small>

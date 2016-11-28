@@ -1,5 +1,5 @@
-<div class="markdown-body"><p>With the buttons directive, we can make a group of buttons behave like a set of checkboxes (<code>uib-btn-checkbox</code>) or behave like a set of radio buttons (<code>uib-btn-radio</code>).</p>
-<h3 id="uib-btn-checkbox-settings">uib-btn-checkbox settings</h3>
+<div class="markdown-body"><p>With the buttons directive, we can make a group of buttons behave like a set of checkboxes (<code>ui-btn-checkbox</code>) or behave like a set of radio buttons (<code>ui-btn-radio</code>).</p>
+<h3 id="ui-btn-checkbox-settings">ui-btn-checkbox settings</h3>
 <ul>
 <li><p><code>btn-checkbox-false</code>
 <em>(Default: <code>false</code>)</em> -
@@ -15,18 +15,18 @@ Sets the value for the checked status.</p>
 Model where we set the checkbox status. By default <code>true</code> or <code>false</code>.</p>
 </li>
 </ul>
-<h3 id="uib-btn-radio-settings">uib-btn-radio settings</h3>
+<h3 id="ui-btn-radio-settings">ui-btn-radio settings</h3>
 <ul>
 <li><p><code>ng-model</code>
 <small class="badge">$</small>
 <i class="glyphicon glyphicon-eye-open"></i> -
 Model where we set the radio status. All radio buttons in a group should use the same <code>ng-model</code>.</p>
 </li>
-<li><p><code>uib-btn-radio</code> -
+<li><p><code>ui-btn-radio</code> -
 <small class="badge">$</small>
 Value to assign to the <code>ng-model</code> if we check this radio button.</p>
 </li>
-<li><p><code>uib-uncheckable</code>
+<li><p><code>ui-uncheckable</code>
 <small class="badge">$</small>
 <em>(Default: <code>null</code>)</em> -
 An expression that evaluates to a truthy or falsy value that determines whether the <code>uncheckable</code> attribute is present.</p>
@@ -36,7 +36,7 @@ An expression that evaluates to a truthy or falsy value that determines whether 
 Whether a radio button can be unchecked or not.</p>
 </li>
 </ul>
-<h3 id="additional-settings-uibbuttonconfig-">Additional settings <code>uibButtonConfig</code></h3>
+<h3 id="additional-settings-uibuttonconfig-">Additional settings <code>uiButtonConfig</code></h3>
 <ul>
 <li><p><code>activeClass</code>
 <em>(Default: <code>active</code>)</em> -
@@ -52,28 +52,28 @@ Event used to toggle the buttons.</p>
 <div>
     <h4>Single toggle</h4>
     <pre><code style="width:100%;color:#fff">{{ctrl.singleModel}}</code></pre>
-    <button type="button" class="btn btn-primary" ng-model="ctrl.singleModel" uib-btn-checkbox="" btn-checkbox-true="1" btn-checkbox-false="0">
+    <button type="button" class="btn btn-primary" ng-model="ctrl.singleModel" ui-btn-checkbox="" btn-checkbox-true="1" btn-checkbox-false="0">
         Single Toggle
     </button>
     <h4>Checkbox</h4>
     <pre><code style="width:100%;color:#fff">Model: {{ctrl.checkModel}}</code></pre>
     <pre><code style="width:100%;color:#fff">Results: {{ctrl.checkResults}}</code></pre>
     <div class="btn-group">
-        <label class="btn btn-primary" ng-model="ctrl.checkModel.left" uib-btn-checkbox="">Left</label>
-        <label class="btn btn-primary" ng-model="ctrl.checkModel.middle" uib-btn-checkbox="">Middle</label>
-        <label class="btn btn-primary" ng-model="ctrl.checkModel.right" uib-btn-checkbox="">Right</label>
+        <label class="btn btn-primary" ng-model="ctrl.checkModel.left" ui-btn-checkbox="">Left</label>
+        <label class="btn btn-primary" ng-model="ctrl.checkModel.middle" ui-btn-checkbox="">Middle</label>
+        <label class="btn btn-primary" ng-model="ctrl.checkModel.right" ui-btn-checkbox="">Right</label>
     </div>
     <h4>Radio &amp; Uncheckable Radio</h4>
     <pre><code style="width:100%;color:#fff">{{ctrl.radioModel || <span class="hljs-string">&#39;null&#39;</span>}}</code></pre>
     <div class="btn-group">
-        <label class="btn btn-primary" ng-model="ctrl.radioModel" uib-btn-radio="'Left'">Left</label>
-        <label class="btn btn-primary" ng-model="ctrl.radioModel" uib-btn-radio="'Middle'">Middle</label>
-        <label class="btn btn-primary" ng-model="ctrl.radioModel" uib-btn-radio="'Right'">Right</label>
+        <label class="btn btn-primary" ng-model="ctrl.radioModel" ui-btn-radio="'Left'">Left</label>
+        <label class="btn btn-primary" ng-model="ctrl.radioModel" ui-btn-radio="'Middle'">Middle</label>
+        <label class="btn btn-primary" ng-model="ctrl.radioModel" ui-btn-radio="'Right'">Right</label>
     </div>
     <div class="btn-group">
-        <label class="btn btn-success" ng-model="ctrl.radioModel" uib-btn-radio="'Left'" uncheckable="">Left</label>
-        <label class="btn btn-success" ng-model="ctrl.radioModel" uib-btn-radio="'Middle'" uncheckable="">Middle</label>
-        <label class="btn btn-success" ng-model="ctrl.radioModel" uib-btn-radio="'Right'" uib-uncheckable="ctrl.uncheckable">Right</label>
+        <label class="btn btn-success" ng-model="ctrl.radioModel" ui-btn-radio="'Left'" uncheckable="">Left</label>
+        <label class="btn btn-success" ng-model="ctrl.radioModel" ui-btn-radio="'Middle'" uncheckable="">Middle</label>
+        <label class="btn btn-success" ng-model="ctrl.radioModel" ui-btn-radio="'Right'" ui-uncheckable="ctrl.uncheckable">Right</label>
     </div>
     <div>
         <button class="btn btn-default" ng-click="ctrl.uncheckable = !ctrl.uncheckable">

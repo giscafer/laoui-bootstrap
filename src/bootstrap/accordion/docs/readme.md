@@ -2,7 +2,7 @@ The **accordion directive** builds on top of the collapse directive to provide a
 
 The body of each accordion group is transcluded into the body of the collapsible element.
 
-### uib-accordion settings
+### ui-accordion settings
 
 * `close-others`
   <small class="badge">$</small>
@@ -14,7 +14,7 @@ The body of each accordion group is transcluded into the body of the collapsible
   _(Default: `template/accordion/accordion.html`)_ -
   Add the ability to override the template used on the component.
 
-### uib-accordion-group settings
+### ui-accordion-group settings
 
 * `heading`
   _(Default: `none`)_ -
@@ -38,12 +38,12 @@ The body of each accordion group is transcluded into the body of the collapsible
 
 ### Accordion heading
 
-Instead of the `heading` attribute on the `uib-accordion-group`, you can use an `uib-accordion-heading` element inside a group that will be used as the group's header.
+Instead of the `heading` attribute on the `ui-accordion-group`, you can use an `ui-accordion-heading` element inside a group that will be used as the group's header.
 
-If you're using a custom template for the `uib-accordion-group`, you'll need to have an element for the heading to be transcluded into using `uib-accordion-header` (e.g. `<div uib-accordion-header></div>`).
+If you're using a custom template for the `ui-accordion-group`, you'll need to have an element for the heading to be transcluded into using `ui-accordion-header` (e.g. `<div ui-accordion-header></div>`).
 
 ### Known issues
 
 To use clickable elements within the accordion, you have to override the accordion-group template to use div elements instead of anchor elements, and add `cursor: pointer` in your CSS. This is due to browsers interpreting anchor elements as the target of any click event, which triggers routing when certain elements such as buttons are nested inside the anchor element.
 
-If custom classes on the accordion-group element are desired, one needs to either modify the template to remove the `ng-class` usage in the accordion-group template and use ng-class on the accordion-group element (not recommended), or use an interpolated expression in the class attribute, i.e. `<uib-accordion-group class="{{customClass()}}"></uib-accordion-group>`.
+If custom classes on the accordion-group element are desired, one needs to either modify the template to remove the `ng-class` usage in the accordion-group template and use ng-class on the accordion-group element (not recommended), or use an interpolated expression in the class attribute, i.e. `<ui-accordion-group class="{{customClass()}}"></ui-accordion-group>`.

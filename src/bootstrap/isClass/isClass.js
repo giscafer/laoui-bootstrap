@@ -1,7 +1,7 @@
 // Avoiding use of ng-class as it creates a lot of watchers when a class is to be applied to
 // at most one element.
 angular.module('ui.bootstrap.isClass', [])
-.directive('uibIsClass', [
+.directive('uiIsClass', [
          '$animate',
 function ($animate) {
   //                    11111111          22222222
@@ -18,7 +18,7 @@ function ($animate) {
       var instances = [];
       var expToData = {};
       var lastActivated = null;
-      var onExpMatches = tAttrs.uibIsClass.match(ON_REGEXP);
+      var onExpMatches = tAttrs.uiIsClass.match(ON_REGEXP);
       var onExp = onExpMatches[2];
       var expsStr = onExpMatches[1];
       var exps = expsStr.split(',');

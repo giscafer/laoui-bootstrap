@@ -4,19 +4,19 @@ directive supports multiple placements, optional transition animation, and more.
 __Note to mobile developers__:  Please note that while tooltips may work correctly on mobile devices (including tablets),
   we have made the decision to not officially support such a use-case because it does not make sense from a UX perspective.
 
-There are three versions of the tooltip: `uib-tooltip`, `uib-tooltip-template`, and
-`uib-tooltip-html`:
+There are three versions of the tooltip: `ui-tooltip`, `ui-tooltip-template`, and
+`ui-tooltip-html`:
 
-* `uib-tooltip` -
+* `ui-tooltip` -
   Takes text only and will escape any HTML provided.
-* `uib-tooltip-html`
+* `ui-tooltip-html`
   <small class="badge">$</small> -
-  Takes an expression that evaluates to an HTML string. Note that this HTML is not compiled. If compilation is required, please use the `uib-tooltip-template` attribute option instead. *The user is responsible for ensuring the content is safe to put into the DOM!*
-* `uib-tooltip-template`
+  Takes an expression that evaluates to an HTML string. Note that this HTML is not compiled. If compilation is required, please use the `ui-tooltip-template` attribute option instead. *The user is responsible for ensuring the content is safe to put into the DOM!*
+* `ui-tooltip-template`
   <small class="badge">$</small> -
   Takes text that specifies the location of a template to use for the tooltip. Note that this needs to be wrapped in a tag.
 
-### uib-tooltip-* settings
+### ui-tooltip-* settings
 
 All these settings are available for the three types of tooltips.
 
@@ -78,7 +78,7 @@ All these settings are available for the three types of tooltips.
   _(Default: `'mouseenter'`)_ -
   What should trigger a show of the tooltip? Supports a space separated list of event names, or objects (see below).
 
-**Note:** To configure the tooltips, you need to do it on `$uibTooltipProvider` (also see below).
+**Note:** To configure the tooltips, you need to do it on `$uiTooltipProvider` (also see below).
 
 ### Triggers
 
@@ -96,9 +96,9 @@ For any non-supported value, the trigger will be used to both show and hide the
 tooltip. Using the 'none' trigger will disable the internal trigger(s), one can
 then use the `tooltip-is-open` attribute exclusively to show and hide the tooltip.
 
-### $uibTooltipProvider
+### $uiTooltipProvider
 
-Through the `$uibTooltipProvider`, you can change the way tooltips and popovers
+Through the `$uiTooltipProvider`, you can change the way tooltips and popovers
 behave by default; the attributes above always take precedence. The following
 methods are available:
 
@@ -114,7 +114,7 @@ methods are available:
 For Safari 7+ support, if you want to use the **focus** `tooltip-trigger`, you need to use an anchor tag with a tab index. For example:
 
 ```
-<a tabindex="0" uib-tooltip="Test" tooltip-trigger="focus" class="btn btn-default">
+<a tabindex="0" ui-tooltip="Test" tooltip-trigger="focus" class="btn btn-default">
   Click Me
 </a>
 ```

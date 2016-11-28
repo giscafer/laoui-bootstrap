@@ -13,7 +13,7 @@ angular.module('ui.bootstrap.tooltip', ['ui.bootstrap.position', 'ui.bootstrap.s
  * The $tooltip service creates tooltip- and popover-like directives as well as
  * houses global options for them.
  */
-.provider('$uibTooltip', function() {
+.provider('$uiTooltip', function() {
   // The default options tooltip and popover.
   var defaultOptions = {
     placement: 'top',
@@ -125,14 +125,14 @@ angular.module('ui.bootstrap.tooltip', ['ui.bootstrap.position', 'ui.bootstrap.s
       var endSym = $interpolate.endSymbol();
       var template =
         '<div '+ directiveName + '-popup ' +
-          'uib-title="' + startSym + 'title' + endSym + '" ' +
+          'ui-title="' + startSym + 'title' + endSym + '" ' +
           (options.useContentExp ?
             'content-exp="contentExp()" ' :
             'content="' + startSym + 'content' + endSym + '" ') +
           'origin-scope="origScope" ' +
-          'class="uib-position-measure ' + prefix + '" ' +
+          'class="ui-position-measure ' + prefix + '" ' +
           'tooltip-animation-class="fade"' +
-          'uib-tooltip-classes ' +
+          'ui-tooltip-classes ' +
           'ng-class="{ in: isOpen }" ' +
           '>' +
         '</div>';
@@ -191,11 +191,11 @@ angular.module('ui.bootstrap.tooltip', ['ui.bootstrap.position', 'ui.bootstrap.s
                   }, 0, false);
 
                   // first time through tt element will have the
-                  // uib-position-measure class or if the placement
+                  // ui-position-measure class or if the placement
                   // has changed we need to position the arrow.
-                  if (tooltip.hasClass('uib-position-measure')) {
+                  if (tooltip.hasClass('ui-position-measure')) {
                     $position.positionArrow(tooltip, ttPosition.placement);
-                    tooltip.removeClass('uib-position-measure');
+                    tooltip.removeClass('ui-position-measure');
                   } else if (lastPlacement !== ttPosition.placement) {
                     $position.positionArrow(tooltip, ttPosition.placement);
                   }
@@ -586,7 +586,7 @@ angular.module('ui.bootstrap.tooltip', ['ui.bootstrap.position', 'ui.bootstrap.s
 })
 
 // This is mostly ngInclude code but with a custom scope
-.directive('uibTooltipTemplateTransclude', [
+.directive('uiTooltipTemplateTransclude', [
          '$animate', '$sce', '$compile', '$templateRequest',
 function ($animate, $sce, $compile, $templateRequest) {
   return {
@@ -618,7 +618,7 @@ function ($animate, $sce, $compile, $templateRequest) {
         }
       };
 
-      scope.$watch($sce.parseAsResourceUrl(attrs.uibTooltipTemplateTransclude), function(src) {
+      scope.$watch($sce.parseAsResourceUrl(attrs.uiTooltipTemplateTransclude), function(src) {
         var thisChangeId = ++changeCounter;
 
         if (src) {
@@ -660,7 +660,7 @@ function ($animate, $sce, $compile, $templateRequest) {
  * They must not be animated as they're expected to be present on the tooltip on
  * initialization.
  */
-.directive('uibTooltipClasses', ['$uiPosition', function($uiPosition) {
+.directive('uiTooltipClasses', ['$uiPosition', function($uiPosition) {
   return {
     restrict: 'A',
     link: function(scope, element, attrs) {
@@ -685,7 +685,7 @@ function ($animate, $sce, $compile, $templateRequest) {
   };
 }])
 
-.directive('uibTooltipPopup', function() {
+.directive('uiTooltipPopup', function() {
   return {
     restrict: 'A',
     scope: { content: '@' },
@@ -693,11 +693,11 @@ function ($animate, $sce, $compile, $templateRequest) {
   };
 })
 
-.directive('uibTooltip', [ '$uibTooltip', function($uibTooltip) {
-  return $uibTooltip('uibTooltip', 'tooltip', 'mouseenter');
+.directive('uiTooltip', [ '$uiTooltip', function($uiTooltip) {
+  return $uiTooltip('uiTooltip', 'tooltip', 'mouseenter');
 }])
 
-.directive('uibTooltipTemplatePopup', function() {
+.directive('uiTooltipTemplatePopup', function() {
   return {
     restrict: 'A',
     scope: { contentExp: '&', originScope: '&' },
@@ -705,13 +705,13 @@ function ($animate, $sce, $compile, $templateRequest) {
   };
 })
 
-.directive('uibTooltipTemplate', ['$uibTooltip', function($uibTooltip) {
-  return $uibTooltip('uibTooltipTemplate', 'tooltip', 'mouseenter', {
+.directive('uiTooltipTemplate', ['$uiTooltip', function($uiTooltip) {
+  return $uiTooltip('uiTooltipTemplate', 'tooltip', 'mouseenter', {
     useContentExp: true
   });
 }])
 
-.directive('uibTooltipHtmlPopup', function() {
+.directive('uiTooltipHtmlPopup', function() {
   return {
     restrict: 'A',
     scope: { contentExp: '&' },
@@ -719,8 +719,8 @@ function ($animate, $sce, $compile, $templateRequest) {
   };
 })
 
-.directive('uibTooltipHtml', ['$uibTooltip', function($uibTooltip) {
-  return $uibTooltip('uibTooltipHtml', 'tooltip', 'mouseenter', {
+.directive('uiTooltipHtml', ['$uiTooltip', function($uiTooltip) {
+  return $uiTooltip('uiTooltipHtml', 'tooltip', 'mouseenter', {
     useContentExp: true
   });
 }]);

@@ -1,11 +1,11 @@
-.uib-datepicker .uib-title {
+.ui-datepicker .ui-title {
   width: 100%;
 }
 
-.uib-day button, .uib-month button, .uib-year button {
+.ui-day button, .ui-month button, .ui-year button {
   min-width: 100%;
 }
 
-.uib-left, .uib-right {
+.ui-left, .ui-right {
   width: 100%
 }

@@ -1,6 +1,6 @@
 angular.module('ui.bootstrap.tabindex', [])
 
-.directive('uibTabindexToggle', function() {
+.directive('uiTabindexToggle', function() {
   return {
     restrict: 'A',
     link: function(scope, elem, attrs) {

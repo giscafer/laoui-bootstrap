@@ -1,10 +1,10 @@
-The `uibDateParser` is what the `uib-datepicker` uses internally to parse the dates. You can use it standalone by injecting the `uibDateParser` service where you need it.
+The `uiDateParser` is what the `ui-datepicker` uses internally to parse the dates. You can use it standalone by injecting the `uiDateParser` service where you need it.
 
 The public API for the dateParser is a single method called `parse`.
 
 Certain format codes support i18n. Check this [guide](https://docs.angularjs.org/guide/i18n) for more information.
 
-### uibDateParser's parse function
+### uiDateParser's parse function
 
 ##### parameters
 
@@ -24,7 +24,7 @@ Certain format codes support i18n. Check this [guide](https://docs.angularjs.org
 
 * If the specified input matches the format, a new date with the input will be returned, otherwise, it will return undefined.
 
-### uibDateParser's format codes
+### uiDateParser's format codes
 
 * `yyyy`
   _(Example: `2015`)_ -

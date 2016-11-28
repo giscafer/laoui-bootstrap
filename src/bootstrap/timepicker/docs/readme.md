@@ -1,6 +1,6 @@
 A lightweight & configurable timepicker directive.
 
-### uib-timepicker settings
+### ui-timepicker settings
 
 * `arrowkeys`
   <small class="badge">$</small>

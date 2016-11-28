@@ -1,6 +1,6 @@
 Rating directive that will take care of visualising a star rating bar.
 
-### uib-rating settings
+### ui-rating settings
 
 * `max`
   <small class="badge">$</small>

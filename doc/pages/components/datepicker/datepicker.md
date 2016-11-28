@@ -8,12 +8,12 @@ The datepicker has 3 modes:
 * `month` - In this mode you can select a month within a selected year.
 * `year` - In this mode you are presented with a range of years (20 by default).
 
-### uib-datepicker settings
+### ui-datepicker settings
 
 * `ng-model`
   <small class="badge">$</small>
   <i class="glyphicon glyphicon-eye-open"></i> -
-  The date object. Must be a Javascript `Date` object. You may use the `uibDateParser` service to assist in string-to-object conversion.
+  The date object. Must be a Javascript `Date` object. You may use the `uiDateParser` service to assist in string-to-object conversion.
 
 * `ng-model-options`
   <small class="badge">$</small>
@@ -27,7 +27,7 @@ The datepicker has 3 modes:
   _(Default: `../../template/datepicker/datepicker.html`)_ -
   Add the ability to override the template used on the component.
 
-Apart from the previous settings, to configure the uib-datepicker you need to create an object in Javascript with all the options and use it on the `datepicker-options` attribute:
+Apart from the previous settings, to configure the ui-datepicker you need to create an object in Javascript with all the options and use it on the `datepicker-options` attribute:
 
 * `datepicker-options`
   <small class="badge">$</small> -
@@ -179,13 +179,13 @@ If the date a user enters falls outside of the min-/max-date range, a `dateDisab
 
 <h4>Inline</h4>
 <div style="display:inline-block; min-height:290px;">
-    <div uib-datepicker ng-model="dt" class="well well-sm" datepicker-options="options"></div>
+    <div ui-datepicker ng-model="dt" class="well well-sm" datepicker-options="options"></div>
 </div>
 
 <hr />
 <button type="button" class="btn btn-sm btn-info" ng-click="today()">Today</button>
 <button type="button" class="btn btn-sm btn-default" ng-click="setDate(2009, 7, 24)">2009-08-24</button>
 <button type="button" class="btn btn-sm btn-danger" ng-click="clear()">Clear</button>
-<button type="button" class="btn btn-sm btn-default" ng-click="toggleMin()" uib-tooltip="After today restriction">Min date</button>
+<button type="button" class="btn btn-sm btn-default" ng-click="toggleMin()" ui-tooltip="After today restriction">Min date</button>
 </div>
 

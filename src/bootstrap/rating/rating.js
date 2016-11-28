@@ -1,6 +1,6 @@
 angular.module('ui.bootstrap.rating', [])
 
-.constant('uibRatingConfig', {
+.constant('uiRatingConfig', {
   max: 5,
   stateOn: null,
   stateOff: null,
@@ -8,7 +8,7 @@ angular.module('ui.bootstrap.rating', [])
   titles: ['one', 'two', 'three', 'four', 'five']
 })
 
-.controller('UibRatingController', ['$scope', '$attrs', 'uibRatingConfig', function($scope, $attrs, ratingConfig) {
+.controller('UiRatingController', ['$scope', '$attrs', 'uiRatingConfig', function($scope, $attrs, ratingConfig) {
   var ngModelCtrl = { $setViewValue: angular.noop },
     self = this;
 
@@ -87,16 +87,16 @@ angular.module('ui.bootstrap.rating', [])
   };
 }])
 
-.directive('uibRating', function() {
+.directive('uiRating', function() {
   return {
-    require: ['uibRating', 'ngModel'],
+    require: ['uiRating', 'ngModel'],
     restrict: 'A',
     scope: {
       readonly: '=?readOnly',
       onHover: '&',
       onLeave: '&'
     },
-    controller: 'UibRatingController',
+    controller: 'UiRatingController',
     templateUrl: '../../template/rating/rating.html',
     link: function(scope, element, attrs, ctrls) {
       var ratingCtrl = ctrls[0], ngModelCtrl = ctrls[1];

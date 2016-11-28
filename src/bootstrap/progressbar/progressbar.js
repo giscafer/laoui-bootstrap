@@ -1,11 +1,11 @@
 angular.module('ui.bootstrap.progressbar', [])
 
-.constant('uibProgressConfig', {
+.constant('uiProgressConfig', {
   animate: true,
   max: 100
 })
 
-.controller('UibProgressController', ['$scope', '$attrs', 'uibProgressConfig', function($scope, $attrs, progressConfig) {
+.controller('UiProgressController', ['$scope', '$attrs', 'uiProgressConfig', function($scope, $attrs, progressConfig) {
   var self = this,
       animate = angular.isDefined($attrs.animate) ? $scope.$parent.$eval($attrs.animate) : progressConfig.animate;
 
@@ -63,12 +63,12 @@ angular.module('ui.bootstrap.progressbar', [])
   }
 }])
 
-.directive('uibProgress', function() {
+.directive('uiProgress', function() {
   return {
     replace: true,
     transclude: true,
-    controller: 'UibProgressController',
-    require: 'uibProgress',
+    controller: 'UiProgressController',
+    require: 'uiProgress',
     scope: {
       maxParam: '=?max'
     },
@@ -76,11 +76,11 @@ angular.module('ui.bootstrap.progressbar', [])
   };
 })
 
-.directive('uibBar', function() {
+.directive('uiBar', function() {
   return {
     replace: true,
     transclude: true,
-    require: '^uibProgress',
+    require: '^uiProgress',
     scope: {
       value: '=',
       type: '@'
@@ -92,11 +92,11 @@ angular.module('ui.bootstrap.progressbar', [])
   };
 })
 
-.directive('uibProgressbar', function() {
+.directive('uiProgressbar', function() {
   return {
     replace: true,
     transclude: true,
-    controller: 'UibProgressController',
+    controller: 'UiProgressController',
     scope: {
       value: '=',
       maxParam: '=?max',

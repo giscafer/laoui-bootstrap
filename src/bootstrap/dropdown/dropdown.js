@@ -1,11 +1,11 @@
 angular.module('ui.bootstrap.dropdown', ['ui.bootstrap.position'])
 
-.constant('uibDropdownConfig', {
-  appendToOpenClass: 'uib-dropdown-open',
+.constant('uiDropdownConfig', {
+  appendToOpenClass: 'ui-dropdown-open',
   openClass: 'open'
 })
 
-.service('uibDropdownService', ['$document', '$rootScope', function($document, $rootScope) {
+.service('uiDropdownService', ['$document', '$rootScope', function($document, $rootScope) {
   var openScope = null;
 
   this.open = function(dropdownScope, element) {
@@ -78,7 +78,7 @@ angular.module('ui.bootstrap.dropdown', ['ui.bootstrap.position'])
   };
 }])
 
-.controller('UibDropdownController', ['$scope', '$element', '$attrs', '$parse', 'uibDropdownConfig', 'uibDropdownService', '$animate', '$uibPosition', '$document', '$compile', '$templateRequest', function($scope, $element, $attrs, $parse, dropdownConfig, uibDropdownService, $animate, $position, $document, $compile, $templateRequest) {
+.controller('UiDropdownController', ['$scope', '$element', '$attrs', '$parse', 'uiDropdownConfig', 'uiDropdownService', '$animate', '$uiPosition', '$document', '$compile', '$templateRequest', function($scope, $element, $attrs, $parse, dropdownConfig, uiDropdownService, $animate, $position, $document, $compile, $templateRequest) {
   var self = this,
     scope = $scope.$new(), // create a child scope so we are not polluting original one
     templateScope,
@@ -262,17 +262,17 @@ angular.module('ui.bootstrap.dropdown', ['ui.bootstrap.position'])
             var newEl = dropdownElement;
             self.dropdownMenu.replaceWith(newEl);
             self.dropdownMenu = newEl;
-            $document.on('keydown', uibDropdownService.keybindFilter);
+            $document.on('keydown', uiDropdownService.keybindFilter);
           });
         });
       } else {
-        $document.on('keydown', uibDropdownService.keybindFilter);
+        $document.on('keydown', uiDropdownService.keybindFilter);
       }
 
       scope.focusToggleElement();
-      uibDropdownService.open(scope, $element);
+      uiDropdownService.open(scope, $element);
     } else {
-      uibDropdownService.close(scope, $element);
+      uiDropdownService.close(scope, $element);
       if (self.dropdownMenuTemplateUrl) {
         if (templateScope) {
           templateScope.$destroy();
@@ -291,19 +291,19 @@ angular.module('ui.bootstrap.dropdown', ['ui.bootstrap.position'])
   });
 }])
 
-.directive('uibDropdown', function() {
+.directive('uiDropdown', function() {
   return {
-    controller: 'UibDropdownController',
+    controller: 'UiDropdownController',
     link: function(scope, element, attrs, dropdownCtrl) {
       dropdownCtrl.init();
     }
   };
 })
 
-.directive('uibDropdownMenu', function() {
+.directive('uiDropdownMenu', function() {
   return {
     restrict: 'A',
-    require: '?^uibDropdown',
+    require: '?^uiDropdown',
     link: function(scope, element, attrs, dropdownCtrl) {
       if (!dropdownCtrl || angular.isDefined(attrs.dropdownNested)) {
         return;
@@ -323,9 +323,9 @@ angular.module('ui.bootstrap.dropdown', ['ui.bootstrap.position'])
   };
 })
 
-.directive('uibDropdownToggle', function() {
+.directive('uiDropdownToggle', function() {
   return {
-    require: '?^uibDropdown',
+    require: '?^uiDropdown',
     link: function(scope, element, attrs, dropdownCtrl) {
       if (!dropdownCtrl) {
         return;

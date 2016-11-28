@@ -1,6 +1,6 @@
-With the buttons directive, we can make a group of buttons behave like a set of checkboxes (`uib-btn-checkbox`) or behave like a set of radio buttons (`uib-btn-radio`).
+With the buttons directive, we can make a group of buttons behave like a set of checkboxes (`ui-btn-checkbox`) or behave like a set of radio buttons (`ui-btn-radio`).
 
-### uib-btn-checkbox settings
+### ui-btn-checkbox settings
 
 * `btn-checkbox-false`
   _(Default: `false`)_ -
@@ -15,18 +15,18 @@ With the buttons directive, we can make a group of buttons behave like a set of 
   <i class="glyphicon glyphicon-eye-open"></i> -
   Model where we set the checkbox status. By default `true` or `false`.
 
-### uib-btn-radio settings
+### ui-btn-radio settings
 
 * `ng-model`
   <small class="badge">$</small>
   <i class="glyphicon glyphicon-eye-open"></i> -
   Model where we set the radio status. All radio buttons in a group should use the same `ng-model`.
     
-* `uib-btn-radio` -
+* `ui-btn-radio` -
   <small class="badge">$</small>
   Value to assign to the `ng-model` if we check this radio button.
 
-* `uib-uncheckable`
+* `ui-uncheckable`
   <small class="badge">$</small>
   _(Default: `null`)_ -
   An expression that evaluates to a truthy or falsy value that determines whether the `uncheckable` attribute is present.
@@ -35,7 +35,7 @@ With the buttons directive, we can make a group of buttons behave like a set of 
   <small class="badge">B</small> -
   Whether a radio button can be unchecked or not.
   
-### Additional settings `uibButtonConfig`
+### Additional settings `uiButtonConfig`
 
 * `activeClass`
   _(Default: `active`)_ -

@@ -3,7 +3,7 @@ angular.module('ui.bootstrap.paging', [])
  * Helper internal service for generating common controller code between the
  * pager and pagination components
  */
-.factory('uibPaging', ['$parse', function($parse) {
+.factory('uiPaging', ['$parse', function($parse) {
   return {
     create: function(ctrl, $scope, $attrs) {
       ctrl.setNumPages = $attrs.numPages ? $parse($attrs.numPages).assign : angular.noop;

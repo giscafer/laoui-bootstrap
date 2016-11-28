@@ -58,7 +58,7 @@ angular.module('ui.bootstrap.modal', ['ui.bootstrap.stackedMap', 'ui.bootstrap.p
  * Pluggable resolve mechanism for the modal resolve resolution
  * Supports UI Router's $resolve service
  */
-  .provider('$uibResolve', function() {
+  .provider('$uiResolve', function() {
     var resolve = this;
     this.resolver = null;
 
@@ -103,7 +103,7 @@ angular.module('ui.bootstrap.modal', ['ui.bootstrap.stackedMap', 'ui.bootstrap.p
 /**
  * A helper directive for the $modal service. It creates a backdrop element.
  */
-  .directive('uibModalBackdrop', ['$animate', '$injector', '$uibModalStack',
+  .directive('uiModalBackdrop', ['$animate', '$injector', '$uiModalStack',
   function($animate, $injector, $modalStack) {
     return {
       restrict: 'A',
@@ -129,7 +129,7 @@ angular.module('ui.bootstrap.modal', ['ui.bootstrap.stackedMap', 'ui.bootstrap.p
     }
   }])
 
-  .directive('uibModalWindow', ['$uibModalStack', '$q', '$animateCss', '$document',
+  .directive('uiModalWindow', ['$uiModalStack', '$q', '$animateCss', '$document',
   function($modalStack, $q, $animateCss, $document) {
     return {
       scope: {
@@ -220,17 +220,17 @@ angular.module('ui.bootstrap.modal', ['ui.bootstrap.stackedMap', 'ui.bootstrap.p
     };
   }])
 
-  .directive('uibModalAnimationClass', function() {
+  .directive('uiModalAnimationClass', function() {
     return {
       compile: function(tElement, tAttrs) {
         if (tAttrs.modalAnimation) {
-          tElement.addClass(tAttrs.uibModalAnimationClass);
+          tElement.addClass(tAttrs.uiModalAnimationClass);
         }
       }
     };
   })
 
-  .directive('uibModalTransclude', ['$animate', function($animate) {
+  .directive('uiModalTransclude', ['$animate', function($animate) {
     return {
       link: function(scope, element, attrs, controller, transclude) {
         transclude(scope.$parent, function(clone) {
@@ -241,9 +241,9 @@ angular.module('ui.bootstrap.modal', ['ui.bootstrap.stackedMap', 'ui.bootstrap.p
     };
   }])
 
-  .factory('$uibModalStack', ['$animate', '$animateCss', '$document',
-    '$compile', '$rootScope', '$q', '$$multiMap', '$$stackedMap', '$uibPosition',
-    function($animate, $animateCss, $document, $compile, $rootScope, $q, $$multiMap, $$stackedMap, $uibPosition) {
+  .factory('$uiModalStack', ['$animate', '$animateCss', '$document',
+    '$compile', '$rootScope', '$q', '$$multiMap', '$$stackedMap', '$uiPosition',
+    function($animate, $animateCss, $document, $compile, $rootScope, $q, $$multiMap, $$stackedMap, $uiPosition) {
       var OPENED_MODAL_CLASS = 'modal-open';
 
       var backdropDomEl, backdropScope;
@@ -482,11 +482,11 @@ angular.module('ui.bootstrap.modal', ['ui.bootstrap.stackedMap', 'ui.bootstrap.p
           backdropScope = $rootScope.$new(true);
           backdropScope.modalOptions = modal;
           backdropScope.index = currBackdropIndex;
-          backdropDomEl = angular.element('<div uib-modal-backdrop="modal-backdrop"></div>');
+          backdropDomEl = angular.element('<div ui-modal-backdrop="modal-backdrop"></div>');
           backdropDomEl.attr({
             'class': 'modal-backdrop',
             'ng-style': '{\'z-index\': 1040 + (index && 1 || 0) + index*10}',
-            'uib-modal-animation-class': 'fade',
+            'ui-modal-animation-class': 'fade',
             'modal-in-class': 'in'
           });
           if (modal.backdropClass) {
@@ -498,8 +498,8 @@ angular.module('ui.bootstrap.modal', ['ui.bootstrap.stackedMap', 'ui.bootstrap.p
           }
           $compile(backdropDomEl)(backdropScope);
           $animate.enter(backdropDomEl, appendToElement);
-          if ($uibPosition.isScrollable(appendToElement)) {
-            scrollbarPadding = $uibPosition.scrollbarPadding(appendToElement);
+          if ($uiPosition.isScrollable(appendToElement)) {
+            scrollbarPadding = $uiPosition.scrollbarPadding(appendToElement);
             if (scrollbarPadding.heightOverflow && scrollbarPadding.scrollbarWidth) {
               appendToElement.css({paddingRight: scrollbarPadding.right + 'px'});
             }
@@ -512,7 +512,7 @@ angular.module('ui.bootstrap.modal', ['ui.bootstrap.stackedMap', 'ui.bootstrap.p
           content = angular.element(content);
           content.attr({
             resolve: '$resolve',
-            'modal-instance': '$uibModalInstance',
+            'modal-instance': '$uiModalInstance',
             close: '$close($value)',
             dismiss: '$dismiss($value)'
           });
@@ -522,7 +522,7 @@ angular.module('ui.bootstrap.modal', ['ui.bootstrap.stackedMap', 'ui.bootstrap.p
 
         // Set the top modal index based on the index of the previous top modal
         topModalIndex = previousTopOpenedModal ? parseInt(previousTopOpenedModal.value.modalDomEl.attr('index'), 10) + 1 : 0;
-        var angularDomEl = angular.element('<div uib-modal-window="modal-window"></div>');
+        var angularDomEl = angular.element('<div ui-modal-window="modal-window"></div>');
         angularDomEl.attr({
           'class': 'modal',
           'template-url': modal.windowTemplateUrl,
@@ -535,7 +535,7 @@ angular.module('ui.bootstrap.modal', ['ui.bootstrap.stackedMap', 'ui.bootstrap.p
           'animate': 'animate',
           'ng-style': '{\'z-index\': 1050 + $$topModalIndex*10, display: \'block\'}',
           'tabindex': -1,
-          'uib-modal-animation-class': 'fade',
+          'ui-modal-animation-class': 'fade',
           'modal-in-class': 'in'
         }).append(content);
         if (modal.windowClass) {
@@ -612,7 +612,7 @@ angular.module('ui.bootstrap.modal', ['ui.bootstrap.stackedMap', 'ui.bootstrap.p
         var modalWindow = openedWindows.get(modalInstance);
         unhideBackgroundElements();
         if (modalWindow && broadcastClosing(modalWindow, result, true)) {
-          modalWindow.value.modalScope.$$uibDestructionScheduled = true;
+          modalWindow.value.modalScope.$$uiDestructionScheduled = true;
           modalWindow.value.deferred.resolve(result);
           removeModalWindow(modalInstance, modalWindow.value.modalOpener);
           return true;
@@ -625,7 +625,7 @@ angular.module('ui.bootstrap.modal', ['ui.bootstrap.stackedMap', 'ui.bootstrap.p
         var modalWindow = openedWindows.get(modalInstance);
         unhideBackgroundElements();
         if (modalWindow && broadcastClosing(modalWindow, reason, false)) {
-          modalWindow.value.modalScope.$$uibDestructionScheduled = true;
+          modalWindow.value.modalScope.$$uiDestructionScheduled = true;
           modalWindow.value.deferred.reject(reason);
           removeModalWindow(modalInstance, modalWindow.value.modalOpener);
           return true;
@@ -708,15 +708,15 @@ angular.module('ui.bootstrap.modal', ['ui.bootstrap.stackedMap', 'ui.bootstrap.p
       return $modalStack;
     }])
 
-  .provider('$uibModal', function() {
+  .provider('$uiModal', function() {
     var $modalProvider = {
       options: {
         animation: true,
         backdrop: true, //can also be false or 'static'
         keyboard: true
       },
-      $get: ['$rootScope', '$q', '$document', '$templateRequest', '$controller', '$uibResolve', '$uibModalStack',
-        function ($rootScope, $q, $document, $templateRequest, $controller, $uibResolve, $modalStack) {
+      $get: ['$rootScope', '$q', '$document', '$templateRequest', '$controller', '$uiResolve', '$uiModalStack',
+        function ($rootScope, $q, $document, $templateRequest, $controller, $uiResolve, $modalStack) {
           var $modal = {};
 
           function getTemplatePromise(options) {
@@ -762,10 +762,10 @@ angular.module('ui.bootstrap.modal', ['ui.bootstrap.stackedMap', 'ui.bootstrap.p
 
             var templateAndResolvePromise;
             if (modalOptions.component) {
-              templateAndResolvePromise = $q.when($uibResolve.resolve(modalOptions.resolve, {}, null, null));
+              templateAndResolvePromise = $q.when($uiResolve.resolve(modalOptions.resolve, {}, null, null));
             } else {
               templateAndResolvePromise =
-                $q.all([getTemplatePromise(modalOptions), $uibResolve.resolve(modalOptions.resolve, {}, null, null)]);
+                $q.all([getTemplatePromise(modalOptions), $uiResolve.resolve(modalOptions.resolve, {}, null, null)]);
             }
 
             function resolveWithTemplate() {
@@ -787,8 +787,8 @@ angular.module('ui.bootstrap.modal', ['ui.bootstrap.stackedMap', 'ui.bootstrap.p
                 modalScope.$dismiss = modalInstance.dismiss;
 
                 modalScope.$on('$destroy', function() {
-                  if (!modalScope.$$uibDestructionScheduled) {
-                    modalScope.$dismiss('$uibUnscheduledDestruction');
+                  if (!modalScope.$$uiDestructionScheduled) {
+                    modalScope.$dismiss('$uiUnscheduledDestruction');
                   }
                 });
 
@@ -851,9 +851,9 @@ angular.module('ui.bootstrap.modal', ['ui.bootstrap.stackedMap', 'ui.bootstrap.p
                   obj.$scope = modalScope;
                   obj.$scope.$resolve = {};
                   if (instanceOnScope) {
-                    obj.$scope.$uibModalInstance = modalInstance;
+                    obj.$scope.$uiModalInstance = modalInstance;
                   } else {
-                    obj.$uibModalInstance = modalInstance;
+                    obj.$uiModalInstance = modalInstance;
                   }
 
                   var resolves = template ? tplAndVars[1] : tplAndVars;

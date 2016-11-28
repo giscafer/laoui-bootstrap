@@ -1,6 +1,6 @@
 A lightweight pagination directive that is focused on ... providing pagination & will take care of visualising a pagination bar and enable / disable buttons correctly!
 
-### uib-pagination settings
+### ui-pagination settings
 
 * `boundary-links`
   <small class="badge">C</small>

@@ -1,8 +1,8 @@
 A progress bar directive that is focused on providing feedback on the progress of a workflow or action.
 
-It supports multiple (stacked) `<uib-bar>` into the same `<uib-progress>` element or a single `<uib-progressbar>` element with optional `max` attribute and transition animations.
+It supports multiple (stacked) `<ui-bar>` into the same `<ui-progress>` element or a single `<ui-progressbar>` element with optional `max` attribute and transition animations.
 
-### uib-progressbar settings
+### ui-progressbar settings
 
 * `value`
   <small class="badge">$</small>
@@ -30,7 +30,7 @@ It supports multiple (stacked) `<uib-bar>` into the same `<uib-progress>` elemen
   _(Default: `progressbar`)_ -
   Title to use as label (for accessibility).
   
-### uib-progress settings
+### ui-progress settings
 
 * `max`
   <small class="badge">$</small>
@@ -49,7 +49,7 @@ It supports multiple (stacked) `<uib-bar>` into the same `<uib-progress>` elemen
   _(Default: `progressbar`)_ -
   Title to use as label (for accessibility).
   
-### uib-bar settings
+### ui-bar settings
 
 * `value`
   <small class="badge">$</small>

@@ -1,9 +1,9 @@
-`$uibModal` is a service to create modal windows.
-Creating modals is straightforward: create a template and controller, and reference them when using `$uibModal`.
+`$uiModal` is a service to create modal windows.
+Creating modals is straightforward: create a template and controller, and reference them when using `$uiModal`.
 
-The `$uibModal` service has only one method: `open(options)`.
+The `$uiModal` service has only one method: `open(options)`.
 
-### $uibModal's open function
+### $uiModal's open function
 
 #### options parameter
 
@@ -45,13 +45,13 @@ The `$uibModal` service has only one method: `open(options)`.
 
   * `dismiss` - A method that can be used to dismiss a modal, passing a result. The result must be passed in this format: `{$value: myRejectedResult}`
 
-  * `modalInstance` - The modal instance. This is the same `$uibModalInstance` injectable found when using `controller`.
+  * `modalInstance` - The modal instance. This is the same `$uiModalInstance` injectable found when using `controller`.
 
   * `resolve` - An object of the modal resolve values. See [UI Router resolves](#ui-router-resolves) for details.
 
 * `controller`
   _(Type: `function|string|array`, Example: `MyModalController`)_ -
-  A controller for the modal instance, either a controller name as a string, or an inline controller function, optionally wrapped in array notation for dependency injection. Allows the controller-as syntax. Has a special `$uibModalInstance` injectable to access the modal instance.
+  A controller for the modal instance, either a controller name as a string, or an inline controller function, optionally wrapped in array notation for dependency injection. Allows the controller-as syntax. Has a special `$uiModalInstance` injectable to access the modal instance.
 
 * `controllerAs`
   _(Type: `string`, Example: `ctrl`)_ -
@@ -97,7 +97,7 @@ The `$uibModal` service has only one method: `open(options)`.
   _(Type: `string`)_ -
   CSS class(es) to be added to the top modal window.
 
-Global defaults may be set for `$uibModal` via `$uibModalProvider.options`.
+Global defaults may be set for `$uiModal` via `$uiModalProvider.options`.
 
 #### return
 
@@ -147,7 +147,7 @@ Also, when using `bindToController`, you can define an `$onInit` method in the c
 
 Events fired:
 
-* `$uibUnscheduledDestruction` -
+* `$uiUnscheduledDestruction` -
   This event is fired if the $scope is destroyed via unexpected mechanism, such as it being passed in the modal options and a $route/$state transition occurs. The modal will also be dismissed.
 
 * `modal.closing` -
@@ -156,6 +156,6 @@ Events fired:
 
 ##### UI Router resolves
 
-If one wants to have the modal resolve using [UI Router's](https://github.com/angular-ui/ui-router) pre-1.0 resolve mechanism, one can call `$uibResolve.setResolver('$resolve')` in the configuration phase of the application. One can also provide a custom resolver as well, as long as the signature conforms to UI Router's [$resolve](http://angular-ui.github.io/ui-router/site/#/api/ui.router.util.$resolve).
+If one wants to have the modal resolve using [UI Router's](https://github.com/angular-ui/ui-router) pre-1.0 resolve mechanism, one can call `$uiResolve.setResolver('$resolve')` in the configuration phase of the application. One can also provide a custom resolver as well, as long as the signature conforms to UI Router's [$resolve](http://angular-ui.github.io/ui-router/site/#/api/ui.router.util.$resolve).
 
 When the modal is opened with a controller, a `$resolve` object is exposed on the template with the resolved values from the resolve object. If using the component option, see details on how to access this object in component section of the modal documentation.

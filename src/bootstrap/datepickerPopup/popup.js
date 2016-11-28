@@ -5,7 +5,7 @@ angular.module('ui.bootstrap.datepickerPopup', ['ui.bootstrap.datepicker', 'ui.b
 
 .value('$datepickerPopupLiteralWarning', true)
 
-.constant('uibDatepickerPopupConfig', {
+.constant('uiDatepickerPopupConfig', {
   altInputFormats: [],
   appendToBody: false,
   clearText: 'Clear',
@@ -25,7 +25,7 @@ angular.module('ui.bootstrap.datepickerPopup', ['ui.bootstrap.datepicker', 'ui.b
   placement: 'auto bottom-left'
 })
 
-.controller('UibDatepickerPopupController', ['$scope', '$element', '$attrs', '$compile', '$log', '$parse', '$window', '$document', '$rootScope', '$uiPosition', 'dateFilter', 'uibDateParser', 'uibDatepickerPopupConfig', '$timeout', 'uibDatepickerConfig', '$datepickerPopupLiteralWarning',
+.controller('UiDatepickerPopupController', ['$scope', '$element', '$attrs', '$compile', '$log', '$parse', '$window', '$document', '$rootScope', '$uiPosition', 'dateFilter', 'uiDateParser', 'uiDatepickerPopupConfig', '$timeout', 'uiDatepickerConfig', '$datepickerPopupLiteralWarning',
 function($scope, $element, $attrs, $compile, $log, $parse, $window, $document, $rootScope, $position, dateFilter, dateParser, datepickerPopupConfig, $timeout, datepickerConfig, $datepickerPopupLiteralWarning) {
   var cache = {},
     isHtml5DateInput = false;
@@ -65,8 +65,8 @@ function($scope, $element, $attrs, $compile, $log, $parse, $window, $document, $
       dateFormat = datepickerPopupConfig.html5Types[$attrs.type];
       isHtml5DateInput = true;
     } else {
-      dateFormat = $attrs.uibDatepickerPopup || datepickerPopupConfig.datepickerPopup;
-      $attrs.$observe('uibDatepickerPopup', function(value, oldValue) {
+      dateFormat = $attrs.uiDatepickerPopup || datepickerPopupConfig.datepickerPopup;
+      $attrs.$observe('uiDatepickerPopup', function(value, oldValue) {
         var newDateFormat = value || datepickerPopupConfig.datepickerPopup;
         // Invalidate the $modelValue to ensure that formatters re-run
         // FIXME: Refactor when PR is merged: https://github.com/angular/angular.js/pull/10764
@@ -75,22 +75,22 @@ function($scope, $element, $attrs, $compile, $log, $parse, $window, $document, $
           ngModel.$modelValue = null;
 
           if (!dateFormat) {
-            throw new Error('uibDatepickerPopup must have a date format specified.');
+            throw new Error('uiDatepickerPopup must have a date format specified.');
           }
         }
       });
     }
 
     if (!dateFormat) {
-      throw new Error('uibDatepickerPopup must have a date format specified.');
+      throw new Error('uiDatepickerPopup must have a date format specified.');
     }
 
-    if (isHtml5DateInput && $attrs.uibDatepickerPopup) {
+    if (isHtml5DateInput && $attrs.uiDatepickerPopup) {
       throw new Error('HTML5 date input types do not support custom formats.');
     }
 
     // popup element used to display calendar
-    popupEl = angular.element('<div uib-datepicker-popup-wrap><div uib-datepicker></div></div>');
+    popupEl = angular.element('<div ui-datepicker-popup-wrap><div ui-datepicker></div></div>');
 
     popupEl.attr({
       'ng-model': 'date',
@@ -273,7 +273,7 @@ function($scope, $element, $attrs, $compile, $log, $parse, $window, $document, $
           positionPopup();
 
           if (onOpenFocus) {
-            $scope.$broadcast('uib:datepicker.focus');
+            $scope.$broadcast('ui:datepicker.focus');
           }
 
           $document.on('click', documentClickBind);
@@ -405,25 +405,25 @@ function($scope, $element, $attrs, $compile, $log, $parse, $window, $document, $
 
   function positionPopup() {
     if ($scope.isOpen) {
-      var dpElement = angular.element($popup[0].querySelector('.uib-datepicker-popup'));
+      var dpElement = angular.element($popup[0].querySelector('.ui-datepicker-popup'));
       var placement = $attrs.popupPlacement ? $attrs.popupPlacement : datepickerPopupConfig.placement;
       var position = $position.positionElements($element, dpElement, placement, appendToBody);
       dpElement.css({top: position.top + 'px', left: position.left + 'px'});
-      if (dpElement.hasClass('uib-position-measure')) {
-        dpElement.removeClass('uib-position-measure');
+      if (dpElement.hasClass('ui-position-measure')) {
+        dpElement.removeClass('ui-position-measure');
       }
     }
   }
 
-  $scope.$on('uib:datepicker.mode', function() {
+  $scope.$on('ui:datepicker.mode', function() {
     $timeout(positionPopup, 0, false);
   });
 }])
 
-.directive('uibDatepickerPopup', function() {
+.directive('uiDatepickerPopup', function() {
   return {
-    require: ['ngModel', 'uibDatepickerPopup'],
-    controller: 'UibDatepickerPopupController',
+    require: ['ngModel', 'uiDatepickerPopup'],
+    controller: 'UiDatepickerPopupController',
     scope: {
       datepickerOptions: '=?',
       isOpen: '=?',
@@ -440,7 +440,7 @@ function($scope, $element, $attrs, $compile, $log, $parse, $window, $document, $
   };
 })
 
-.directive('uibDatepickerPopupWrap', function() {
+.directive('uiDatepickerPopupWrap', function() {
   return {
     restrict: 'A',
     transclude: true,
