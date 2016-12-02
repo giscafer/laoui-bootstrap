@@ -106,6 +106,12 @@ export default $routeProvider => {
             controller: ctrls('./components/datepickerPopup/datepickerPopup.ctrl.js').default,
             controllerAs:'ctrl'
         })
+         .when('/components/notification', {
+            title: 'notification Demo',
+            templateUrl: pageHtml['./components/notification/notification.html'],
+            controller: ctrls('./components/notification/notification.ctrl.js').default,
+            controllerAs:'ctrl'
+        })
         .otherwise({
             redirectTo: '/laoui/home'
         });

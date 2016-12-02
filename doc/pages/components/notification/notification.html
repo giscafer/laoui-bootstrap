@@ -1,0 +1,545 @@
+<div class="markdown-body"><h1 id="notification-">Notification 通知提醒框</h1>
+<p>全局展示通知提醒信息。</p>
+<h2 id="-">何时使用</h2>
+<p>在系统右上角显示通知提醒信息。经常用于以下情况：</p>
+<ul>
+<li>较为复杂的通知内容。</li>
+<li>带有交互的通知，给出用户下一步的行动点。</li>
+<li>系统主动推送。</li>
+</ul>
+<h2 id="-">特点</h2>
+<ul>
+<li>CSS3 动画支持</li>
+<li>支持小尺寸弹窗.</li>
+<li>5 种消息类型</li>
+<li>可以在消息里内嵌 HTML 代码</li>
+<li>可通过 provider 配置全局属性</li>
+<li>可以在使用的时候自定义 Option 属性，定制弹窗</li>
+<li>可以使用自定义模板 Template</li>
+</ul>
+<h2 id="-">使用说明</h2>
+<pre><code>
+通过`<span class="hljs-selector-tag">provider</span>`配置默认的属性
+
+```<span class="hljs-selector-tag">javascript</span>
+<span class="hljs-selector-tag">angular</span><span class="hljs-selector-class">.module</span>(<span class="hljs-string">'notificationTest'</span>, [<span class="hljs-string">'ui-notification'</span>])
+    <span class="hljs-selector-class">.config</span>(function(uiNotificationProvider) {
+        <span class="hljs-selector-tag">uiNotificationProvider</span><span class="hljs-selector-class">.setOptions</span>({
+            <span class="hljs-attribute">delay</span>: <span class="hljs-number">10000</span>,
+            <span class="hljs-attribute">startTop</span>: <span class="hljs-number">20</span>,
+            <span class="hljs-attribute">startRight</span>: <span class="hljs-number">10</span>,
+            <span class="hljs-attribute">verticalSpacing</span>: <span class="hljs-number">20</span>,
+            <span class="hljs-attribute">horizontalSpacing</span>: <span class="hljs-number">20</span>,
+            <span class="hljs-attribute">positionX</span>: <span class="hljs-string">'left'</span>,
+            <span class="hljs-attribute">positionY</span>: <span class="hljs-string">'bottom'</span>
+        });
+    });
+...
+</code></pre><p>当需要显示通知提醒框时，依赖注入<code>inject</code> 服务并调用即可，eg:</p>
+<pre><code class="lang-javascript">angular.module(<span class="hljs-string">'notificationTest'</span>).controller(<span class="hljs-string">'notificationController'</span>, function($scope, uiNotification) {
+
+  uiNotification.primary(<span class="hljs-string">'Primary notification'</span>);
+  <span class="hljs-comment">// or simply..</span>
+  uiNotification(<span class="hljs-string">'Primary notification'</span>);
+
+  <span class="hljs-comment">// Other Options</span>
+  <span class="hljs-comment">// Success</span>
+  uiNotification.success(<span class="hljs-string">'Success notification'</span>);
+
+  <span class="hljs-comment">// Message with custom type</span>
+  uiNotification({<span class="hljs-string">message:</span> <span class="hljs-string">'Warning notification'</span>}, <span class="hljs-string">'warning'</span>);
+
+  <span class="hljs-comment">// With Title</span>
+  uiNotification({<span class="hljs-string">message:</span> <span class="hljs-string">'Primary notification'</span>, <span class="hljs-string">title:</span> <span class="hljs-string">'Primary notification'</span>});
+
+  <span class="hljs-comment">// Message with custom delay</span>
+  uiNotification.error({<span class="hljs-string">message:</span> <span class="hljs-string">'Error notification 1s'</span>, <span class="hljs-string">delay:</span> <span class="hljs-number">1000</span>});
+
+  <span class="hljs-comment">// Embed HTML within your message.....</span>
+  uiNotification.success({<span class="hljs-string">message:</span> <span class="hljs-string">'Success notification&lt;br&gt;Some other &lt;b&gt;content&lt;/b&gt;&lt;br&gt;&lt;a href="https://github.com/alexcrack/angular-ui-notification"&gt;This is a link&lt;/a&gt;&lt;br&gt;&lt;img src="https://angularjs.org/img/AngularJS-small.png"&gt;'</span>, <span class="hljs-string">title:</span> <span class="hljs-string">'Html content'</span>});
+
+  <span class="hljs-comment">// 更改通知提醒框的位置</span>
+  uiNotification.error({<span class="hljs-string">message:</span> <span class="hljs-string">'Error Bottom Right'</span>, <span class="hljs-string">positionY:</span> <span class="hljs-string">'bottom'</span>, <span class="hljs-string">positionX:</span> <span class="hljs-string">'right'</span>});
+
+  <span class="hljs-comment">// Replace message</span>
+  uiNotification.error({<span class="hljs-string">message:</span> <span class="hljs-string">'Error notification 1s'</span>, <span class="hljs-string">replaceMessage:</span> <span class="hljs-literal">true</span>});
+}
+</code></pre>
+<h2 id="-">服务</h2>
+<p>服务名称: &quot;uiNotification&quot;</p>
+<p>Configuration provider（配置器）: &quot;uiNotificationProvider&quot;</p>
+<h2 id="options">Options</h2>
+<p>Options 可以用来配置全局消息或者当前消息</p>
+<p>可选属性列表:</p>
+<table>
+<thead>
+<tr>
+<th>Option</th>
+<th>Possible values</th>
+<th>默认值</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>delay</td>
+<td>Any integer value</td>
+<td>5000</td>
+<td>通知停留时长,值为false时：不会自动关闭</td>
+</tr>
+<tr>
+<td>startTop</td>
+<td>Any integer value</td>
+<td>10</td>
+<td>消息和浏览器之间的垂直间隔</td>
+</tr>
+<tr>
+<td>startRight</td>
+<td>Any integer value</td>
+<td>10</td>
+<td>消息和浏览器之间的水平间隔</td>
+</tr>
+<tr>
+<td>verticalSpacing</td>
+<td>Any integer value</td>
+<td>10</td>
+<td>消息之间的垂直间距</td>
+</tr>
+<tr>
+<td>horizontalSpacing</td>
+<td>Any integer value</td>
+<td>10</td>
+<td>消息之间的水平间距</td>
+</tr>
+<tr>
+<td>positionX</td>
+<td>&quot;right&quot;, &quot;left&quot;, &quot;center&quot;</td>
+<td>&quot;right&quot;</td>
+<td>消息的水平位置</td>
+</tr>
+<tr>
+<td>positionY</td>
+<td>&quot;top&quot;, &quot;bottom&quot;</td>
+<td>&quot;top&quot;</td>
+<td>消息的垂直位置</td>
+</tr>
+<tr>
+<td>replaceMessage</td>
+<td>true, false</td>
+<td>false</td>
+<td>true则每个新消息都会替换旧消息</td>
+</tr>
+<tr>
+<td>templateUrl</td>
+<td>Any string</td>
+<td>&quot;angular-ui-uiNotification.html&quot;</td>
+<td>自定义模板路径 (URL)</td>
+</tr>
+<tr>
+<td>onClose</td>
+<td>Any function</td>
+<td>undefined</td>
+<td>当消息弹窗关闭时，触发关闭回调函数,回调接收元素作为其参数</td>
+</tr>
+<tr>
+<td>closeOnClick</td>
+<td>true, false</td>
+<td>true</td>
+<td>true: 允许点击关闭，false: 禁止点击关闭</td>
+</tr>
+<tr>
+<td>maxCount</td>
+<td>Any integer</td>
+<td>0</td>
+<td>控制最大的消息数量<code>maxCount</code>，超过此数量，会关闭旧消息弹窗，设置为0时不限制</td>
+</tr>
+</tbody>
+</table>
+<p>也可以传<code>scope</code>来改变作用域，默认为<code>$rootScope</code></p>
+<h2 id="-">方法</h2>
+<h4 id="uinotification-">uiNotification 方法</h4>
+<table>
+<thead>
+<tr>
+<th>方法名称</th>
+<th>描述</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>uiNotification(), uiNotification.primary()</td>
+<td>一般消息</td>
+</tr>
+<tr>
+<td>uiNotification.info()</td>
+<td>通知消息</td>
+</tr>
+<tr>
+<td>uiNotification.success()</td>
+<td>成功消息</td>
+</tr>
+<tr>
+<td>uiNotification.warning()</td>
+<td>警告消息</td>
+</tr>
+<tr>
+<td>uiNotification.error()</td>
+<td>错误消息</td>
+</tr>
+<tr>
+<td>uiNotification.clearAll()</td>
+<td>清除所有消息</td>
+</tr>
+<tr>
+<td>uiNotification.clear()</td>
+<td>清除单个消息</td>
+</tr>
+</tbody>
+</table>
+<h4 id="uinotification-options">uiNotification 服务配置options</h4>
+<table>
+<thead>
+<tr>
+<th>Option属性</th>
+<th>值类型</th>
+<th>默认值</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>title</td>
+<td><em>String</em></td>
+<td><code>&quot;&quot;</code></td>
+<td>通知标题</td>
+</tr>
+<tr>
+<td>message</td>
+<td><em>String</em></td>
+<td><code>&quot;&quot;</code></td>
+<td>通知正文</td>
+</tr>
+<tr>
+<td>templateUrl</td>
+<td><em>String</em></td>
+<td>-</td>
+<td>使用自定义消息模版</td>
+</tr>
+<tr>
+<td>delay</td>
+<td><em>Int</em> (?)</td>
+<td><code>5000</code> 或者全局配置</td>
+<td>通知停留时长,值为false时：不会自动关闭</td>
+</tr>
+<tr>
+<td>type</td>
+<td>&quot;primary&quot;, &quot;info&quot;, &quot;success&quot;, &quot;warning&quot;, &quot;error&quot;</td>
+<td><code>&quot;primary&quot;</code></td>
+<td>Bootstrap flavoring</td>
+</tr>
+<tr>
+<td>positionY</td>
+<td>&quot;top&quot;, &quot;bottom&quot;</td>
+<td><code>&quot;top&quot;</code></td>
+<td>纵向方向</td>
+</tr>
+<tr>
+<td>positionX</td>
+<td>&quot;right&quot;, &quot;left&quot;, &quot;center&quot;</td>
+<td>`&quot;right&quot;</td>
+<td>横向方向</td>
+</tr>
+<tr>
+<td>replaceMessage</td>
+<td><em>Boolean</em></td>
+<td><code>false</code></td>
+<td>使用“新的消息覆盖旧消息”的显示方式</td>
+</tr>
+<tr>
+<td>closeOnClick</td>
+<td>true, false</td>
+<td>true</td>
+<td>true: 允许点击关闭，false: 禁止点击关闭</td>
+</tr>
+<tr>
+<td>onClose</td>
+<td>function</td>
+<td><code>undefined</code></td>
+<td>关闭后触发回调函数</td>
+</tr>
+</tbody>
+</table>
+<h4 id="-">返回值</h4>
+<p>uiNotification每个通知弹窗方法都会放回一个<code>promise</code>对象，可以通过以下方法来移除</p>
+<table>
+<thead>
+<tr>
+<th>方法名称</th>
+<th>描述</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>notificationScope.kill(isHard)</td>
+<td>移除一个指定的弹窗（作用类似close方法）<br>isHard - false则使用fadeOut方式消失，如果为true则立即关闭通知</td>
+</tr>
+</tbody>
+</table>
+<h2 id="-">自定义模板</h2>
+<p>支持自定义模板，可以指定作用域<code>scope</code></p>
+<pre><code class="lang-html">&lt;div <span class="hljs-class"><span class="hljs-keyword">class</span></span>=<span class="hljs-string">"ui-notification"</span>&gt;
+    <span class="xml"><span class="hljs-tag">&lt;<span class="hljs-name">h3</span> <span class="hljs-attr">ng-show</span>=<span class="hljs-string">"title"</span> <span class="hljs-attr">ng-bind-html</span>=<span class="hljs-string">"title"</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">h3</span>&gt;</span></span>
+    &lt;div <span class="hljs-class"><span class="hljs-keyword">class</span></span>=<span class="hljs-string">"message"</span> ng-bind-html=<span class="hljs-string">"message"</span>&gt;<span class="xml"><span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span></span>
+&lt;<span class="hljs-regexp">/div&gt;</span>
+</code></pre>
+<h2 id="-">代码演示</h2>
+<div class="row">
+ <div class="col-md-4">
+    <div class="example">
+        <div class="container">
+            <h3>通知提醒框类型</h3>
+            <div class="btn-group-vertical">
+                <button class="btn btn-primary" ng-click="primary()">Primary Notification</button>
+                <button class="btn btn-danger" ng-click="error()">Error Notification</button>
+                <button class="btn btn-success" ng-click="success()">Success Notification</button>
+                <button class="btn btn-info" ng-click="info()">Information Notification</button>
+                <button class="btn btn-warning" ng-click="warning()">Warning Notification</button>
+            </div>
+        </div>
+        <div class="container">
+            <h3>带标题 Title 的提醒框</h3>
+            <div class="btn-group-vertical">
+                <button class="btn btn-primary" ng-click="primaryTitle()">Primary Notification</button>
+            </div>
+        </div>
+        <div class="container">
+            <h3>自定义延迟时长</h3>
+            <div class="btn-group-vertical">
+                <button class="btn btn-danger" ng-click="errorTime()">Error Notification 1s</button>
+                <button class="btn btn-danger" ng-click="errorNoTime()">Error Notification (no timeout)</button>
+                <button class="btn btn-success" ng-click="successTime()">Success Notification 20s</button>
+            </div>
+        </div>
+        <div class="container">
+            <h3>在信息和标题中使用 html 代码</h3>
+            <div class="btn-group-vertical">
+                <button class="btn btn-danger" ng-click="errorHtml()">Error Notification</button>
+                <button class="btn btn-success" ng-click="successHtml()">Success Notification</button>
+            </div>
+        </div>
+        <div class="container">
+            <h3>更改通知提醒框的显示位置</h3>
+            <div class="btn-group-vertical">
+                <button class="btn btn-success" ng-click="TopLeft()">Top Left Notification</button>
+                <button class="btn btn-danger" ng-click="BottomRight()">Bottom Right Notification</button>
+                <button class="btn btn-warning" ng-click="BottomLeft()">Bottom Left Notification</button>
+                <button class="btn btn-success" ng-click="TopCenter()">Top Center Notification</button>
+                <button class="btn btn-danger" ng-click="BottomCenter()">Bottom Center Notification</button>
+            </div>
+        </div>
+        <div class="container">
+            <h3>手动关闭通知弹窗</h3>
+            <div class="btn-group-vertical">
+                <button class="btn btn-primary" ng-click="setDelayFalse()">显示通知</button>
+                <button class="btn btn-success" ng-click="clear()">点击关闭通知</button>
+            </div>
+        </div>
+        <div class="container">
+            <h3>关闭所有通知弹窗</h3>
+            <div class="btn-group-vertical">
+                <button class="btn btn-success" ng-click="clearAll()">点击关闭所有通知弹窗</button>
+            </div>
+        </div>
+        <div class="container">
+            <h3>自定义模板template和scope</h3>
+            <div class="btn-group-vertical">
+                <button class="btn btn-primary show-custom" ng-click="customTemplateScope()">自定义模板template和scope</button>
+            </div>
+            <h5>Clicks: {{nClicksLog.length}}</h5>
+            <ul class="elements-count">
+                <li ng-repeat="l in nClicksLog track by $index">{{$index + 1}}. {{l}}</li>
+            </ul>
+        </div>
+    </div>
+    <script type="text/ng-template" id="custom_template.html">
+        <div class="ui-notification custom-template">
+            <h3>{{nTitle}}</h3>
+            <div class="message" ng-bind-html="message"></div>
+            <div class="message">
+                <ul>
+                    <li ng-repeat="el in nElements">{{el}}</li>
+                </ul>
+            </div>
+            <div class="message">
+                <a class="btn btn-small btn-primary close-notification" ng-click="nClick()">Click me</a>
+            </div>
+        </div>
+    </script>
+</div>
+ <div class="col-md-8"><br> <ui-tabset style="height:950px;overflow:auto">
+ <ui-tab heading="HTML">
+<pre><code style="width:100%;color:#fff"><span class="xml">
+<span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">&quot;example&quot;</span>&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">&quot;container&quot;</span>&gt;</span>
+        <span class="hljs-tag">&lt;<span class="hljs-name">h3</span>&gt;</span>通知提醒框类型<span class="hljs-tag">&lt;/<span class="hljs-name">h3</span>&gt;</span>
+        <span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">&quot;btn-group-vertical&quot;</span>&gt;</span>
+            <span class="hljs-tag">&lt;<span class="hljs-name">button</span> <span class="hljs-attr">class</span>=<span class="hljs-string">&quot;btn btn-primary&quot;</span> <span class="hljs-attr">ng-click</span>=<span class="hljs-string">&quot;primary()&quot;</span>&gt;</span>一般消息primary<span class="hljs-tag">&lt;/<span class="hljs-name">button</span>&gt;</span>
+            <span class="hljs-tag">&lt;<span class="hljs-name">button</span> <span class="hljs-attr">class</span>=<span class="hljs-string">&quot;btn btn-danger&quot;</span> <span class="hljs-attr">ng-click</span>=<span class="hljs-string">&quot;error()&quot;</span>&gt;</span>错误消息danger<span class="hljs-tag">&lt;/<span class="hljs-name">button</span>&gt;</span>
+            <span class="hljs-tag">&lt;<span class="hljs-name">button</span> <span class="hljs-attr">class</span>=<span class="hljs-string">&quot;btn btn-success&quot;</span> <span class="hljs-attr">ng-click</span>=<span class="hljs-string">&quot;success()&quot;</span>&gt;</span>成功消息success<span class="hljs-tag">&lt;/<span class="hljs-name">button</span>&gt;</span>
+            <span class="hljs-tag">&lt;<span class="hljs-name">button</span> <span class="hljs-attr">class</span>=<span class="hljs-string">&quot;btn btn-info&quot;</span> <span class="hljs-attr">ng-click</span>=<span class="hljs-string">&quot;info()&quot;</span>&gt;</span>提示消息info<span class="hljs-tag">&lt;/<span class="hljs-name">button</span>&gt;</span>
+            <span class="hljs-tag">&lt;<span class="hljs-name">button</span> <span class="hljs-attr">class</span>=<span class="hljs-string">&quot;btn btn-warning&quot;</span> <span class="hljs-attr">ng-click</span>=<span class="hljs-string">&quot;warning()&quot;</span>&gt;</span>警告消息warning<span class="hljs-tag">&lt;/<span class="hljs-name">button</span>&gt;</span>
+        <span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
+    <span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">&quot;container&quot;</span>&gt;</span>
+        <span class="hljs-tag">&lt;<span class="hljs-name">h3</span>&gt;</span>带标题 Title 的提醒框<span class="hljs-tag">&lt;/<span class="hljs-name">h3</span>&gt;</span>
+        <span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">&quot;btn-group-vertical&quot;</span>&gt;</span>
+            <span class="hljs-tag">&lt;<span class="hljs-name">button</span> <span class="hljs-attr">class</span>=<span class="hljs-string">&quot;btn btn-primary&quot;</span> <span class="hljs-attr">ng-click</span>=<span class="hljs-string">&quot;primaryTitle()&quot;</span>&gt;</span>带标题的一般消息<span class="hljs-tag">&lt;/<span class="hljs-name">button</span>&gt;</span>
+        <span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
+    <span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">&quot;container&quot;</span>&gt;</span>
+        <span class="hljs-tag">&lt;<span class="hljs-name">h3</span>&gt;</span>自定义延迟时长<span class="hljs-tag">&lt;/<span class="hljs-name">h3</span>&gt;</span>
+        <span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">&quot;btn-group-vertical&quot;</span>&gt;</span>
+            <span class="hljs-tag">&lt;<span class="hljs-name">button</span> <span class="hljs-attr">class</span>=<span class="hljs-string">&quot;btn btn-danger&quot;</span> <span class="hljs-attr">ng-click</span>=<span class="hljs-string">&quot;errorTime()&quot;</span>&gt;</span>Error Notification 1s<span class="hljs-tag">&lt;/<span class="hljs-name">button</span>&gt;</span>
+            <span class="hljs-tag">&lt;<span class="hljs-name">button</span> <span class="hljs-attr">class</span>=<span class="hljs-string">&quot;btn btn-danger&quot;</span> <span class="hljs-attr">ng-click</span>=<span class="hljs-string">&quot;errorNoTime()&quot;</span>&gt;</span>Error Notification (no timeout)<span class="hljs-tag">&lt;/<span class="hljs-name">button</span>&gt;</span>
+            <span class="hljs-tag">&lt;<span class="hljs-name">button</span> <span class="hljs-attr">class</span>=<span class="hljs-string">&quot;btn btn-success&quot;</span> <span class="hljs-attr">ng-click</span>=<span class="hljs-string">&quot;successTime()&quot;</span>&gt;</span>Success Notification 20s<span class="hljs-tag">&lt;/<span class="hljs-name">button</span>&gt;</span>
+        <span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
+    <span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">&quot;container&quot;</span>&gt;</span>
+        <span class="hljs-tag">&lt;<span class="hljs-name">h3</span>&gt;</span>在信息和标题中使用 html 代码<span class="hljs-tag">&lt;/<span class="hljs-name">h3</span>&gt;</span>
+        <span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">&quot;btn-group-vertical&quot;</span>&gt;</span>
+            <span class="hljs-tag">&lt;<span class="hljs-name">button</span> <span class="hljs-attr">class</span>=<span class="hljs-string">&quot;btn btn-danger&quot;</span> <span class="hljs-attr">ng-click</span>=<span class="hljs-string">&quot;errorHtml()&quot;</span>&gt;</span>Error Notification<span class="hljs-tag">&lt;/<span class="hljs-name">button</span>&gt;</span>
+            <span class="hljs-tag">&lt;<span class="hljs-name">button</span> <span class="hljs-attr">class</span>=<span class="hljs-string">&quot;btn btn-success&quot;</span> <span class="hljs-attr">ng-click</span>=<span class="hljs-string">&quot;successHtml()&quot;</span>&gt;</span>Success Notification<span class="hljs-tag">&lt;/<span class="hljs-name">button</span>&gt;</span>
+        <span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
+    <span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">&quot;container&quot;</span>&gt;</span>
+        <span class="hljs-tag">&lt;<span class="hljs-name">h3</span>&gt;</span>更改通知提醒框的显示位置<span class="hljs-tag">&lt;/<span class="hljs-name">h3</span>&gt;</span>
+        <span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">&quot;btn-group-vertical&quot;</span>&gt;</span>
+            <span class="hljs-tag">&lt;<span class="hljs-name">button</span> <span class="hljs-attr">class</span>=<span class="hljs-string">&quot;btn btn-success&quot;</span> <span class="hljs-attr">ng-click</span>=<span class="hljs-string">&quot;TopLeft()&quot;</span>&gt;</span>Top Left Notification<span class="hljs-tag">&lt;/<span class="hljs-name">button</span>&gt;</span>
+            <span class="hljs-tag">&lt;<span class="hljs-name">button</span> <span class="hljs-attr">class</span>=<span class="hljs-string">&quot;btn btn-danger&quot;</span> <span class="hljs-attr">ng-click</span>=<span class="hljs-string">&quot;BottomRight()&quot;</span>&gt;</span>Bottom Right Notification<span class="hljs-tag">&lt;/<span class="hljs-name">button</span>&gt;</span>
+            <span class="hljs-tag">&lt;<span class="hljs-name">button</span> <span class="hljs-attr">class</span>=<span class="hljs-string">&quot;btn btn-warning&quot;</span> <span class="hljs-attr">ng-click</span>=<span class="hljs-string">&quot;BottomLeft()&quot;</span>&gt;</span>Bottom Left Notification<span class="hljs-tag">&lt;/<span class="hljs-name">button</span>&gt;</span>
+            <span class="hljs-tag">&lt;<span class="hljs-name">button</span> <span class="hljs-attr">class</span>=<span class="hljs-string">&quot;btn btn-success&quot;</span> <span class="hljs-attr">ng-click</span>=<span class="hljs-string">&quot;TopCenter()&quot;</span>&gt;</span>Top Center Notification<span class="hljs-tag">&lt;/<span class="hljs-name">button</span>&gt;</span>
+            <span class="hljs-tag">&lt;<span class="hljs-name">button</span> <span class="hljs-attr">class</span>=<span class="hljs-string">&quot;btn btn-danger&quot;</span> <span class="hljs-attr">ng-click</span>=<span class="hljs-string">&quot;BottomCenter()&quot;</span>&gt;</span>Bottom Center Notification<span class="hljs-tag">&lt;/<span class="hljs-name">button</span>&gt;</span>
+        <span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
+    <span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">&quot;container&quot;</span>&gt;</span>
+        <span class="hljs-tag">&lt;<span class="hljs-name">h3</span>&gt;</span>手动关闭通知弹窗<span class="hljs-tag">&lt;/<span class="hljs-name">h3</span>&gt;</span>
+        <span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">&quot;btn-group-vertical&quot;</span>&gt;</span>
+            <span class="hljs-tag">&lt;<span class="hljs-name">button</span> <span class="hljs-attr">class</span>=<span class="hljs-string">&quot;btn btn-primary&quot;</span> <span class="hljs-attr">ng-click</span>=<span class="hljs-string">&quot;setDelayFalse()&quot;</span>&gt;</span>显示通知<span class="hljs-tag">&lt;/<span class="hljs-name">button</span>&gt;</span>
+            <span class="hljs-tag">&lt;<span class="hljs-name">button</span> <span class="hljs-attr">class</span>=<span class="hljs-string">&quot;btn btn-success&quot;</span> <span class="hljs-attr">ng-click</span>=<span class="hljs-string">&quot;clear()&quot;</span>&gt;</span>点击关闭通知<span class="hljs-tag">&lt;/<span class="hljs-name">button</span>&gt;</span>
+        <span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
+    <span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">&quot;container&quot;</span>&gt;</span>
+        <span class="hljs-tag">&lt;<span class="hljs-name">h3</span>&gt;</span>关闭所有通知弹窗<span class="hljs-tag">&lt;/<span class="hljs-name">h3</span>&gt;</span>
+        <span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">&quot;btn-group-vertical&quot;</span>&gt;</span>
+            <span class="hljs-tag">&lt;<span class="hljs-name">button</span> <span class="hljs-attr">class</span>=<span class="hljs-string">&quot;btn btn-success&quot;</span> <span class="hljs-attr">ng-click</span>=<span class="hljs-string">&quot;clearAll()&quot;</span>&gt;</span>点击关闭所有通知弹窗<span class="hljs-tag">&lt;/<span class="hljs-name">button</span>&gt;</span>
+        <span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
+    <span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">&quot;container&quot;</span>&gt;</span>
+        <span class="hljs-tag">&lt;<span class="hljs-name">h3</span>&gt;</span>自定义模板template和scope<span class="hljs-tag">&lt;/<span class="hljs-name">h3</span>&gt;</span>
+        <span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">&quot;btn-group-vertical&quot;</span>&gt;</span>
+            <span class="hljs-tag">&lt;<span class="hljs-name">button</span> <span class="hljs-attr">class</span>=<span class="hljs-string">&quot;btn btn-primary show-custom&quot;</span> <span class="hljs-attr">ng-click</span>=<span class="hljs-string">&quot;customTemplateScope()&quot;</span>&gt;</span>自定义模板template和scope<span class="hljs-tag">&lt;/<span class="hljs-name">button</span>&gt;</span>
+        <span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
+        <span class="hljs-tag">&lt;<span class="hljs-name">h5</span>&gt;</span>Clicks: </span><span class="hljs-template-variable">{{nClicksLog.length}}</span><span class="xml"><span class="hljs-tag">&lt;/<span class="hljs-name">h5</span>&gt;</span>
+        <span class="hljs-tag">&lt;<span class="hljs-name">ul</span> <span class="hljs-attr">class</span>=<span class="hljs-string">&quot;elements-count&quot;</span>&gt;</span>
+            <span class="hljs-tag">&lt;<span class="hljs-name">li</span> <span class="hljs-attr">ng-repeat</span>=<span class="hljs-string">&quot;l in nClicksLog track by $index&quot;</span>&gt;</span></span><span class="hljs-template-variable">{{$index + 1}}</span><span class="xml">. </span><span class="hljs-template-variable">{{l}}</span><span class="xml"><span class="hljs-tag">&lt;/<span class="hljs-name">li</span>&gt;</span>
+        <span class="hljs-tag">&lt;/<span class="hljs-name">ul</span>&gt;</span>
+    <span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
+
+<span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
+
+<span class="hljs-tag">&lt;<span class="hljs-name">script</span> <span class="hljs-attr">type</span>=<span class="hljs-string">&quot;text/ng-template&quot;</span> <span class="hljs-attr">id</span>=<span class="hljs-string">&quot;custom<em>template.html&quot;</em></span>&gt;</span><span class="javascript">
+    &lt;div <span class="hljs-class"><span class="hljs-keyword">class</span></span>=<span class="hljs-string">&quot;ui-notification custom-template&quot;</span>&gt;
+        <span class="xml"><span class="hljs-tag">&lt;<span class="hljs-name">h3</span>&gt;</span></span></span></span><span class="hljs-template-variable">{{nTitle}}</span><span class="xml"><span class="handlebars"><span class="xml"><span class="hljs-tag">&lt;/<span class="hljs-name">h3</span>&gt;</span>
+        <span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">&quot;message&quot;</span> <span class="hljs-attr">ng-bind-html</span>=<span class="hljs-string">&quot;message&quot;</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
+        <span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">&quot;message&quot;</span>&gt;</span>
+            <span class="hljs-tag">&lt;<span class="hljs-name">ul</span>&gt;</span>
+                <span class="hljs-tag">&lt;<span class="hljs-name">li</span> <span class="hljs-attr">ng-repeat</span>=<span class="hljs-string">&quot;el in nElements&quot;</span>&gt;</span></span></span></span><span class="hljs-template-variable">{{el}}</span><span class="xml"><span class="handlebars"><span class="xml"><span class="hljs-tag">&lt;/<span class="hljs-name">li</span>&gt;</span>
+            <span class="hljs-tag">&lt;/<span class="hljs-name">ul</span>&gt;</span>
+        <span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
+        <span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">&quot;message&quot;</span>&gt;</span>
+            <span class="hljs-tag">&lt;<span class="hljs-name">a</span> <span class="hljs-attr">class</span>=<span class="hljs-string">&quot;btn btn-small btn-primary close-notification&quot;</span> <span class="hljs-attr">ng-click</span>=<span class="hljs-string">&quot;nClick()&quot;</span>&gt;</span>Click me<span class="hljs-tag">&lt;/<span class="hljs-name">a</span>&gt;</span>
+        <span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
+    <span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
+</span></span><span class="hljs-tag">&lt;/<span class="hljs-name">script</span>&gt;</span>
+</span></code></pre>
+</ui-tab>
+<ui-tab heading="Javascript">
+<pre><code style="width:100%;color:#fff">
+export <span class="hljs-keyword">default</span> <span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">NotificationDemoCtrl</span></span>{
+    constructor($scope,uiNotification){
+        <span class="hljs-string">&quot;ngInject&quot;</span>;
+        this.$scope=$scope;
+        $scope.primary = <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-params">()</span> </span>{
+            uiNotification(<span class="hljs-string">&#39;Primary notification&#39;</span>);
+        };
+        $scope.error = <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-params">()</span> </span>{
+            uiNotification.error(<span class="hljs-string">&#39;Error notification&#39;</span>);
+        }
+        $scope.success = <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-params">()</span> </span>{
+            uiNotification.success(<span class="hljs-string">&#39;Success notification&#39;</span>);
+        }
+        $scope.info = <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-params">()</span> </span>{
+            uiNotification.info(<span class="hljs-string">&#39;Information notification&#39;</span>);
+        }
+        $scope.warning = <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-params">()</span> </span>{
+            uiNotification.warning(<span class="hljs-string">&#39;Warning notification&#39;</span>);
+        }
+        $scope.primaryTitle = <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-params">()</span> </span>{
+            Notification({ message: <span class="hljs-string">&#39;Primary notification&#39;</span>, title: <span class="hljs-string">&#39;Primary notification&#39;</span> });
+        }
+        $scope.errorTime = <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-params">()</span> </span>{
+            uiNotification.error({ message: <span class="hljs-string">&#39;Error notification 1s&#39;</span>, delay: <span class="hljs-number">1000</span> });
+        }
+        $scope.errorNoTime = <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-params">()</span> </span>{
+            uiNotification.error({ message: <span class="hljs-string">&#39;Error notification (no timeout)&#39;</span>, delay: <span class="hljs-keyword">null</span> });
+        }
+        $scope.successTime = <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-params">()</span> </span>{
+            uiNotification.success({ message: <span class="hljs-string">&#39;Success notification 20s&#39;</span>, delay: <span class="hljs-number">20000</span> });
+        }
+        $scope.errorHtml = <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-params">()</span> </span>{
+            uiNotification.error({ message: <span class="hljs-string">&#39;&lt;b&gt;Error&lt;/b&gt; &lt;s&gt;notification&lt;/s&gt;&#39;</span>, title: <span class="hljs-string">&#39;&lt;i&gt;Html&lt;/i&gt; &lt;u&gt;message&lt;/u&gt;&#39;</span> });
+        }
+        $scope.successHtml = <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-params">()</span> </span>{
+            uiNotification.success({ message: <span class="hljs-string">&#39;Success notification&lt;br&gt;Some other &lt;b&gt;content&lt;/b&gt;&lt;br&gt;&lt;a href=&quot;<a href="https://github.com/alexcrack/angular-ui-notification&quot;&gt;This">https://github.com/alexcrack/angular-ui-notification&quot;&gt;This</a> is a link&lt;/a&gt;&lt;br&gt;&lt;img src=&quot;<a href="https://angularjs.org/img/AngularJS-small.png&quot;&amp;gt">https://angularjs.org/img/AngularJS-small.png&quot;&amp;gt</a>;&#39;</span>, title: <span class="hljs-string">&#39;Html content&#39;</span> });
+        }
+        $scope.TopLeft = <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-params">()</span> </span>{
+            uiNotification.success({ message: <span class="hljs-string">&#39;Success Top Left&#39;</span>, positionX: <span class="hljs-string">&#39;left&#39;</span> });
+        }
+        $scope.BottomRight = <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-params">()</span> </span>{
+            uiNotification.error({ message: <span class="hljs-string">&#39;Error Bottom Right&#39;</span>, positionY: <span class="hljs-string">&#39;bottom&#39;</span>, positionX: <span class="hljs-string">&#39;right&#39;</span> });
+        }
+        $scope.BottomLeft = <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-params">()</span> </span>{
+            uiNotification.warning({ message: <span class="hljs-string">&#39;warning Bottom Left&#39;</span>, positionY: <span class="hljs-string">&#39;bottom&#39;</span>, positionX: <span class="hljs-string">&#39;left&#39;</span> });
+        }
+        $scope.TopCenter = <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-params">()</span> </span>{
+            uiNotification.success({ message: <span class="hljs-string">&#39;Success Top Center&#39;</span>, positionX: <span class="hljs-string">&#39;center&#39;</span> });
+        }
+        $scope.BottomCenter = <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-params">()</span> </span>{
+            uiNotification.error({ message: <span class="hljs-string">&#39;Error Bottom Center&#39;</span>, positionY: <span class="hljs-string">&#39;bottom&#39;</span>, positionX: <span class="hljs-string">&#39;center&#39;</span> });
+        }
+        <span class="hljs-keyword">var</span> promise;
+        $scope.setDelayFalse = <span class="hljs-function"><span class="hljs-keyword">function</span><span class="hljs-params">()</span> </span>{
+            promise = uiNotification.primary({ message: <span class="hljs-string">&#39;这是一个不会关闭的通知&#39;</span>, delay: <span class="hljs-keyword">false</span> });
+        };
+        $scope.clear = <span class="hljs-function"><span class="hljs-keyword">function</span><span class="hljs-params">()</span> </span>{
+            uiNotification.clear(promise);
+        };
+        $scope.clearAll = <span class="hljs-function"><span class="hljs-keyword">function</span><span class="hljs-params">()</span> </span>{
+            uiNotification.clearAll();
+        };
+        $scope.nTitle = <span class="hljs-string">&quot;Title from other scope&quot;</span>;
+        $scope.nClicksLog = [];
+        $scope.nClick = <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-params">()</span> </span>{
+            $scope.nClicksLog.push(<span class="hljs-string">&quot;Clicked&quot;</span>);
+        }
+        $scope.nElements = [<span class="hljs-string">&#39;one&#39;</span>, <span class="hljs-string">&#39;two&#39;</span>, <span class="hljs-string">&#39;three&#39;</span>];
+        $scope.customTemplateScope = <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-params">()</span> </span>{
+            uiNotification.primary({ message: <span class="hljs-string">&quot;Just message&quot;</span>, templateUrl: <span class="hljs-string">&quot;custom_template.html&quot;</span>, scope: $scope });
+        }
+    }
+}
+</code></pre>
+</ui-tab>
+</ui-tabset>
+</div>
+</div></div>

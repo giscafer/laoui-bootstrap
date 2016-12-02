@@ -39731,7 +39731,7 @@
 /* 13 */
 /***/ function(module, exports) {
 
-	var path = 'G:/GitHub/_private/laoui-bootstrap/src/bootstrap/accordion/template/accordion-group.html';
+	var path = 'F:/github/laoui-bootstrap/src/bootstrap/accordion/template/accordion-group.html';
 	var html = "<div>\r\n  <div role=\"tab\" id=\"{{::headingId}}\" aria-selected=\"{{isOpen}}\" class=\"panel-heading\" ng-class=\"{'ui-accordion-highlight':isOpen && isCompact}\" ng-keypress=\"toggleOpen($event)\">\r\n    <h4 class=\"panel-title\">\r\n      <a role=\"button\" data-toggle=\"collapse\" href aria-expanded=\"{{isOpen}}\" aria-controls=\"{{::panelId}}\" tabindex=\"0\" class=\"accordion-toggle\"\r\n        ng-click=\"toggleOpen()\" ui-accordion-transclude=\"heading\" ng-disabled=\"isDisabled\" ui-tabindex-toggle><span ui-accordion-header ng-class=\"{'text-muted': isDisabled}\">{{heading}}</span></a>\r\n    </h4>\r\n  </div>\r\n  <div id=\"{{::panelId}}\" aria-labelledby=\"{{::headingId}}\" aria-hidden=\"{{!isOpen}}\" role=\"tabpanel\" class=\"panel-collapse collapse\"\r\n    ui-collapse=\"!isOpen\">\r\n    <div class=\"panel-body\" ng-transclude></div>\r\n  </div>\r\n</div>";
 	window.angular.module('ng').run(['$templateCache', function(c) { c.put(path, html) }]);
 	module.exports = path;
@@ -39740,7 +39740,7 @@
 /* 14 */
 /***/ function(module, exports) {
 
-	var path = 'G:/GitHub/_private/laoui-bootstrap/src/bootstrap/accordion/template/accordion.html';
+	var path = 'F:/github/laoui-bootstrap/src/bootstrap/accordion/template/accordion.html';
 	var html = "<div role=\"tablist\" class=\"panel-group\" ng-transclude></div>";
 	window.angular.module('ng').run(['$templateCache', function(c) { c.put(path, html) }]);
 	module.exports = path;
@@ -39943,7 +39943,7 @@
 /* 21 */
 /***/ function(module, exports) {
 
-	var path = 'G:/GitHub/_private/laoui-bootstrap/src/bootstrap/carousel/template/carousel.html';
+	var path = 'F:/github/laoui-bootstrap/src/bootstrap/carousel/template/carousel.html';
 	var html = "<div class=\"carousel-inner\" ng-transclude></div>\r\n<a role=\"button\" href class=\"left carousel-control\" ng-click=\"prev()\" ng-class=\"{ disabled: isPrevDisabled() }\" ng-show=\"slides.length > 1\">\r\n  <span aria-hidden=\"true\" class=\"glyphicon glyphicon-chevron-left\"></span>\r\n  <span class=\"sr-only\">previous</span>\r\n</a>\r\n<a role=\"button\" href class=\"right carousel-control\" ng-click=\"next()\" ng-class=\"{ disabled: isNextDisabled() }\" ng-show=\"slides.length > 1\">\r\n  <span aria-hidden=\"true\" class=\"glyphicon glyphicon-chevron-right\"></span>\r\n  <span class=\"sr-only\">next</span>\r\n</a>\r\n<ol class=\"carousel-indicators\" ng-show=\"slides.length > 1\">\r\n  <li ng-repeat=\"slide in slides | orderBy:indexOfSlide track by $index\" ng-class=\"{ active: isActive(slide) }\" ng-click=\"select(slide)\">\r\n    <span class=\"sr-only\">slide {{ $index + 1 }} of {{ slides.length }}<span ng-if=\"isActive(slide)\">, currently active</span></span>\r\n  </li>\r\n</ol>\r\n";
 	window.angular.module('ng').run(['$templateCache', function(c) { c.put(path, html) }]);
 	module.exports = path;
@@ -39952,7 +39952,7 @@
 /* 22 */
 /***/ function(module, exports) {
 
-	var path = 'G:/GitHub/_private/laoui-bootstrap/src/bootstrap/carousel/template/slide.html';
+	var path = 'F:/github/laoui-bootstrap/src/bootstrap/carousel/template/slide.html';
 	var html = "<div class=\"text-center\" ng-transclude></div>\r\n";
 	window.angular.module('ng').run(['$templateCache', function(c) { c.put(path, html) }]);
 	module.exports = path;
@@ -41683,7 +41683,7 @@
 /* 32 */
 /***/ function(module, exports) {
 
-	var path = 'G:/GitHub/_private/laoui-bootstrap/src/bootstrap/datepicker/template/datepicker.html';
+	var path = 'F:/github/laoui-bootstrap/src/bootstrap/datepicker/template/datepicker.html';
 	var html = "<div ng-switch=\"datepickerMode\">\r\n  <div ui-daypicker ng-switch-when=\"day\" tabindex=\"0\" class=\"ui-daypicker\"></div>\r\n  <div ui-monthpicker ng-switch-when=\"month\" tabindex=\"0\" class=\"ui-monthpicker\"></div>\r\n  <div ui-yearpicker ng-switch-when=\"year\" tabindex=\"0\" class=\"ui-yearpicker\"></div>\r\n</div>\r\n";
 	window.angular.module('ng').run(['$templateCache', function(c) { c.put(path, html) }]);
 	module.exports = path;
@@ -41692,7 +41692,7 @@
 /* 33 */
 /***/ function(module, exports) {
 
-	var path = 'G:/GitHub/_private/laoui-bootstrap/src/bootstrap/datepicker/template/day.html';
+	var path = 'F:/github/laoui-bootstrap/src/bootstrap/datepicker/template/day.html';
 	var html = "<table role=\"grid\" aria-labelledby=\"{{::uniqueId}}-title\" aria-activedescendant=\"{{activeDateId}}\">\r\n  <thead>\r\n    <tr>\r\n      <th><button type=\"button\" class=\"btn btn-default btn-sm pull-left ui-left\" ng-click=\"move(-1)\" tabindex=\"-1\"><i aria-hidden=\"true\" class=\"glyphicon glyphicon-chevron-left\"></i><span class=\"sr-only\">previous</span></button></th>\r\n      <th colspan=\"{{::5 + showWeeks}}\"><button id=\"{{::uniqueId}}-title\" role=\"heading\" aria-live=\"assertive\" aria-atomic=\"true\" type=\"button\" class=\"btn btn-default btn-sm ui-title\" ng-click=\"toggleMode()\" ng-disabled=\"datepickerMode === maxMode\" tabindex=\"-1\"><strong>{{title}}</strong></button></th>\r\n      <th><button type=\"button\" class=\"btn btn-default btn-sm pull-right ui-right\" ng-click=\"move(1)\" tabindex=\"-1\"><i aria-hidden=\"true\" class=\"glyphicon glyphicon-chevron-right\"></i><span class=\"sr-only\">next</span></button></th>\r\n    </tr>\r\n    <tr>\r\n      <th ng-if=\"showWeeks\" class=\"text-center\"></th>\r\n      <th ng-repeat=\"label in ::labels track by $index\" class=\"text-center\"><small aria-label=\"{{::label.full}}\">{{::label.abbr}}</small></th>\r\n    </tr>\r\n  </thead>\r\n  <tbody>\r\n    <tr class=\"ui-weeks\" ng-repeat=\"row in rows track by $index\" role=\"row\">\r\n      <td ng-if=\"showWeeks\" class=\"text-center h6\"><em>{{ weekNumbers[$index] }}</em></td>\r\n      <td ng-repeat=\"dt in row\" class=\"ui-day text-center\" role=\"gridcell\"\r\n        id=\"{{::dt.uid}}\"\r\n        ng-class=\"::dt.customClass\">\r\n        <button type=\"button\" class=\"btn btn-default btn-sm\"\r\n          ui-is-class=\"\r\n            'btn-info' for selectedDt,\r\n            'active' for activeDt\r\n            on dt\"\r\n          ng-click=\"select(dt.date)\"\r\n          ng-disabled=\"::dt.disabled\"\r\n          tabindex=\"-1\"><span ng-class=\"::{'text-muted': dt.secondary, 'text-info': dt.current}\">{{::dt.label}}</span></button>\r\n      </td>\r\n    </tr>\r\n  </tbody>\r\n</table>\r\n";
 	window.angular.module('ng').run(['$templateCache', function(c) { c.put(path, html) }]);
 	module.exports = path;
@@ -41701,7 +41701,7 @@
 /* 34 */
 /***/ function(module, exports) {
 
-	var path = 'G:/GitHub/_private/laoui-bootstrap/src/bootstrap/datepicker/template/month.html';
+	var path = 'F:/github/laoui-bootstrap/src/bootstrap/datepicker/template/month.html';
 	var html = "<table role=\"grid\" aria-labelledby=\"{{::uniqueId}}-title\" aria-activedescendant=\"{{activeDateId}}\">\r\n  <thead>\r\n    <tr>\r\n      <th><button type=\"button\" class=\"btn btn-default btn-sm pull-left ui-left\" ng-click=\"move(-1)\" tabindex=\"-1\"><i aria-hidden=\"true\" class=\"glyphicon glyphicon-chevron-left\"></i><span class=\"sr-only\">previous</span></button></th>\r\n      <th colspan=\"{{::yearHeaderColspan}}\"><button id=\"{{::uniqueId}}-title\" role=\"heading\" aria-live=\"assertive\" aria-atomic=\"true\" type=\"button\" class=\"btn btn-default btn-sm ui-title\" ng-click=\"toggleMode()\" ng-disabled=\"datepickerMode === maxMode\" tabindex=\"-1\"><strong>{{title}}</strong></button></th>\r\n      <th><button type=\"button\" class=\"btn btn-default btn-sm pull-right ui-right\" ng-click=\"move(1)\" tabindex=\"-1\"><i aria-hidden=\"true\" class=\"glyphicon glyphicon-chevron-right\"></i><span class=\"sr-only\">next</span></i></button></th>\r\n    </tr>\r\n  </thead>\r\n  <tbody>\r\n    <tr class=\"ui-months\" ng-repeat=\"row in rows track by $index\" role=\"row\">\r\n      <td ng-repeat=\"dt in row\" class=\"ui-month text-center\" role=\"gridcell\"\r\n        id=\"{{::dt.uid}}\"\r\n        ng-class=\"::dt.customClass\">\r\n        <button type=\"button\" class=\"btn btn-default\"\r\n          ui-is-class=\"\r\n            'btn-info' for selectedDt,\r\n            'active' for activeDt\r\n            on dt\"\r\n          ng-click=\"select(dt.date)\"\r\n          ng-disabled=\"::dt.disabled\"\r\n          tabindex=\"-1\"><span ng-class=\"::{'text-info': dt.current}\">{{::dt.label}}</span></button>\r\n      </td>\r\n    </tr>\r\n  </tbody>\r\n</table>\r\n";
 	window.angular.module('ng').run(['$templateCache', function(c) { c.put(path, html) }]);
 	module.exports = path;
@@ -41710,7 +41710,7 @@
 /* 35 */
 /***/ function(module, exports) {
 
-	var path = 'G:/GitHub/_private/laoui-bootstrap/src/bootstrap/datepicker/template/year.html';
+	var path = 'F:/github/laoui-bootstrap/src/bootstrap/datepicker/template/year.html';
 	var html = "<table role=\"grid\" aria-labelledby=\"{{::uniqueId}}-title\" aria-activedescendant=\"{{activeDateId}}\">\r\n  <thead>\r\n    <tr>\r\n      <th><button type=\"button\" class=\"btn btn-default btn-sm pull-left ui-left\" ng-click=\"move(-1)\" tabindex=\"-1\"><i aria-hidden=\"true\" class=\"glyphicon glyphicon-chevron-left\"></i><span class=\"sr-only\">previous</span></button></th>\r\n      <th colspan=\"{{::columns - 2}}\"><button id=\"{{::uniqueId}}-title\" role=\"heading\" aria-live=\"assertive\" aria-atomic=\"true\" type=\"button\" class=\"btn btn-default btn-sm ui-title\" ng-click=\"toggleMode()\" ng-disabled=\"datepickerMode === maxMode\" tabindex=\"-1\"><strong>{{title}}</strong></button></th>\r\n      <th><button type=\"button\" class=\"btn btn-default btn-sm pull-right ui-right\" ng-click=\"move(1)\" tabindex=\"-1\"><i aria-hidden=\"true\" class=\"glyphicon glyphicon-chevron-right\"></i><span class=\"sr-only\">next</span></button></th>\r\n    </tr>\r\n  </thead>\r\n  <tbody>\r\n    <tr class=\"ui-years\" ng-repeat=\"row in rows track by $index\" role=\"row\">\r\n      <td ng-repeat=\"dt in row\" class=\"ui-year text-center\" role=\"gridcell\"\r\n        id=\"{{::dt.uid}}\"\r\n        ng-class=\"::dt.customClass\">\r\n        <button type=\"button\" class=\"btn btn-default\"\r\n          ui-is-class=\"\r\n            'btn-info' for selectedDt,\r\n            'active' for activeDt\r\n            on dt\"\r\n          ng-click=\"select(dt.date)\"\r\n          ng-disabled=\"::dt.disabled\"\r\n          tabindex=\"-1\"><span ng-class=\"::{'text-info': dt.current}\">{{::dt.label}}</span></button>\r\n      </td>\r\n    </tr>\r\n  </tbody>\r\n</table>\r\n";
 	window.angular.module('ng').run(['$templateCache', function(c) { c.put(path, html) }]);
 	module.exports = path;
@@ -42835,7 +42835,7 @@
 /* 43 */
 /***/ function(module, exports) {
 
-	var path = 'G:/GitHub/_private/laoui-bootstrap/src/bootstrap/datepickerPopup/template/popup.html';
+	var path = 'F:/github/laoui-bootstrap/src/bootstrap/datepickerPopup/template/popup.html';
 	var html = "<ul role=\"presentation\" class=\"ui-datepicker-popup dropdown-menu ui-position-measure\" dropdown-nested ng-if=\"isOpen\" ng-keydown=\"keydown($event)\" ng-click=\"$event.stopPropagation()\">\r\n  <li ng-transclude></li>\r\n  <li ng-if=\"showButtonBar\" class=\"ui-button-bar\">\r\n    <span class=\"btn-group pull-left\">\r\n      <button type=\"button\" class=\"btn btn-sm btn-info ui-datepicker-current\" ng-click=\"select('today', $event)\" ng-disabled=\"isDisabled('today')\">{{ getText('current') }}</button>\r\n      <button type=\"button\" class=\"btn btn-sm btn-danger ui-clear\" ng-click=\"select(null, $event)\">{{ getText('clear') }}</button>\r\n    </span>\r\n    <button type=\"button\" class=\"btn btn-sm btn-success pull-right ui-close\" ng-click=\"close($event)\">{{ getText('close') }}</button>\r\n  </li>\r\n</ul>\r\n";
 	window.angular.module('ng').run(['$templateCache', function(c) { c.put(path, html) }]);
 	module.exports = path;
@@ -45826,7 +45826,7 @@
 /* 100 */
 /***/ function(module, exports) {
 
-	var path = 'G:/GitHub/_private/laoui-bootstrap/src/bootstrap/tooltip/template/tooltip-popup.html';
+	var path = 'F:/github/laoui-bootstrap/src/bootstrap/tooltip/template/tooltip-popup.html';
 	var html = "<div class=\"tooltip-arrow\"></div>\r\n<div class=\"tooltip-inner\" ng-bind=\"content\"></div>\r\n";
 	window.angular.module('ng').run(['$templateCache', function(c) { c.put(path, html) }]);
 	module.exports = path;
@@ -45835,7 +45835,7 @@
 /* 101 */
 /***/ function(module, exports) {
 
-	var path = 'G:/GitHub/_private/laoui-bootstrap/src/bootstrap/tooltip/template/tooltip-html-popup.html';
+	var path = 'F:/github/laoui-bootstrap/src/bootstrap/tooltip/template/tooltip-html-popup.html';
 	var html = "<div class=\"tooltip-arrow\"></div>\r\n<div class=\"tooltip-inner\" ng-bind-html=\"contentExp()\"></div>\r\n";
 	window.angular.module('ng').run(['$templateCache', function(c) { c.put(path, html) }]);
 	module.exports = path;
@@ -45844,7 +45844,7 @@
 /* 102 */
 /***/ function(module, exports) {
 
-	var path = 'G:/GitHub/_private/laoui-bootstrap/src/bootstrap/tooltip/template/tooltip-template-popup.html';
+	var path = 'F:/github/laoui-bootstrap/src/bootstrap/tooltip/template/tooltip-template-popup.html';
 	var html = "<div class=\"tooltip-arrow\"></div>\r\n<div class=\"tooltip-inner\"\r\n  ui-tooltip-template-transclude=\"contentExp()\"\r\n  tooltip-template-transclude-scope=\"originScope()\"></div>\r\n";
 	window.angular.module('ng').run(['$templateCache', function(c) { c.put(path, html) }]);
 	module.exports = path;
@@ -46392,7 +46392,7 @@
 /* 111 */
 /***/ function(module, exports) {
 
-	var path = 'G:/GitHub/_private/laoui-bootstrap/src/bootstrap/tabs/template/tabset.html';
+	var path = 'F:/github/laoui-bootstrap/src/bootstrap/tabs/template/tabset.html';
 	var html = "<div>\r\n  <ul class=\"ui-tab nav nav-{{tabset.type || 'tabs'}}\" ng-class=\"{'nav-stacked': vertical, 'nav-justified': justified}\" ng-transclude></ul>\r\n  <div class=\"tab-content\">\r\n    <div class=\"tab-pane\"\r\n         ng-repeat=\"tab in tabset.tabs\"\r\n         ng-class=\"{active: tabset.active === tab.index}\"\r\n         ui-tab-content-transclude=\"tab\" style=\"{{style}}\">\r\n    </div>\r\n  </div>\r\n</div>\r\n";
 	window.angular.module('ng').run(['$templateCache', function(c) { c.put(path, html) }]);
 	module.exports = path;
@@ -46401,7 +46401,7 @@
 /* 112 */
 /***/ function(module, exports) {
 
-	var path = 'G:/GitHub/_private/laoui-bootstrap/src/bootstrap/tabs/template/tab.html';
+	var path = 'F:/github/laoui-bootstrap/src/bootstrap/tabs/template/tab.html';
 	var html = "<li ng-class=\"[{active: active, disabled: disabled}, classes]\" class=\"ui-tab nav-item\">\r\n  <a href ng-click=\"select($event)\" class=\"nav-link\" ui-tab-heading-transclude>{{heading}}</a>\r\n</li>\r\n";
 	window.angular.module('ng').run(['$templateCache', function(c) { c.put(path, html) }]);
 	module.exports = path;
@@ -47749,7 +47749,7 @@
 /* 122 */
 /***/ function(module, exports) {
 
-	var path = 'G:/GitHub/_private/laoui-bootstrap/src/bootstrap/typeahead/template/typeahead-match.html';
+	var path = 'F:/github/laoui-bootstrap/src/bootstrap/typeahead/template/typeahead-match.html';
 	var html = "<a href\r\n   tabindex=\"-1\"\r\n   ng-bind-html=\"match.label | uiTypeaheadHighlight:query\"\r\n   ng-attr-title=\"{{match.label}}\"></a>\r\n";
 	window.angular.module('ng').run(['$templateCache', function(c) { c.put(path, html) }]);
 	module.exports = path;
@@ -47758,7 +47758,7 @@
 /* 123 */
 /***/ function(module, exports) {
 
-	var path = 'G:/GitHub/_private/laoui-bootstrap/src/bootstrap/typeahead/template/typeahead-popup.html';
+	var path = 'F:/github/laoui-bootstrap/src/bootstrap/typeahead/template/typeahead-popup.html';
 	var html = "<ul class=\"dropdown-menu\" ng-show=\"isOpen() && !moveInProgress\" ng-style=\"{top: position().top+'px', left: position().left+'px'}\" role=\"listbox\" aria-hidden=\"{{!isOpen()}}\">\r\n    <li class=\"ui-typeahead-match\" ng-repeat=\"match in matches track by $index\" ng-class=\"{active: isActive($index) }\" ng-mouseenter=\"selectActive($index)\" ng-click=\"selectMatch($index, $event)\" role=\"option\" id=\"{{::match.id}}\">\r\n        <div ui-typeahead-match index=\"$index\" match=\"match\" query=\"query\" template-url=\"templateUrl\"></div>\r\n    </li>\r\n</ul>\r\n";
 	window.angular.module('ng').run(['$templateCache', function(c) { c.put(path, html) }]);
 	module.exports = path;
@@ -47794,19 +47794,23 @@
 
 	var _alert2 = _interopRequireDefault(_alert);
 
+	var _notification = __webpack_require__(205);
+
+	var _notification2 = _interopRequireDefault(_notification);
+
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
-	//Navigation
-
-	//Layout
-	var MODULE_NAME = "laoui.bootstrap.components";
 	//Data Display
 	//Feedback
 
 	//Data Entry
+	var MODULE_NAME = "laoui.bootstrap.components";
+	//Navigation
+
+	//Layout
 
 
-	angular.module(MODULE_NAME, [_editor2.default])
+	angular.module(MODULE_NAME, [_editor2.default, _notification2.default])
 	//general
 	.directive('uiIcon', _icon2.default.factory)
 	//Layout
@@ -47999,7 +48003,7 @@
 /* 132 */
 /***/ function(module, exports) {
 
-	var path = 'G:/GitHub/_private/laoui-bootstrap/src/components/icon/icon.html';
+	var path = 'F:/github/laoui-bootstrap/src/components/icon/icon.html';
 	var html = "<i ng-class=\"iconCls\"></i>";
 	window.angular.module('ng').run(['$templateCache', function(c) { c.put(path, html) }]);
 	module.exports = path;
@@ -48135,7 +48139,7 @@
 /* 135 */
 /***/ function(module, exports) {
 
-	var path = 'G:/GitHub/_private/laoui-bootstrap/src/components/panel/template/panel.html';
+	var path = 'F:/github/laoui-bootstrap/src/components/panel/template/panel.html';
 	var html = "<div ng-class=\"classes\" ng-hide=\"hidePanel\">\r\n    <div class=\"panel-heading\" ng-if=\"heading\" ui-panel-transclude=\"heading\">\r\n        <h3 class=\"panel-title\">{{heading}}</h3> </div>\r\n    <div class=\"panel-body\" ng-transclude></div>\r\n</div>\r\n";
 	window.angular.module('ng').run(['$templateCache', function(c) { c.put(path, html) }]);
 	module.exports = path;
@@ -48892,7 +48896,7 @@
 /* 167 */
 /***/ function(module, exports) {
 
-	var path = 'G:/GitHub/_private/laoui-bootstrap/src/components/grid/row.html';
+	var path = 'F:/github/laoui-bootstrap/src/components/grid/row.html';
 	var html = "<div {{...others}} ng-class=\"classes\" ng-style=\"rowStyle\" ng-transclude></div>";
 	window.angular.module('ng').run(['$templateCache', function(c) { c.put(path, html) }]);
 	module.exports = path;
@@ -50167,7 +50171,7 @@
 /* 192 */
 /***/ function(module, exports) {
 
-	var path = 'G:/GitHub/_private/laoui-bootstrap/src/components/grid/col.html';
+	var path = 'F:/github/laoui-bootstrap/src/components/grid/col.html';
 	var html = "<div {{...others}} ng-class=\"classes\" ng-transclude></div>";
 	window.angular.module('ng').run(['$templateCache', function(c) { c.put(path, html) }]);
 	module.exports = path;
@@ -56014,7 +56018,7 @@
 /* 200 */
 /***/ function(module, exports) {
 
-	var path = 'G:/GitHub/_private/laoui-bootstrap/src/components/navigation/template/navigation.html';
+	var path = 'F:/github/laoui-bootstrap/src/components/navigation/template/navigation.html';
 	var html = "<ul class=\"{{classes}} clearfix\">\r\n    <li class=\"link-root\" ng-repeat=\"link in links\" ng-include=\"'children.html'\" ng-class=\"{'collapsed': link.children && link.children.length > 0, 'active': currentUrl == link.link}\"></li>\r\n    <script type=\"text/ng-template\" id=\"children.html\">\r\n        <a ng-if=\"link.link\" ng-href=\"{{link.link}}\"> <i ng-if=\"link.icon\" class=\"fa\" ng-class=\"link.icon && 'fa-' + link.icon\"></i> {{link.name}} </a> <span ng-if=\"!link.link\">  <i ng-if=\"link.icon\" class=\"fa\" ng-class=\"link.icon && 'fa fa-' + link.icon\"></i> {{link.name}}</span>\r\n        <ul ng-if=\"link.children\" class=\"menu\">\r\n            <li ng-repeat=\"link in link.children\" ng-class=\"{'collapsed': link.children, 'active': currentUrl == link.link}\" ng-include=\"'children.html'\"></li>\r\n        </ul>\r\n    </script>\r\n</ul>\r\n";
 	window.angular.module('ng').run(['$templateCache', function(c) { c.put(path, html) }]);
 	module.exports = path;
@@ -56251,8 +56255,272 @@
 /* 204 */
 /***/ function(module, exports) {
 
-	var path = 'G:/GitHub/_private/laoui-bootstrap/src/components/alert/alert.html';
+	var path = 'F:/github/laoui-bootstrap/src/components/alert/alert.html';
 	var html = "<div ng-hide=\"closing\" ng-class=\"alertCls\">\r\n    <i ng-if=\"showIcon\" ng-class=\"iconCls\"></i>\r\n    <span ng-class=\"messageCls\" ng-bind=\"message\"></span>\r\n    <span ng-class=\"descriptionCls\"  ng-bind=\"description\"></span>\r\n    <a ng-show=\"closable\" ng-class=\"closeCls\" ng-click=\"close({$event: $event})\"><span ng-if=\"!closetext\">&times;</span>{{closetext?closetext:''}}</a>\r\n</div>\r\n";
+	window.angular.module('ng').run(['$templateCache', function(c) { c.put(path, html) }]);
+	module.exports = path;
+
+/***/ },
+/* 205 */
+/***/ function(module, exports, __webpack_require__) {
+
+	'use strict';
+
+	Object.defineProperty(exports, "__esModule", {
+	  value: true
+	});
+
+	var _notification = __webpack_require__(206);
+
+	var _notification2 = _interopRequireDefault(_notification);
+
+	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+	exports.default = _notification2.default;
+
+/***/ },
+/* 206 */
+/***/ function(module, exports, __webpack_require__) {
+
+	'use strict';
+
+	var _typeof2 = __webpack_require__(172);
+
+	var _typeof3 = _interopRequireDefault(_typeof2);
+
+	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+	var notificationTemp = __webpack_require__(207);
+	angular.module('ui-notification', []);
+
+	angular.module('ui-notification').provider('uiNotification', function () {
+
+	    this.options = {
+	        delay: 5000,
+	        startTop: 10,
+	        startRight: 10,
+	        verticalSpacing: 10,
+	        horizontalSpacing: 10,
+	        positionX: 'right',
+	        positionY: 'top',
+	        replaceMessage: false,
+	        templateUrl: notificationTemp,
+	        onClose: undefined,
+	        closeOnClick: true,
+	        maxCount: 0 // 0 - Infinite
+	    };
+
+	    this.setOptions = function (options) {
+	        if (!angular.isObject(options)) throw new Error("Options should be an object!");
+	        this.options = angular.extend({}, this.options, options);
+	    };
+
+	    this.$get = ["$timeout", "$http", "$compile", "$templateCache", "$rootScope", "$injector", "$sce", "$q", "$window", function ($timeout, $http, $compile, $templateCache, $rootScope, $injector, $sce, $q, $window) {
+	        var options = this.options;
+
+	        var startTop = options.startTop;
+	        var startRight = options.startRight;
+	        var verticalSpacing = options.verticalSpacing;
+	        var horizontalSpacing = options.horizontalSpacing;
+	        var delay = options.delay;
+
+	        var messageElements = [];
+	        var isResizeBound = false;
+
+	        var notify = function notify(args, t) {
+	            var deferred = $q.defer();
+
+	            if ((typeof args === 'undefined' ? 'undefined' : (0, _typeof3.default)(args)) !== 'object') {
+	                args = { message: args };
+	            }
+
+	            args.scope = args.scope ? args.scope : $rootScope;
+	            args.template = args.templateUrl ? args.templateUrl : options.templateUrl;
+	            args.delay = !angular.isUndefined(args.delay) ? args.delay : delay;
+	            args.type = t || options.type || '';
+	            args.positionY = args.positionY ? args.positionY : options.positionY;
+	            args.positionX = args.positionX ? args.positionX : options.positionX;
+	            args.replaceMessage = args.replaceMessage ? args.replaceMessage : options.replaceMessage;
+	            args.onClose = args.onClose ? args.onClose : options.onClose;
+	            args.closeOnClick = args.closeOnClick !== null && args.closeOnClick !== undefined ? args.closeOnClick : options.closeOnClick;
+
+	            $http.get(args.template, { cache: $templateCache }).success(function (template) {
+
+	                var scope = args.scope.$new();
+	                scope.message = $sce.trustAsHtml(args.message);
+	                scope.title = $sce.trustAsHtml(args.title);
+	                scope.t = args.type.substr(0, 1);
+	                scope.delay = args.delay;
+	                scope.onClose = args.onClose;
+
+	                var reposite = function reposite() {
+	                    var j = 0;
+	                    var k = 0;
+	                    var lastTop = startTop;
+	                    var lastRight = startRight;
+	                    var lastPosition = [];
+	                    for (var i = messageElements.length - 1; i >= 0; i--) {
+	                        var element = messageElements[i];
+	                        if (args.replaceMessage && i < messageElements.length - 1) {
+	                            element.addClass('killed');
+	                            continue;
+	                        }
+	                        var elHeight = parseInt(element[0].offsetHeight);
+	                        var elWidth = parseInt(element[0].offsetWidth);
+	                        var position = lastPosition[element._positionY + element._positionX];
+
+	                        if (top + elHeight > window.innerHeight) {
+	                            position = startTop;
+	                            k++;
+	                            j = 0;
+	                        }
+
+	                        var top = lastTop = position ? j === 0 ? position : position + verticalSpacing : startTop;
+	                        var right = lastRight + k * (horizontalSpacing + elWidth);
+
+	                        element.css(element._positionY, top + 'px');
+	                        if (element._positionX == 'center') {
+	                            element.css('left', parseInt(window.innerWidth / 2 - elWidth / 2) + 'px');
+	                        } else {
+	                            element.css(element._positionX, right + 'px');
+	                        }
+
+	                        lastPosition[element._positionY + element._positionX] = top + elHeight;
+
+	                        if (options.maxCount > 0 && messageElements.length > options.maxCount && i === 0) {
+	                            element.scope().kill(true);
+	                        }
+
+	                        j++;
+	                    }
+	                };
+
+	                var templateElement = $compile(template)(scope);
+	                templateElement._positionY = args.positionY;
+	                templateElement._positionX = args.positionX;
+	                templateElement.addClass(args.type);
+
+	                var closeEvent = function closeEvent(e) {
+	                    e = e.originalEvent || e;
+	                    if (e.type === 'click' || e.propertyName === 'opacity' && e.elapsedTime >= 1) {
+	                        if (scope.onClose) {
+	                            scope.$apply(scope.onClose(templateElement));
+	                        }
+
+	                        templateElement.remove();
+	                        messageElements.splice(messageElements.indexOf(templateElement), 1);
+	                        scope.$destroy();
+	                        reposite();
+	                    }
+	                };
+
+	                if (args.closeOnClick) {
+	                    templateElement.addClass('clickable');
+	                    templateElement.bind('click', closeEvent);
+	                }
+
+	                templateElement.bind('webkitTransitionEnd oTransitionEnd otransitionend transitionend msTransitionEnd', closeEvent);
+
+	                if (angular.isNumber(args.delay)) {
+	                    $timeout(function () {
+	                        templateElement.addClass('killed');
+	                    }, args.delay);
+	                }
+
+	                setCssTransitions('none');
+
+	                angular.element(document.getElementsByTagName('body')).append(templateElement);
+	                var offset = -(parseInt(templateElement[0].offsetHeight) + 50);
+	                templateElement.css(templateElement._positionY, offset + "px");
+	                messageElements.push(templateElement);
+
+	                if (args.positionX == 'center') {
+	                    var elWidth = parseInt(templateElement[0].offsetWidth);
+	                    templateElement.css('left', parseInt(window.innerWidth / 2 - elWidth / 2) + 'px');
+	                }
+
+	                $timeout(function () {
+	                    setCssTransitions('');
+	                });
+
+	                function setCssTransitions(value) {
+	                    ['-webkit-transition', '-o-transition', 'transition'].forEach(function (prefix) {
+	                        templateElement.css(prefix, value);
+	                    });
+	                }
+
+	                scope._templateElement = templateElement;
+
+	                scope.kill = function (isHard) {
+	                    if (isHard) {
+	                        if (scope.onClose) {
+	                            scope.$apply(scope.onClose(scope._templateElement));
+	                        }
+
+	                        messageElements.splice(messageElements.indexOf(scope._templateElement), 1);
+	                        scope._templateElement.remove();
+	                        scope.$destroy();
+	                        $timeout(reposite);
+	                    } else {
+	                        scope._templateElement.addClass('killed');
+	                    }
+	                };
+
+	                $timeout(reposite);
+
+	                if (!isResizeBound) {
+	                    angular.element($window).bind('resize', function (e) {
+	                        $timeout(reposite);
+	                    });
+	                    isResizeBound = true;
+	                }
+
+	                deferred.resolve(scope);
+	            }).error(function (data) {
+	                throw new Error('Template (' + args.template + ') could not be loaded. ' + data);
+	            });
+
+	            return deferred.promise;
+	        };
+
+	        notify.primary = function (args) {
+	            return this(args, 'primary');
+	        };
+	        notify.error = function (args) {
+	            return this(args, 'error');
+	        };
+	        notify.success = function (args) {
+	            return this(args, 'success');
+	        };
+	        notify.info = function (args) {
+	            return this(args, 'info');
+	        };
+	        notify.warning = function (args) {
+	            return this(args, 'warning');
+	        };
+
+	        notify.clearAll = function () {
+	            angular.forEach(messageElements, function (element) {
+	                element.addClass('killed');
+	            });
+	        };
+	        notify.clear = function (promise) {
+	            promise.then(function (scope) {
+	                scope.kill();
+	            });
+	        };
+	        return notify;
+	    }];
+	});
+
+	module.exports = 'ui-notification';
+
+/***/ },
+/* 207 */
+/***/ function(module, exports) {
+
+	var path = 'F:/github/laoui-bootstrap/src/components/notification/template/notification.html';
+	var html = "<div class=\"ui-notification\">\r\n    <h3 ng-show=\"title\" ng-bind-html=\"title\"></h3>\r\n    <div class=\"message\" ng-bind-html=\"message\"></div>\r\n</div>";
 	window.angular.module('ng').run(['$templateCache', function(c) { c.put(path, html) }]);
 	module.exports = path;
 

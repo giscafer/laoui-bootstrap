@@ -11,10 +11,11 @@ import Navigation from './navigation';
 //Data Display
 //Feedback
 import Alert from './alert';
+import Notification from './notification';
 
 const MODULE_NAME = "laoui.bootstrap.components";
 
-angular.module(MODULE_NAME, [TextAngular])
+angular.module(MODULE_NAME, [TextAngular,Notification])
 	//general
 	.directive('uiIcon', Icon.factory)
     //Layout

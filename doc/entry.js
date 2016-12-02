@@ -19,6 +19,17 @@ angular.module('laoui-bootstrap.doc', ['ngRoute',uirouter,'laoui-bootstrap',serv
         directionLinks: true,
         maxSize: 5
     })
+    .config(function(uiNotificationProvider) {
+        uiNotificationProvider.setOptions({
+            delay: 10000,
+            startTop: 20,
+            startRight: 10,
+            verticalSpacing: 20,
+            horizontalSpacing: 20,
+            positionX: 'right',
+            positionY: 'bottom'
+        });
+    })
     .config(route)
     .config(['$httpProvider', function($httpProvider){
         $httpProvider.interceptors.push('httpInterceptor');

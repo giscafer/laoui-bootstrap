@@ -85,6 +85,10 @@ var data = [{
         "link": "#/components/alert",
         "name": "Alert - 警告提示",
         "icon": ""
+    },{
+        "link": "#/components/notification",
+        "name": "Notification - 通知提醒框",
+        "icon": ""
     }]
 }, {
     "link": "",
