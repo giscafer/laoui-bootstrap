@@ -74,10 +74,10 @@
 <table>
 <thead>
 <tr>
-<th>Option</th>
-<th>Possible values</th>
+<th>Option属性</th>
+<th>可能值或类型</th>
 <th>默认值</th>
-<th>Description</th>
+<th>描述</th>
 </tr>
 </thead>
 <tbody>
@@ -485,7 +485,7 @@ export <span class="hljs-keyword">default</span> <span class="hljs-class"><span 
             uiNotification.warning(<span class="hljs-string">&#39;Warning notification&#39;</span>);
         }
         $scope.primaryTitle = <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-params">()</span> </span>{
-            Notification({ message: <span class="hljs-string">&#39;Primary notification&#39;</span>, title: <span class="hljs-string">&#39;Primary notification&#39;</span> });
+            uiNotification({ message: <span class="hljs-string">&#39;Primary notification&#39;</span>, title: <span class="hljs-string">&#39;Primary notification&#39;</span> });
         }
         $scope.errorTime = <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-params">()</span> </span>{
             uiNotification.error({ message: <span class="hljs-string">&#39;Error notification 1s&#39;</span>, delay: <span class="hljs-number">1000</span> });
