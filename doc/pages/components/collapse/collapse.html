@@ -37,9 +37,9 @@
 </tr>
 <tr>
 <td>ui-collapse</td>
-<td>控制元素是否可以折叠展开</td>
+<td>控制元素是否折叠</td>
 <td>-</td>
-<td>-</td>
+<td>false</td>
 </tr>
 <tr>
 <td>horizontal</td>
@@ -87,7 +87,7 @@
 
 <p><button type="button" class="btn btn-default" ng-click="ctrl.isCollapsedHorizontal = !ctrl.isCollapsedHorizontal">Toggle collapse Horizontally</button></p>
 <p><hr></p>
-<div class="horizontal-collapse" ui-collapse="ctrl.isCollapsedHorizontal" horizontal>
+<div class="horizontal-collapse" ui-collapse="ctrl.isCollapsedHorizontal" horizontal="">
 <div class="well well-lg">Some content</div>
 </div>
 </div>

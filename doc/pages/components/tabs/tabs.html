@@ -1,82 +1,127 @@
-<div class="markdown-body"><p>AngularJS version of the tabs directive.</p>
-<h3 id="ui-tabset-settings">ui-tabset settings</h3>
-<ul>
-<li><p><code>active</code>
-<i class="glyphicon glyphicon-eye-open"></i>
-<em>(Default: <code>Index of first tab</code>)</em> -
-Active index of tab. Setting this to an existing tab index will make that tab active.</p>
-</li>
-<li><p><code>justified</code>
-<small class="badge">$</small>
-<em>(Default: <code>false</code>)</em> -
-Whether tabs fill the container and have a consistent width.</p>
-<ul>
-<li><code>template-url</code>
-<em>(Default: <code>../../template/tabs/tabset.html</code>)</em> -
-A URL representing the location of a template to use for the main component.</li>
-</ul>
-</li>
-<li><p><code>type</code>
-<em>(Defaults: <code>tabs</code>)</em> -
-Navigation type. Possible values are &#39;tabs&#39; and &#39;pills&#39;.</p>
-</li>
-<li><p><code>vertical</code>
-<small class="badge">$</small>
-<em>(Default: <code>false</code>)</em> -
-Whether tabs appear vertically stacked.</p>
-</li>
-</ul>
-<h3 id="ui-tab-settings">ui-tab settings</h3>
-<ul>
-<li><p><code>classes</code>
-<small class="badge">$</small> -
- An optional string of space-separated CSS classes.</p>
-</li>
-<li><p><code>deselect()</code>
-<small class="badge">$</small> -
-An optional expression called when tab is deactivated. Supports <code>$event</code> and <code>$selectedIndex</code> in template for expression. You may call <code>$event.preventDefault()</code> in this event handler to prevent a tab change from occurring. The <code>$selectedIndex</code> can be used to determine which tab was attempted to be opened.</p>
-</li>
-<li><p><code>disable</code>
-<small class="badge">$</small>
-<i class="glyphicon glyphicon-eye-open"></i>
-<em>(Default: <code>false</code>)</em> -
-Whether tab is clickable and can be activated.</p>
-</li>
-<li><p><code>heading</code> -
-Heading text.</p>
-</li>
-<li><p><code>index</code> -
-Tab index. Must be unique number or string.</p>
-</li>
-<li><p><code>select()</code>
-<small class="badge">$</small> -
-An optional expression called when tab is activated. Supports $event in template for expression.</p>
-</li>
-<li><p><code>template-url</code>
-<em>(Default: <code>../../template/tabs/tab.html</code>)</em> -
-A URL representing the location of a template to use for the tab heading.</p>
-</li>
-</ul>
+<div class="markdown-body"><h1 id="tabs-">Tabs  标签页</h1>
+<p>选项卡切换组件。</p>
+<h2 id="-">何时使用</h2>
+<p>提供平级的区域将大块内容进行收纳和展现，保持界面整洁。</p>
+<h2 id="-">如何使用</h2>
+<p>使用<code>&lt; ui-tabset &gt;</code>标签包含<code>&lt; ui-tab &gt;</code>组合成一组tabs页</p>
+<h2 id="-">属性</h2>
+<h3 id="ui-tabset-">ui-tabset 属性</h3>
+<table>
+<thead>
+<tr>
+<th>成员</th>
+<th>说明</th>
+<th>类型</th>
+<th>默认值</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>active</td>
+<td>指定默认激活的标签页</td>
+<td>string</td>
+<td>-</td>
+</tr>
+<tr>
+<td>justified</td>
+<td>标签和容器是否有一致的宽度，自适应窗口宽度</td>
+<td>boolean</td>
+<td><code>false</code></td>
+</tr>
+<tr>
+<td>template-url</td>
+<td>自定义模板路径</td>
+<td>string</td>
+<td>-</td>
+</tr>
+<tr>
+<td>type</td>
+<td>导航类型</td>
+<td>&#39;tabs&#39; 或 &#39;pills&#39;</td>
+<td><code>tabs</code></td>
+</tr>
+<tr>
+<td>vertical</td>
+<td>垂直模式</td>
+<td>-</td>
+<td><code>false</code></td>
+</tr>
+<tr>
+<td>horizontal</td>
+<td>可选属性，控制是否水平</td>
+<td>string</td>
+<td>-</td>
+</tr>
+</tbody>
+</table>
+<h3 id="ui-tab-">ui-tab 属性</h3>
+<table>
+<thead>
+<tr>
+<th>成员</th>
+<th>说明</th>
+<th>类型</th>
+<th>默认值</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>classes</td>
+<td>一个 space-separated CSS classes 可选的字符串 。</td>
+<td>string</td>
+<td>-</td>
+</tr>
+<tr>
+<td>deselect()</td>
+<td>当tab deactivated的时候调用的回调函数，参数<code>$event</code> 和 <code>$selectedIndex</code>中，可以使用<code>$event.preventDefault()</code> 来阻止tab动作，<code>$selectedIndex</code> 可以指定哪个tab页展开显示</td>
+<td>function</td>
+<td>-</td>
+</tr>
+<tr>
+<td>template-url</td>
+<td>自定义模板路径</td>
+<td>string</td>
+<td>-</td>
+</tr>
+<tr>
+<td>disable</td>
+<td>是否禁用</td>
+<td>boolean</td>
+<td><code>false</code></td>
+</tr>
+<tr>
+<td>select()</td>
+<td>可选表达式，当tab激活时触发，支持<code>$event</code>参数</td>
+<td>-</td>
+<td>-</td>
+</tr>
+<tr>
+<td>index</td>
+<td>tab页索引值，必须唯一</td>
+<td>string &amp; number</td>
+<td>-</td>
+</tr>
+</tbody>
+</table>
 <h3 id="tabset-heading">Tabset heading</h3>
-<p>Instead of the <code>heading</code> attribute on the <code>ui-tabset</code>, you can use an <code>ui-tab-heading</code> element inside a tabset that will be used as the tabset&#39;s header. There you can use HTML as well.</p>
-<h3 id="known-issues">Known issues</h3>
-<p>To use clickable elements within the tab, you have override the tab template to use div elements instead of anchor elements, and replicate the desired styles from Bootstrap&#39;s CSS. This is due to browsers interpreting anchor elements as the target of any click event, which triggers routing when certain elements such as buttons are nested inside the anchor element.</p>
-<h2 id="demo">demo</h2>
-<p><i class="glyphicon glyphicon-bell"></i> Alert!</p>
+<p>可以使用<code>&lt; ui-tab-heading &gt;</code> 或者<code>head属性</code>，或HTML来创建Tabset的heading</p>
+<h2 id="-">代码演示</h2>
 <style type="text/css">
   form.tab-form-demo .tab-pane {
     margin: 20px 20px;
   }
 </style>
 
+
+<h3 id="-tab-">基本tab页使用</h3>
+<div class="bs-example">
 <div>
-  <p>Select a tab by setting active binding to true:</p>
+  <p>点击按钮切换tab页的active状态</p>
   <p>
     <button type="button" class="btn btn-default btn-sm" ng-click="active = 1">Select second tab</button>
     <button type="button" class="btn btn-default btn-sm" ng-click="active = 2">Select third tab</button>
     <button type="button" class="btn btn-default btn-sm" ng-click="tabs[1].disabled = ! tabs[1].disabled">Enable / Disable third tab</button>
   </p>
-  <br>
   <br>
   <hr>
 
@@ -94,9 +139,44 @@ A URL representing the location of a template to use for the tab heading.</p>
       I&#39;ve got an HTML heading, and a select callback. Pretty cool!
     </ui-tab>
   </ui-tabset>
-<br>
-  <hr>
+</div>
+</div>
+<ui-clipboard></ui-clipboard>
+<div class="highlight">
+  <pre><code style="width:100%;color:#fff"><span class="xml">
 
+<span class="hljs-tag">&lt;<span class="hljs-name">div</span>&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-name">p</span>&gt;</span>点击按钮切换tab页的active状态<span class="hljs-tag">&lt;/<span class="hljs-name">p</span>&gt;</span>
+  <span class="hljs-tag">&lt;<span class="hljs-name">p</span>&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-name">button</span> <span class="hljs-attr">type</span>=<span class="hljs-string">&quot;button&quot;</span> <span class="hljs-attr">class</span>=<span class="hljs-string">&quot;btn btn-default btn-sm&quot;</span> <span class="hljs-attr">ng-click</span>=<span class="hljs-string">&quot;active = 1&quot;</span>&gt;</span>Select second tab<span class="hljs-tag">&lt;/<span class="hljs-name">button</span>&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-name">button</span> <span class="hljs-attr">type</span>=<span class="hljs-string">&quot;button&quot;</span> <span class="hljs-attr">class</span>=<span class="hljs-string">&quot;btn btn-default btn-sm&quot;</span> <span class="hljs-attr">ng-click</span>=<span class="hljs-string">&quot;active = 2&quot;</span>&gt;</span>Select third tab<span class="hljs-tag">&lt;/<span class="hljs-name">button</span>&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-name">button</span> <span class="hljs-attr">type</span>=<span class="hljs-string">&quot;button&quot;</span> <span class="hljs-attr">class</span>=<span class="hljs-string">&quot;btn btn-default btn-sm&quot;</span> <span class="hljs-attr">ng-click</span>=<span class="hljs-string">&quot;tabs[1].disabled = ! tabs[1].disabled&quot;</span>&gt;</span>Enable / Disable third tab<span class="hljs-tag">&lt;/<span class="hljs-name">button</span>&gt;</span>
+  <span class="hljs-tag">&lt;/<span class="hljs-name">p</span>&gt;</span>
+  <span class="hljs-tag">&lt;<span class="hljs-name">br</span>&gt;</span>
+  <span class="hljs-tag">&lt;<span class="hljs-name">hr</span>&gt;</span>
+
+  <span class="hljs-tag">&lt;<span class="hljs-name">ui-tabset</span> <span class="hljs-attr">active</span>=<span class="hljs-string">&quot;active&quot;</span>&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-name">ui-tab</span> <span class="hljs-attr">index</span>=<span class="hljs-string">&quot;0&quot;</span> <span class="hljs-attr">heading</span>=<span class="hljs-string">&quot;static title&quot;</span>&gt;</span>
+        static content
+    <span class="hljs-tag">&lt;/<span class="hljs-name">ui-tab</span>&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-name">ui-tab</span> <span class="hljs-attr">index</span>=<span class="hljs-string">&quot;$index + 1&quot;</span> <span class="hljs-attr">ng-repeat</span>=<span class="hljs-string">&quot;tab in tabs&quot;</span> <span class="hljs-attr">heading</span>=<span class="hljs-string">&quot;</span></span></span><span class="hljs-template-variable">{{tab.title}}</span><span class="xml"><span class="hljs-tag"><span class="hljs-string">&quot;</span> <span class="hljs-attr">disable</span>=<span class="hljs-string">&quot;tab.disabled&quot;</span>&gt;</span>
+      </span><span class="hljs-template-variable">{{tab.content}}</span><span class="xml">
+    <span class="hljs-tag">&lt;/<span class="hljs-name">ui-tab</span>&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-name">ui-tab</span> <span class="hljs-attr">index</span>=<span class="hljs-string">&quot;3&quot;</span> <span class="hljs-attr">select</span>=<span class="hljs-string">&quot;alertMe()&quot;</span>&gt;</span>
+      <span class="hljs-tag">&lt;<span class="hljs-name">ui-tab-heading</span>&gt;</span>
+        <span class="hljs-tag">&lt;<span class="hljs-name">i</span> <span class="hljs-attr">class</span>=<span class="hljs-string">&quot;glyphicon glyphicon-bell&quot;</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">i</span>&gt;</span> Alert!
+      <span class="hljs-tag">&lt;/<span class="hljs-name">ui-tab-heading</span>&gt;</span>
+      I&#39;ve got an HTML heading, and a select callback. Pretty cool!
+    <span class="hljs-tag">&lt;/<span class="hljs-name">ui-tab</span>&gt;</span>
+  <span class="hljs-tag">&lt;/<span class="hljs-name">ui-tabset</span>&gt;</span>
+<span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
+  </span></code></pre>
+</div>
+
+
+<h3 id="-type-pills-"><code>type=&quot;pills&quot;</code>类型</h3>
+<div class="bs-example">
+<div>
   <ui-tabset active="activePill" vertical="true" type="pills">
     <ui-tab index="0" heading="HTML5 文档类型">
         <div>
@@ -117,26 +197,79 @@ A URL representing the location of a template to use for the tab heading.</p>
         </div>
     </ui-tab>
   </ui-tabset>
-<br>
-  <hr>
+</div>
+<hr>
+</div>
+<ui-clipboard></ui-clipboard>
+<div class="highlight">
+  <pre><code style="width:100%;color:#fff">
+<span class="hljs-tag">&lt;<span class="hljs-name">div</span>&gt;</span>
+  <span class="hljs-tag">&lt;<span class="hljs-name">ui-tabset</span> <span class="hljs-attr">active</span>=<span class="hljs-string">&quot;activePill&quot;</span> <span class="hljs-attr">vertical</span>=<span class="hljs-string">&quot;true&quot;</span> <span class="hljs-attr">type</span>=<span class="hljs-string">&quot;pills&quot;</span>&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-name">ui-tab</span> <span class="hljs-attr">index</span>=<span class="hljs-string">&quot;0&quot;</span> <span class="hljs-attr">heading</span>=<span class="hljs-string">&quot;HTML5 文档类型&quot;</span>&gt;</span>
+        <span class="hljs-tag">&lt;<span class="hljs-name">div</span>&gt;</span>
+            Bootstrap 使用到的某些 HTML 元素和 CSS 属性需要将页面设置为 HTML5 文档类型。在你项目中的每个页面都要参照下面的格式进行设置。
+        <span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
+        <span class="hljs-tag">&lt;<span class="hljs-name">code</span>&gt;</span>
+            <span class="hljs-meta">&lt;!DOCTYPE html&gt;</span>
+            <span class="hljs-tag">&lt;<span class="hljs-name">html</span> <span class="hljs-attr">lang</span>=<span class="hljs-string">&quot;zh-CN&quot;</span>&gt;</span>
+              ...
+            <span class="hljs-tag">&lt;/<span class="hljs-name">html</span>&gt;</span>
+        <span class="hljs-tag">&lt;/<span class="hljs-name">code</span>&gt;</span>
+    <span class="hljs-tag">&lt;/<span class="hljs-name">ui-tab</span>&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-name">ui-tab</span> <span class="hljs-attr">index</span>=<span class="hljs-string">&quot;1&quot;</span> <span class="hljs-attr">heading</span>=<span class="hljs-string">&quot;移动设备优先&quot;</span>&gt;</span>
+        <span class="hljs-tag">&lt;<span class="hljs-name">div</span>&gt;</span>
+            在 Bootstrap 2 中，我们对框架中的某些关键部分增加了对移动设备友好的样式。而在 Bootstrap 3 中，我们重写了整个框架，使其一开始就是对移动设备友好的。这次不是简单的增加一些可选的针对移动设备的样式，而是直接融合进了框架的内核中。也就是说，Bootstrap 是移动设备优先的。针对移动设备的样式融合进了框架的每个角落，而不是增加一个额外的文件。
+            为了确保适当的绘制和触屏缩放，需要在<span class="hljs-tag">&lt;<span class="hljs-name">code</span>&gt;</span><span class="hljs-tag">&lt;<span class="hljs-name">head</span>&gt;</span> <span class="hljs-tag">&lt;/<span class="hljs-name">head</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">code</span>&gt;</span>之中添加 viewport 元数据标签。
+        <span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
+    <span class="hljs-tag">&lt;/<span class="hljs-name">ui-tab</span>&gt;</span>
+  <span class="hljs-tag">&lt;/<span class="hljs-name">ui-tabset</span>&gt;</span>
+<span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
+  </code></pre>
+</div>
 
+<h3 id="-justified-true-"><code>justified=&quot;true&quot;</code>类型</h3>
+<div class="bs-example">
+<div>
   <ui-tabset active="activeJustified" justified="true">
     <ui-tab index="0" heading="Justified">Justified content</ui-tab>
     <ui-tab index="1" heading="SJ">Short Labeled Justified content</ui-tab>
     <ui-tab index="2" heading="Long Justified">Long Labeled Justified content</ui-tab>
   </ui-tabset>
-<br>
-  <hr>
+</div>
+<hr>
+</div>
+<ui-clipboard></ui-clipboard>
+<div class="highlight">
+<pre><code style="width:100%;color:#fff">
+  &lt;ui-tabset active=<span class="hljs-string">&quot;activeJustified&quot;</span> justified=<span class="hljs-string">&quot;true&quot;</span>&gt;
+    &lt;ui-<span class="hljs-built_in">tab</span> index=<span class="hljs-string">&quot;0&quot;</span> heading=<span class="hljs-string">&quot;Justified&quot;</span>&gt;Justified <span class="hljs-built_in">content</span>&lt;/ui-<span class="hljs-built_in">tab</span>&gt;
+    &lt;ui-<span class="hljs-built_in">tab</span> index=<span class="hljs-string">&quot;1&quot;</span> heading=<span class="hljs-string">&quot;SJ&quot;</span>&gt;Short Labeled Justified <span class="hljs-built_in">content</span>&lt;/ui-<span class="hljs-built_in">tab</span>&gt;
+    &lt;ui-<span class="hljs-built_in">tab</span> index=<span class="hljs-string">&quot;2&quot;</span> heading=<span class="hljs-string">&quot;Long Justified&quot;</span>&gt;Long Labeled Justified <span class="hljs-built_in">content</span>&lt;/ui-<span class="hljs-built_in">tab</span>&gt;
+  &lt;/ui-tabset&gt;
+</code></pre>
+</div>
 
-  Tabbed pills with CSS classes
-  <ui-tabset type="pills">
+<h3 id="tabbed-pills-with-css-classes">Tabbed pills with CSS classes</h3>
+<div class="bs-example">
+ <ui-tabset type="pills" style="background:#fff">
     <ui-tab heading="Default Size">Tab 1 content</ui-tab>
     <ui-tab heading="Small Button" classes="btn-sm">Tab 2 content</ui-tab>
   </ui-tabset>
-<br>
   <hr>
+</div>
+<ui-clipboard></ui-clipboard>
+<div class="highlight">
+  <pre><code style="width:100%;color:#fff">
+ &lt;ui-tabset <span class="hljs-built_in">type</span>=<span class="hljs-string">&quot;pills&quot;</span>&gt;
+    &lt;ui-<span class="hljs-built_in">tab</span> heading=<span class="hljs-string">&quot;Default Size&quot;</span>&gt;<span class="hljs-built_in">Tab</span> <span class="hljs-number">1</span> content&lt;/ui-<span class="hljs-built_in">tab</span>&gt;
+    &lt;ui-<span class="hljs-built_in">tab</span> heading=<span class="hljs-string">&quot;Small Button&quot;</span> classes=<span class="hljs-string">&quot;btn-sm&quot;</span>&gt;<span class="hljs-built_in">Tab</span> <span class="hljs-number">2</span> content&lt;/ui-<span class="hljs-built_in">tab</span>&gt;
+  &lt;/ui-tabset&gt;
+  </code></pre>
+</div>
 
-  Tabs using nested forms:
+<h3 id="tabs-using-nested-forms">Tabs using nested forms</h3>
+<div class="bs-example">
+<div>
   <form name="outerForm" class="tab-form-demo">
     <ui-tabset active="activeForm">
       <ui-tab index="0" heading="Form Tab">
@@ -160,4 +293,37 @@ A URL representing the location of a template to use for the tab heading.</p>
   Nested Form:
   <pre><code style="width:100%;color:#fff">{{ outerForm.nestedForm | json }}</code></pre>
 </div>
+<hr>
+</div>
+<ui-clipboard></ui-clipboard>
+<div class="highlight">
+  <pre><code style="width:100%;color:#fff"><span class="xml">
+<span class="hljs-tag">&lt;<span class="hljs-name">div</span>&gt;</span>
+  <span class="hljs-tag">&lt;<span class="hljs-name">form</span> <span class="hljs-attr">name</span>=<span class="hljs-string">&quot;outerForm&quot;</span> <span class="hljs-attr">class</span>=<span class="hljs-string">&quot;tab-form-demo&quot;</span>&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-name">ui-tabset</span> <span class="hljs-attr">active</span>=<span class="hljs-string">&quot;activeForm&quot;</span>&gt;</span>
+      <span class="hljs-tag">&lt;<span class="hljs-name">ui-tab</span> <span class="hljs-attr">index</span>=<span class="hljs-string">&quot;0&quot;</span> <span class="hljs-attr">heading</span>=<span class="hljs-string">&quot;Form Tab&quot;</span>&gt;</span>
+        <span class="hljs-tag">&lt;<span class="hljs-name">ng-form</span> <span class="hljs-attr">name</span>=<span class="hljs-string">&quot;nestedForm&quot;</span>&gt;</span>
+          <span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">&quot;form-group&quot;</span>&gt;</span>
+            <span class="hljs-tag">&lt;<span class="hljs-name">label</span>&gt;</span>Name<span class="hljs-tag">&lt;/<span class="hljs-name">label</span>&gt;</span>
+            <span class="hljs-tag">&lt;<span class="hljs-name">input</span> <span class="hljs-attr">type</span>=<span class="hljs-string">&quot;text&quot;</span> <span class="hljs-attr">class</span>=<span class="hljs-string">&quot;form-control&quot;</span> <span class="hljs-attr">required</span> <span class="hljs-attr">ng-model</span>=<span class="hljs-string">&quot;model.name&quot;</span>&gt;</span>
+          <span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
+        <span class="hljs-tag">&lt;/<span class="hljs-name">ng-form</span>&gt;</span>
+      <span class="hljs-tag">&lt;/<span class="hljs-name">ui-tab</span>&gt;</span>
+      <span class="hljs-tag">&lt;<span class="hljs-name">ui-tab</span> <span class="hljs-attr">index</span>=<span class="hljs-string">&quot;1&quot;</span> <span class="hljs-attr">heading</span>=<span class="hljs-string">&quot;Tab One&quot;</span>&gt;</span>
+        Some Tab Content
+      <span class="hljs-tag">&lt;/<span class="hljs-name">ui-tab</span>&gt;</span>
+      <span class="hljs-tag">&lt;<span class="hljs-name">ui-tab</span> <span class="hljs-attr">index</span>=<span class="hljs-string">&quot;2&quot;</span> <span class="hljs-attr">heading</span>=<span class="hljs-string">&quot;Tab Two&quot;</span>&gt;</span>
+        More Tab Content
+      <span class="hljs-tag">&lt;/<span class="hljs-name">ui-tab</span>&gt;</span>
+    <span class="hljs-tag">&lt;/<span class="hljs-name">ui-tabset</span>&gt;</span>
+  <span class="hljs-tag">&lt;/<span class="hljs-name">form</span>&gt;</span>
+  Model:
+  <span class="hljs-tag">&lt;<span class="hljs-name">pre</span>&gt;</span></span><span class="hljs-template-variable">{{ model | json }}</span><span class="xml"><span class="hljs-tag">&lt;/<span class="hljs-name">pre</span>&gt;</span>
+  Nested Form:
+  <span class="hljs-tag">&lt;<span class="hljs-name">pre</span>&gt;</span></span><span class="hljs-template-variable">{{ outerForm.nestedForm | json }}</span><span class="xml"><span class="hljs-tag">&lt;/<span class="hljs-name">pre</span>&gt;</span>
+<span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
+  </span></code></pre>
+</div>
+
+
 </div>
