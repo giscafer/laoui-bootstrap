@@ -6,6 +6,7 @@ import { Panel, PanelHeading, PanelTransclude } from './panel';
 import { Row, Col } from './grid';
 //Data Entry
 import TextAngular from './editor';
+import Datepicker from './datepicker';
 //Navigation
 import Navigation from './navigation';
 //Data Display
@@ -15,7 +16,7 @@ import Notification from './notification';
 
 const MODULE_NAME = "laoui.bootstrap.components";
 
-angular.module(MODULE_NAME, [TextAngular,Notification])
+angular.module(MODULE_NAME, [TextAngular,Notification,Datepicker])
 	//general
 	.directive('uiIcon', Icon.factory)
     //Layout

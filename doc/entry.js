@@ -9,7 +9,7 @@ import route from './_route.js';
 import services from './services/index.js';
 import components from './components';
 
-angular.module('laoui-bootstrap.doc', ['ngRoute',uirouter,'laoui-bootstrap',services,components])
+angular.module('laoui-bootstrap.doc', ['ngRoute',uirouter,'laoui-bootstrap','datePicker',services,components])
     .constant('uibPaginationConfig', {
         firstText: '<<',
         previousText: '<',

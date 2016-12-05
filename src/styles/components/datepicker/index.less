@@ -1,0 +1,215 @@
+// Import datepicker component
+.date-picker-date-time {
+    position: absolute;
+    box-shadow: 3px 3px 0 rgba(0,0,0,.07);
+    border: 1px solid #eee
+}
+
+.date-range .date-picker-date-time {
+    position: inherit
+}
+
+[datepicker-wrapper] {
+    position: absolute;
+    min-width: 220px;
+    z-index: 10;
+    display: block;
+    font-size: 14px
+}
+
+[date-time-append] [datepicker-wrapper] [ui-datepicker] {
+    margin-top: -30px
+}
+
+[date-time-append] [ui-datepicker] {
+    position: relative;
+    margin-right: -1000px;
+    margin-bottom: -1000px
+}
+
+[ui-datepicker].hidden {
+    display: none
+}
+
+[ui-datepicker] {
+    background-color: #fff;
+    padding: 0 10px
+}
+
+[ui-datepicker] table {
+    margin: 0
+}
+
+[ui-datepicker] table td,[ui-datepicker] table th {
+    padding: 4px 9px;
+    text-align: center;
+    width: 25px;
+    height: 25px;
+    border: none
+}
+
+[ui-datepicker] table th span {
+    display: block;
+    cursor: pointer;
+    border-radius: 4px
+}
+
+[ui-datepicker] table th span:hover {
+    background: #eee
+}
+
+[ui-datepicker] table th span.month-selector,[ui-datepicker] table th span.year-selector {
+    width: 50%;
+    float: left
+}
+
+[ui-datepicker] table th .dropdown-menu {
+    min-width: 80px;
+    text-align: center;
+    font-weight: 400
+}
+
+[ui-datepicker] table th .dropdown-menu li:hover {
+    background: #94ccf7;
+    color: #fff
+}
+
+[ui-datepicker] table th .dropdown-menu li.active {
+    background: #55acef;
+    color: #fff
+}
+
+[ui-datepicker] table th.weekend {
+    color: #db532e
+}
+
+[ui-datepicker] table thead tr:first-child th {
+    border-bottom: 1px solid #eee
+}
+
+[ui-datepicker] table tbody span {
+    display: block;
+    width: 23%;
+    height: 26px;
+    line-height: 25px;
+    float: left;
+    margin: 1%;
+    cursor: pointer;
+    border-radius: 50% 50%
+}
+
+[ui-datepicker] table tbody span.disabled,[ui-datepicker] table tbody span.disabled:hover {
+    background: none;
+    cursor: default
+}
+
+[ui-datepicker] table tbody span.active,[ui-datepicker] table tbody span.now {
+    background: #fffdc7
+}
+
+[ui-datepicker] table tbody span:hover {
+    background: #94ccf7;
+    color: #fff
+}
+
+[ui-datepicker] table tbody span.active {
+    color: #666;
+    color: #fff;
+    background: #55acef
+}
+
+[ui-datepicker] table tbody span.disabled {
+    background: none;
+    color: #ccc!important;
+    cursor: default
+}
+
+[ui-datepicker] .switch {
+    width: 145px
+}
+
+[ui-datepicker] .time-wrapper {
+    border: 1px solid #eee;
+    width: 120px;
+    margin: 0 auto;
+    padding: 3px
+}
+
+[ui-datepicker] .time-wrapper input {
+    width: 28px;
+    text-align: center;
+    font-size: 18px;
+    border: none
+}
+
+[ui-datepicker] .time-wrapper .dropdown-menu {
+    padding: 10px
+}
+
+[ui-datepicker] .time-wrapper .dropdown-menu span {
+    display: block;
+    float: left;
+    width: 20%;
+    text-align: center;
+    cursor: pointer
+}
+
+[ui-datepicker] .time-wrapper .dropdown-menu span:hover {
+    background: #94ccf7;
+    color: #fff
+}
+
+[ui-datepicker] .buttons {
+    text-align: center;
+    margin: 10px 0
+}
+
+[ui-datepicker] [ng-switch-when=minutes] span,[ui-datepicker] [ng-switch-when=month] span,[ui-datepicker] [ng-switch-when=year] span {
+    height: 35px;
+    line-height: 35px;
+    border-radius: 5px
+}
+
+[ui-datepicker] [ng-switch-when=month] table {
+    width: 200px;
+    margin-top: 10px
+}
+
+[ui-datepicker] [ng-switch-when=date] td,[ui-datepicker] [ng-switch-when=datetime] td {
+    padding: 0
+}
+
+[ui-datepicker] [ng-switch-when=date] td span,[ui-datepicker] [ng-switch-when=datetime] td span {
+    width: 80%;
+    margin: 0 10%
+}
+
+[ui-datepicker] [ng-switch-when=date] span,[ui-datepicker] [ng-switch-when=datetime] span {
+    width: 100%;
+    height: 26px;
+    line-height: 26px
+}
+
+[ui-datepicker] [ng-switch-when=date] .year-selector,[ui-datepicker] [ng-switch-when=datetime] .year-selector {
+    width: 50%;
+    margin: 0
+}
+
+[ui-datepicker] [ng-switch-when=date] .year-selector .dropdown-menu,[ui-datepicker] [ng-switch-when=datetime] .year-selector .dropdown-menu {
+    height: 150px;
+    overflow: auto
+}
+
+[ui-datepicker] [ng-switch-when=date] .month-selector,[ui-datepicker] [ng-switch-when=datetime] .month-selector {
+    width: 50%;
+    margin: 0
+}
+
+[ui-datepicker] [ng-switch-when=date] .month-selector .dropdown-menu,[ui-datepicker] [ng-switch-when=datetime] .month-selector .dropdown-menu {
+    height: 150px;
+    overflow: auto
+}
+
+[ui-datepicker] [ng-switch-when=time] .time-wrapper {
+    margin-top: 10px
+}

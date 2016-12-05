@@ -5,8 +5,8 @@ var buttons = require("./buttons");
 var carousel = require("./carousel");
 var collapse = require("./collapse");
 var dateparser = require("./dateparser");
-var datepicker = require("./datepicker");
-var datepickerPopup = require("./datepickerPopup");
+// var datepicker = require("./datepicker");
+// var datepickerPopup = require("./datepickerPopup");
 var debounce = require("./debounce");
 var dropdown = require("./dropdown");
 var isClass = require("./isClass");
@@ -33,8 +33,8 @@ angular.module(MODULE_NAME, [accordion,
     carousel,
     collapse,
     dateparser,
-    datepicker,
-    datepickerPopup,
+    // datepicker,
+    // datepickerPopup,
     debounce,
     dropdown,
     isClass,
