@@ -20,6 +20,9 @@ export default {
         }, {
             test: /\.(png|jpg|gif)$/,
             loader: "url-loader?name=images/[name]_[hash:8].[ext]&limit=" + BASE64_LIMIT
+        }, {
+            include: /\.json$/,
+            loaders: ['json-loader']
         }]
     },
     resolveLoader: {

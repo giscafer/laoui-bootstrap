@@ -1,5 +1,5 @@
 'use strict';
-var moment = require('moment');
+var moment = require('moment-timezone');
 var PRISTINE_CLASS = 'ng-pristine',
     DIRTY_CLASS = 'ng-dirty';
 var datePickerUtils=require('./_utils.js');
@@ -46,7 +46,7 @@ Module.directive('dateTimeAppend', function() {
 Module.directive('uiDatepickerPopup', ['$compile', '$document', '$filter', 'datePickerPopupConfig', '$parse', '$timeout', function($compile, $document, $filter, datePickerPopupConfig, $parse, $timeout) {
     var body = $document.find('body');
     var dateFilter = $filter('date');
-
+    console.log('datePickerPopupConfig',datePickerPopupConfig)
     return {
         require: 'ngModel',
         scope: true,

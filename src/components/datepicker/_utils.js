@@ -1,5 +1,5 @@
 'use strict';
-var moment=require('moment');
+var moment=require('moment-timezone');
 console.info(moment.tz)
 var tz, firstDay;
 var createNewDate = function(year, month, day, hour, minute, second) {

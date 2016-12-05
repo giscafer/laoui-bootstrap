@@ -1,13 +1,17 @@
 'use strict';
-var moment = require('moment');
+var moment = require('moment-timezone');
+// console.log(moment.tz)
 var datePickerUtils=require('./_utils.js');
 var MODULE_NAME = 'ui.module.uiDatepicker';
 var Module = angular.module(MODULE_NAME,[]);
 
 
-Module.constant('datePickerConfig', {
+Module.constant('uiDatePickerConstant', {
     template: require('./template/datepicker.html'),
     view: 'month',
+    autoClose: true,
+    step: 5,
+    firstDay: 0, //Sunday is the first day by default.
     views: ['year', 'month', 'date', 'datetime', 'time', 'hours', 'minutes'],
     momentNames: {
         year: 'year',
@@ -23,10 +27,7 @@ Module.constant('datePickerConfig', {
         month: ['months', 'isSameMonth'],
         hours: ['hours', 'isSameHour'],
         minutes: ['minutes', 'isSameMinutes']
-    },
-    autoClose: true,
-    step: 5,
-    firstDay: 0 //Sunday is the first day by default.
+    }
 });
 
 //Moment format filter.
@@ -48,7 +49,7 @@ Module.filter('mFormat', function() {
 });
 
 
-Module.directive('uiDatepicker', ['datePickerConfig', function datePickerDirective(datePickerConfig) {
+Module.directive('uiDatepicker', ['uiDatePickerConstant', function datePickerDirective(uiDatePickerConstant) {
 
     //noinspection JSUnusedLocalSymbols
     return {
@@ -64,8 +65,8 @@ Module.directive('uiDatepicker', ['datePickerConfig', function datePickerDirecti
         },
         link: function(scope, element, attrs, ngModel) {
             function prepareViews() {
-                scope.views = datePickerConfig.views.concat();
-                scope.view = attrs.view || datePickerConfig.view;
+                scope.views = uiDatePickerConstant.views.concat();
+                scope.view = attrs.view || uiDatePickerConstant.view;
 
                 scope.views = scope.views.slice(
                     scope.views.indexOf(attrs.maxView || 'year'),
@@ -86,15 +87,15 @@ Module.directive('uiDatepicker', ['datePickerConfig', function datePickerDirecti
                 createMoment = datePickerUtils.createMoment,
                 eventIsForPicker = datePickerUtils.eventIsForPicker,
                 setPad = datePickerUtils.setPad,
-                step = parseInt(attrs.step || datePickerConfig.step, 10),
+                step = parseInt(attrs.step || uiDatePickerConstant.step, 10),
                 partial = !!attrs.partial,
                 minDate = getDate('minDate'),
                 maxDate = getDate('maxDate'),
                 pickerID = element[0].id,
                 now = scope.now = moment().hour(0).startOf('h'),
                 selected = scope.date = createMoment(scope.model || now),
-                autoClose = attrs.autoClose ? attrs.autoClose === 'true' : datePickerConfig.autoClose,
-                firstDay = attrs.firstDay && attrs.firstDay >= 0 && attrs.firstDay <= 6 ? parseInt(attrs.firstDay, 10) : datePickerConfig.firstDay;
+                autoClose = attrs.autoClose ? attrs.autoClose === 'true' : uiDatePickerConstant.autoClose,
+                firstDay = attrs.firstDay && attrs.firstDay >= 0 && attrs.firstDay <= 6 ? parseInt(attrs.firstDay, 10) : uiDatePickerConstant.firstDay;
 
 
             datePickerUtils.setParams(tz, firstDay);
@@ -116,7 +117,7 @@ Module.directive('uiDatepicker', ['datePickerConfig', function datePickerDirecti
                 };
             }
 
-            scope.template = attrs.template || datePickerConfig.template;
+            scope.template = attrs.template || uiDatePickerConstant.template;
 
             scope.callbackOnSetDate = attrs.dateChange ? datePickerUtils.findFunction(scope, attrs.dateChange) : undefined;
 
@@ -353,7 +354,7 @@ Module.directive('uiDatepicker', ['datePickerConfig', function datePickerDirecti
                         }
                     }
                 } else {
-                    var params = datePickerConfig.viewConfig[view],
+                    var params = uiDatePickerConstant.viewConfig[view],
                         dates = scope[params[0]],
                         compareFunc = params[1];
 
@@ -416,7 +417,7 @@ Module.directive('uiDatepicker', ['datePickerConfig', function datePickerDirecti
             }
 
             function isSame(date1, date2) {
-                return date1.isSame(date2, datePickerConfig.momentNames[scope.view]) ? true : false;
+                return date1.isSame(date2, uiDatePickerConstant.momentNames[scope.view]) ? true : false;
             }
 
             function clipDate(date) {

@@ -8,7 +8,7 @@ const BASE64_LIMIT = 2048;
 export default {
     entry: {},
     output: {
-        filename: 'script/'+config.filename+'.js',
+        filename: 'script/' + config.filename + '.js',
         publicPath: '',
         path: config.paths.dist
     },
@@ -32,6 +32,9 @@ export default {
         }, {
             test: /\.css$/,
             loader: ExtractTextPlugin.extract("style", "css?-url&sourceMap!less?sourceMap")
+        }, {
+            include: /\.json$/,
+            loaders: ['json-loader']
         }]
     },
     resolveLoader: {
@@ -57,7 +60,7 @@ export default {
         /**
          * 将webpack中css抽出存入单独文件
          */
-        new ExtractTextPlugin('styles/'+config.filename+'.min.css', {
+        new ExtractTextPlugin('styles/' + config.filename + '.min.css', {
             allChunks: true
         }),
         new webpack.ProvidePlugin({

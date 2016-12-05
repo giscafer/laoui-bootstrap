@@ -1,5 +1,5 @@
 'use strict';
-var moment = require('moment');
+var moment = require('moment-timezone');
 var datePickerUtils=require('./_utils.js');
 var PRISTINE_CLASS = 'ng-pristine',
     DIRTY_CLASS = 'ng-dirty';
