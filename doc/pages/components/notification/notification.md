@@ -389,7 +389,7 @@ export default class NotificationDemoCtrl{
         }
         var promise;
         $scope.setDelayFalse = function() {
-            promise = uiNotification.primary({ message: '这是一个不会关闭的通知', delay: false });
+            promise = uiNotification.primary({ message: '这是一个不会自动关闭的通知', delay: false });
         };
         $scope.clear = function() {
             uiNotification.clear(promise);
