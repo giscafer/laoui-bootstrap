@@ -1,85 +1,67 @@
-AngularJS version of the tabs directive.
+# Tabs  标签页
 
-### ui-tabset settings
+选项卡切换组件。
 
-* `active`
-  <i class="glyphicon glyphicon-eye-open"></i>
-  _(Default: `Index of first tab`)_ -
-  Active index of tab. Setting this to an existing tab index will make that tab active.
+## 何时使用
 
-* `justified`
-  <small class="badge">$</small>
-  _(Default: `false`)_ -
-  Whether tabs fill the container and have a consistent width.
+提供平级的区域将大块内容进行收纳和展现，保持界面整洁。
 
-  * `template-url`
-  _(Default: `../../template/tabs/tabset.html`)_ -
-  A URL representing the location of a template to use for the main component.
+## 如何使用
 
-* `type`
-  _(Defaults: `tabs`)_ -
-  Navigation type. Possible values are 'tabs' and 'pills'.
+使用`< ui-tabset >`标签包含`< ui-tab >`组合成一组tabs页
 
-* `vertical`
-  <small class="badge">$</small>
-  _(Default: `false`)_ -
-  Whether tabs appear vertically stacked.
 
-### ui-tab settings
+## 属性
 
-* `classes`
-  <small class="badge">$</small> -
-   An optional string of space-separated CSS classes.
+### ui-tabset 属性
 
-* `deselect()`
-  <small class="badge">$</small> -
-  An optional expression called when tab is deactivated. Supports `$event` and `$selectedIndex` in template for expression. You may call `$event.preventDefault()` in this event handler to prevent a tab change from occurring. The `$selectedIndex` can be used to determine which tab was attempted to be opened.
+ 
+| 成员       | 说明             | 类型               | 默认值       |
+|-----------|-----------------|--------------------|-------------|
+| active   |  指定默认激活的标签页 | string |  -   |
+| justified  |  标签和容器是否有一致的宽度，自适应窗口宽度  | boolean |  `false`  |
+| template-url | 自定义模板路径   | string |  -   |
+| type  |  导航类型 | 'tabs' 或 'pills' |  `tabs`  |
+| vertical  | 垂直模式 | - | `false`  |
+| horizontal | 可选属性，控制是否水平 | string | -  |
 
-* `disable`
-  <small class="badge">$</small>
-  <i class="glyphicon glyphicon-eye-open"></i>
-  _(Default: `false`)_ -
-  Whether tab is clickable and can be activated.
+### ui-tab 属性
 
-* `heading` -
-  Heading text.
+ 
+| 成员       | 说明             | 类型               | 默认值       |
+|-----------|-----------------|--------------------|-------------|
+| classes   |  一个 space-separated CSS classes 可选的字符串 。 | string |  -   |
+| deselect()  |  当tab deactivated的时候调用的回调函数，参数`$event` 和 `$selectedIndex`中，可以使用`$event.preventDefault()` 来阻止tab动作，`$selectedIndex` 可以指定哪个tab页展开显示 | function |  -  |
+| template-url | 自定义模板路径   | string |  -   |
+| disable  |  是否禁用 | boolean |  `false`  |
+| select()  | 可选表达式，当tab激活时触发，支持`$event`参数 | - | - |
+| index | tab页索引值，必须唯一 | string & number | -  |
 
-* `index` -
-  Tab index. Must be unique number or string.
-
-* `select()`
-  <small class="badge">$</small> -
-  An optional expression called when tab is activated. Supports $event in template for expression.
-
-* `template-url`
-  _(Default: `../../template/tabs/tab.html`)_ -
-  A URL representing the location of a template to use for the tab heading.
 
 ### Tabset heading
 
-Instead of the `heading` attribute on the `ui-tabset`, you can use an `ui-tab-heading` element inside a tabset that will be used as the tabset's header. There you can use HTML as well.
-
-### Known issues
-
-To use clickable elements within the tab, you have override the tab template to use div elements instead of anchor elements, and replicate the desired styles from Bootstrap's CSS. This is due to browsers interpreting anchor elements as the target of any click event, which triggers routing when certain elements such as buttons are nested inside the anchor element.
+可以使用`< ui-tab-heading >` 或者`head属性`，或HTML来创建Tabset的heading
 
 
-## demo
-<i class="glyphicon glyphicon-bell"></i> Alert!
+## 代码演示
+
 <style type="text/css">
   form.tab-form-demo .tab-pane {
     margin: 20px 20px;
   }
 </style>
 
+  
+### 基本tab页使用
+
+<div class="bs-example">
 <div>
-  <p>Select a tab by setting active binding to true:</p>
+  <p>点击按钮切换tab页的active状态</p>
   <p>
     <button type="button" class="btn btn-default btn-sm" ng-click="active = 1">Select second tab</button>
     <button type="button" class="btn btn-default btn-sm" ng-click="active = 2">Select third tab</button>
     <button type="button" class="btn btn-default btn-sm" ng-click="tabs[1].disabled = ! tabs[1].disabled">Enable / Disable third tab</button>
   </p>
-  <br>
   <br>
   <hr/>
 
@@ -97,9 +79,45 @@ To use clickable elements within the tab, you have override the tab template to 
       I've got an HTML heading, and a select callback. Pretty cool!
     </ui-tab>
   </ui-tabset>
-<br>
-  <hr />
+</div>
+</div>
+<ui-clipboard></ui-clipboard>
+<div class="highlight">
+  <pre>
+    
+<div>
+    <p>点击按钮切换tab页的active状态</p>
+  <p>
+    <button type="button" class="btn btn-default btn-sm" ng-click="active = 1">Select second tab</button>
+    <button type="button" class="btn btn-default btn-sm" ng-click="active = 2">Select third tab</button>
+    <button type="button" class="btn btn-default btn-sm" ng-click="tabs[1].disabled = ! tabs[1].disabled">Enable / Disable third tab</button>
+  </p>
+  <br>
+  <hr/>
 
+  <ui-tabset active="active">
+    <ui-tab index="0" heading="static title">
+		static content
+    </ui-tab>
+    <ui-tab index="$index + 1" ng-repeat="tab in tabs" heading="{{tab.title}}" disable="tab.disabled">
+      {{tab.content}}
+    </ui-tab>
+    <ui-tab index="3" select="alertMe()">
+      <ui-tab-heading>
+        <i class="glyphicon glyphicon-bell"></i> Alert!
+      </ui-tab-heading>
+      I've got an HTML heading, and a select callback. Pretty cool!
+    </ui-tab>
+  </ui-tabset>
+</div>
+  </pre>
+</div>
+
+
+### `type="pills"`类型
+
+<div class="bs-example">
+<div>
   <ui-tabset active="activePill" vertical="true" type="pills">
     <ui-tab index="0" heading="HTML5 文档类型">
 		<div>
@@ -120,26 +138,82 @@ To use clickable elements within the tab, you have override the tab template to 
 		</div>
     </ui-tab>
   </ui-tabset>
-<br>
-  <hr />
+</div>
+<hr>
+</div>
+<ui-clipboard></ui-clipboard>
+<div class="highlight">
+  <pre>
+<div>
+  <ui-tabset active="activePill" vertical="true" type="pills">
+    <ui-tab index="0" heading="HTML5 文档类型">
+		<div>
+			Bootstrap 使用到的某些 HTML 元素和 CSS 属性需要将页面设置为 HTML5 文档类型。在你项目中的每个页面都要参照下面的格式进行设置。
+		</div>
+		<code>
+			<!DOCTYPE html>
+			<html lang="zh-CN">
+			  ...
+			</html>
+		</code>
+    </ui-tab>
+    <ui-tab index="1" heading="移动设备优先">
+		<div>
+			在 Bootstrap 2 中，我们对框架中的某些关键部分增加了对移动设备友好的样式。而在 Bootstrap 3 中，我们重写了整个框架，使其一开始就是对移动设备友好的。这次不是简单的增加一些可选的针对移动设备的样式，而是直接融合进了框架的内核中。也就是说，Bootstrap 是移动设备优先的。针对移动设备的样式融合进了框架的每个角落，而不是增加一个额外的文件。
+			为了确保适当的绘制和触屏缩放，需要在<code><head> </code>之中添加 viewport 元数据标签。
+		</div>
+    </ui-tab>
+  </ui-tabset>
+</div>
+  </pre>
+</div>
 
+### `justified="true"`类型
+
+<div class="bs-example">
+<div>
   <ui-tabset active="activeJustified" justified="true">
     <ui-tab index="0" heading="Justified">Justified content</ui-tab>
     <ui-tab index="1" heading="SJ">Short Labeled Justified content</ui-tab>
     <ui-tab index="2" heading="Long Justified">Long Labeled Justified content</ui-tab>
   </ui-tabset>
-<br>
-  <hr />
+</div>
+<hr>
+</div>
+<ui-clipboard></ui-clipboard>
+<div class="highlight">
+<pre>
+  <ui-tabset active="activeJustified" justified="true">
+    <ui-tab index="0" heading="Justified">Justified content</ui-tab>
+    <ui-tab index="1" heading="SJ">Short Labeled Justified content</ui-tab>
+    <ui-tab index="2" heading="Long Justified">Long Labeled Justified content</ui-tab>
+  </ui-tabset>
+</pre>
+</div>
 
-  Tabbed pills with CSS classes
-  <ui-tabset type="pills">
+### Tabbed pills with CSS classes
+
+<div class="bs-example">
+ <ui-tabset type="pills" style="background:#fff">
     <ui-tab heading="Default Size">Tab 1 content</ui-tab>
     <ui-tab heading="Small Button" classes="btn-sm">Tab 2 content</ui-tab>
   </ui-tabset>
-<br>
-  <hr />
+  <hr>
+</div>
+<ui-clipboard></ui-clipboard>
+<div class="highlight">
+  <pre>
+ <ui-tabset type="pills">
+    <ui-tab heading="Default Size">Tab 1 content</ui-tab>
+    <ui-tab heading="Small Button" classes="btn-sm">Tab 2 content</ui-tab>
+  </ui-tabset>
+  </pre>
+</div>
 
-  Tabs using nested forms:
+### Tabs using nested forms
+
+<div class="bs-example">
+<div>
   <form name="outerForm" class="tab-form-demo">
     <ui-tabset active="activeForm">
       <ui-tab index="0" heading="Form Tab">
@@ -163,3 +237,36 @@ To use clickable elements within the tab, you have override the tab template to 
   Nested Form:
   <pre>{{ outerForm.nestedForm | json }}</pre>
 </div>
+<hr>
+</div>
+<ui-clipboard></ui-clipboard>
+<div class="highlight">
+  <pre>
+<div>
+  <form name="outerForm" class="tab-form-demo">
+    <ui-tabset active="activeForm">
+      <ui-tab index="0" heading="Form Tab">
+        <ng-form name="nestedForm">
+          <div class="form-group">
+            <label>Name</label>
+            <input type="text" class="form-control" required ng-model="model.name"/>
+          </div>
+        </ng-form>
+      </ui-tab>
+      <ui-tab index="1" heading="Tab One">
+        Some Tab Content
+      </ui-tab>
+      <ui-tab index="2" heading="Tab Two">
+        More Tab Content
+      </ui-tab>
+    </ui-tabset>
+  </form>
+  Model:
+  <pre>{{ model | json }}</pre>
+  Nested Form:
+  <pre>{{ outerForm.nestedForm | json }}</pre>
+</div>
+  </pre>
+</div>
+
+
