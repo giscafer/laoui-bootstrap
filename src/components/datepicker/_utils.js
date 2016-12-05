@@ -1,6 +1,5 @@
 'use strict';
 var moment=require('moment-timezone');
-console.info(moment.tz)
 var tz, firstDay;
 var createNewDate = function(year, month, day, hour, minute, second) {
     var utc = Date.UTC(year | 0, month | 0, day | 0, hour | 0, minute | 0, second | 0);

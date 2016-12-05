@@ -46,7 +46,6 @@ Module.directive('dateTimeAppend', function() {
 Module.directive('uiDatepickerPopup', ['$compile', '$document', '$filter', 'datePickerPopupConfig', '$parse', '$timeout', function($compile, $document, $filter, datePickerPopupConfig, $parse, $timeout) {
     var body = $document.find('body');
     var dateFilter = $filter('date');
-    console.log('datePickerPopupConfig',datePickerPopupConfig)
     return {
         require: 'ngModel',
         scope: true,
