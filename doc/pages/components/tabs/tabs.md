@@ -21,7 +21,7 @@
 | active   |  指定默认激活的标签页 | string |  -   |
 | justified  |  标签和容器是否有一致的宽度，自适应窗口宽度  | boolean |  `false`  |
 | template-url | 自定义模板路径   | string |  -   |
-| type  |  导航类型 | 'tabs' 或 'pills' |  `tabs`  |
+| type  |  导航类型 | `tabs` 或 `pills` |  `tabs`  |
 | vertical  | 垂直模式 | - | `false`  |
 | horizontal | 可选属性，控制是否水平 | string | -  |
 
@@ -81,8 +81,8 @@
   </ui-tabset>
 </div>
 </div>
-<ui-clipboard></ui-clipboard>
-<div class="highlight">
+<ui-clipboard clipboard-target="activetab"></ui-clipboard>
+<div class="highlight" id="activetab">
   <pre>
     
 <div>
@@ -141,8 +141,8 @@
 </div>
 <hr>
 </div>
-<ui-clipboard></ui-clipboard>
-<div class="highlight">
+<ui-clipboard clipboard-target="activePill"></ui-clipboard>
+<div class="highlight" id="activePill">
   <pre>
 <div>
   <ui-tabset active="activePill" vertical="true" type="pills">
@@ -180,8 +180,8 @@
 </div>
 <hr>
 </div>
-<ui-clipboard></ui-clipboard>
-<div class="highlight">
+<ui-clipboard clipboard-target="activeJustified"></ui-clipboard>
+<div class="highlight" id="activeJustified">
 <pre>
   <ui-tabset active="activeJustified" justified="true">
     <ui-tab index="0" heading="Justified">Justified content</ui-tab>
@@ -200,8 +200,8 @@
   </ui-tabset>
   <hr>
 </div>
-<ui-clipboard></ui-clipboard>
-<div class="highlight">
+<ui-clipboard clipboard-target="pills"></ui-clipboard>
+<div class="highlight" id="pills">
   <pre>
  <ui-tabset type="pills">
     <ui-tab heading="Default Size">Tab 1 content</ui-tab>
@@ -233,17 +233,17 @@
     </ui-tabset>
   </form>
   Model:
-  <pre>{{ model | json }}</pre>
+  <code>{{ model | json }}</code><br>
   Nested Form:
-  <pre>{{ outerForm.nestedForm | json }}</pre>
+  <code>{{ outerForm.nestedForm | json }}</code>
 </div>
 <hr>
 </div>
-<ui-clipboard></ui-clipboard>
-<div class="highlight">
+<ui-clipboard clipboard-target="outerForm1"></ui-clipboard>
+<div class="highlight" id="outerForm1">
   <pre>
 <div>
-  <form name="outerForm" class="tab-form-demo">
+  <form name="outerForm1" class="tab-form-demo">
     <ui-tabset active="activeForm">
       <ui-tab index="0" heading="Form Tab">
         <ng-form name="nestedForm">
@@ -262,9 +262,9 @@
     </ui-tabset>
   </form>
   Model:
-  <pre>{{ model | json }}</pre>
+  <code>{{ model | json }}</code><br>
   Nested Form:
-  <pre>{{ outerForm.nestedForm | json }}</pre>
+  <code>{{ outerForm1.nestedForm | json }}</code>
 </div>
   </pre>
 </div>

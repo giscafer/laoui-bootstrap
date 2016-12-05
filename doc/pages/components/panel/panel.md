@@ -31,8 +31,8 @@
         </div>
     </ui-panel>
 </div>
-<div class="zero-clipboard"><span class="btn-clipboard">Copy</span></div>
-<div class="highlight">
+<ui-clipboard clipboard-target="clipboard1"></ui-clipboard>
+<div class="highlight" id="clipboard1">
 <pre class="html">
 		<ui-panel>
 			<ui-panel-heading><h4>这是一个 ui-panel-heading</h4></ui-panel-heading>
@@ -71,8 +71,8 @@
         <ui-panel-heading>这是一个<code>type="danger"</code>的panel </ui-panel-heading>
     </ui-panel>
 </div>
-<div class="zero-clipboard"><span class="btn-clipboard">Copy</span></div>
-<div class="highlight">
+<ui-clipboard clipboard-target="clipboard2"></ui-clipboard>
+<div class="highlight" id="clipboard2">
 <pre class="html">
 	<!-- panel-default -->
 	<ui-panel type="default">
@@ -114,8 +114,8 @@
 	    <div class="panel-footer">Panel footer</div>
 	</div>
 </div>
-<div class="zero-clipboard"><span class="btn-clipboard">Copy</span></div>
-<div class="highlight">
+<ui-clipboard clipboard-target="clipboard3"></ui-clipboard>
+<div class="highlight" id="clipboard3">
 <pre>
 		<!-- Bootstrap 样式直接书写 -->
 <div class="panel panel-primary">

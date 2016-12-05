@@ -10,8 +10,8 @@
 <div class="bs-example">
 	<ui-editor ng-model="ctrl.htmlVariable" style="height:540px"></ui-editor> 
 </div>
-<ui-clipboard></ui-clipboard>
-<div class="highlight">
+<ui-clipboard clipboard-target="clipboard3"></ui-clipboard>
+<div class="highlight" id="clipboard3">
 	<pre>
 		<ui-editor ng-model="ctrl.htmlVariable" style="height:540px"></ui-editor> 
 	</pre>

@@ -519,7 +519,7 @@ export <span class="hljs-keyword">default</span> <span class="hljs-class"><span 
         }
         <span class="hljs-keyword">var</span> promise;
         $scope.setDelayFalse = <span class="hljs-function"><span class="hljs-keyword">function</span><span class="hljs-params">()</span> </span>{
-            promise = uiNotification.primary({ message: <span class="hljs-string">&#39;这是一个不会关闭的通知&#39;</span>, delay: <span class="hljs-keyword">false</span> });
+            promise = uiNotification.primary({ message: <span class="hljs-string">&#39;这是一个不会自动关闭的通知&#39;</span>, delay: <span class="hljs-keyword">false</span> });
         };
         $scope.clear = <span class="hljs-function"><span class="hljs-keyword">function</span><span class="hljs-params">()</span> </span>{
             uiNotification.clear(promise);

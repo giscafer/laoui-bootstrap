@@ -123,8 +123,8 @@ Flex 布局是基于 24 栅格来定义每一个『盒子』的宽度，但排�
     <ui-col className='layout' span="6">col-6</ui-col>
   </ui-row>
 </div>
-<div class="zero-clipboard"><span class="btn-clipboard">Copy</span></div>
-<div class="highlight">
+<div class="zero-clipboard"><span class="btn-clipboard"  data-clipboard-target="#grid">Copy</span></div>
+<div class="highlight" id="grid">
 <pre>
     <div>
     <ui-row>
@@ -150,3 +150,4 @@ Flex 布局是基于 24 栅格来定义每一个『盒子』的宽度，但排�
 
  `Grid` 布局组件是<code>24</code>栅格系统，Bootstrap布局组件则为<code>12</code>栅格系统，
 在适合的场景使用24或者12栅格，满足页面的要求效果。
+

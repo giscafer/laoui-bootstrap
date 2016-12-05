@@ -37,7 +37,7 @@
 <tr>
 <td>type</td>
 <td>导航类型</td>
-<td>&#39;tabs&#39; 或 &#39;pills&#39;</td>
+<td><code>tabs</code> 或 <code>pills</code></td>
 <td><code>tabs</code></td>
 </tr>
 <tr>
@@ -141,8 +141,8 @@
   </ui-tabset>
 </div>
 </div>
-<ui-clipboard></ui-clipboard>
-<div class="highlight">
+<ui-clipboard clipboard-target="activetab"></ui-clipboard>
+<div class="highlight" id="activetab">
   <pre><code style="width:100%;color:#fff"><span class="xml">
 
 <span class="hljs-tag">&lt;<span class="hljs-name">div</span>&gt;</span>
@@ -200,8 +200,8 @@
 </div>
 <hr>
 </div>
-<ui-clipboard></ui-clipboard>
-<div class="highlight">
+<ui-clipboard clipboard-target="activePill"></ui-clipboard>
+<div class="highlight" id="activePill">
   <pre><code style="width:100%;color:#fff">
 <span class="hljs-tag">&lt;<span class="hljs-name">div</span>&gt;</span>
   <span class="hljs-tag">&lt;<span class="hljs-name">ui-tabset</span> <span class="hljs-attr">active</span>=<span class="hljs-string">&quot;activePill&quot;</span> <span class="hljs-attr">vertical</span>=<span class="hljs-string">&quot;true&quot;</span> <span class="hljs-attr">type</span>=<span class="hljs-string">&quot;pills&quot;</span>&gt;</span>
@@ -238,8 +238,8 @@
 </div>
 <hr>
 </div>
-<ui-clipboard></ui-clipboard>
-<div class="highlight">
+<ui-clipboard clipboard-target="activeJustified"></ui-clipboard>
+<div class="highlight" id="activeJustified">
 <pre><code style="width:100%;color:#fff">
   &lt;ui-tabset active=<span class="hljs-string">&quot;activeJustified&quot;</span> justified=<span class="hljs-string">&quot;true&quot;</span>&gt;
     &lt;ui-<span class="hljs-built_in">tab</span> index=<span class="hljs-string">&quot;0&quot;</span> heading=<span class="hljs-string">&quot;Justified&quot;</span>&gt;Justified <span class="hljs-built_in">content</span>&lt;/ui-<span class="hljs-built_in">tab</span>&gt;
@@ -257,8 +257,8 @@
   </ui-tabset>
   <hr>
 </div>
-<ui-clipboard></ui-clipboard>
-<div class="highlight">
+<ui-clipboard clipboard-target="pills"></ui-clipboard>
+<div class="highlight" id="pills">
   <pre><code style="width:100%;color:#fff">
  &lt;ui-tabset <span class="hljs-built_in">type</span>=<span class="hljs-string">&quot;pills&quot;</span>&gt;
     &lt;ui-<span class="hljs-built_in">tab</span> heading=<span class="hljs-string">&quot;Default Size&quot;</span>&gt;<span class="hljs-built_in">Tab</span> <span class="hljs-number">1</span> content&lt;/ui-<span class="hljs-built_in">tab</span>&gt;
@@ -289,17 +289,17 @@
     </ui-tabset>
   </form>
   Model:
-  <pre><code style="width:100%;color:#fff">{{ model | json }}</code></pre>
+  <code>{{ model | json }}</code><br>
   Nested Form:
-  <pre><code style="width:100%;color:#fff">{{ outerForm.nestedForm | json }}</code></pre>
+  <code>{{ outerForm.nestedForm | json }}</code>
 </div>
 <hr>
 </div>
-<ui-clipboard></ui-clipboard>
-<div class="highlight">
+<ui-clipboard clipboard-target="outerForm1"></ui-clipboard>
+<div class="highlight" id="outerForm1">
   <pre><code style="width:100%;color:#fff"><span class="xml">
 <span class="hljs-tag">&lt;<span class="hljs-name">div</span>&gt;</span>
-  <span class="hljs-tag">&lt;<span class="hljs-name">form</span> <span class="hljs-attr">name</span>=<span class="hljs-string">&quot;outerForm&quot;</span> <span class="hljs-attr">class</span>=<span class="hljs-string">&quot;tab-form-demo&quot;</span>&gt;</span>
+  <span class="hljs-tag">&lt;<span class="hljs-name">form</span> <span class="hljs-attr">name</span>=<span class="hljs-string">&quot;outerForm1&quot;</span> <span class="hljs-attr">class</span>=<span class="hljs-string">&quot;tab-form-demo&quot;</span>&gt;</span>
     <span class="hljs-tag">&lt;<span class="hljs-name">ui-tabset</span> <span class="hljs-attr">active</span>=<span class="hljs-string">&quot;activeForm&quot;</span>&gt;</span>
       <span class="hljs-tag">&lt;<span class="hljs-name">ui-tab</span> <span class="hljs-attr">index</span>=<span class="hljs-string">&quot;0&quot;</span> <span class="hljs-attr">heading</span>=<span class="hljs-string">&quot;Form Tab&quot;</span>&gt;</span>
         <span class="hljs-tag">&lt;<span class="hljs-name">ng-form</span> <span class="hljs-attr">name</span>=<span class="hljs-string">&quot;nestedForm&quot;</span>&gt;</span>
@@ -318,9 +318,9 @@
     <span class="hljs-tag">&lt;/<span class="hljs-name">ui-tabset</span>&gt;</span>
   <span class="hljs-tag">&lt;/<span class="hljs-name">form</span>&gt;</span>
   Model:
-  <span class="hljs-tag">&lt;<span class="hljs-name">pre</span>&gt;</span></span><span class="hljs-template-variable">{{ model | json }}</span><span class="xml"><span class="hljs-tag">&lt;/<span class="hljs-name">pre</span>&gt;</span>
+  <span class="hljs-tag">&lt;<span class="hljs-name">code</span>&gt;</span></span><span class="hljs-template-variable">{{ model | json }}</span><span class="xml"><span class="hljs-tag">&lt;/<span class="hljs-name">code</span>&gt;</span><span class="hljs-tag">&lt;<span class="hljs-name">br</span>&gt;</span>
   Nested Form:
-  <span class="hljs-tag">&lt;<span class="hljs-name">pre</span>&gt;</span></span><span class="hljs-template-variable">{{ outerForm.nestedForm | json }}</span><span class="xml"><span class="hljs-tag">&lt;/<span class="hljs-name">pre</span>&gt;</span>
+  <span class="hljs-tag">&lt;<span class="hljs-name">code</span>&gt;</span></span><span class="hljs-template-variable">{{ outerForm1.nestedForm | json }}</span><span class="xml"><span class="hljs-tag">&lt;/<span class="hljs-name">code</span>&gt;</span>
 <span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
   </span></code></pre>
 </div>

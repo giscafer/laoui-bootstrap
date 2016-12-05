@@ -24,6 +24,7 @@ webpackConfig.plugins = webpackConfig.plugins.concat([
     new CopyWebpackPlugin([
         {from: 'doc/laoui', to: 'laoui'},
         {from: 'doc/images', to: 'images'},
+        {from: 'doc/lib', to: 'lib'},
         {from: 'doc/fonts', to: 'fonts'}
     ]),
 

@@ -16,8 +16,8 @@
 <div class="bs-example">
    <ui-alert message="ctrl.success" type="success" ></ui-alert>
 </div>
-<ui-clipboard></ui-clipboard>
-<div class="highlight">
+<ui-clipboard clipboard-target="clipboard3"></ui-clipboard>
+<div class="highlight" id="clipboard3">
 <pre>
     <ui-alert message="ctrl.success" type="success" ></ui-alert>
 </pre>
@@ -33,8 +33,8 @@
    <ui-alert message="ctrl.warning" type="warning" ></ui-alert>
    <ui-alert message="ctrl.error" type="error" ></ui-alert>
 </div>
-<ui-clipboard></ui-clipboard>
-<div class="highlight">
+<ui-clipboard clipboard-target="clipboard31"></ui-clipboard>
+<div class="highlight" id="clipboard31">
 <pre>
     <ui-alert message="ctrl.success" type="success" ></ui-alert>
    <ui-alert message="ctrl.info" type="info" ></ui-alert>
@@ -51,8 +51,8 @@
 <ui-alert type="error" closing='ctrl.closing' close="ctrl.close()" message="ctrl.message" description="ctrl.description"></ui-alert>
 <ui-alert type="error" closing='ctrl.closing2' close="ctrl.close2()" message="ctrl.message" ></ui-alert>
 </div>
-<ui-clipboard></ui-clipboard>
-<div class="highlight">
+<ui-clipboard clipboard-target="clipboard13"></ui-clipboard>
+<div class="highlight" id="clipboard13">
 <pre>
 <ui-alert type="error" closing='ctrl.closing' close="ctrl.close()" message="ctrl.message" description="ctrl.description"></ui-alert>
 <ui-alert type="error" closing='ctrl.closing3' close="ctrl.close3()" message="ctrl.message" ></ui-alert>
@@ -69,8 +69,8 @@
    <ui-alert message="ctrl.warning" type="warning" description="ctrl.description"></ui-alert>
    <ui-alert message="ctrl.error" type="error" description="ctrl.description"></ui-alert>
 </div>
-<ui-clipboard></ui-clipboard>
-<div class="highlight">
+<ui-clipboard clipboard-target="clipboard23"></ui-clipboard>
+<div class="highlight" id="clipboard23">
 <pre>
    <ui-alert message="ctrl.success" type="success" description="ctrl.description"></ui-alert>
    <ui-alert message="ctrl.info" type="info" description="ctrl.description"></ui-alert>
@@ -96,8 +96,8 @@
 <br>
 <ui-alert type="success" showicon message="ctrl.notabanner"></ui-alert>
 </div>
-<ui-clipboard></ui-clipboard>
-<div class="highlight">
+<ui-clipboard clipboard-target="clipboard1"></ui-clipboard>
+<div class="highlight" id="clipboard1">
 <pre>
 <ui-alert type="error" closing='ctrl.closing' showicon close="ctrl.close()" message="ctrl.message" description="ctrl.description"></ui-alert>
 <br>
@@ -122,8 +122,8 @@
 <br>
 <ui-alert type="success" showicon message="ctrl.notabanner"></ui-alert>
 </div>
-<ui-clipboard></ui-clipboard>
-<div class="highlight">
+<ui-clipboard clipboard-target="clipboard15"></ui-clipboard>
+<div class="highlight" id="clipboard15">
 <pre>
 <ui-alert type="info" showicon banner closable message="ctrl.banner" closing='ctrl.closing2' close="ctrl.close2()"></ui-alert>
 <br>
@@ -136,8 +136,8 @@
 <div class="bs-example">
     以上demo演示的Controller 代码
 </div>
-<ui-clipboard></ui-clipboard>
-<div class="highlight">
+<ui-clipboard clipboard-target="clipboard125"></ui-clipboard>
+<div class="highlight" id="clipboard125">
 <pre>
 export default class AlertCtrl {
     constructor($scope, $location, $timeout) {

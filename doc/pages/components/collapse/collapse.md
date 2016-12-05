@@ -61,8 +61,8 @@
 </div>
 </div>
 </div>
-<ui-clipboard></ui-clipboard>
-<div class="highlight">
+<ui-clipboard clipboard-target="clipboard3"></ui-clipboard>
+<div class="highlight" id="clipboard3">
   <pre>
   <style>
   .horizontal-collapse {
