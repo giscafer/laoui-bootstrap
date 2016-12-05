@@ -29,7 +29,7 @@ Module.constant('datePickerRangePopupConfig', {
             (attrs.disabledDate ? 'disabled-date="' + attrs.disabledDate + '" ' : '') +
             'class="date-picker-date-time" popup="true"></div>';
     },
-    format: 'YYYY-MM-DD HH:mm',
+    format: 'yyyy-MM-dd HH:mm',
     views: ['date', 'year', 'month', 'hours', 'minutes'],
     position: 'relative'
 });
@@ -214,7 +214,6 @@ Module.directive('uiDatepickerRangePopup', ['$compile', '$document', '$filter', 
                 }
                 // create picker element
 
-                console.log(attrs);
                 var _template = '<div><table class="date-range"><tr><td valign="top">' +
                     getTemplate(attrs, pickerIDs[0], attrs.ngModel, false, scope.end) +
                     '</td><td valign="top">' +

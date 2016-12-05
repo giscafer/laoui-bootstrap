@@ -513,7 +513,7 @@ Module.directive('uiDatepicker', ['uiDatePickerConstant', function datePickerDir
 }]);
 
 
-Module.directive('dateRange', ['$compile', 'datePickerUtils', 'datePickerPopupConfig', function ($compile, datePickerUtils, datePickerPopupConfig) {
+Module.directive('dateRange', ['$compile', 'datePickerPopupConfig', function ($compile,  datePickerPopupConfig) {
   function getTemplate(attrs, id, model, min, max) {
     return datePickerPopupConfig.template(angular.extend(attrs, {
       ngModel: model,

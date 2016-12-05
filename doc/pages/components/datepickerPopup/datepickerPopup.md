@@ -32,3 +32,13 @@
         <input class="form-control" ui-datepicker-popup type="text" ng-model="data.month" view="month" format="MM" />
     </div>
 </div>
+<div class="row">
+    <div class="col-md-4">
+        <input class="form-control" ui-datepicker-range-popup type="text" ng-model="data.month" view="date">
+    </div>
+</div
+<div class="row">
+    <div class="col-md-4">
+        <input class="form-control" date-range type="text" ng-model="data.month" view="date">
+    </div>
+</div
