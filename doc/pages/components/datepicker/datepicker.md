@@ -179,8 +179,19 @@ If the date a user enters falls outside of the min-/max-date range, a `dateDisab
 
 <h4>Inline</h4>
 <div style="display:inline-block; min-height:290px;">
-    <div ui-datepicker ng-model="dt" class="well well-sm" datepicker-options="options"></div>
+    <div ui-datepicker="" ng-model="dt" class="well well-sm" datepicker-options="options"></div>
 </div>
+<div style="display:inline-block; min-height:290px;">
+    <div ui-datepicker ng-model="dt" class="well well-sm" minDate="2016-12-05" view="date" datepicker-options="options"></div>
+</div>
+
+<div style="display:inline-block; min-height:290px;">
+    <div ui-datepicker ng-model="dt" class="well well-sm"  view="datetime" datepicker-options="options"></div>
+</div>
+<div style="display:inline-block; min-height:290px;">
+    <div ui-datepicker ng-model="dt" class="well well-sm"  view="time" datepicker-options="options"></div>
+</div>
+
 
 <hr />
 <button type="button" class="btn btn-sm btn-info" ng-click="today()">Today</button>
