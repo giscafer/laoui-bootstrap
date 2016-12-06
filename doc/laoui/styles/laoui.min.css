@@ -2762,195 +2762,199 @@
   background: #5bc0de;
 }
 .date-picker-date-time {
-  position: absolute;
-  box-shadow: 3px 3px 0 rgba(0, 0, 0, 0.07);
-  border: 1px solid #eee;
+  position: absolute !important;
+  box-shadow: 3px 3px 0 rgba(0, 0, 0, 0.07) !important;
+  border: 1px solid #eee !important;
+  background: #fff !important;
 }
 .date-range .date-picker-date-time {
   position: inherit;
 }
 [datepicker-wrapper] {
-  position: absolute;
-  min-width: 220px;
-  z-index: 10;
-  display: block;
-  font-size: 14px;
+  position: absolute !important;
+  min-width: 220px !important;
+  z-index: 10 !important;
+  display: block !important;
+  font-size: 14px !important;
 }
-[date-time-append] [datepicker-wrapper] [ui-datepicker] {
-  margin-top: -30px;
+[date-time-append] [datepicker-wrapper] [datepicker-view] {
+  margin-top: -30px !important;
 }
-[date-time-append] [ui-datepicker] {
-  position: relative;
-  margin-right: -1000px;
-  margin-bottom: -1000px;
+[date-time-append] [datepicker-view] {
+  position: relative !important;
+  margin-right: -1000px !important;
+  margin-bottom: -1000px !important;
 }
-[ui-datepicker].hidden {
-  display: none;
+[datepicker-view].hidden {
+  display: none !important;
 }
-[ui-datepicker] {
-  background-color: #fff;
-  padding: 0 10px;
+[datepicker-view] {
+  background-color: #fff !important;
+  padding: 0 10px !important;
 }
-[ui-datepicker] table {
-  margin: 0;
+[datepicker-view] table {
+  margin: 0  !important;
 }
-[ui-datepicker] table td,
-[ui-datepicker] table th {
-  padding: 4px 9px;
-  text-align: center;
-  width: 25px;
-  height: 25px;
-  border: none;
+[datepicker-view] table td,
+[datepicker-view] table th {
+  padding: 4px 9px !important;
+  text-align: center !important;
+  width: 25px !important;
+  height: 25px !important;
+  border: none !important;
 }
-[ui-datepicker] table th span {
-  display: block;
-  cursor: pointer;
-  border-radius: 4px;
+[datepicker-view] table th span {
+  display: block !important;
+  cursor: pointer !important;
+  border-radius: 4px !important;
 }
-[ui-datepicker] table th span:hover {
-  background: #eee;
+[datepicker-view] table th span:hover {
+  background: #eee !important;
 }
-[ui-datepicker] table th span.arrow {
-  padding: 0 6px 0 6px;
+[datepicker-view] table th span.arrow {
+  padding: 0 6px 0 6px !important;
 }
-[ui-datepicker] table th span.month-selector,
-[ui-datepicker] table th span.year-selector {
-  width: 50%;
-  float: left;
+[datepicker-view] table th span.month-selector,
+[datepicker-view] table th span.year-selector {
+  width: 50% !important;
+  float: left !important;
 }
-[ui-datepicker] table th .dropdown-menu {
-  min-width: 80px;
-  text-align: center;
-  font-weight: 400;
+[datepicker-view] table th .dropdown-menu {
+  min-width: 80px !important;
+  text-align: center !important;
+  font-weight: 400 !important;
 }
-[ui-datepicker] table th .dropdown-menu li:hover {
-  background: #94ccf7;
-  color: #fff;
+[datepicker-view] table th .dropdown-menu li:hover {
+  background: #94ccf7 !important;
+  color: #fff !important;
 }
-[ui-datepicker] table th .dropdown-menu li.active {
-  background: #55acef;
-  color: #fff;
+[datepicker-view] table th .dropdown-menu li.active {
+  background: #55acef !important;
+  color: #fff !important;
 }
-[ui-datepicker] table th.weekend {
-  color: #db532e;
+[datepicker-view] table th.weekend {
+  color: #db532e !important;
 }
-[ui-datepicker] table thead tr:first-child th {
-  border-bottom: 1px solid #eee;
+[datepicker-view] table thead tr:first-child th {
+  border-bottom: 1px solid #eee !important;
 }
-[ui-datepicker] table tbody span {
-  display: block;
-  width: 23%;
-  height: 26px;
-  line-height: 25px;
-  float: left;
-  margin: 1%;
-  cursor: pointer;
-  border-radius: 50% 50%;
+[datepicker-view] table tbody tr {
+  border: none !important;
 }
-[ui-datepicker] table tbody span.disabled,
-[ui-datepicker] table tbody span.disabled:hover {
-  background: none;
-  cursor: default;
+[datepicker-view] table tbody span {
+  display: block !important;
+  width: 23% !important;
+  height: 26px !important;
+  line-height: 25px !important;
+  float: left !important;
+  margin: 1% !important;
+  cursor: pointer !important;
+  border-radius: 15% 15% !important;
 }
-[ui-datepicker] table tbody span.active,
-[ui-datepicker] table tbody span.now {
-  background: #f5d1d1;
+[datepicker-view] table tbody span.disabled,
+[datepicker-view] table tbody span.disabled:hover {
+  background: none !important;
+  cursor: default !important;
 }
-[ui-datepicker] table tbody span:hover {
-  background: #94ccf7;
-  color: #fff;
+[datepicker-view] table tbody span.active,
+[datepicker-view] table tbody span.now {
+  background: #f5d1d1 !important;
 }
-[ui-datepicker] table tbody span.active {
-  color: #666;
-  color: #fff;
-  background: #55acef;
+[datepicker-view] table tbody span:hover {
+  background: #94ccf7 !important;
+  color: #fff !important;
 }
-[ui-datepicker] table tbody span.disabled {
-  background: none;
-  color: #ccc!important;
-  cursor: default;
+[datepicker-view] table tbody span.active {
+  color: #666 !important;
+  color: #fff !important;
+  background: #55acef !important;
 }
-[ui-datepicker] .switch {
-  width: 145px;
+[datepicker-view] table tbody span.disabled {
+  background: none !important;
+  color: #ccc !important;
+  cursor: default !important;
 }
-[ui-datepicker] .time-wrapper {
-  border: 1px solid #eee;
-  width: 120px;
-  margin: 0 auto;
-  padding: 3px;
+[datepicker-view] .switch {
+  width: 145px !important;
 }
-[ui-datepicker] .time-wrapper input {
-  width: 28px;
-  text-align: center;
-  font-size: 18px;
-  border: none;
+[datepicker-view] .time-wrapper {
+  border: 1px solid #eee !important;
+  width: 120px !important;
+  margin: 0 auto !important;
+  padding: 3px !important;
 }
-[ui-datepicker] .time-wrapper .dropdown-menu {
-  padding: 10px;
+[datepicker-view] .time-wrapper input {
+  width: 28px !important;
+  text-align: center !important;
+  font-size: 18px !important;
+  border: none !important;
 }
-[ui-datepicker] .time-wrapper .dropdown-menu span {
-  display: block;
-  float: left;
-  width: 20%;
-  text-align: center;
-  cursor: pointer;
+[datepicker-view] .time-wrapper .dropdown-menu {
+  padding: 10px !important;
 }
-[ui-datepicker] .time-wrapper .dropdown-menu span:hover {
-  background: #94ccf7;
-  color: #fff;
+[datepicker-view] .time-wrapper .dropdown-menu span {
+  display: block !important;
+  float: left !important;
+  width: 20% !important;
+  text-align: center !important;
+  cursor: pointer !important;
 }
-[ui-datepicker] .buttons {
-  text-align: center;
-  margin: 10px 0;
+[datepicker-view] .time-wrapper .dropdown-menu span:hover {
+  background: #94ccf7 !important;
+  color: #fff !important;
 }
-[ui-datepicker] [ng-switch-when=minutes] span,
-[ui-datepicker] [ng-switch-when=month] span,
-[ui-datepicker] [ng-switch-when=year] span {
-  height: 35px;
-  line-height: 35px;
-  border-radius: 5px;
+[datepicker-view] .buttons {
+  text-align: center !important;
+  margin: 10px 0 !important;
 }
-[ui-datepicker] [ng-switch-when=month] table {
-  width: 200px;
-  margin-top: 10px;
+[datepicker-view] [ng-switch-when=minutes] span,
+[datepicker-view] [ng-switch-when=month] span,
+[datepicker-view] [ng-switch-when=year] span {
+  height: 35px !important;
+  line-height: 35px !important;
+  border-radius: 5px !important;
 }
-[ui-datepicker] [ng-switch-when=date] td,
-[ui-datepicker] [ng-switch-when=datetime] td {
-  padding: 0;
+[datepicker-view] [ng-switch-when=month] table {
+  width: 200px !important;
+  margin-top: 10px !important;
 }
-[ui-datepicker] [ng-switch-when=date] td span,
-[ui-datepicker] [ng-switch-when=datetime] td span {
-  width: 80%;
-  margin: 0 10%;
+[datepicker-view] [ng-switch-when=date] td,
+[datepicker-view] [ng-switch-when=datetime] td {
+  padding: 0 !important;
 }
-[ui-datepicker] [ng-switch-when=date] span,
-[ui-datepicker] [ng-switch-when=datetime] span {
-  width: 100%;
-  height: 26px;
+[datepicker-view] [ng-switch-when=date] td span,
+[datepicker-view] [ng-switch-when=datetime] td span {
+  width: 80% !important;
+  margin: 0 10% !important;
+}
+[datepicker-view] [ng-switch-when=date] span,
+[datepicker-view] [ng-switch-when=datetime] span {
+  width: 100% !important;
+  height: 26px !important;
   line-height: 26px;
 }
-[ui-datepicker] [ng-switch-when=date] .year-selector,
-[ui-datepicker] [ng-switch-when=datetime] .year-selector {
-  width: 50%;
-  margin: 0;
+[datepicker-view] [ng-switch-when=date] .year-selector,
+[datepicker-view] [ng-switch-when=datetime] .year-selector {
+  width: 50% !important;
+  margin: 0 !important;
 }
-[ui-datepicker] [ng-switch-when=date] .year-selector .dropdown-menu,
-[ui-datepicker] [ng-switch-when=datetime] .year-selector .dropdown-menu {
-  height: 150px;
-  overflow: auto;
+[datepicker-view] [ng-switch-when=date] .year-selector .dropdown-menu,
+[datepicker-view] [ng-switch-when=datetime] .year-selector .dropdown-menu {
+  height: 150px !important;
+  overflow: auto !important;
 }
-[ui-datepicker] [ng-switch-when=date] .month-selector,
-[ui-datepicker] [ng-switch-when=datetime] .month-selector {
-  width: 50%;
-  margin: 0;
+[datepicker-view] [ng-switch-when=date] .month-selector,
+[datepicker-view] [ng-switch-when=datetime] .month-selector {
+  width: 50% !important;
+  margin: 0 !important;
 }
-[ui-datepicker] [ng-switch-when=date] .month-selector .dropdown-menu,
-[ui-datepicker] [ng-switch-when=datetime] .month-selector .dropdown-menu {
-  height: 150px;
-  overflow: auto;
+[datepicker-view] [ng-switch-when=date] .month-selector .dropdown-menu,
+[datepicker-view] [ng-switch-when=datetime] .month-selector .dropdown-menu {
+  height: 150px !important;
+  overflow: auto !important;
 }
-[ui-datepicker] [ng-switch-when=time] .time-wrapper {
-  margin-top: 10px;
+[datepicker-view] [ng-switch-when=time] .time-wrapper {
+  margin-top: 10px !important;
 }
 .ng-animate.item:not(.left):not(.right) {
   -webkit-transition: 0s ease-in-out left;

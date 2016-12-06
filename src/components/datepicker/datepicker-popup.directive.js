@@ -3,7 +3,7 @@ var moment = require('moment-timezone');
 var PRISTINE_CLASS = 'ng-pristine',
     DIRTY_CLASS = 'ng-dirty';
 var datePickerUtils=require('./_utils.js');
-var MODULE_NAME = 'ui.module.uiDatepickerPopup';
+var MODULE_NAME = 'ui.module.uiDatepicker';
 var Module = angular.module(MODULE_NAME,[]);
 
 Module.constant('datePickerPopupConfig', {
@@ -11,7 +11,7 @@ Module.constant('datePickerPopupConfig', {
         return '' +
             '<div ' +
             (id ? 'id="' + id + '" ' : '') +
-            'ui-datepicker="' + attrs.ngModel + '" ' +
+            'date-picker="' + attrs.ngModel + '" ' +
             (attrs.view ? 'view="' + attrs.view + '" ' : '') +
             (attrs.maxView ? 'max-view="' + attrs.maxView + '" ' : '') +
             (attrs.maxDate ? 'max-date="' + attrs.maxDate + '" ' : '') +
@@ -43,12 +43,15 @@ Module.directive('dateTimeAppend', function() {
     };
 });
 
-Module.directive('uiDatepickerPopup', ['$compile', '$document', '$filter', 'datePickerPopupConfig', '$parse', '$timeout', function($compile, $document, $filter, datePickerPopupConfig, $parse, $timeout) {
+Module.directive('uiDatepicker', ['$compile', '$document', '$filter', 'datePickerPopupConfig', '$parse', '$timeout', function($compile, $document, $filter, datePickerPopupConfig, $parse, $timeout) {
     var body = $document.find('body');
     var dateFilter = $filter('date');
     return {
         require: 'ngModel',
+        restrict:'EA',
         scope: true,
+        replace: true,
+        template : "<div class='input-group'><input id='dateInput' class='form-control' type='text'/><span class='input-group-addon'><span class='fa fa-calendar'></span></span></div>",
         link: function(scope, element, attrs, ngModel) {
             var format = attrs.format || datePickerPopupConfig.format,
                 parentForm = element.inheritedData('$formController'),
@@ -60,6 +63,7 @@ Module.directive('uiDatepickerPopup', ['$compile', '$document', '$filter', 'date
                 pickerID = element[0].id,
                 position = attrs.position || datePickerPopupConfig.position,
                 container = null,
+                $dateInput = element.find('#dateInput'),
                 minDate = null,
                 minValid = null,
                 maxDate = null,
@@ -69,7 +73,11 @@ Module.directive('uiDatepickerPopup', ['$compile', '$document', '$filter', 'date
                 dateChange = null,
                 shownOnce = false,
                 template;
-
+            
+            //更改样式
+            if(view==='time'){
+                element.find('span.fa').removeClass('fa-calendar').addClass('fa-clock-o');
+            }
             if (index === -1) {
                 views.splice(index, 1);
             }
@@ -144,7 +152,7 @@ Module.directive('uiDatepickerPopup', ['$compile', '$document', '$filter', 'date
                     ngModel.$render();
                 }
             }
-
+            
             function clear() {
                 if (picker) {
                     picker.remove();
@@ -157,10 +165,13 @@ Module.directive('uiDatepickerPopup', ['$compile', '$document', '$filter', 'date
 
                 $document.unbind('click');
             }
-
+            scope.$on('updateDateMode', function(event, type, data) {
+                if(data['date']){
+                     $dateInput.attr('value',formatter(data['date']));
+                }
+            });
             if (pickerID) {
                 scope.$on('pickerUpdate', function(event, pickerIDs, data) {
-                    console.log('pickerUpdate');
                     if (eventIsForPicker(pickerIDs, pickerID)) {
                         if (picker) {
                             //Need to handle situation where the data changed but the picker is currently open.

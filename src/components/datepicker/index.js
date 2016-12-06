@@ -6,6 +6,6 @@ require('./moment-zh-cn');
 
 var MODULE_NAME = 'ui.module.datepicker';
 
-angular.module(MODULE_NAME, ['ui.module.uiDatepicker','ui.module.uiDatepickerPopup','ui.module.uiDatepickerRangePopup']);
+angular.module(MODULE_NAME, ['ui.module.date.picker','ui.module.uiDatepicker','ui.module.uiDatepickerRangePopup']);
 
 module.exports = MODULE_NAME;

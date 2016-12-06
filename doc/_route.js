@@ -95,15 +95,9 @@ export default $routeProvider => {
             controllerAs:'ctrl'
         })
          .when('/components/datepicker', {
-            title: 'datepicker Demo',
+            title: '日期选择器',
             templateUrl: pageHtml['./components/datepicker/datepicker.html'],
             controller: ctrls('./components/datepicker/datepicker.ctrl.js').default,
-            controllerAs:'ctrl'
-        })
-         .when('/components/datepickerPopup', {
-            title: 'datepickerPopup Demo',
-            templateUrl: pageHtml['./components/datepickerPopup/datepickerPopup.html'],
-            controller: ctrls('./components/datepickerPopup/datepickerPopup.ctrl.js').default,
             controllerAs:'ctrl'
         })
          .when('/components/notification', {

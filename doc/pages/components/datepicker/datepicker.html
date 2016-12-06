@@ -1,202 +1,199 @@
-<div class="markdown-body"><p>Our datepicker is flexible and fully customizable.</p>
-<p>You can navigate through days, months and years.</p>
-<p>The datepicker has 3 modes:</p>
+<div class="markdown-body"><h1 id="datepicker-">DatePicker 日期选择框</h1>
+<p>输入或选择日期的控件。</p>
+<h2 id="-">何时使用</h2>
+<p>当用户需要输入一个日期，可以点击标准输入框，弹出日期面板进行选择。</p>
+<h2 id="-">如何使用</h2>
+<p>将指令<code>&lt; ui-datepicker &gt;</code>添加到任意元素，绑定日期选择组件。在<code>format</code>属性中设置日期显示格式。</p>
+<p>在<code>view</code>属性中设置选择器的功能类型，共有5中类型：</p>
 <ul>
-<li><code>day</code> - In this mode you&#39;re presented with a 6-week calendar for a specified month.</li>
-<li><code>month</code> - In this mode you can select a month within a selected year.</li>
-<li><code>year</code> - In this mode you are presented with a range of years (20 by default).</li>
+<li>date: 日期选择器</li>
+<li>datetime: 日期时间选择器</li>
+<li>time: 时间选择器</li>
+<li>year: 年份选择</li>
+<li>month: 月份选择</li>
 </ul>
-<h3 id="ui-datepicker-settings">ui-datepicker settings</h3>
-<ul>
-<li><p><code>ng-model</code>
-<small class="badge">$</small>
-<i class="glyphicon glyphicon-eye-open"></i> -
-The date object. Must be a Javascript <code>Date</code> object. You may use the <code>uiDateParser</code> service to assist in string-to-object conversion.</p>
-</li>
-<li><p><code>ng-model-options</code>
-<small class="badge">$</small>
-<small class="badge">C</small>
-<em>(Default: <code>{}</code>)</em> -
-Supported <a href="https://docs.angularjs.org/api/ng/directive/ngModelOptions">angular ngModelOptions</a>:</p>
-<ul>
-<li>allowInvalid</li>
-<li>timezone</li>
-</ul>
-</li>
-<li><p><code>template-url</code>
-<em>(Default: <code>../../template/datepicker/datepicker.html</code>)</em> -
-Add the ability to override the template used on the component.</p>
-</li>
-</ul>
-<p>Apart from the previous settings, to configure the ui-datepicker you need to create an object in Javascript with all the options and use it on the <code>datepicker-options</code> attribute:</p>
-<ul>
-<li><p><code>datepicker-options</code>
-<small class="badge">$</small> -
-An object to configure the datepicker in one place.</p>
-<ul>
-<li><p><code>customClass ({date: date, mode: mode})</code> -
-An optional expression to add classes based on passing an object with date and current mode properties.</p>
-</li>
-<li><p><code>dateDisabled ({date: date, mode: mode})</code> -
-An optional expression to disable visible options based on passing an object with date and current mode properties.</p>
-</li>
-<li><p><code>datepickerMode</code>
-<small class="badge">C</small>
-<i class="glyphicon glyphicon-eye-open"></i>
-<em>(Default: <code>day</code>)</em> -
-Current mode of the datepicker <em>(day|month|year)</em>. Can be used to initialize the datepicker in a specific mode.</p>
-</li>
-<li><p><code>formatDay</code>
-<small class="badge">C</small>
-<em>(Default: <code>dd</code>)</em> -
-Format of day in month.</p>
-</li>
-<li><p><code>formatMonth</code>
-<small class="badge">C</small>
-<em>(Default: <code>MMMM</code>)</em> -
-Format of month in year.</p>
-</li>
-<li><p><code>formatYear</code>
-<small class="badge">C</small>
-<em>(Default: <code>yyyy</code>)</em> -
-Format of year in year range.</p>
-</li>
-<li><p><code>formatDayHeader</code>
-<small class="badge">C</small>
-<em>(Default: <code>EEE</code>)</em> -
-Format of day in week header.</p>
-</li>
-<li><p><code>formatDayTitle</code>
-<small class="badge">C</small>
-<em>(Default: <code>MMMM yyyy</code>)</em> -
-Format of title when selecting day.</p>
-</li>
-<li><p><code>formatMonthTitle</code>
-<small class="badge">C</small>
-<em>(Default: <code>yyyy</code>)</em> -
-Format of title when selecting month.</p>
-</li>
-<li><p><code>initDate</code>
-<i class="glyphicon glyphicon-eye-open"></i>
-<em>(Default: <code>null</code>)</em> -
-The initial date view when no model value is specified.</p>
-</li>
-<li><p><code>maxDate</code>
-<small class="badge">C</small>
-<i class="glyphicon glyphicon-eye-open"></i>
-<em>(Default: <code>null</code>)</em> -
-Defines the maximum available date. Requires a Javascript Date object.</p>
-</li>
-<li><p><code>maxMode</code>
-<small class="badge">C</small>
-  <i class="glyphicon glyphicon-eye-open"></i>
-<em>(Default: <code>year</code>)</em> -
-Sets an upper limit for mode.</p>
-</li>
-<li><p><code>minDate</code>
-<small class="badge">C</small>
-<i class="glyphicon glyphicon-eye-open"></i>
-<em>(Default: <code>null</code>)</em> -
-Defines the minimum available date. Requires a Javascript Date object.</p>
-</li>
-<li><p><code>minMode</code>
-<small class="badge">C</small>
-<i class="glyphicon glyphicon-eye-open"></i>
-<em>(Default: <code>day</code>)</em> -
-Sets a lower limit for mode.</p>
-</li>
-<li><p><code>monthColumns</code>
-<small class="badge">C</small>
-<em>(Default: <code>3</code>)</em> -
-Number of columns displayed in month selection.</p>
-</li>
-<li><p><code>ngModelOptions</code>
-<small class="badge">C</small>
-<em>(Default: <code>null</code>)</em> -
-Sets <code>ngModelOptions</code> for datepicker. This can be overridden through attribute usage</p>
-</li>
-<li><p><code>shortcutPropagation</code>
-<small class="badge">C</small>
-<em>(Default: <code>false</code>)</em> -
-An option to disable the propagation of the keydown event.</p>
-</li>
-<li><p><code>showWeeks</code>
-<small class="badge">C</small>
-<em>(Default: <code>true</code>)</em> -
-Whether to display week numbers.</p>
-</li>
-<li><p><code>startingDay</code>
-<small class="badge">C</small>
-<em>(Default: <code>$locale.DATETIME_FORMATS.FIRSTDAYOFWEEK</code>)</em> -
-Starting day of the week from 0-6 (0=Sunday, ..., 6=Saturday).</p>
-</li>
-<li><p><code>yearRows</code>
-<small class="badge">C</small>
-<em>(Default: <code>4</code>)</em> -
-Number of rows displayed in year selection.</p>
-</li>
-<li><p><code>yearColumns</code>
-<small class="badge">C</small>
-<em>(Default: <code>5</code>)</em> -
-Number of columns displayed in year selection.</p>
-</li>
-</ul>
-</li>
-</ul>
-<h3 id="keyboard-support">Keyboard support</h3>
-<p>Depending on datepicker&#39;s current mode, the date may refer either to day, month or year. Accordingly, the term view refers either to a month, year or year range.</p>
-<ul>
-<li><code>Left</code>: Move focus to the previous date. Will move to the last date of the previous view, if the current date is the first date of a view.</li>
-<li><code>Right</code>: Move focus to the next date. Will move to the first date of the following view, if the current date is the last date of a view.</li>
-<li><code>Up</code>: Move focus to the same column of the previous row. Will wrap to the appropriate row in the previous view.</li>
-<li><code>Down</code>: Move focus to the same column of the following row. Will wrap to the appropriate row in the following view.</li>
-<li><code>PgUp</code>: Move focus to the same date of the previous view. If that date does not exist, focus is placed on the last date of the month.</li>
-<li><code>PgDn</code>: Move focus to the same date of the following view. If that date does not exist, focus is placed on the last date of the month.</li>
-<li><code>Home</code>: Move to the first date of the view.</li>
-<li><code>End</code>: Move to the last date of the view.</li>
-<li><code>Enter</code>/<code>Space</code>: Select date.</li>
-<li><code>Ctrl</code>+<code>Up</code>: Move to an upper mode.</li>
-<li><code>Ctrl</code>+<code>Down</code>: Move to a lower mode.</li>
-<li><code>Esc</code>: Will close popup, and move focus to the input.</li>
-</ul>
-<p><strong>Notes</strong></p>
-<p>If the date a user enters falls outside of the min-/max-date range, a <code>dateDisabled</code> validation error will show on the form.</p>
+<h2 id="-">属性</h2>
+<table>
+<thead>
+<tr>
+<th>成员</th>
+<th>默认值</th>
+<th>描述</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>ng-model</td>
+<td><code>undefined</code></td>
+<td>绑定对象</td>
+</tr>
+<tr>
+<td>view</td>
+<td><code>undefined</code></td>
+<td>选择器模式，可选值: <code>date</code>, <code>datetime</code>, <code>time</code>, <code>year</code>, <code>month</code></td>
+</tr>
+<tr>
+<td>format</td>
+<td><code>undefined</code></td>
+<td>显示格式，如: <code>yyyy-MM-dd HH:mm:ss</code></td>
+</tr>
+<tr>
+<td>min-date</td>
+<td><code>undefined</code></td>
+<td>最小可选日期</td>
+</tr>
+<tr>
+<td>max-date</td>
+<td><code>undefined</code></td>
+<td>最大可选日期</td>
+</tr>
+<tr>
+<td>disabled-date(date)</td>
+<td><code>undefined</code></td>
+<td>date为时间戳</td>
+</tr>
+<tr>
+<td>auto-close</td>
+<td><code>true</code></td>
+<td>当view为date, year, month时是否选择后自动关闭</td>
+</tr>
+</tbody>
+</table>
 <h2 id="-">代码演示</h2>
-<p><style>
-  .full button span {
-    background-color: limegreen;
-    border-radius: 32px;
-    color: black;
-  }
-  .partially button span {
-    background-color: orange;
-    border-radius: 32px;
-    color: black;
-  }
-</style></p>
-<div>
-    <code>Selected date is: <em>{{dt | date:&#39;fullDate&#39; }}</em></code>
+<h3 id="-5-">时间选择器 5 中类型</h3>
+<div class="bs-example">
+    <p>选择日期: <em>{{ctrl.date}}</em></p>
+<div class="row">
+    <div class="col-md-4">
+        <ui-datepicker ng-model="ctrl.date" view="date" format="yyyy-MM-dd">
+    </ui-datepicker></div>
+</div>
+<br>
+<p>选择日期时间: <em>{{ctrl.datetime}}</em></p>
+<div class="row">
+    <div class="col-md-4">
+    <ui-datepicker ng-model="ctrl.datetime" view="datetime" format="yyyy-MM-dd HH:mm:ss">
+    </ui-datepicker></div>
+</div>
+<br>
+<p>选择时间: <em>{{ctrl.time}}</em></p>
+<div class="row">
+    <div class="col-md-4">
+      <ui-datepicker ng-model="ctrl.time" view="time" format="HH:mm:ss">
+    </ui-datepicker></div>
+</div>
+<br>
+<p>选择年份: <em>{{ctrl.year}}</em></p>
+<div class="row">
+    <div class="col-md-4">
+      <ui-datepicker ng-model="ctrl.year" view="year" format="yyyy">
+    </ui-datepicker></div>
+</div>
+<br>
+<p>选择月份: <em>{{ctrl.month}}</em></p>
+<div class="row">
+    <div class="col-md-4">
+       <ui-datepicker ng-model="ctrl.month" view="month" format="MM">
+    </ui-datepicker></div>
+</div>
+</div>
+<ui-clipboard clipboard-target="clipboard1"></ui-clipboard>
+<div class="highlight" id="clipboard1">
+<pre><code style="width:100%;color:#fff">
+&lt;p&gt;选择日期: <span class="xml"><span class="hljs-tag">&lt;<span class="hljs-name">em</span>&gt;</span>{{ctrl.date}}<span class="hljs-tag">&lt;/<span class="hljs-name">em</span>&gt;</span></span><span class="xml"><span class="hljs-tag">&lt;/<span class="hljs-name">p</span>&gt;</span></span>
+&lt;div <span class="hljs-class"><span class="hljs-keyword">class</span></span>=<span class="hljs-string">&quot;row&quot;</span>&gt;
+    <span class="xml"><span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">&quot;col-md-4&quot;</span>&gt;</span>
+        <span class="hljs-tag">&lt;<span class="hljs-name">ui-datepicker</span> <span class="hljs-attr">ng-model</span>=<span class="hljs-string">&quot;ctrl.date&quot;</span> <span class="hljs-attr">view</span>=<span class="hljs-string">&quot;date&quot;</span> <span class="hljs-attr">format</span>=<span class="hljs-string">&quot;yyyy-MM-dd&quot;</span>&gt;</span>
+    <span class="hljs-tag">&lt;/<span class="hljs-name">ui-datepicker</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
+<span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span></span>
+&lt;br&gt;
+<span class="xml"><span class="hljs-tag">&lt;<span class="hljs-name">p</span>&gt;</span>选择日期时间: <span class="hljs-tag">&lt;<span class="hljs-name">em</span>&gt;</span>{{ctrl.datetime}}<span class="hljs-tag">&lt;/<span class="hljs-name">em</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">p</span>&gt;</span></span>
+&lt;div <span class="hljs-class"><span class="hljs-keyword">class</span></span>=<span class="hljs-string">&quot;row&quot;</span>&gt;
+    <span class="xml"><span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">&quot;col-md-4&quot;</span>&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-name">ui-datepicker</span> <span class="hljs-attr">ng-model</span>=<span class="hljs-string">&quot;ctrl.datetime&quot;</span> <span class="hljs-attr">view</span>=<span class="hljs-string">&quot;datetime&quot;</span> <span class="hljs-attr">format</span>=<span class="hljs-string">&quot;yyyy-MM-dd HH:mm:ss&quot;</span>&gt;</span>
+    <span class="hljs-tag">&lt;/<span class="hljs-name">ui-datepicker</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
+<span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span></span>
+&lt;br&gt;
+<span class="xml"><span class="hljs-tag">&lt;<span class="hljs-name">p</span>&gt;</span>选择时间: <span class="hljs-tag">&lt;<span class="hljs-name">em</span>&gt;</span>{{ctrl.time}}<span class="hljs-tag">&lt;/<span class="hljs-name">em</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">p</span>&gt;</span></span>
+&lt;div <span class="hljs-class"><span class="hljs-keyword">class</span></span>=<span class="hljs-string">&quot;row&quot;</span>&gt;
+    <span class="xml"><span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">&quot;col-md-4&quot;</span>&gt;</span>
+      <span class="hljs-tag">&lt;<span class="hljs-name">ui-datepicker</span> <span class="hljs-attr">ng-model</span>=<span class="hljs-string">&quot;ctrl.time&quot;</span> <span class="hljs-attr">view</span>=<span class="hljs-string">&quot;time&quot;</span> <span class="hljs-attr">format</span>=<span class="hljs-string">&quot;HH:mm:ss&quot;</span>&gt;</span>
+    <span class="hljs-tag">&lt;/<span class="hljs-name">ui-datepicker</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
+<span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span></span>
+&lt;br&gt;
+<span class="xml"><span class="hljs-tag">&lt;<span class="hljs-name">p</span>&gt;</span>选择年份: <span class="hljs-tag">&lt;<span class="hljs-name">em</span>&gt;</span>{{ctrl.year}}<span class="hljs-tag">&lt;/<span class="hljs-name">em</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">p</span>&gt;</span></span>
+&lt;div <span class="hljs-class"><span class="hljs-keyword">class</span></span>=<span class="hljs-string">&quot;row&quot;</span>&gt;
+    <span class="xml"><span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">&quot;col-md-4&quot;</span>&gt;</span>
+      <span class="hljs-tag">&lt;<span class="hljs-name">ui-datepicker</span> <span class="hljs-attr">ng-model</span>=<span class="hljs-string">&quot;ctrl.year&quot;</span> <span class="hljs-attr">view</span>=<span class="hljs-string">&quot;year&quot;</span> <span class="hljs-attr">format</span>=<span class="hljs-string">&quot;yyyy&quot;</span>&gt;</span>
+    <span class="hljs-tag">&lt;/<span class="hljs-name">ui-datepicker</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
+<span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span></span>
+&lt;br&gt;
+<span class="xml"><span class="hljs-tag">&lt;<span class="hljs-name">p</span>&gt;</span>选择月份: <span class="hljs-tag">&lt;<span class="hljs-name">em</span>&gt;</span>{{ctrl.month}}<span class="hljs-tag">&lt;/<span class="hljs-name">em</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">p</span>&gt;</span></span>
+&lt;div <span class="hljs-class"><span class="hljs-keyword">class</span></span>=<span class="hljs-string">&quot;row&quot;</span>&gt;
+    <span class="xml"><span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">&quot;col-md-4&quot;</span>&gt;</span>
+       <span class="hljs-tag">&lt;<span class="hljs-name">ui-datepicker</span> <span class="hljs-attr">ng-model</span>=<span class="hljs-string">&quot;ctrl.month&quot;</span> <span class="hljs-attr">view</span>=<span class="hljs-string">&quot;month&quot;</span> <span class="hljs-attr">format</span>=<span class="hljs-string">&quot;MM&quot;</span>&gt;</span>
+    <span class="hljs-tag">&lt;/<span class="hljs-name">ui-datepicker</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
+<span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span></span>
+</code></pre>
+</div>
 
-<h4>Inline</h4>
-<div style="display:inline-block; min-height:290px;">
-    <div ui-datepicker="" ng-model="dt" class="well well-sm" datepicker-options="options"></div>
+<h3 id="-">禁止选择特定日期</h3>
+<p>设置<code>disabled-date(date)</code>属性，设置自定义的方法对指定的日期进行过滤，如果方法的返回值为<code>true</code>时日期将被禁用。</p>
+<p>参数<code>date</code>格式为时间戳</p>
+ <div class="bs-example">
+ <div class="row">
+    <div class="col-md-4">
+       <ui-datepicker ng-model="ctrl.datetime" view="datetime" format="yyyy-MM-dd HH:mm:ss" disabled-date="ctrl.disabled(date)">
+    </ui-datepicker></div>
 </div>
-<div style="display:inline-block; min-height:290px;">
-    <div ui-datepicker ng-model="dt" class="well well-sm" minDate="2016-12-05" view="date" datepicker-options="options"></div>
+ </div>
+ <ui-clipboard clipboard-target="clipboard2"></ui-clipboard>
+<div class="highlight" id="clipboard2">
+<pre><code style="width:100%;color:#fff">
+&lt;div <span class="hljs-class"><span class="hljs-keyword">class</span></span>=<span class="hljs-string">&quot;row&quot;</span>&gt;
+    <span class="xml"><span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">&quot;col-md-4&quot;</span>&gt;</span>
+       <span class="hljs-tag">&lt;<span class="hljs-name">ui-datepicker</span> <span class="hljs-attr">ng-model</span>=<span class="hljs-string">&quot;ctrl.datetime&quot;</span> <span class="hljs-attr">view</span>=<span class="hljs-string">&quot;datetime&quot;</span> <span class="hljs-attr">format</span>=<span class="hljs-string">&quot;yyyy-MM-dd HH:mm:ss&quot;</span> <span class="hljs-attr">disabled-date</span>=<span class="hljs-string">&quot;ctrl.disabled(date)&quot;</span>&gt;</span>
+    <span class="hljs-tag">&lt;/<span class="hljs-name">ui-datepicker</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
+<span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span></span>
+</code></pre>
 </div>
 
-<div style="display:inline-block; min-height:290px;">
-    <div ui-datepicker ng-model="dt" class="well well-sm"  view="datetime" datepicker-options="options"></div>
+
+<h3 id="-date-picker-">此外，提供 <code>&lt; date-picker &gt;</code>指令，可用来创建日期面板</h3>
+<h4 id="-">日历面板</h4>
+<div class="bs-example">
+ <div class="row">
+    <div class="col-md-4">
+       <date-picker ng-model="ctrl.date" view="date" format="yyyy-MM-dd">
+    </date-picker></div>
 </div>
-<div style="display:inline-block; min-height:290px;">
-    <div ui-datepicker ng-model="dt" class="well well-sm"  view="time" datepicker-options="options"></div>
+ </div>
+ <ui-clipboard clipboard-target="clipboard4"></ui-clipboard>
+<div class="highlight" id="clipboard4">
+<pre><code style="width:100%;color:#fff">
+&lt;<span class="hljs-keyword">div</span> <span class="hljs-built_in">class</span>=<span class="hljs-string">&quot;row&quot;</span>&gt;
+    &lt;<span class="hljs-keyword">div</span> <span class="hljs-built_in">class</span>=<span class="hljs-string">&quot;col-md-4&quot;</span>&gt;
+       &lt;<span class="hljs-built_in">date</span>-picker ng-model=<span class="hljs-string">&quot;ctrl.date&quot;</span> view=<span class="hljs-string">&quot;date&quot;</span> format=<span class="hljs-string">&quot;yyyy-MM-dd&quot;</span>&gt;
+    &lt;/<span class="hljs-built_in">date</span>-picker&gt;&lt;/<span class="hljs-keyword">div</span>&gt;
+&lt;/<span class="hljs-keyword">div</span>&gt;
+</code></pre>
 </div>
 
-
-<p><hr></p>
-<p><button type="button" class="btn btn-sm btn-info" ng-click="today()">Today</button></p>
-<p><button type="button" class="btn btn-sm btn-default" ng-click="setDate(2009, 7, 24)">2009-08-24</button></p>
-<p><button type="button" class="btn btn-sm btn-danger" ng-click="clear()">Clear</button></p>
-<p><button type="button" class="btn btn-sm btn-default" ng-click="toggleMin()" ui-tooltip="After today restriction">Min date</button>
-</p></div><p></p>
+<h4 id="-">月份面板</h4>
+<div class="bs-example">
+ <div class="row">
+    <div class="col-md-4">
+       <date-picker ng-model="ctrl.date" view="month" format="MM">
+    </date-picker></div>
 </div>
+ </div>
+ <ui-clipboard clipboard-target="clipboard5"></ui-clipboard>
+<div class="highlight" id="clipboard5">
+<pre><code style="width:100%;color:#fff">
+&lt;<span class="hljs-keyword">div</span> <span class="hljs-built_in">class</span>=<span class="hljs-string">&quot;row&quot;</span>&gt;
+    &lt;<span class="hljs-keyword">div</span> <span class="hljs-built_in">class</span>=<span class="hljs-string">&quot;col-md-4&quot;</span>&gt;
+       &lt;<span class="hljs-built_in">date</span>-picker ng-model=<span class="hljs-string">&quot;ctrl.date&quot;</span> view=<span class="hljs-string">&quot;month&quot;</span> format=<span class="hljs-string">&quot;MM&quot;</span>&gt;
+    &lt;/<span class="hljs-built_in">date</span>-picker&gt;&lt;/<span class="hljs-keyword">div</span>&gt;
+&lt;/<span class="hljs-keyword">div</span>&gt;
+</code></pre>
+</div></div>

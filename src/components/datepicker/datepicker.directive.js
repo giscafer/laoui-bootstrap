@@ -2,7 +2,7 @@
 var moment = require('moment-timezone');
 // console.log(moment.tz)
 var datePickerUtils=require('./_utils.js');
-var MODULE_NAME = 'ui.module.uiDatepicker';
+var MODULE_NAME = 'ui.module.date.picker';
 var Module = angular.module(MODULE_NAME,[]);
 
 
@@ -49,15 +49,16 @@ Module.filter('mFormat', function() {
 });
 
 
-Module.directive('uiDatepicker', ['uiDatePickerConstant', function datePickerDirective(uiDatePickerConstant) {
+Module.directive('datePicker', ['uiDatePickerConstant', function datePickerDirective(uiDatePickerConstant) {
 
     //noinspection JSUnusedLocalSymbols
     return {
         // this is a bug ?
         require: '?ngModel',
-        template: '<div ng-include="template"></div>',
+        restrict:'EA',
+        template: '<div datepicker-view="" ng-include="template"></div>',
         scope: {
-            model: '=uiDatepicker',
+            model: '=datePicker',
             after: '=?',
             before: '=?',
             popup: '=',
@@ -196,6 +197,7 @@ Module.directive('uiDatepicker', ['uiDatePickerConstant', function datePickerDir
                 var timestamp = date.format('x');
                 scope.model = timestamp;
                 if (ngModel) {
+                    updateDateMode(timestamp,'setYear');
                     ngModel.$setViewValue(timestamp);
                 }
             }
@@ -205,6 +207,7 @@ Module.directive('uiDatepicker', ['uiDatePickerConstant', function datePickerDir
                 var timestamp = date.format('x');
                 scope.model = timestamp;
                 if (ngModel) {
+                     updateDateMode(timestamp,'setMonth');
                     ngModel.$setViewValue(timestamp);
                 }
             }
@@ -219,6 +222,7 @@ Module.directive('uiDatepicker', ['uiDatePickerConstant', function datePickerDir
                     timestamp = _date.format('x');
                     scope.model = timestamp;
                     if (ngModel) {
+                        updateDateMode(timestamp,'setDate');
                         ngModel.$setViewValue(timestamp);
                     }
                 }
@@ -229,6 +233,7 @@ Module.directive('uiDatepicker', ['uiDatePickerConstant', function datePickerDir
                 var timestamp = date.format('x');
                 scope.model = timestamp;
                 if (ngModel) {
+                    updateDateMode(timestamp,'setHour');
                     ngModel.$setViewValue(timestamp);
                 }
             }
@@ -238,6 +243,7 @@ Module.directive('uiDatepicker', ['uiDatePickerConstant', function datePickerDir
                 var timestamp = date.format('x');
                 scope.model = timestamp;
                 if (ngModel) {
+                    updateDateMode(timestamp,'setMinute');
                     ngModel.$setViewValue(timestamp);
                 }
             }
@@ -247,10 +253,16 @@ Module.directive('uiDatepicker', ['uiDatePickerConstant', function datePickerDir
                 var timestamp = date.format('x');
                 scope.model = timestamp;
                 if (ngModel) {
+                    updateDateMode(timestamp,'setSecond');
                     ngModel.$setViewValue(timestamp);
                 }
             }
-
+            //更新时间
+            function updateDateMode(value,type){
+                scope.$emit('updateDateMode',type, {
+                    date: value
+                });
+            }
             function update() {
                 var view = scope.view;
                 datePickerUtils.setParams(tz, firstDay);

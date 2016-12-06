@@ -39729,7 +39729,7 @@
 /* 13 */
 /***/ function(module, exports) {
 
-	var path = 'G:/GitHub/_private/laoui-bootstrap/src/bootstrap/accordion/template/accordion-group.html';
+	var path = 'F:/github/laoui-bootstrap/src/bootstrap/accordion/template/accordion-group.html';
 	var html = "<div>\r\n  <div role=\"tab\" id=\"{{::headingId}}\" aria-selected=\"{{isOpen}}\" class=\"panel-heading\" ng-class=\"{'ui-accordion-highlight':isOpen && isCompact}\" ng-keypress=\"toggleOpen($event)\">\r\n    <h4 class=\"panel-title\">\r\n      <a role=\"button\" data-toggle=\"collapse\" href aria-expanded=\"{{isOpen}}\" aria-controls=\"{{::panelId}}\" tabindex=\"0\" class=\"accordion-toggle\"\r\n        ng-click=\"toggleOpen()\" ui-accordion-transclude=\"heading\" ng-disabled=\"isDisabled\" ui-tabindex-toggle><span ui-accordion-header ng-class=\"{'text-muted': isDisabled}\">{{heading}}</span></a>\r\n    </h4>\r\n  </div>\r\n  <div id=\"{{::panelId}}\" aria-labelledby=\"{{::headingId}}\" aria-hidden=\"{{!isOpen}}\" role=\"tabpanel\" class=\"panel-collapse collapse\"\r\n    ui-collapse=\"!isOpen\">\r\n    <div class=\"panel-body\" ng-transclude></div>\r\n  </div>\r\n</div>";
 	window.angular.module('ng').run(['$templateCache', function(c) { c.put(path, html) }]);
 	module.exports = path;
@@ -39738,7 +39738,7 @@
 /* 14 */
 /***/ function(module, exports) {
 
-	var path = 'G:/GitHub/_private/laoui-bootstrap/src/bootstrap/accordion/template/accordion.html';
+	var path = 'F:/github/laoui-bootstrap/src/bootstrap/accordion/template/accordion.html';
 	var html = "<div role=\"tablist\" class=\"panel-group\" ng-transclude></div>";
 	window.angular.module('ng').run(['$templateCache', function(c) { c.put(path, html) }]);
 	module.exports = path;
@@ -39941,7 +39941,7 @@
 /* 21 */
 /***/ function(module, exports) {
 
-	var path = 'G:/GitHub/_private/laoui-bootstrap/src/bootstrap/carousel/template/carousel.html';
+	var path = 'F:/github/laoui-bootstrap/src/bootstrap/carousel/template/carousel.html';
 	var html = "<div class=\"carousel-inner\" ng-transclude></div>\r\n<a role=\"button\" href class=\"left carousel-control\" ng-click=\"prev()\" ng-class=\"{ disabled: isPrevDisabled() }\" ng-show=\"slides.length > 1\">\r\n  <span aria-hidden=\"true\" class=\"glyphicon glyphicon-chevron-left\"></span>\r\n  <span class=\"sr-only\">previous</span>\r\n</a>\r\n<a role=\"button\" href class=\"right carousel-control\" ng-click=\"next()\" ng-class=\"{ disabled: isNextDisabled() }\" ng-show=\"slides.length > 1\">\r\n  <span aria-hidden=\"true\" class=\"glyphicon glyphicon-chevron-right\"></span>\r\n  <span class=\"sr-only\">next</span>\r\n</a>\r\n<ol class=\"carousel-indicators\" ng-show=\"slides.length > 1\">\r\n  <li ng-repeat=\"slide in slides | orderBy:indexOfSlide track by $index\" ng-class=\"{ active: isActive(slide) }\" ng-click=\"select(slide)\">\r\n    <span class=\"sr-only\">slide {{ $index + 1 }} of {{ slides.length }}<span ng-if=\"isActive(slide)\">, currently active</span></span>\r\n  </li>\r\n</ol>\r\n";
 	window.angular.module('ng').run(['$templateCache', function(c) { c.put(path, html) }]);
 	module.exports = path;
@@ -39950,7 +39950,7 @@
 /* 22 */
 /***/ function(module, exports) {
 
-	var path = 'G:/GitHub/_private/laoui-bootstrap/src/bootstrap/carousel/template/slide.html';
+	var path = 'F:/github/laoui-bootstrap/src/bootstrap/carousel/template/slide.html';
 	var html = "<div class=\"text-center\" ng-transclude></div>\r\n";
 	window.angular.module('ng').run(['$templateCache', function(c) { c.put(path, html) }]);
 	module.exports = path;
@@ -44658,7 +44658,7 @@
 /* 87 */
 /***/ function(module, exports) {
 
-	var path = 'G:/GitHub/_private/laoui-bootstrap/src/bootstrap/tooltip/template/tooltip-popup.html';
+	var path = 'F:/github/laoui-bootstrap/src/bootstrap/tooltip/template/tooltip-popup.html';
 	var html = "<div class=\"tooltip-arrow\"></div>\r\n<div class=\"tooltip-inner\" ng-bind=\"content\"></div>\r\n";
 	window.angular.module('ng').run(['$templateCache', function(c) { c.put(path, html) }]);
 	module.exports = path;
@@ -44667,7 +44667,7 @@
 /* 88 */
 /***/ function(module, exports) {
 
-	var path = 'G:/GitHub/_private/laoui-bootstrap/src/bootstrap/tooltip/template/tooltip-html-popup.html';
+	var path = 'F:/github/laoui-bootstrap/src/bootstrap/tooltip/template/tooltip-html-popup.html';
 	var html = "<div class=\"tooltip-arrow\"></div>\r\n<div class=\"tooltip-inner\" ng-bind-html=\"contentExp()\"></div>\r\n";
 	window.angular.module('ng').run(['$templateCache', function(c) { c.put(path, html) }]);
 	module.exports = path;
@@ -44676,7 +44676,7 @@
 /* 89 */
 /***/ function(module, exports) {
 
-	var path = 'G:/GitHub/_private/laoui-bootstrap/src/bootstrap/tooltip/template/tooltip-template-popup.html';
+	var path = 'F:/github/laoui-bootstrap/src/bootstrap/tooltip/template/tooltip-template-popup.html';
 	var html = "<div class=\"tooltip-arrow\"></div>\r\n<div class=\"tooltip-inner\"\r\n  ui-tooltip-template-transclude=\"contentExp()\"\r\n  tooltip-template-transclude-scope=\"originScope()\"></div>\r\n";
 	window.angular.module('ng').run(['$templateCache', function(c) { c.put(path, html) }]);
 	module.exports = path;
@@ -45224,7 +45224,7 @@
 /* 98 */
 /***/ function(module, exports) {
 
-	var path = 'G:/GitHub/_private/laoui-bootstrap/src/bootstrap/tabs/template/tabset.html';
+	var path = 'F:/github/laoui-bootstrap/src/bootstrap/tabs/template/tabset.html';
 	var html = "<div>\r\n  <ul class=\"ui-tab nav nav-{{tabset.type || 'tabs'}}\" ng-class=\"{'nav-stacked': vertical, 'nav-justified': justified}\" ng-transclude></ul>\r\n  <div class=\"tab-content\">\r\n    <div class=\"tab-pane\"\r\n         ng-repeat=\"tab in tabset.tabs\"\r\n         ng-class=\"{active: tabset.active === tab.index}\"\r\n         ui-tab-content-transclude=\"tab\" style=\"{{style}}\">\r\n    </div>\r\n  </div>\r\n</div>\r\n";
 	window.angular.module('ng').run(['$templateCache', function(c) { c.put(path, html) }]);
 	module.exports = path;
@@ -45233,7 +45233,7 @@
 /* 99 */
 /***/ function(module, exports) {
 
-	var path = 'G:/GitHub/_private/laoui-bootstrap/src/bootstrap/tabs/template/tab.html';
+	var path = 'F:/github/laoui-bootstrap/src/bootstrap/tabs/template/tab.html';
 	var html = "<li ng-class=\"[{active: active, disabled: disabled}, classes]\" class=\"ui-tab nav-item\">\r\n  <a href ng-click=\"select($event)\" class=\"nav-link\" ui-tab-heading-transclude>{{heading}}</a>\r\n</li>\r\n";
 	window.angular.module('ng').run(['$templateCache', function(c) { c.put(path, html) }]);
 	module.exports = path;
@@ -46581,7 +46581,7 @@
 /* 109 */
 /***/ function(module, exports) {
 
-	var path = 'G:/GitHub/_private/laoui-bootstrap/src/bootstrap/typeahead/template/typeahead-match.html';
+	var path = 'F:/github/laoui-bootstrap/src/bootstrap/typeahead/template/typeahead-match.html';
 	var html = "<a href\r\n   tabindex=\"-1\"\r\n   ng-bind-html=\"match.label | uiTypeaheadHighlight:query\"\r\n   ng-attr-title=\"{{match.label}}\"></a>\r\n";
 	window.angular.module('ng').run(['$templateCache', function(c) { c.put(path, html) }]);
 	module.exports = path;
@@ -46590,7 +46590,7 @@
 /* 110 */
 /***/ function(module, exports) {
 
-	var path = 'G:/GitHub/_private/laoui-bootstrap/src/bootstrap/typeahead/template/typeahead-popup.html';
+	var path = 'F:/github/laoui-bootstrap/src/bootstrap/typeahead/template/typeahead-popup.html';
 	var html = "<ul class=\"dropdown-menu\" ng-show=\"isOpen() && !moveInProgress\" ng-style=\"{top: position().top+'px', left: position().left+'px'}\" role=\"listbox\" aria-hidden=\"{{!isOpen()}}\">\r\n    <li class=\"ui-typeahead-match\" ng-repeat=\"match in matches track by $index\" ng-class=\"{active: isActive($index) }\" ng-mouseenter=\"selectActive($index)\" ng-click=\"selectMatch($index, $event)\" role=\"option\" id=\"{{::match.id}}\">\r\n        <div ui-typeahead-match index=\"$index\" match=\"match\" query=\"query\" template-url=\"templateUrl\"></div>\r\n    </li>\r\n</ul>\r\n";
 	window.angular.module('ng').run(['$templateCache', function(c) { c.put(path, html) }]);
 	module.exports = path;
@@ -46839,7 +46839,7 @@
 /* 119 */
 /***/ function(module, exports) {
 
-	var path = 'G:/GitHub/_private/laoui-bootstrap/src/components/icon/icon.html';
+	var path = 'F:/github/laoui-bootstrap/src/components/icon/icon.html';
 	var html = "<i ng-class=\"iconCls\"></i>";
 	window.angular.module('ng').run(['$templateCache', function(c) { c.put(path, html) }]);
 	module.exports = path;
@@ -46975,7 +46975,7 @@
 /* 122 */
 /***/ function(module, exports) {
 
-	var path = 'G:/GitHub/_private/laoui-bootstrap/src/components/panel/template/panel.html';
+	var path = 'F:/github/laoui-bootstrap/src/components/panel/template/panel.html';
 	var html = "<div ng-class=\"classes\" ng-hide=\"hidePanel\">\r\n    <div class=\"panel-heading\" ng-if=\"heading\" ui-panel-transclude=\"heading\">\r\n        <h3 class=\"panel-title\">{{heading}}</h3> </div>\r\n    <div class=\"panel-body\" ng-transclude></div>\r\n</div>\r\n";
 	window.angular.module('ng').run(['$templateCache', function(c) { c.put(path, html) }]);
 	module.exports = path;
@@ -47732,7 +47732,7 @@
 /* 154 */
 /***/ function(module, exports) {
 
-	var path = 'G:/GitHub/_private/laoui-bootstrap/src/components/grid/row.html';
+	var path = 'F:/github/laoui-bootstrap/src/components/grid/row.html';
 	var html = "<div {{...others}} ng-class=\"classes\" ng-style=\"rowStyle\" ng-transclude></div>";
 	window.angular.module('ng').run(['$templateCache', function(c) { c.put(path, html) }]);
 	module.exports = path;
@@ -49007,7 +49007,7 @@
 /* 179 */
 /***/ function(module, exports) {
 
-	var path = 'G:/GitHub/_private/laoui-bootstrap/src/components/grid/col.html';
+	var path = 'F:/github/laoui-bootstrap/src/components/grid/col.html';
 	var html = "<div {{...others}} ng-class=\"classes\" ng-transclude></div>";
 	window.angular.module('ng').run(['$templateCache', function(c) { c.put(path, html) }]);
 	module.exports = path;
@@ -54698,7 +54698,7 @@
 
 	var MODULE_NAME = 'ui.module.datepicker';
 
-	angular.module(MODULE_NAME, ['ui.module.uiDatepicker', 'ui.module.uiDatepickerPopup', 'ui.module.uiDatepickerRangePopup']);
+	angular.module(MODULE_NAME, ['ui.module.date.picker', 'ui.module.uiDatepicker', 'ui.module.uiDatepickerRangePopup']);
 
 	module.exports = MODULE_NAME;
 
@@ -54712,12 +54712,12 @@
 	var PRISTINE_CLASS = 'ng-pristine',
 	    DIRTY_CLASS = 'ng-dirty';
 	var datePickerUtils = __webpack_require__(301);
-	var MODULE_NAME = 'ui.module.uiDatepickerPopup';
+	var MODULE_NAME = 'ui.module.uiDatepicker';
 	var Module = angular.module(MODULE_NAME, []);
 
 	Module.constant('datePickerPopupConfig', {
 	    template: function template(attrs, id) {
-	        return '' + '<div ' + (id ? 'id="' + id + '" ' : '') + 'ui-datepicker="' + attrs.ngModel + '" ' + (attrs.view ? 'view="' + attrs.view + '" ' : '') + (attrs.maxView ? 'max-view="' + attrs.maxView + '" ' : '') + (attrs.maxDate ? 'max-date="' + attrs.maxDate + '" ' : '') + (attrs.template ? 'template="' + attrs.template + '" ' : '') + (attrs.minView ? 'min-view="' + attrs.minView + '" ' : '') + (attrs.minDate ? 'min-date="' + attrs.minDate + '" ' : '') + (attrs.partial ? 'partial="' + attrs.partial + '" ' : '') + (attrs.step ? 'step="' + attrs.step + '" ' : '') + (attrs.onSetDate ? 'date-change="' + attrs.onSetDate + '" ' : '') + (attrs.ngModel ? 'ng-model="' + attrs.ngModel + '" ' : '') + (attrs.firstDay ? 'first-day="' + attrs.firstDay + '" ' : '') + (attrs.timezone ? 'timezone="' + attrs.timezone + '" ' : '') + (attrs.autoClose ? 'auto-close="' + attrs.autoClose + '" ' : '') + (attrs.disabledDate ? 'disabled-date="' + attrs.disabledDate + '" ' : '') + 'class="date-picker-date-time" popup="true"></div>';
+	        return '' + '<div ' + (id ? 'id="' + id + '" ' : '') + 'date-picker="' + attrs.ngModel + '" ' + (attrs.view ? 'view="' + attrs.view + '" ' : '') + (attrs.maxView ? 'max-view="' + attrs.maxView + '" ' : '') + (attrs.maxDate ? 'max-date="' + attrs.maxDate + '" ' : '') + (attrs.template ? 'template="' + attrs.template + '" ' : '') + (attrs.minView ? 'min-view="' + attrs.minView + '" ' : '') + (attrs.minDate ? 'min-date="' + attrs.minDate + '" ' : '') + (attrs.partial ? 'partial="' + attrs.partial + '" ' : '') + (attrs.step ? 'step="' + attrs.step + '" ' : '') + (attrs.onSetDate ? 'date-change="' + attrs.onSetDate + '" ' : '') + (attrs.ngModel ? 'ng-model="' + attrs.ngModel + '" ' : '') + (attrs.firstDay ? 'first-day="' + attrs.firstDay + '" ' : '') + (attrs.timezone ? 'timezone="' + attrs.timezone + '" ' : '') + (attrs.autoClose ? 'auto-close="' + attrs.autoClose + '" ' : '') + (attrs.disabledDate ? 'disabled-date="' + attrs.disabledDate + '" ' : '') + 'class="date-picker-date-time" popup="true"></div>';
 	    },
 	    format: 'YYYY-MM-DD HH:mm',
 	    views: ['date', 'year', 'month', 'hours', 'minutes'],
@@ -54734,13 +54734,15 @@
 	    };
 	});
 
-	Module.directive('uiDatepickerPopup', ['$compile', '$document', '$filter', 'datePickerPopupConfig', '$parse', '$timeout', function ($compile, $document, $filter, datePickerPopupConfig, $parse, $timeout) {
+	Module.directive('uiDatepicker', ['$compile', '$document', '$filter', 'datePickerPopupConfig', '$parse', '$timeout', function ($compile, $document, $filter, datePickerPopupConfig, $parse, $timeout) {
 	    var body = $document.find('body');
 	    var dateFilter = $filter('date');
-	    console.log('datePickerPopupConfig', datePickerPopupConfig);
 	    return {
 	        require: 'ngModel',
+	        restrict: 'EA',
 	        scope: true,
+	        replace: true,
+	        template: "<div class='input-group'><input id='dateInput' class='form-control' type='text'/><span class='input-group-addon'><span class='fa fa-calendar'></span></span></div>",
 	        link: function link(scope, element, attrs, ngModel) {
 	            var format = attrs.format || datePickerPopupConfig.format,
 	                parentForm = element.inheritedData('$formController'),
@@ -54752,6 +54754,7 @@
 	                pickerID = element[0].id,
 	                position = attrs.position || datePickerPopupConfig.position,
 	                container = null,
+	                $dateInput = element.find('#dateInput'),
 	                minDate = null,
 	                minValid = null,
 	                maxDate = null,
@@ -54762,6 +54765,10 @@
 	                shownOnce = false,
 	                template;
 
+	            //更改样式
+	            if (view === 'time') {
+	                element.find('span.fa').removeClass('fa-calendar').addClass('fa-clock-o');
+	            }
 	            if (index === -1) {
 	                views.splice(index, 1);
 	            }
@@ -54848,10 +54855,13 @@
 
 	                $document.unbind('click');
 	            }
-
+	            scope.$on('updateDateMode', function (event, type, data) {
+	                if (data['date']) {
+	                    $dateInput.attr('value', formatter(data['date']));
+	                }
+	            });
 	            if (pickerID) {
 	                scope.$on('pickerUpdate', function (event, pickerIDs, data) {
-	                    console.log('pickerUpdate');
 	                    if (eventIsForPicker(pickerIDs, pickerID)) {
 	                        if (picker) {
 	                            //Need to handle situation where the data changed but the picker is currently open.
@@ -71078,7 +71088,6 @@
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 	var moment = __webpack_require__(187);
-	console.info(moment.tz);
 	var tz, firstDay;
 	var createNewDate = function createNewDate(year, month, day, hour, minute, second) {
 	    var utc = Date.UTC(year | 0, month | 0, day | 0, hour | 0, minute | 0, second | 0);
@@ -71649,7 +71658,7 @@
 	var moment = __webpack_require__(187);
 	// console.log(moment.tz)
 	var datePickerUtils = __webpack_require__(301);
-	var MODULE_NAME = 'ui.module.uiDatepicker';
+	var MODULE_NAME = 'ui.module.date.picker';
 	var Module = angular.module(MODULE_NAME, []);
 
 	Module.constant('uiDatePickerConstant', {
@@ -71693,15 +71702,16 @@
 	    };
 	});
 
-	Module.directive('uiDatepicker', ['uiDatePickerConstant', function datePickerDirective(uiDatePickerConstant) {
+	Module.directive('datePicker', ['uiDatePickerConstant', function datePickerDirective(uiDatePickerConstant) {
 
 	    //noinspection JSUnusedLocalSymbols
 	    return {
 	        // this is a bug ?
 	        require: '?ngModel',
-	        template: '<div ng-include="template"></div>',
+	        restrict: 'EA',
+	        template: '<div datepicker-view="" ng-include="template"></div>',
 	        scope: {
-	            model: '=uiDatepicker',
+	            model: '=datePicker',
 	            after: '=?',
 	            before: '=?',
 	            popup: '=',
@@ -71835,6 +71845,7 @@
 	                var timestamp = date.format('x');
 	                scope.model = timestamp;
 	                if (ngModel) {
+	                    updateDateMode(timestamp, 'setYear');
 	                    ngModel.$setViewValue(timestamp);
 	                }
 	            }
@@ -71844,6 +71855,7 @@
 	                var timestamp = date.format('x');
 	                scope.model = timestamp;
 	                if (ngModel) {
+	                    updateDateMode(timestamp, 'setMonth');
 	                    ngModel.$setViewValue(timestamp);
 	                }
 	            }
@@ -71858,6 +71870,7 @@
 	                    timestamp = _date.format('x');
 	                    scope.model = timestamp;
 	                    if (ngModel) {
+	                        updateDateMode(timestamp, 'setDate');
 	                        ngModel.$setViewValue(timestamp);
 	                    }
 	                }
@@ -71868,6 +71881,7 @@
 	                var timestamp = date.format('x');
 	                scope.model = timestamp;
 	                if (ngModel) {
+	                    updateDateMode(timestamp, 'setHour');
 	                    ngModel.$setViewValue(timestamp);
 	                }
 	            }
@@ -71877,6 +71891,7 @@
 	                var timestamp = date.format('x');
 	                scope.model = timestamp;
 	                if (ngModel) {
+	                    updateDateMode(timestamp, 'setMinute');
 	                    ngModel.$setViewValue(timestamp);
 	                }
 	            }
@@ -71886,10 +71901,16 @@
 	                var timestamp = date.format('x');
 	                scope.model = timestamp;
 	                if (ngModel) {
+	                    updateDateMode(timestamp, 'setSecond');
 	                    ngModel.$setViewValue(timestamp);
 	                }
 	            }
-
+	            //更新时间
+	            function updateDateMode(value, type) {
+	                scope.$emit('updateDateMode', type, {
+	                    date: value
+	                });
+	            }
 	            function update() {
 	                var view = scope.view;
 	                datePickerUtils.setParams(tz, firstDay);
@@ -72233,8 +72254,8 @@
 /* 304 */
 /***/ function(module, exports) {
 
-	var path = 'G:/GitHub/_private/laoui-bootstrap/src/components/datepicker/template/datepicker.html';
-	var html = "<div ng-switch=\"view\">\r\n    <div ng-switch-when=\"date\">\r\n        <table>\r\n            <thead>\r\n                <tr>\r\n                    <th><span class=\"arrow\" ng-click=\"prev()\">&lsaquo;</span></th>\r\n                    <th colspan=\"5\"> <span class=\"year-selector\" ui-dropdown> <span ng-click=\"focusYear($event, date)\" ui-dropdown-toggle>{{date|mFormat:'YYYY':tz}}</span>\r\n                        <ul ui-dropdown-menu class=\"clearfix\">\r\n                            <li ng-class=\"{active: year.year() == date.year()}\" ng-repeat=\"year in years\" ng-click=\"selectYear(year)\" ng-bind=\"year.year()\"></li>\r\n                        </ul>\r\n                        </span> <span class=\"month-selector\" ui-dropdown> <span ui-dropdown-toggle>{{date|mFormat:'MMM':tz}}</span>\r\n                        <ul ui-dropdown-menu class=\"clearfix\">\r\n                            <li ng-class=\"{active: month.month() == date.month()}\" ng-repeat=\"month in months\" ng-click=\"selectMonth(month)\" ng-bind=\"month|mFormat:'MMM':tz\"></li>\r\n                        </ul>\r\n                        </span>\r\n                    </th>\r\n                    <th><span class=\"arrow\" ng-click=\"next()\">&rsaquo;</span></th>\r\n                </tr>\r\n                <tr>\r\n                    <th ng-repeat=\"day in weekdays\" style=\"overflow:hidden\" ng-class=\"{weekend: (day.day() == 0 || day.day() == 6)}\" ng-bind=\"day|mFormat:'dd':tz\"></th>\r\n                </tr>\r\n            </thead>\r\n            <tbody>\r\n                <tr ng-repeat=\"week in weeks\" ng-init=\"$index2 = $index\">\r\n                    <td ng-repeat=\"day in week\"> <span ng-class=\"classes[$index2][$index]\" ng-click=\"selectDate($event, day)\" ng-bind=\"day|mFormat:'DD':tz\"></span> </td>\r\n                </tr>\r\n            </tbody>\r\n        </table>\r\n    </div>\r\n    <div ng-switch-when=\"datetime\">\r\n        <table>\r\n            <thead>\r\n                <tr>\r\n                    <th><span class=\"arrow\" ng-click=\"prev()\">&lsaquo;</span></th>\r\n                    <th colspan=\"5\"> <span class=\"year-selector\" ui-dropdown> <span ng-click=\"focusYear($event, date)\" ui-dropdown-toggle>{{date|mFormat:'YYYY':tz}}</span>\r\n                        <ul ui-dropdown-menu class=\"clearfix\">\r\n                            <li ng-class=\"{active: year.year() == date.year()}\" ng-repeat=\"year in years\" ng-click=\"selectYear(year)\" ng-bind=\"year.year()\"></li>\r\n                        </ul>\r\n                        </span> <span class=\"month-selector\" ui-dropdown> <span ui-dropdown-toggle>{{date|mFormat:'MMM':tz}}</span>\r\n                        <ul ui-dropdown-menu class=\"clearfix\">\r\n                            <li ng-class=\"{active: month.month() == date.month()}\" ng-repeat=\"month in months\" ng-click=\"selectMonth(month)\" ng-bind=\"month|mFormat:'MMM':tz\"></li>\r\n                        </ul>\r\n                        </span>\r\n                    </th>\r\n                    <th><span class=\"arrow\" ng-click=\"next()\">&rsaquo;</span></th>\r\n                </tr>\r\n                <tr>\r\n                    <th ng-repeat=\"day in weekdays\" style=\"overflow:hidden\" ng-class=\"{weekend: (day.day() == 0 || day.day() == 6)}\" ng-bind=\"day|mFormat:'dd':tz\"></th>\r\n                </tr>\r\n            </thead>\r\n            <tbody>\r\n                <tr ng-repeat=\"week in weeks\" ng-init=\"$index2 = $index\">\r\n                    <td ng-repeat=\"day in week\"> <span ng-class=\"classes[$index2][$index]\" ng-click=\"selectDate($event, day)\" ng-bind=\"day|mFormat:'DD':tz\"></span> </td>\r\n                </tr>\r\n            </tbody>\r\n        </table>\r\n        <div class=\"time-wrapper clearfix\"> <span class=\"time-selector\" ui-dropdown auto-close=\"outsideClick\"> <input ui-dropdown-toggle ng-model=\"time.hour\" ng-change=\"selectHour(time.hour)\" /> <div ui-dropdown-menu class=\"clearfix\"> <span ng-repeat=\"hour in hours\" ng-click=\"selectHour(hour)\" ng-bind=\"hour|mFormat:'HH':tz\"></span> </div>\r\n        </span> <span>:</span> <span class=time-selector ui-dropdown> <input ui-dropdown-toggle ng-model=\"time.minute\" ng-change=\"selectMinute(time.minute)\" /> <div ui-dropdown-menu class=\"clearfix\"><span ng-repeat=\"minute in minutes\" ng-click=\"selectMinute(minute)\" ng-bind=\"minute|mFormat:'mm':tz\"></span></div>\r\n    </span> <span>:</span> <span class=\"time-selector\" ui-dropdown> <input ui-dropdown-toggle ng-model=\"time.second\" ng-change=\"selectSecond(time.second)\" /> <div ui-dropdown-menu class=\"clearfix\"><span ng-repeat=\"second in seconds\" ng-click=\"selectSecond(second)\" ng-bind=\"second|mFormat:'ss':tz\"></span></div>\r\n</span>\r\n</div>\r\n</div>\r\n<div ng-switch-when=\"year\">\r\n    <table>\r\n        <thead>\r\n            <tr>\r\n                <th><span ng-click=\"prev(10)\" class=\"arrow\">&lsaquo;</span></th>\r\n                <th colspan=\"5\" class=\"switch\" ng-bind=\"years[0].year()+' - '+years[years.length-1].year()\"></th>\r\n                <th><span ng-click=\"next(10)\" class=\"arrow\">&rsaquo;</span></th>\r\n            </tr>\r\n        </thead>\r\n        <tbody>\r\n            <tr>\r\n                <td colspan=\"7\"> <span ng-class=\"classes[$index]\" ng-repeat=\"year in years\" ng-click=\"selectYear(year)\" ng-bind=\"year.year()\"></span> </td>\r\n            </tr>\r\n        </tbody>\r\n    </table>\r\n</div>\r\n<div ng-switch-when=\"month\">\r\n    <table>\r\n        <tbody>\r\n            <tr>\r\n                <td colspan=\"7\"> <span ng-repeat=\"month in months\" ng-class=classes[$index] ng-click=\"selectMonth(month)\" ng-bind=\"month|mFormat:'MMM':tz\"></span> </td>\r\n            </tr>\r\n        </tbody>\r\n    </table>\r\n</div>\r\n<div ng-switch-when=\"hours\">\r\n    <table>\r\n        <thead>\r\n            <tr>\r\n                <th ng-click=\"prev(24)\">&lsaquo;</th>\r\n                <th colspan=\"5\" class=\"switch\" ng-click=\"setView('date')\" ng-bind=\"date|mFormat:'DD MMMM YYYY':tz\"></th>\r\n                <th ng-click=\"next(24)\">&rsaquo; </th>\r\n            </tr>\r\n        </thead>\r\n        <tbody>\r\n            <tr>\r\n                <td colspan=\"7\"> <span ng-repeat=\"hour in hours\" ng-class=\"classes[$index]\" ng-click=selectDate(hour) ng-bind=\"hour|mFormat:'HH:mm':tz\"></span> </td>\r\n            </tr>\r\n        </tbody>\r\n    </table>\r\n</div>\r\n<div ng-switch-when=\"minutes\">\r\n    <table>\r\n        <thead>\r\n            <tr>\r\n                <th ng-click=\"prev()\">&lsaquo;</th>\r\n                <th colspan=\"5\" class=\"switch\" ng-click=\"setView('hours')\" ng-bind=\"date|mFormat:'DD MMMM YYYY':tz\"></th>\r\n                <th ng-click=\"next()\">&rsaquo; </th>\r\n            </tr>\r\n        </thead>\r\n        <tbody>\r\n            <tr>\r\n                <td colspan=\"7\"> <span ng-repeat=\"minute in minutes\" ng-class=\"lasses[$index]\" ng-click=\"selectDate(minute)\" ng-bind=\"minute|mFormat:'HH:mm':tz\"></span> </td>\r\n            </tr>\r\n        </tbody>\r\n    </table>\r\n</div>\r\n<div ng-switch-when=\"time\">\r\n    <div class=\"time-wrapper clearfix\"> <span class=\"time-selector\" ui-dropdown> <input ui-dropdown-toggle ng-model=\"time.hour\" ng-change=\"selectHour(time.hour)\" /> <div ui-dropdown-menu class=\"clearfix\"> <span ng-repeat=\"hour in hours\" ng-click=\"selectHour(hour)\" ng-bind=\"hour|mFormat:'HH':tz\"></span></div>\r\n    </span> <span>:</span> <span class=\"time-selector\" ui-dropdown> <input ui-dropdown-toggle ng-model=\"time.minute\" ng-change=\"selectMinute(time.minute)\" /> <div ui-dropdown-menu class=\"clearfix\"><span ng-repeat=\"minute in minutes\" ng-click=\"selectMinute(minute)\" ng-bind=\"minute|mFormat:'mm':tz\"></span></div>\r\n</span> <span>:</span> <span class=\"time-selector\" ui-dropdown> <input ui-dropdown-toggle ng-model=\"time.second\" ng-change=\"selectSecond(time.second)\" /> <div ui-dropdown-menu class=\"clearfix\"><span ng-repeat=\"second in seconds\" ng-click=\"selectSecond(second)\" ng-bind=\"second|mFormat:'ss':tz\"></span></div>\r\n</span>\r\n</div>\r\n</div>\r\n</div>\r\n<div class=\"buttons\" ng-if=\"popup\">\r\n    <button type=\"button\" ng-if=\"view == 'datetime' || view == 'date'\" class=\"btn btn-default btn-sm\" ng-click=\"today()\">今日</button>\r\n    <button type=\"button\" class=\"btn btn-default btn-sm\" ng-click=\"closePopup()\">关闭</button>\r\n</div>\r\n";
+	var path = 'F:/github/laoui-bootstrap/src/components/datepicker/template/datepicker.html';
+	var html = "<div ng-switch=\"view\" ui-date-picker=\"{{model}}\">\r\n    <div ng-switch-when=\"date\">\r\n        <table>\r\n            <thead>\r\n                <tr>\r\n                    <th><span class=\"arrow\" ng-click=\"prev()\">&lsaquo;</span></th>\r\n                    <th colspan=\"5\"> <span class=\"year-selector\" ui-dropdown> <span ng-click=\"focusYear($event, date)\" ui-dropdown-toggle>{{date|mFormat:'YYYY':tz}}</span>\r\n                        <ul ui-dropdown-menu class=\"clearfix\">\r\n                            <li ng-class=\"{active: year.year() == date.year()}\" ng-repeat=\"year in years\" ng-click=\"selectYear(year)\" ng-bind=\"year.year()\"></li>\r\n                        </ul>\r\n                        </span> <span class=\"month-selector\" ui-dropdown> <span ui-dropdown-toggle>{{date|mFormat:'MMM':tz}}</span>\r\n                        <ul ui-dropdown-menu class=\"clearfix\">\r\n                            <li ng-class=\"{active: month.month() == date.month()}\" ng-repeat=\"month in months\" ng-click=\"selectMonth(month)\" ng-bind=\"month|mFormat:'MMM':tz\"></li>\r\n                        </ul>\r\n                        </span>\r\n                    </th>\r\n                    <th><span class=\"arrow\" ng-click=\"next()\">&rsaquo;</span></th>\r\n                </tr>\r\n                <tr>\r\n                    <th ng-repeat=\"day in weekdays\" style=\"overflow:hidden\" ng-class=\"{weekend: (day.day() == 0 || day.day() == 6)}\" ng-bind=\"day|mFormat:'dd':tz\"></th>\r\n                </tr>\r\n            </thead>\r\n            <tbody>\r\n                <tr ng-repeat=\"week in weeks\" ng-init=\"$index2 = $index\">\r\n                    <td ng-repeat=\"day in week\"> <span ng-class=\"classes[$index2][$index]\" ng-click=\"selectDate($event, day)\" ng-bind=\"day|mFormat:'DD':tz\"></span> </td>\r\n                </tr>\r\n            </tbody>\r\n        </table>\r\n    </div>\r\n    <div ng-switch-when=\"datetime\">\r\n        <table>\r\n            <thead>\r\n                <tr>\r\n                    <th><span class=\"arrow\" ng-click=\"prev()\">&lsaquo;</span></th>\r\n                    <th colspan=\"5\"> <span class=\"year-selector\" ui-dropdown> <span ng-click=\"focusYear($event, date)\" ui-dropdown-toggle>{{date|mFormat:'YYYY':tz}}</span>\r\n                        <ul ui-dropdown-menu class=\"clearfix\">\r\n                            <li ng-class=\"{active: year.year() == date.year()}\" ng-repeat=\"year in years\" ng-click=\"selectYear(year)\" ng-bind=\"year.year()\"></li>\r\n                        </ul>\r\n                        </span> <span class=\"month-selector\" ui-dropdown> <span ui-dropdown-toggle>{{date|mFormat:'MMM':tz}}</span>\r\n                        <ul ui-dropdown-menu class=\"clearfix\">\r\n                            <li ng-class=\"{active: month.month() == date.month()}\" ng-repeat=\"month in months\" ng-click=\"selectMonth(month)\" ng-bind=\"month|mFormat:'MMM':tz\"></li>\r\n                        </ul>\r\n                        </span>\r\n                    </th>\r\n                    <th><span class=\"arrow\" ng-click=\"next()\">&rsaquo;</span></th>\r\n                </tr>\r\n                <tr>\r\n                    <th ng-repeat=\"day in weekdays\" style=\"overflow:hidden\" ng-class=\"{weekend: (day.day() == 0 || day.day() == 6)}\" ng-bind=\"day|mFormat:'dd':tz\"></th>\r\n                </tr>\r\n            </thead>\r\n            <tbody>\r\n                <tr ng-repeat=\"week in weeks\" ng-init=\"$index2 = $index\">\r\n                    <td ng-repeat=\"day in week\"> <span ng-class=\"classes[$index2][$index]\" ng-click=\"selectDate($event, day)\" ng-bind=\"day|mFormat:'DD':tz\"></span> </td>\r\n                </tr>\r\n            </tbody>\r\n        </table>\r\n        <div class=\"time-wrapper clearfix\"> <span class=\"time-selector\" ui-dropdown auto-close=\"outsideClick\"> <input ui-dropdown-toggle ng-model=\"time.hour\" ng-change=\"selectHour(time.hour)\" /> <div ui-dropdown-menu class=\"clearfix\"> <span ng-repeat=\"hour in hours\" ng-click=\"selectHour(hour)\" ng-bind=\"hour|mFormat:'HH':tz\"></span> </div>\r\n        </span> <span>:</span> <span class=time-selector ui-dropdown> <input ui-dropdown-toggle ng-model=\"time.minute\" ng-change=\"selectMinute(time.minute)\" /> <div ui-dropdown-menu class=\"clearfix\"><span ng-repeat=\"minute in minutes\" ng-click=\"selectMinute(minute)\" ng-bind=\"minute|mFormat:'mm':tz\"></span></div>\r\n    </span> <span>:</span> <span class=\"time-selector\" ui-dropdown> <input ui-dropdown-toggle ng-model=\"time.second\" ng-change=\"selectSecond(time.second)\" /> <div ui-dropdown-menu class=\"clearfix\"><span ng-repeat=\"second in seconds\" ng-click=\"selectSecond(second)\" ng-bind=\"second|mFormat:'ss':tz\"></span></div>\r\n</span>\r\n</div>\r\n</div>\r\n<div ng-switch-when=\"year\">\r\n    <table>\r\n        <thead>\r\n            <tr>\r\n                <th><span ng-click=\"prev(10)\" class=\"arrow\">&lsaquo;</span></th>\r\n                <th colspan=\"5\" class=\"switch\" ng-bind=\"years[0].year()+' - '+years[years.length-1].year()\"></th>\r\n                <th><span ng-click=\"next(10)\" class=\"arrow\">&rsaquo;</span></th>\r\n            </tr>\r\n        </thead>\r\n        <tbody>\r\n            <tr>\r\n                <td colspan=\"7\"> <span ng-class=\"classes[$index]\" ng-repeat=\"year in years\" ng-click=\"selectYear(year)\" ng-bind=\"year.year()\"></span> </td>\r\n            </tr>\r\n        </tbody>\r\n    </table>\r\n</div>\r\n<div ng-switch-when=\"month\">\r\n    <table>\r\n        <tbody>\r\n            <tr>\r\n                <td colspan=\"7\"> <span ng-repeat=\"month in months\" ng-class=classes[$index] ng-click=\"selectMonth(month)\" ng-bind=\"month|mFormat:'MMM':tz\"></span> </td>\r\n            </tr>\r\n        </tbody>\r\n    </table>\r\n</div>\r\n<div ng-switch-when=\"hours\">\r\n    <table>\r\n        <thead>\r\n            <tr>\r\n                <th ng-click=\"prev(24)\">&lsaquo;</th>\r\n                <th colspan=\"5\" class=\"switch\" ng-click=\"setView('date')\" ng-bind=\"date|mFormat:'DD MMMM YYYY':tz\"></th>\r\n                <th ng-click=\"next(24)\">&rsaquo; </th>\r\n            </tr>\r\n        </thead>\r\n        <tbody>\r\n            <tr>\r\n                <td colspan=\"7\"> <span ng-repeat=\"hour in hours\" ng-class=\"classes[$index]\" ng-click=selectDate(hour) ng-bind=\"hour|mFormat:'HH:mm':tz\"></span> </td>\r\n            </tr>\r\n        </tbody>\r\n    </table>\r\n</div>\r\n<div ng-switch-when=\"minutes\">\r\n    <table>\r\n        <thead>\r\n            <tr>\r\n                <th ng-click=\"prev()\">&lsaquo;</th>\r\n                <th colspan=\"5\" class=\"switch\" ng-click=\"setView('hours')\" ng-bind=\"date|mFormat:'DD MMMM YYYY':tz\"></th>\r\n                <th ng-click=\"next()\">&rsaquo; </th>\r\n            </tr>\r\n        </thead>\r\n        <tbody>\r\n            <tr>\r\n                <td colspan=\"7\"> <span ng-repeat=\"minute in minutes\" ng-class=\"lasses[$index]\" ng-click=\"selectDate(minute)\" ng-bind=\"minute|mFormat:'HH:mm':tz\"></span> </td>\r\n            </tr>\r\n        </tbody>\r\n    </table>\r\n</div>\r\n<div ng-switch-when=\"time\">\r\n    <div class=\"time-wrapper clearfix\"> <span class=\"time-selector\" ui-dropdown> <input ui-dropdown-toggle ng-model=\"time.hour\" ng-change=\"selectHour(time.hour)\" /> <div ui-dropdown-menu class=\"clearfix\"> <span ng-repeat=\"hour in hours\" ng-click=\"selectHour(hour)\" ng-bind=\"hour|mFormat:'HH':tz\"></span></div>\r\n    </span> <span>:</span> <span class=\"time-selector\" ui-dropdown> <input ui-dropdown-toggle ng-model=\"time.minute\" ng-change=\"selectMinute(time.minute)\" /> <div ui-dropdown-menu class=\"clearfix\"><span ng-repeat=\"minute in minutes\" ng-click=\"selectMinute(minute)\" ng-bind=\"minute|mFormat:'mm':tz\"></span></div>\r\n</span> <span>:</span> <span class=\"time-selector\" ui-dropdown> <input ui-dropdown-toggle ng-model=\"time.second\" ng-change=\"selectSecond(time.second)\" /> <div ui-dropdown-menu class=\"clearfix\"><span ng-repeat=\"second in seconds\" ng-click=\"selectSecond(second)\" ng-bind=\"second|mFormat:'ss':tz\"></span></div>\r\n</span>\r\n</div>\r\n</div>\r\n</div>\r\n<div class=\"buttons\" ng-if=\"popup\">\r\n    <button type=\"button\" ng-if=\"view == 'datetime' || view == 'date'\" class=\"btn btn-default btn-sm\" ng-click=\"today()\">今日</button>\r\n    <button type=\"button\" class=\"btn btn-default btn-sm\" ng-click=\"closePopup()\">关闭</button>\r\n</div>\r\n";
 	window.angular.module('ng').run(['$templateCache', function(c) { c.put(path, html) }]);
 	module.exports = path;
 
@@ -72526,7 +72547,7 @@
 /* 308 */
 /***/ function(module, exports) {
 
-	var path = 'G:/GitHub/_private/laoui-bootstrap/src/components/navigation/template/navigation.html';
+	var path = 'F:/github/laoui-bootstrap/src/components/navigation/template/navigation.html';
 	var html = "<ul class=\"{{classes}} clearfix\">\r\n    <li class=\"link-root\" ng-repeat=\"link in links\" ng-include=\"'children.html'\" ng-class=\"{'collapsed': link.children && link.children.length > 0, 'active': currentUrl == link.link}\"></li>\r\n    <script type=\"text/ng-template\" id=\"children.html\">\r\n        <a ng-if=\"link.link\" ng-href=\"{{link.link}}\"> <i ng-if=\"link.icon\" class=\"fa\" ng-class=\"link.icon && 'fa-' + link.icon\"></i> {{link.name}} </a> <span ng-if=\"!link.link\">  <i ng-if=\"link.icon\" class=\"fa\" ng-class=\"link.icon && 'fa fa-' + link.icon\"></i> {{link.name}}</span>\r\n        <ul ng-if=\"link.children\" class=\"menu\">\r\n            <li ng-repeat=\"link in link.children\" ng-class=\"{'collapsed': link.children, 'active': currentUrl == link.link}\" ng-include=\"'children.html'\"></li>\r\n        </ul>\r\n    </script>\r\n</ul>\r\n";
 	window.angular.module('ng').run(['$templateCache', function(c) { c.put(path, html) }]);
 	module.exports = path;
@@ -72763,7 +72784,7 @@
 /* 312 */
 /***/ function(module, exports) {
 
-	var path = 'G:/GitHub/_private/laoui-bootstrap/src/components/alert/alert.html';
+	var path = 'F:/github/laoui-bootstrap/src/components/alert/alert.html';
 	var html = "<div ng-hide=\"closing\" ng-class=\"alertCls\">\r\n    <i ng-if=\"showIcon\" ng-class=\"iconCls\"></i>\r\n    <span ng-class=\"messageCls\" ng-bind=\"message\"></span>\r\n    <span ng-class=\"descriptionCls\"  ng-bind=\"description\"></span>\r\n    <a ng-show=\"closable\" ng-class=\"closeCls\" ng-click=\"close({$event: $event})\"><span ng-if=\"!closetext\">&times;</span>{{closetext?closetext:''}}</a>\r\n</div>\r\n";
 	window.angular.module('ng').run(['$templateCache', function(c) { c.put(path, html) }]);
 	module.exports = path;
@@ -73027,7 +73048,7 @@
 /* 315 */
 /***/ function(module, exports) {
 
-	var path = 'G:/GitHub/_private/laoui-bootstrap/src/components/notification/template/notification.html';
+	var path = 'F:/github/laoui-bootstrap/src/components/notification/template/notification.html';
 	var html = "<div class=\"ui-notification\">\r\n    <h3 ng-show=\"title\" ng-bind-html=\"title\"></h3>\r\n    <div class=\"message\" ng-bind-html=\"message\"></div>\r\n</div>";
 	window.angular.module('ng').run(['$templateCache', function(c) { c.put(path, html) }]);
 	module.exports = path;
