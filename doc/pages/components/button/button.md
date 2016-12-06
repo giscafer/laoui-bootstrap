@@ -1,8 +1,5 @@
 # Button 按钮
 
-<ui-button type="primary" icon="download">下载</ui-button>
-<ui-button type="primary" icon="refresh" size="lg" loading="true">Github</ui-button>
-
 按钮用于开始一个即时操作。
 
 ## 何时使用
@@ -11,11 +8,22 @@
 
 ## 如何使用
 
-可以使用`ui-btn-checkbox`属性来控制一组按钮行为类似 checkboxes，或使用 `ui-btn-radio`属性控制一组按钮行为类似域 radio buttons
+- `ui-button` 指令可以快速创建一个带图标的按钮
+- 可以使用`ui-btn-checkbox`属性来控制一组按钮行为类似 checkboxes，或使用 `ui-btn-radio`属性控制一组按钮行为类似域 radio buttons
 
 ## 属性
 
-### ui-btn-checkbox 属性
+### `ui-button` 属性
+
+| 成员       | 说明             | 类型               | 默认值       |
+|-----------|-----------------|--------------------|-------------|
+| type  | 按钮类型，可选`primary`、`info`、`error`、`default`、`ghost`、`dashed`   | string |    -    | 
+| icon  | 按钮图标类型 | string |   -  |
+| size   | 按钮大小，可选`large`、`small`、`xsmall`、默认是正常大小 | string |   -   |
+| loading | 图标是否旋转，旋转过程按钮disabled状态，还有前提是icon图标是可以旋转| string |   -   |
+| className | 提供额外样式，类名| string |   -   |
+
+### `ui-btn-checkbox` 属性
 
 
 | 成员 	| 默认值	| 描述	| 
@@ -25,7 +33,7 @@
 | ng-model		|  -		| 模型绑定对象	| 
 
 
-### ui-btn-radio 属性
+### `ui-btn-radio` 属性
 
 | 成员 	| 默认值	| 描述	| 
 | -------| ----| ---| 
@@ -42,6 +50,24 @@
 | activeClass		|  `active`		| 选中按钮样式	| 
 | toggleEvent	| `click` | 用于切换按钮的事件 | 
 
+## 代码演示
+
+### `ui-button`举例
+
+
+<ui-button type="primary" icon="download">下载</ui-button>
+<ui-button type="primary" icon="spinner" on-click="ctrl.click()" loading="ctrl.loading">点我旋转</ui-button>
+<ui-button type="primary" icon="github"></ui-button>
+<ui-button type="primary" icon="refresh" loading="true">刷新中</ui-button>
+<p>
+<ui-button type="primary"  size="large" >超大</ui-button>
+<ui-button type="primary"  >正常</ui-button>
+<ui-button type="primary"  size="small">较小</ui-button>
+<ui-button type="primary"  size="xsmall">特小</ui-button>
+</p>
+
+
+### `ui-btn-checkbox`和`ui-btn-radio`举例
 
 <div class="bs-example">
 <div>

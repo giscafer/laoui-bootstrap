@@ -1,6 +1,8 @@
 export default class ButtonCtrl {
-    constructor($scope) {
+    constructor($scope,uiNotification) {
+        "ngInject";
         this._$scope = $scope;
+        this._uiNotification = uiNotification;
         this.singleModel = 1;
         this.radioModel = 'Middle';
         this.checkModel = {
@@ -8,6 +10,7 @@ export default class ButtonCtrl {
             middle: true,
             right: false
         };
+        this.loading=false;
         this._$scope.$watchCollection('checkModel', () => {
             this.checkResults = [];
             angular.forEach(this.checkModel, (value, key) => {
@@ -16,5 +19,8 @@ export default class ButtonCtrl {
                 }
             });
         });
+    }
+    click(){
+        this.loading=!this.loading;
     }
 }

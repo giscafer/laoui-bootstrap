@@ -1,13 +1,57 @@
 <div class="markdown-body"><h1 id="button-">Button 按钮</h1>
-<p><ui-button type="primary" icon="download">下载</ui-button></p>
-<p><ui-button type="primary" icon="refresh" size="lg" loading="true">Github</ui-button></p>
 <p>按钮用于开始一个即时操作。</p>
 <h2 id="-">何时使用</h2>
 <p>标记了一个（或封装一组）操作命令，响应用户点击行为，触发相应的业务逻辑。</p>
 <h2 id="-">如何使用</h2>
-<p>可以使用<code>ui-btn-checkbox</code>属性来控制一组按钮行为类似 checkboxes，或使用 <code>ui-btn-radio</code>属性控制一组按钮行为类似域 radio buttons</p>
+<ul>
+<li><code>ui-button</code> 指令可以快速创建一个带图标的按钮</li>
+<li>可以使用<code>ui-btn-checkbox</code>属性来控制一组按钮行为类似 checkboxes，或使用 <code>ui-btn-radio</code>属性控制一组按钮行为类似域 radio buttons</li>
+</ul>
 <h2 id="-">属性</h2>
-<h3 id="ui-btn-checkbox-">ui-btn-checkbox 属性</h3>
+<h3 id="-ui-button-"><code>ui-button</code> 属性</h3>
+<table>
+<thead>
+<tr>
+<th>成员</th>
+<th>说明</th>
+<th>类型</th>
+<th>默认值</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>type</td>
+<td>按钮类型，可选<code>primary</code>、<code>info</code>、<code>error</code>、<code>default</code>、<code>ghost</code>、<code>dashed</code></td>
+<td>string</td>
+<td>-</td>
+</tr>
+<tr>
+<td>icon</td>
+<td>按钮图标类型</td>
+<td>string</td>
+<td>-</td>
+</tr>
+<tr>
+<td>size</td>
+<td>按钮大小，可选<code>large</code>、<code>small</code>、<code>xsmall</code>、默认是正常大小</td>
+<td>string</td>
+<td>-</td>
+</tr>
+<tr>
+<td>loading</td>
+<td>图标是否旋转，旋转过程按钮disabled状态，还有前提是icon图标是可以旋转</td>
+<td>string</td>
+<td>-</td>
+</tr>
+<tr>
+<td>className</td>
+<td>提供额外样式，类名</td>
+<td>string</td>
+<td>-</td>
+</tr>
+</tbody>
+</table>
+<h3 id="-ui-btn-checkbox-"><code>ui-btn-checkbox</code> 属性</h3>
 <table>
 <thead>
 <tr>
@@ -34,7 +78,7 @@
 </tr>
 </tbody>
 </table>
-<h3 id="ui-btn-radio-">ui-btn-radio 属性</h3>
+<h3 id="-ui-btn-radio-"><code>ui-btn-radio</code> 属性</h3>
 <table>
 <thead>
 <tr>
@@ -88,6 +132,21 @@
 </tr>
 </tbody>
 </table>
+<h2 id="-">代码演示</h2>
+<h3 id="-ui-button-"><code>ui-button</code>举例</h3>
+<p><ui-button type="primary" icon="download">下载</ui-button></p>
+<p><ui-button type="primary" icon="spinner" on-click="ctrl.click()" loading="ctrl.loading">点我旋转</ui-button></p>
+<p><ui-button type="primary" icon="github"></ui-button></p>
+<p><ui-button type="primary" icon="refresh" loading="true">刷新中</ui-button></p>
+<p>
+<ui-button type="primary" size="large">超大</ui-button>
+<ui-button type="primary">正常</ui-button>
+<ui-button type="primary" size="small">较小</ui-button>
+<ui-button type="primary" size="xsmall">特小</ui-button>
+</p>
+
+
+<h3 id="-ui-btn-checkbox-ui-btn-radio-"><code>ui-btn-checkbox</code>和<code>ui-btn-radio</code>举例</h3>
 <div class="bs-example">
 <div>
     <h4>Single toggle</h4>
