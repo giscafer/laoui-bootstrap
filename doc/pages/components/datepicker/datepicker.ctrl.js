@@ -1,5 +1,6 @@
 export default class datepickerPopupDemoCtrl {
     constructor($scope) {
+          "ngInject";
         // 禁止选择周末
         this.disabled = function (date) {
             var date = new Date(parseInt(date));

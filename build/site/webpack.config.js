@@ -11,12 +11,13 @@ export default {
     module: {
         loaders: [{
             test: /\.js$/,
-            exclude: [/node_modules/, path.resolve(__dirname, './doc/pages/unknown')],
+            exclude: [/node_modules/, path.resolve(__dirname, './doc/pages/test')],
             loader: 'ng-annotate!babel'
         }, {
             test: /\.html$/,
             exclude: /index.html/,
-            loader: 'ngtemplate?relativeTo=' + docPath + '/!html?attrs=false'
+            loader: 'ngtemplate!raw'
+            // loader: 'ngtemplate?relativeTo=' + docPath + '/!html?attrs=false'
         }, {
             test: /\.(png|jpg|gif)$/,
             loader: "url-loader?name=images/[name]_[hash:8].[ext]&limit=" + BASE64_LIMIT

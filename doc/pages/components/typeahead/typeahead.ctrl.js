@@ -1,5 +1,6 @@
 export default class TypeaheadCtrl{
 	constructor($scope, $http){
+		  "ngInject";
 		this._selected=null;
 		this._$scope=$scope;
 		this.selected = undefined;

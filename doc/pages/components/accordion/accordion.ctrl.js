@@ -1,5 +1,6 @@
 export default class AccordionCtrl {
     constructor($scope) {
+        "ngInject";
     	this._$scope=$scope;
        this.oneAtATime = true;
 

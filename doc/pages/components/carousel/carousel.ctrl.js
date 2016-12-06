@@ -5,6 +5,7 @@ require('../../../images/carousel4.jpg');
 require('../../../images/carousel5.jpg');
 export default class CarouselDemoCtrl {
     constructor($scope) {
+        "ngInject";
         this._$scope = $scope;
        
         this.myInterval = 5000;

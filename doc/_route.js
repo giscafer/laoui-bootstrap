@@ -40,12 +40,6 @@ export default $routeProvider => {
             controller: ctrls('./components/tabs/tabs.ctrl.js').default,
             controllerAs:'ctrl'
         })
-        .when('/components/tabs1', {
-            title: 'tabs Demo',
-            templateUrl: pageHtml['./components/tabs1/tabs.html'],
-            controller: ctrls('./components/tabs1/tabs.ctrl.js').default,
-            controllerAs:'ctrl'
-        })
         .when('/components/panel', {
             title: 'panel Demo',
             templateUrl: pageHtml['./components/panel/panel.html'],
