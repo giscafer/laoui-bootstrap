@@ -3,6 +3,7 @@
  */
 export default class HttpInteceptor {
     constructor($q) {
+        "ngInject";
         this.$q = $q;
     }
 

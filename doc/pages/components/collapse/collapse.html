@@ -1,0 +1,140 @@
+<div class="markdown-body"><h1 id="collapse-">Collapse 折叠面板</h1>
+<p><strong>ui-collapse</strong> 可以简单的 显示和隐藏 元素（内置css动画）</p>
+<h2 id="-">属性、方法</h2>
+<table>
+<thead>
+<tr>
+<th>成员</th>
+<th>说明</th>
+<th>类型</th>
+<th>默认值</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>collapsed()</td>
+<td>当元素折叠<code>后</code>触发的回调方法</td>
+<td>Function</td>
+<td>-</td>
+</tr>
+<tr>
+<td>collapsing()</td>
+<td>当元素折叠<code>前</code>触发的回调方法，如果表达式返回的是一个promise对象，则动画会在promise resolves后执行，如果返回的是rejected，则会取消折叠动作</td>
+<td>Function</td>
+<td>-</td>
+</tr>
+<tr>
+<td>expanded()</td>
+<td>当元素展开<code>后</code>触发的回调方法</td>
+<td>boolean</td>
+<td><code>false</code></td>
+</tr>
+<tr>
+<td>expanding()</td>
+<td>当元素展开<code>前</code>触发的回调方法，如果表达式返回的是一个promise对象，则动画会在promise resolves后执行，如果返回的是rejected，则会取消展开动作</td>
+<td>Function</td>
+<td>-</td>
+</tr>
+<tr>
+<td>ui-collapse</td>
+<td>控制元素是否折叠</td>
+<td>-</td>
+<td>false</td>
+</tr>
+<tr>
+<td>horizontal</td>
+<td>可选属性，控制是否水平</td>
+<td>string</td>
+<td>-</td>
+</tr>
+</tbody>
+</table>
+<h2 id="-">代码演示</h2>
+<div class="bs-example">
+<style>
+  .horizontal-collapse {
+    height: 70px;
+  }
+  .navbar-collapse.in {
+    overflow-y: hidden;
+  }
+</style>
+<div>
+<p>当window宽度像素小于 768 会展示mobile的菜单按钮</p>
+<nav class="navbar navbar-default" role="navigation">
+    <div class="navbar-header">
+        <button type="button" class="navbar-toggle" ng-click="ctrl.isNavCollapsed = !ctrl.isNavCollapsed">
+            <span class="sr-only">Toggle navigation</span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+        </button>
+        <a class="navbar-brand" href="javascript:void(0)">A menu</a>
+    </div>
+    <div class="collapse navbar-collapse" ui-collapse="ctrl.isNavCollapsed">
+        <ul class="nav navbar-nav">
+            <li><a href="javascript:void(0)">Link 1</a></li>
+            <li><a href="javascript:void(0)">Link 2</a></li>
+        </ul>
+    </div>
+</nav>
+<hr>
+<button type="button" class="btn btn-default" ng-click="ctrl.isCollapsed = !ctrl.isCollapsed">Toggle collapse Vertically</button>
+<hr>
+<div ui-collapse="ctrl.isCollapsed">
+    <div class="well well-lg">Some content</div>
+</div>
+
+<p><button type="button" class="btn btn-default" ng-click="ctrl.isCollapsedHorizontal = !ctrl.isCollapsedHorizontal">Toggle collapse Horizontally</button></p>
+<p><hr></p>
+<div class="horizontal-collapse" ui-collapse="ctrl.isCollapsedHorizontal" horizontal="">
+<div class="well well-lg">Some content</div>
+</div>
+</div>
+</div>
+<ui-clipboard clipboard-target="clipboard3"></ui-clipboard>
+<div class="highlight" id="clipboard3">
+  <pre><code style="width:100%;color:#fff">
+  <span class="hljs-tag">&lt;<span class="hljs-name">style</span>&gt;</span><span class="css">
+  <span class="hljs-selector-class">.horizontal-collapse</span> {
+    <span class="hljs-attribute">height</span>: <span class="hljs-number">70px</span>;
+  }
+  <span class="hljs-selector-class">.navbar-collapse</span><span class="hljs-selector-class">.in</span> {
+    <span class="hljs-attribute">overflow-y</span>: hidden;
+  }
+</span><span class="hljs-tag">&lt;/<span class="hljs-name">style</span>&gt;</span>
+<span class="hljs-tag">&lt;<span class="hljs-name">div</span>&gt;</span>
+<span class="hljs-tag">&lt;<span class="hljs-name">p</span>&gt;</span>当window宽度像素小于 768 会展示mobile的菜单按钮<span class="hljs-tag">&lt;/<span class="hljs-name">p</span>&gt;</span>
+<span class="hljs-tag">&lt;<span class="hljs-name">nav</span> <span class="hljs-attr">class</span>=<span class="hljs-string">&quot;navbar navbar-default&quot;</span> <span class="hljs-attr">role</span>=<span class="hljs-string">&quot;navigation&quot;</span>&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">&quot;navbar-header&quot;</span>&gt;</span>
+        <span class="hljs-tag">&lt;<span class="hljs-name">button</span> <span class="hljs-attr">type</span>=<span class="hljs-string">&quot;button&quot;</span> <span class="hljs-attr">class</span>=<span class="hljs-string">&quot;navbar-toggle&quot;</span> <span class="hljs-attr">ng-click</span>=<span class="hljs-string">&quot;ctrl.isNavCollapsed = !ctrl.isNavCollapsed&quot;</span>&gt;</span>
+            <span class="hljs-tag">&lt;<span class="hljs-name">span</span> <span class="hljs-attr">class</span>=<span class="hljs-string">&quot;sr-only&quot;</span>&gt;</span>Toggle navigation<span class="hljs-tag">&lt;/<span class="hljs-name">span</span>&gt;</span>
+            <span class="hljs-tag">&lt;<span class="hljs-name">span</span> <span class="hljs-attr">class</span>=<span class="hljs-string">&quot;icon-bar&quot;</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">span</span>&gt;</span>
+            <span class="hljs-tag">&lt;<span class="hljs-name">span</span> <span class="hljs-attr">class</span>=<span class="hljs-string">&quot;icon-bar&quot;</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">span</span>&gt;</span>
+            <span class="hljs-tag">&lt;<span class="hljs-name">span</span> <span class="hljs-attr">class</span>=<span class="hljs-string">&quot;icon-bar&quot;</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">span</span>&gt;</span>
+        <span class="hljs-tag">&lt;/<span class="hljs-name">button</span>&gt;</span>
+        <span class="hljs-tag">&lt;<span class="hljs-name">a</span> <span class="hljs-attr">class</span>=<span class="hljs-string">&quot;navbar-brand&quot;</span> <span class="hljs-attr">href</span>=<span class="hljs-string">&quot;javascript:void(0)&quot;</span>&gt;</span>A menu<span class="hljs-tag">&lt;/<span class="hljs-name">a</span>&gt;</span>
+    <span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">&quot;collapse navbar-collapse&quot;</span> <span class="hljs-attr">ui-collapse</span>=<span class="hljs-string">&quot;ctrl.isNavCollapsed&quot;</span>&gt;</span>
+        <span class="hljs-tag">&lt;<span class="hljs-name">ul</span> <span class="hljs-attr">class</span>=<span class="hljs-string">&quot;nav navbar-nav&quot;</span>&gt;</span>
+            <span class="hljs-tag">&lt;<span class="hljs-name">li</span>&gt;</span><span class="hljs-tag">&lt;<span class="hljs-name">a</span> <span class="hljs-attr">href</span>=<span class="hljs-string">&quot;javascript:void(0)&quot;</span>&gt;</span>Link 1<span class="hljs-tag">&lt;/<span class="hljs-name">a</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">li</span>&gt;</span>
+            <span class="hljs-tag">&lt;<span class="hljs-name">li</span>&gt;</span><span class="hljs-tag">&lt;<span class="hljs-name">a</span> <span class="hljs-attr">href</span>=<span class="hljs-string">&quot;javascript:void(0)&quot;</span>&gt;</span>Link 2<span class="hljs-tag">&lt;/<span class="hljs-name">a</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">li</span>&gt;</span>
+        <span class="hljs-tag">&lt;/<span class="hljs-name">ul</span>&gt;</span>
+    <span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
+<span class="hljs-tag">&lt;/<span class="hljs-name">nav</span>&gt;</span>
+<span class="hljs-tag">&lt;<span class="hljs-name">hr</span>&gt;</span>
+<span class="hljs-tag">&lt;<span class="hljs-name">button</span> <span class="hljs-attr">type</span>=<span class="hljs-string">&quot;button&quot;</span> <span class="hljs-attr">class</span>=<span class="hljs-string">&quot;btn btn-default&quot;</span> <span class="hljs-attr">ng-click</span>=<span class="hljs-string">&quot;ctrl.isCollapsed = !ctrl.isCollapsed&quot;</span>&gt;</span>Toggle collapse Vertically<span class="hljs-tag">&lt;/<span class="hljs-name">button</span>&gt;</span>
+<span class="hljs-tag">&lt;<span class="hljs-name">hr</span>&gt;</span>
+<span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">ui-collapse</span>=<span class="hljs-string">&quot;ctrl.isCollapsed&quot;</span>&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">&quot;well well-lg&quot;</span>&gt;</span>Some content<span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
+<span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
+
+<span class="hljs-tag">&lt;<span class="hljs-name">button</span> <span class="hljs-attr">type</span>=<span class="hljs-string">&quot;button&quot;</span> <span class="hljs-attr">class</span>=<span class="hljs-string">&quot;btn btn-default&quot;</span> <span class="hljs-attr">ng-click</span>=<span class="hljs-string">&quot;ctrl.isCollapsedHorizontal = !ctrl.isCollapsedHorizontal&quot;</span>&gt;</span>Toggle collapse Horizontally<span class="hljs-tag">&lt;/<span class="hljs-name">button</span>&gt;</span>
+<span class="hljs-tag">&lt;<span class="hljs-name">hr</span>&gt;</span>
+<span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">&quot;horizontal-collapse&quot;</span> <span class="hljs-attr">ui-collapse</span>=<span class="hljs-string">&quot;ctrl.isCollapsedHorizontal&quot;</span> <span class="hljs-attr">horizontal</span>=<span class="hljs-string">&quot;&quot;</span>&gt;</span>
+<span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">&quot;well well-lg&quot;</span>&gt;</span>Some content<span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
+<span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
+<span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
+  </code></pre>
+</div>
+</div>
