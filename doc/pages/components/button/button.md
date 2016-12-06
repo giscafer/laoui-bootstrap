@@ -1,5 +1,8 @@
 # Button 按钮
 
+<ui-button type="primary" icon="download">下载</ui-button>
+<ui-button type="primary" icon="refresh" size="lg" loading="true">Github</ui-button>
+
 按钮用于开始一个即时操作。
 
 ## 何时使用

@@ -1,6 +1,7 @@
 'use strict'
 //general
 import Icon from './icon';
+import Button from './button';
 import { Panel, PanelHeading, PanelTransclude } from './panel';
 //Layout
 import { Row, Col } from './grid';
@@ -19,6 +20,7 @@ const MODULE_NAME = "laoui.bootstrap.components";
 angular.module(MODULE_NAME, [TextAngular,Notification,Datepicker])
 	//general
 	.directive('uiIcon', Icon.factory)
+	.directive('uiButton', Button.factory)
     //Layout
     .directive('uiRow', Row.factory)
     .directive('uiCol', Col.factory)
