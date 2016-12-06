@@ -1,54 +1,92 @@
-<div class="markdown-body"><p>With the buttons directive, we can make a group of buttons behave like a set of checkboxes (<code>ui-btn-checkbox</code>) or behave like a set of radio buttons (<code>ui-btn-radio</code>).</p>
-<h3 id="ui-btn-checkbox-settings">ui-btn-checkbox settings</h3>
-<ul>
-<li><p><code>btn-checkbox-false</code>
-<em>(Default: <code>false</code>)</em> -
-Sets the value for the unchecked status.</p>
-</li>
-<li><p><code>btn-checkbox-true</code>
-<em>(Default: <code>true</code>)</em> -
-Sets the value for the checked status.</p>
-</li>
-<li><p><code>ng-model</code>
-<small class="badge">$</small>
-<i class="glyphicon glyphicon-eye-open"></i> -
-Model where we set the checkbox status. By default <code>true</code> or <code>false</code>.</p>
-</li>
-</ul>
-<h3 id="ui-btn-radio-settings">ui-btn-radio settings</h3>
-<ul>
-<li><p><code>ng-model</code>
-<small class="badge">$</small>
-<i class="glyphicon glyphicon-eye-open"></i> -
-Model where we set the radio status. All radio buttons in a group should use the same <code>ng-model</code>.</p>
-</li>
-<li><p><code>ui-btn-radio</code> -
-<small class="badge">$</small>
-Value to assign to the <code>ng-model</code> if we check this radio button.</p>
-</li>
-<li><p><code>ui-uncheckable</code>
-<small class="badge">$</small>
-<em>(Default: <code>null</code>)</em> -
-An expression that evaluates to a truthy or falsy value that determines whether the <code>uncheckable</code> attribute is present.</p>
-</li>
-<li><p><code>uncheckable</code>
-<small class="badge">B</small> -
-Whether a radio button can be unchecked or not.</p>
-</li>
-</ul>
-<h3 id="additional-settings-uibuttonconfig-">Additional settings <code>uiButtonConfig</code></h3>
-<ul>
-<li><p><code>activeClass</code>
-<em>(Default: <code>active</code>)</em> -
-Class to apply to the checked buttons.</p>
-</li>
-<li><p><code>toggleEvent</code>
-<em>(Default: <code>click</code>)</em> -
-Event used to toggle the buttons.</p>
-</li>
-</ul>
-<h3 id="known-issues">Known issues</h3>
-<p>To use tooltips or popovers on elements within a <code>btn-group</code>, set the tooltip/popover <code>appendToBody</code> option to <code>true</code>. This is due to Bootstrap CSS styling. See <a href="http://getbootstrap.com/components/#btn-groups">here</a> for more information.</p>
+<div class="markdown-body"><h1 id="button-">Button 按钮</h1>
+<p>按钮用于开始一个即时操作。</p>
+<h2 id="-">何时使用</h2>
+<p>标记了一个（或封装一组）操作命令，响应用户点击行为，触发相应的业务逻辑。</p>
+<h2 id="-">如何使用</h2>
+<p>可以使用<code>ui-btn-checkbox</code>属性来控制一组按钮行为类似 checkboxes，或使用 <code>ui-btn-radio</code>属性控制一组按钮行为类似域 radio buttons</p>
+<h2 id="-">属性</h2>
+<h3 id="ui-btn-checkbox-">ui-btn-checkbox 属性</h3>
+<table>
+<thead>
+<tr>
+<th>成员</th>
+<th>默认值</th>
+<th>描述</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>btn-checkbox-false</td>
+<td><code>false</code></td>
+<td>设置值为未选中（unchecked）状态</td>
+</tr>
+<tr>
+<td>btn-checkbox-true</td>
+<td><code>true</code></td>
+<td>设置值为选中（checked）状态</td>
+</tr>
+<tr>
+<td>ng-model</td>
+<td>-</td>
+<td>模型绑定对象</td>
+</tr>
+</tbody>
+</table>
+<h3 id="ui-btn-radio-">ui-btn-radio 属性</h3>
+<table>
+<thead>
+<tr>
+<th>成员</th>
+<th>默认值</th>
+<th>描述</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>ng-model</td>
+<td>-</td>
+<td>模型绑定对象</td>
+</tr>
+<tr>
+<td>ui-btn-radio</td>
+<td>-</td>
+<td>赋值给<code>ng-model</code>的值</td>
+</tr>
+<tr>
+<td>ui-uncheckable</td>
+<td><code>null</code></td>
+<td>根据给定的值来决定 <code>uncheckable</code> 属性是否存在</td>
+</tr>
+<tr>
+<td>uncheckable</td>
+<td>-</td>
+<td>radio按钮是否可以选中</td>
+</tr>
+</tbody>
+</table>
+<h3 id="-uibuttonconfig-">附加的属性设置 <code>uiButtonConfig</code></h3>
+<table>
+<thead>
+<tr>
+<th>成员</th>
+<th>默认值</th>
+<th>描述</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>activeClass</td>
+<td><code>active</code></td>
+<td>选中按钮样式</td>
+</tr>
+<tr>
+<td>toggleEvent</td>
+<td><code>click</code></td>
+<td>用于切换按钮的事件</td>
+</tr>
+</tbody>
+</table>
+<div class="bs-example">
 <div>
     <h4>Single toggle</h4>
     <pre><code style="width:100%;color:#fff">{{ctrl.singleModel}}</code></pre>
@@ -82,3 +120,41 @@ Event used to toggle the buttons.</p>
     </div>
 </div>
 </div>
+<ui-clipboard clipboard-target="clipboard1"></ui-clipboard>
+<div class="highlight" id="clipboard1">
+<pre><code style="width:100%;color:#fff"><span class="xml">
+<span class="hljs-tag">&lt;<span class="hljs-name">div</span>&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-name">h4</span>&gt;</span>Single toggle<span class="hljs-tag">&lt;/<span class="hljs-name">h4</span>&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-name">pre</span>&gt;</span></span><span class="hljs-template-variable">{{ctrl.singleModel}}</span><span class="xml"><span class="hljs-tag">&lt;/<span class="hljs-name">pre</span>&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-name">button</span> <span class="hljs-attr">type</span>=<span class="hljs-string">&quot;button&quot;</span> <span class="hljs-attr">class</span>=<span class="hljs-string">&quot;btn btn-primary&quot;</span> <span class="hljs-attr">ng-model</span>=<span class="hljs-string">&quot;ctrl.singleModel&quot;</span> <span class="hljs-attr">ui-btn-checkbox</span>=<span class="hljs-string">&quot;&quot;</span> <span class="hljs-attr">btn-checkbox-true</span>=<span class="hljs-string">&quot;1&quot;</span> <span class="hljs-attr">btn-checkbox-false</span>=<span class="hljs-string">&quot;0&quot;</span>&gt;</span>
+        Single Toggle
+    <span class="hljs-tag">&lt;/<span class="hljs-name">button</span>&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-name">h4</span>&gt;</span>Checkbox<span class="hljs-tag">&lt;/<span class="hljs-name">h4</span>&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-name">pre</span>&gt;</span>Model: </span><span class="hljs-template-variable">{{ctrl.checkModel}}</span><span class="xml"><span class="hljs-tag">&lt;/<span class="hljs-name">pre</span>&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-name">pre</span>&gt;</span>Results: </span><span class="hljs-template-variable">{{ctrl.checkResults}}</span><span class="xml"><span class="hljs-tag">&lt;/<span class="hljs-name">pre</span>&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">&quot;btn-group&quot;</span>&gt;</span>
+        <span class="hljs-tag">&lt;<span class="hljs-name">label</span> <span class="hljs-attr">class</span>=<span class="hljs-string">&quot;btn btn-primary&quot;</span> <span class="hljs-attr">ng-model</span>=<span class="hljs-string">&quot;ctrl.checkModel.left&quot;</span> <span class="hljs-attr">ui-btn-checkbox</span>=<span class="hljs-string">&quot;&quot;</span>&gt;</span>Left<span class="hljs-tag">&lt;/<span class="hljs-name">label</span>&gt;</span>
+        <span class="hljs-tag">&lt;<span class="hljs-name">label</span> <span class="hljs-attr">class</span>=<span class="hljs-string">&quot;btn btn-primary&quot;</span> <span class="hljs-attr">ng-model</span>=<span class="hljs-string">&quot;ctrl.checkModel.middle&quot;</span> <span class="hljs-attr">ui-btn-checkbox</span>=<span class="hljs-string">&quot;&quot;</span>&gt;</span>Middle<span class="hljs-tag">&lt;/<span class="hljs-name">label</span>&gt;</span>
+        <span class="hljs-tag">&lt;<span class="hljs-name">label</span> <span class="hljs-attr">class</span>=<span class="hljs-string">&quot;btn btn-primary&quot;</span> <span class="hljs-attr">ng-model</span>=<span class="hljs-string">&quot;ctrl.checkModel.right&quot;</span> <span class="hljs-attr">ui-btn-checkbox</span>=<span class="hljs-string">&quot;&quot;</span>&gt;</span>Right<span class="hljs-tag">&lt;/<span class="hljs-name">label</span>&gt;</span>
+    <span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-name">h4</span>&gt;</span>Radio &amp;amp; Uncheckable Radio<span class="hljs-tag">&lt;/<span class="hljs-name">h4</span>&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-name">pre</span>&gt;</span></span><span class="hljs-template-variable">{{ctrl.radioModel || &#39;null&#39;}}</span><span class="xml"><span class="hljs-tag">&lt;/<span class="hljs-name">pre</span>&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">&quot;btn-group&quot;</span>&gt;</span>
+        <span class="hljs-tag">&lt;<span class="hljs-name">label</span> <span class="hljs-attr">class</span>=<span class="hljs-string">&quot;btn btn-primary&quot;</span> <span class="hljs-attr">ng-model</span>=<span class="hljs-string">&quot;ctrl.radioModel&quot;</span> <span class="hljs-attr">ui-btn-radio</span>=<span class="hljs-string">&quot;&#39;Left&#39;&quot;</span>&gt;</span>Left<span class="hljs-tag">&lt;/<span class="hljs-name">label</span>&gt;</span>
+        <span class="hljs-tag">&lt;<span class="hljs-name">label</span> <span class="hljs-attr">class</span>=<span class="hljs-string">&quot;btn btn-primary&quot;</span> <span class="hljs-attr">ng-model</span>=<span class="hljs-string">&quot;ctrl.radioModel&quot;</span> <span class="hljs-attr">ui-btn-radio</span>=<span class="hljs-string">&quot;&#39;Middle&#39;&quot;</span>&gt;</span>Middle<span class="hljs-tag">&lt;/<span class="hljs-name">label</span>&gt;</span>
+        <span class="hljs-tag">&lt;<span class="hljs-name">label</span> <span class="hljs-attr">class</span>=<span class="hljs-string">&quot;btn btn-primary&quot;</span> <span class="hljs-attr">ng-model</span>=<span class="hljs-string">&quot;ctrl.radioModel&quot;</span> <span class="hljs-attr">ui-btn-radio</span>=<span class="hljs-string">&quot;&#39;Right&#39;&quot;</span>&gt;</span>Right<span class="hljs-tag">&lt;/<span class="hljs-name">label</span>&gt;</span>
+    <span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">&quot;btn-group&quot;</span>&gt;</span>
+        <span class="hljs-tag">&lt;<span class="hljs-name">label</span> <span class="hljs-attr">class</span>=<span class="hljs-string">&quot;btn btn-success&quot;</span> <span class="hljs-attr">ng-model</span>=<span class="hljs-string">&quot;ctrl.radioModel&quot;</span> <span class="hljs-attr">ui-btn-radio</span>=<span class="hljs-string">&quot;&#39;Left&#39;&quot;</span> <span class="hljs-attr">uncheckable</span>=<span class="hljs-string">&quot;&quot;</span>&gt;</span>Left<span class="hljs-tag">&lt;/<span class="hljs-name">label</span>&gt;</span>
+        <span class="hljs-tag">&lt;<span class="hljs-name">label</span> <span class="hljs-attr">class</span>=<span class="hljs-string">&quot;btn btn-success&quot;</span> <span class="hljs-attr">ng-model</span>=<span class="hljs-string">&quot;ctrl.radioModel&quot;</span> <span class="hljs-attr">ui-btn-radio</span>=<span class="hljs-string">&quot;&#39;Middle&#39;&quot;</span> <span class="hljs-attr">uncheckable</span>=<span class="hljs-string">&quot;&quot;</span>&gt;</span>Middle<span class="hljs-tag">&lt;/<span class="hljs-name">label</span>&gt;</span>
+        <span class="hljs-tag">&lt;<span class="hljs-name">label</span> <span class="hljs-attr">class</span>=<span class="hljs-string">&quot;btn btn-success&quot;</span> <span class="hljs-attr">ng-model</span>=<span class="hljs-string">&quot;ctrl.radioModel&quot;</span> <span class="hljs-attr">ui-btn-radio</span>=<span class="hljs-string">&quot;&#39;Right&#39;&quot;</span> <span class="hljs-attr">ui-uncheckable</span>=<span class="hljs-string">&quot;ctrl.uncheckable&quot;</span>&gt;</span>Right<span class="hljs-tag">&lt;/<span class="hljs-name">label</span>&gt;</span>
+    <span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-name">div</span>&gt;</span>
+        <span class="hljs-tag">&lt;<span class="hljs-name">button</span> <span class="hljs-attr">class</span>=<span class="hljs-string">&quot;btn btn-default&quot;</span> <span class="hljs-attr">ng-click</span>=<span class="hljs-string">&quot;ctrl.uncheckable = !ctrl.uncheckable&quot;</span>&gt;</span>
+            Toggle uncheckable
+        <span class="hljs-tag">&lt;/<span class="hljs-name">button</span>&gt;</span>
+    <span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
+<span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
+
+</span></code></pre>
+</div></div>

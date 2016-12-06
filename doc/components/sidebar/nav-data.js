@@ -53,7 +53,7 @@ var data = [{
         "icon": ""
     },{
         "link": "#/components/datepicker",
-        "name": "Datepicker - 日期",
+        "name": "Datepicker - 日期选择框",
         "icon": ""
     }]
 }, {
