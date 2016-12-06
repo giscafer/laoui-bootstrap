@@ -36,7 +36,7 @@ export default class NotificationDemoCtrl{
             uiNotification.success({ message: 'Success notification<br>Some other <b>content</b><br><a href="https://github.com/alexcrack/angular-ui-notification">This is a link</a><br><img src="https://angularjs.org/img/AngularJS-small.png">', title: 'Html content' });
         }
         $scope.TopLeft = function () {
-            uiNotification.success({ message: 'Success Top Left', positionX: 'left' });
+            uiNotification.success({ message: 'Success Top Left', positionX: 'left',positionY: 'top' });
         }
         $scope.BottomRight = function () {
             uiNotification.error({ message: 'Error Bottom Right', positionY: 'bottom', positionX: 'right' });
@@ -45,7 +45,7 @@ export default class NotificationDemoCtrl{
             uiNotification.warning({ message: 'warning Bottom Left', positionY: 'bottom', positionX: 'left' });
         }
         $scope.TopCenter = function () {
-            uiNotification.success({ message: 'Success Top Center', positionX: 'center' });
+            uiNotification.success({ message: 'Success Top Center', positionX: 'center',positionY: 'top' });
         }
         $scope.BottomCenter = function () {
             uiNotification.error({ message: 'Error Bottom Center', positionY: 'bottom', positionX: 'center' });
