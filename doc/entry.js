@@ -19,7 +19,7 @@ angular.module('laoui-bootstrap.doc', ['ngRoute',uirouter,'laoui-bootstrap',serv
         directionLinks: true,
         maxSize: 5
     })
-    .config(function(uiNotificationProvider) {
+    .config(['uiNotificationProvider', function(uiNotificationProvider){
         uiNotificationProvider.setOptions({
             delay: 10000,
             startTop: 20,
@@ -29,7 +29,7 @@ angular.module('laoui-bootstrap.doc', ['ngRoute',uirouter,'laoui-bootstrap',serv
             positionX: 'right',
             positionY: 'bottom'
         });
-    })
+    }])
     .config(route)
     .config(['$httpProvider', function($httpProvider){
         $httpProvider.interceptors.push('httpInterceptor');
