@@ -72,6 +72,10 @@ var data = [{
         "link": "#/components/carousel",
         "name": "Carousel - 走马灯",
         "icon": ""
+    },{
+        "link": "#/components/table",
+        "name": "Table - 表格",
+        "icon": ""
     }]
 }, {
     "link": "",

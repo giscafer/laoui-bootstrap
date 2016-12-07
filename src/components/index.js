@@ -11,13 +11,14 @@ import Datepicker from './datepicker';
 //Navigation
 import Navigation from './navigation';
 //Data Display
+import DataTable from './table/dataTable';
 //Feedback
 import Alert from './alert';
 import Notification from './notification';
 
 const MODULE_NAME = "laoui.bootstrap.components";
 
-angular.module(MODULE_NAME, [TextAngular,Notification,Datepicker])
+angular.module(MODULE_NAME, [TextAngular,Notification,Datepicker,DataTable])
 	//general
 	.directive('uiIcon', Icon.factory)
 	.directive('uiButton', Button.factory)

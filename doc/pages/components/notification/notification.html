@@ -503,7 +503,7 @@ export <span class="hljs-keyword">default</span> <span class="hljs-class"><span 
             uiNotification.success({ message: <span class="hljs-string">&#39;Success notification&lt;br&gt;Some other &lt;b&gt;content&lt;/b&gt;&lt;br&gt;&lt;a href=&quot;<a href="https://github.com/alexcrack/angular-ui-notification&quot;&gt;This">https://github.com/alexcrack/angular-ui-notification&quot;&gt;This</a> is a link&lt;/a&gt;&lt;br&gt;&lt;img src=&quot;<a href="https://angularjs.org/img/AngularJS-small.png&quot;&amp;gt">https://angularjs.org/img/AngularJS-small.png&quot;&amp;gt</a>;&#39;</span>, title: <span class="hljs-string">&#39;Html content&#39;</span> });
         }
         $scope.TopLeft = <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-params">()</span> </span>{
-            uiNotification.success({ message: <span class="hljs-string">&#39;Success Top Left&#39;</span>, positionX: <span class="hljs-string">&#39;left&#39;</span> });
+            uiNotification.success({ message: <span class="hljs-string">&#39;Success Top Left&#39;</span>, positionX: <span class="hljs-string">&#39;left&#39;</span>,positionY: <span class="hljs-string">&#39;top&#39;</span> });
         }
         $scope.BottomRight = <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-params">()</span> </span>{
             uiNotification.error({ message: <span class="hljs-string">&#39;Error Bottom Right&#39;</span>, positionY: <span class="hljs-string">&#39;bottom&#39;</span>, positionX: <span class="hljs-string">&#39;right&#39;</span> });
@@ -512,7 +512,7 @@ export <span class="hljs-keyword">default</span> <span class="hljs-class"><span 
             uiNotification.warning({ message: <span class="hljs-string">&#39;warning Bottom Left&#39;</span>, positionY: <span class="hljs-string">&#39;bottom&#39;</span>, positionX: <span class="hljs-string">&#39;left&#39;</span> });
         }
         $scope.TopCenter = <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-params">()</span> </span>{
-            uiNotification.success({ message: <span class="hljs-string">&#39;Success Top Center&#39;</span>, positionX: <span class="hljs-string">&#39;center&#39;</span> });
+            uiNotification.success({ message: <span class="hljs-string">&#39;Success Top Center&#39;</span>, positionX: <span class="hljs-string">&#39;center&#39;</span>,positionY: <span class="hljs-string">&#39;top&#39;</span>});
         }
         $scope.BottomCenter = <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-params">()</span> </span>{
             uiNotification.error({ message: <span class="hljs-string">&#39;Error Bottom Center&#39;</span>, positionY: <span class="hljs-string">&#39;bottom&#39;</span>, positionX: <span class="hljs-string">&#39;center&#39;</span> });

@@ -1,0 +1,1 @@
+<dtable options="optionz" rows="data" class="material" on-page="paging(offset, size)"></dtable>

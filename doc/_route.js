@@ -100,6 +100,12 @@ export default $routeProvider => {
             controller: ctrls('./components/notification/notification.ctrl.js').default,
             controllerAs:'ctrl'
         })
+         .when('/components/table', {
+            title: 'table Demo',
+            templateUrl: pageHtml['./components/table/table.html'],
+            controller: ctrls('./components/table/table.ctrl.js').default,
+            controllerAs:'ctrl'
+        })
         .otherwise({
             redirectTo: '/laoui/home'
         });

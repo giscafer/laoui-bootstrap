@@ -22,6 +22,7 @@ webpackConfig.module.loaders = webpackConfig.module.loaders.concat([
 webpackConfig.plugins = webpackConfig.plugins.concat([
 
     new CopyWebpackPlugin([
+        {from: 'doc/data', to: 'data'},
         {from: 'doc/laoui', to: 'laoui'},
         {from: 'doc/images', to: 'images'},
         {from: 'doc/lib', to: 'lib'},
