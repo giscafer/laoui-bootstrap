@@ -1,6 +1,8 @@
-export default class AlertCtrl {
-    constructor($scope, $location, $timeout) {
+import ClipboardCtrl from '../../common/clipboard.ctrl.js';
+export default class AlertCtrl extends ClipboardCtrl{
+    constructor($scope, $location, $timeout,uiNotification) {
         "ngInject";
+        super(uiNotification)
         this._$scope=$scope;
         this.text = "home.ctrl.js";
         this.message = "提示";
