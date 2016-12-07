@@ -45225,7 +45225,7 @@
 /***/ function(module, exports) {
 
 	var path = 'G:/GitHub/_private/laoui-bootstrap/src/bootstrap/tabs/template/tabset.html';
-	var html = "<div>\r\n  <ul class=\"ui-tab nav nav-{{tabset.type || 'tabs'}}\" ng-class=\"{'nav-stacked': vertical, 'nav-justified': justified}\" ng-transclude></ul>\r\n  <div class=\"tab-content\">\r\n    <div class=\"tab-pane\"\r\n         ng-repeat=\"tab in tabset.tabs\"\r\n         ng-class=\"{active: tabset.active === tab.index}\"\r\n         ui-tab-content-transclude=\"tab\" style=\"{{style}}\">\r\n    </div>\r\n  </div>\r\n</div>\r\n";
+	var html = "<div class=\"ui-tab-wrapper\">\r\n  <ul class=\"ui-tab nav nav-{{tabset.type || 'tabs'}}\" ng-class=\"{'nav-stacked': vertical,'ui-tab-vertical': vertical, 'nav-justified': justified}\" ng-transclude></ul>\r\n  <div class=\"tab-content\" ng-class=\"{'ui-tab-vertical': vertical}\">\r\n    <div class=\"tab-pane\"\r\n         ng-repeat=\"tab in tabset.tabs\"\r\n         ng-class=\"{active: tabset.active === tab.index}\"\r\n         ui-tab-content-transclude=\"tab\" style=\"{{style}}\">\r\n    </div>\r\n  </div>\r\n</div>\r\n";
 	window.angular.module('ng').run(['$templateCache', function(c) { c.put(path, html) }]);
 	module.exports = path;
 
