@@ -1,7 +1,7 @@
 // require('./datepicker-utils.service');
-require('./datepicker-popup.directive');
-require('./datepicker-range-popup.directive');
-require('./datepicker.directive');
+require('./DatepickerPopupDirective');
+require('./DatepickerRangePopupDirective');
+require('./DatepickerDirective');
 require('./moment-zh-cn');
 
 var MODULE_NAME = 'ui.module.datepicker';
