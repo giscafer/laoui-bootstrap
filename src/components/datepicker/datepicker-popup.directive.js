@@ -25,6 +25,7 @@ Module.constant('datePickerPopupConfig', {
             (attrs.firstDay ? 'first-day="' + attrs.firstDay + '" ' : '') +
             (attrs.timezone ? 'timezone="' + attrs.timezone + '" ' : '') +
             (attrs.autoClose ? 'auto-close="' + attrs.autoClose + '" ' : '') +
+            (attrs.format ? 'attrs.format="' + attrs.format + '" ' : '') +
             (attrs.disabledDate ? 'disabled-date="' + attrs.disabledDate + '" ' : '') +
             'class="date-picker-date-time" popup="true"></div>';
     },
@@ -167,7 +168,13 @@ Module.directive('uiDatepicker', ['$compile', '$document', '$filter', 'datePicke
             }
             scope.$on('updateDateMode', function(event, type, data) {
                 if(data['date']){
-                     $dateInput.attr('value',formatter(data['date']));
+                    let formatDate=formatter(data['date']);
+                     $dateInput.attr('value',formatDate);
+                     /*setTimeout(()=>{
+                        ngModel.$apply(()=>{
+                            ngModel.selectDate=formatDate;
+                        });
+                    });*/
                 }
             });
             if (pickerID) {

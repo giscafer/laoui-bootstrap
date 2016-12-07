@@ -9,6 +9,7 @@ var Module = angular.module(MODULE_NAME,[]);
 Module.constant('uiDatePickerConstant', {
     template: require('./template/datepicker.html'),
     view: 'month',
+    format: 'yyyy-MM-dd',
     autoClose: true,
     step: 5,
     firstDay: 0, //Sunday is the first day by default.
@@ -49,7 +50,7 @@ Module.filter('mFormat', function() {
 });
 
 
-Module.directive('datePicker', ['uiDatePickerConstant', function datePickerDirective(uiDatePickerConstant) {
+Module.directive('datePicker', ['uiDatePickerConstant', '$filter', function datePickerDirective(uiDatePickerConstant,$filter) {
 
     //noinspection JSUnusedLocalSymbols
     return {
@@ -60,7 +61,7 @@ Module.directive('datePicker', ['uiDatePickerConstant', function datePickerDirec
         scope: {
             model: '=datePicker',
             after: '=?',
-            before: '=?',
+            selectDate: '=',
             popup: '=',
             disabledDate: '&'
         },
@@ -84,6 +85,7 @@ Module.directive('datePicker', ['uiDatePickerConstant', function datePickerDirec
             }
 
             var arrowClick = false,
+                format = attrs.format || uiDatePickerConstant.format,
                 tz = scope.tz = attrs.timezone,
                 createMoment = datePickerUtils.createMoment,
                 eventIsForPicker = datePickerUtils.eventIsForPicker,
@@ -257,11 +259,21 @@ Module.directive('datePicker', ['uiDatePickerConstant', function datePickerDirec
                     ngModel.$setViewValue(timestamp);
                 }
             }
+            function formatter(value) {
+                return $filter('date')(value, format, tz);
+            }
             //更新时间
             function updateDateMode(value,type){
+                let formatDate =formatter(value);
                 scope.$emit('updateDateMode',type, {
-                    date: value
+                    date: value,
+                    formatDate:formatDate
                 });
+                /*setTimeout(()=>{
+                    scope.$apply(()=>{
+                        scope.selectDate=formatDate;
+                    })
+                })*/
             }
             function update() {
                 var view = scope.view;

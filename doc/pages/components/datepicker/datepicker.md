@@ -36,7 +36,7 @@
 ### 日期选择器 5 中类型
 
 <div class="bs-example">
-    <p>选择日期: <em>{{ctrl.date}}</em></p>
+    <p>选择日期: <em>ng-model:{{ctrl.date}}</em></p>
 <div class="row">
     <div class="col-md-4">
         <ui-datepicker ng-model="ctrl.date" view="date" format="yyyy-MM-dd" />
