@@ -2602,6 +2602,7 @@
 }
 .ui-tab-wrapper div.ui-tab-vertical {
   margin-left: 180px;
+  margin-right: 10px;
   min-height: 90px;
 }
 .ta-hidden-input {
