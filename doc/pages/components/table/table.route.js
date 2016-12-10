@@ -78,6 +78,41 @@ export default ($stateProvider, $urlRouterProvider) => {
             controller: ctrls('./demos/filters.ctrl.js').default,
             controllerAs: 'ctrl'
         })
+        .state('table.tabs', {
+            title: 'Table tabs Demo',
+            url: '/tabs',
+            templateUrl: pageHtml['./demos/tabs.html'],
+            controller: ctrls('./demos/tabs.ctrl.js').default,
+            controllerAs: 'ctrl'
+        })
+        .state('table.inline-editing', {
+            title: 'Table inline-editing Demo',
+            url: '/inline-editing',
+            templateUrl: pageHtml['./demos/inline-editing.html'],
+            controller: ctrls('./demos/inline-editing.ctrl.js').default,
+            controllerAs: 'ctrl'
+        })
+        .state('table.updating', {
+            title: 'Table updating Demo',
+            url: '/updating',
+            templateUrl: pageHtml['./demos/updating.html'],
+            controller: ctrls('./demos/updating.ctrl.js').default,
+            controllerAs: 'ctrl'
+        })
+        .state('table.empty', {
+            title: 'Table empty Demo',
+            url: '/empty',
+            templateUrl: pageHtml['./demos/empty.html'],
+            controller: ctrls('./demos/empty.ctrl.js').default,
+            controllerAs: 'ctrl'
+        })
+        .state('table.slow', {
+            title: 'Table slow Demo',
+            url: '/slow',
+            templateUrl: pageHtml['./demos/slow.html'],
+            controller: ctrls('./demos/slow.ctrl.js').default,
+            controllerAs: 'ctrl'
+        })
         
 
 };
