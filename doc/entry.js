@@ -3,13 +3,14 @@
  */
 import './styles/index.less';
 import angular from 'angular';
-import ngRoute from 'angular-route';
+// import ngRoute from 'angular-route';
 import uirouter from 'angular-ui-router';
 import route from './_route.js';
+import tableRoute from './pages/components/table/table.route.js';
 import services from './services/index.js';
 import components from './components';
 
-angular.module('laoui-bootstrap.doc', ['ngRoute',uirouter,'laoui-bootstrap',services,components])
+angular.module('laoui-bootstrap.doc', ['ui.router','laoui-bootstrap',services,components])
     .constant('uibPaginationConfig', {
         firstText: '<<',
         previousText: '<',
@@ -31,6 +32,7 @@ angular.module('laoui-bootstrap.doc', ['ngRoute',uirouter,'laoui-bootstrap',serv
         });
     }])
     .config(route)
+    .config(tableRoute)
     .config(['$httpProvider', function($httpProvider){
         $httpProvider.interceptors.push('httpInterceptor');
     }])

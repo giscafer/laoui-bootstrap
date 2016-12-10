@@ -1,0 +1,10 @@
+<dtable options="tableOptions" rows="data" class="material">
+  <column name="Name" flex-grow="1" sort="asc">
+    {{$cell}}
+  </column>
+
+  <column name="Actions" flex-grow="1">
+    <a ng-click="destroyApp($row)">DELETE</a> |
+    <a ng-click="display($row);">LOG</a>
+  </column>
+</dtable>

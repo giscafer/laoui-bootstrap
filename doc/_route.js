@@ -8,105 +8,122 @@ templs.keys().forEach(key => {
     pageHtml[key] = templs(key);
 });
 
-export default $routeProvider => {
+export default ($stateProvider, $urlRouterProvider) => {
     "ngInject";
-    $routeProvider
-        .when('/laoui/home', {
+    $urlRouterProvider
+        .otherwise(($injector, $location) => {
+            $location.path('/laoui/home');
+        });
+    $stateProvider
+        .state('home', {
             title: 'LaoUI Demo',
+            url: '/laoui/home',
             templateUrl: pageHtml['./home/home.html'],
             controller: ctrls('./home/home.ctrl.js').default,
             controllerAs: 'home'
         })
-        .when('/components/grid', {
+        .state('grid', {
             title: 'grid Demo',
+            url: '/components/grid',
             templateUrl: pageHtml['./components/grid/grid.html'],
             controller: ctrls('./components/grid/grid.ctrl.js').default
         })
-        .when('/components/icon', {
+        .state('icon', {
             title: 'icon Demo',
+            url: '/components/icon',
             templateUrl: pageHtml['./components/icon/icon.html'],
             controller: ctrls('./components/icon/icon.ctrl.js').default,
-            controllerAs:'ctrl'
+            controllerAs: 'ctrl'
         })
-        .when('/components/alert', {
+        .state('alert', {
             title: 'alert Demo',
+            url: '/components/alert',
             templateUrl: pageHtml['./components/alert/alert.html'],
             controller: ctrls('./components/alert/alert.ctrl.js').default,
-            controllerAs:'ctrl'
+            controllerAs: 'ctrl'
         })
-        .when('/components/tabs', {
+        .state('tabs', {
             title: 'tabs Demo',
+            url: '/components/tabs',
             templateUrl: pageHtml['./components/tabs/tabs.html'],
             controller: ctrls('./components/tabs/tabs.ctrl.js').default,
-            controllerAs:'ctrl'
+            controllerAs: 'ctrl'
         })
-        .when('/components/panel', {
+        .state('panel', {
             title: 'panel Demo',
+            url: '/components/panel',
             templateUrl: pageHtml['./components/panel/panel.html'],
             controller: ctrls('./components/panel/panel.ctrl.js').default,
-            controllerAs:'ctrl'
+            controllerAs: 'ctrl'
         })
-        .when('/components/navigation', {
+        .state('navigation', {
             title: 'navigation Demo',
+            url: '/components/navigation',
             templateUrl: pageHtml['./components/navigation/navigation.html'],
             controller: ctrls('./components/navigation/navigation.ctrl.js').default,
-            controllerAs:'ctrl'
+            controllerAs: 'ctrl'
         })
-        .when('/components/edit', {
+        .state('edit', {
             title: 'Edit Demo',
+            url: '/components/edit',
             templateUrl: pageHtml['./components/edit/edit.html'],
             controller: ctrls('./components/edit/edit.ctrl.js').default,
-            controllerAs:'ctrl'
+            controllerAs: 'ctrl'
         })
-        .when('/components/typeahead', {
+        .state('typeahead', {
             title: 'typeahead Demo',
+            url: '/components/typeahead',
             templateUrl: pageHtml['./components/typeahead/typeahead.html'],
             controller: ctrls('./components/typeahead/typeahead.ctrl.js').default,
-            controllerAs:'ctrl'
+            controllerAs: 'ctrl'
         })
-        .when('/components/accordion', {
+        .state('accordion', {
             title: 'accordion Demo',
+            url: '/components/accordion',
             templateUrl: pageHtml['./components/accordion/accordion.html'],
             controller: ctrls('./components/accordion/accordion.ctrl.js').default,
-            controllerAs:'ctrl'
+            controllerAs: 'ctrl'
         })
-        .when('/components/button', {
+        .state('button', {
             title: 'button Demo',
+            url: '/components/button',
             templateUrl: pageHtml['./components/button/button.html'],
             controller: ctrls('./components/button/button.ctrl.js').default,
-            controllerAs:'ctrl'
+            controllerAs: 'ctrl'
         })
-        .when('/components/carousel', {
+        .state('carousel', {
             title: 'carousel Demo',
+            url: '/components/carousel',
             templateUrl: pageHtml['./components/carousel/carousel.html'],
             controller: ctrls('./components/carousel/carousel.ctrl.js').default,
-            controllerAs:'ctrl'
+            controllerAs: 'ctrl'
         })
-         .when('/components/collapse', {
+        .state('collapse', {
             title: 'collapse Demo',
+            url: '/components/collapse',
             templateUrl: pageHtml['./components/collapse/collapse.html'],
             controller: ctrls('./components/collapse/collapse.ctrl.js').default,
-            controllerAs:'ctrl'
+            controllerAs: 'ctrl'
         })
-         .when('/components/datepicker', {
+        .state('datepicker', {
             title: '日期选择器',
+            url: '/components/datepicker',
             templateUrl: pageHtml['./components/datepicker/datepicker.html'],
             controller: ctrls('./components/datepicker/datepicker.ctrl.js').default,
-            controllerAs:'ctrl'
+            controllerAs: 'ctrl'
         })
-         .when('/components/notification', {
+        .state('notification', {
             title: 'notification Demo',
+            url: '/components/notification',
             templateUrl: pageHtml['./components/notification/notification.html'],
             controller: ctrls('./components/notification/notification.ctrl.js').default,
-            controllerAs:'ctrl'
+            controllerAs: 'ctrl'
         })
-         .when('/components/table', {
-            title: 'table Demo',
-            templateUrl: pageHtml['./components/table/table.html'],
-            controller: ctrls('./components/table/table.ctrl.js').default,
-            controllerAs:'ctrl'
-        })
-        .otherwise({
-            redirectTo: '/laoui/home'
-        });
+        // .state('table', {
+        //     url: '/components/table',
+        //     templateUrl: pageHtml['./components/table/table.html'],
+        //     controller: ctrls('./components/table/table.ctrl.js').default,
+        //     controllerAs: 'ctrl'
+        // })
+
 };
