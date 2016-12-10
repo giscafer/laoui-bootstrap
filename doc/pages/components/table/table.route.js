@@ -10,10 +10,7 @@ templs.keys().forEach(key => {
 
 export default ($stateProvider, $urlRouterProvider) => {
     "ngInject";
-    $urlRouterProvider
-        .otherwise(($injector, $location) => {
-            $location.path('/components/table');
-        });
+
     $stateProvider
         .state('table', {
             url: '/components/table',
@@ -21,7 +18,7 @@ export default ($stateProvider, $urlRouterProvider) => {
             controller: ctrls('./table.ctrl.js').default,
             controllerAs: 'ctrl'
         })
-       
+
         .state('table.action-links', {
             title: 'Table action-links Demo',
             url: '/action-links',
@@ -169,6 +166,61 @@ export default ($stateProvider, $urlRouterProvider) => {
             controller: ctrls('./demos/force.ctrl.js').default,
             controllerAs: 'ctrl'
         })
-        
+        .state('table.pins', {
+            title: 'Table pins Demo',
+            url: '/pins',
+            templateUrl: pageHtml['./demos/pins.html'],
+            controller: ctrls('./demos/pins.ctrl.js').default,
+            controllerAs: 'ctrl'
+        })
+        .state('table.tree', {
+            title: 'Table tree Demo',
+            url: '/tree',
+            templateUrl: pageHtml['./demos/tree.html'],
+            controller: ctrls('./demos/tree.ctrl.js').default,
+            controllerAs: 'ctrl'
+        })
+        .state('table.grouping', {
+            title: 'Table grouping Demo',
+            url: '/grouping',
+            templateUrl: pageHtml['./demos/grouping.html'],
+            controller: ctrls('./demos/grouping.ctrl.js').default,
+            controllerAs: 'ctrl'
+        })
+        .state('table.virtual', {
+            title: 'Table virtual Demo',
+            url: '/virtual',
+            templateUrl: pageHtml['./demos/virtual.html'],
+            controller: ctrls('./demos/virtual.ctrl.js').default,
+            controllerAs: 'ctrl'
+        })
+        .state('table.perf', {
+            title: 'Table perf Demo',
+            url: '/perf',
+            templateUrl: pageHtml['./demos/perf.html'],
+            controller: ctrls('./demos/perf.ctrl.js').default,
+            controllerAs: 'ctrl'
+        })
+        .state('table.perf-horzscroll', {
+            title: 'Table perf-horzscroll Demo',
+            url: '/perf-horzscroll',
+            templateUrl: pageHtml['./demos/perf-horzscroll.html'],
+            controller: ctrls('./demos/perf-horzscroll.ctrl.js').default,
+            controllerAs: 'ctrl'
+        })
+        .state('table.tooltip', {
+            title: 'Table tooltip Demo',
+            url: '/tooltip',
+            templateUrl: pageHtml['./demos/tooltip.html'],
+            controller: ctrls('./demos/tooltip.ctrl.js').default,
+            controllerAs: 'ctrl'
+        })
+        .state('table.columnadd', {
+            title: 'Table columnadd Demo',
+            url: '/columnadd',
+            templateUrl: pageHtml['./demos/columnadd.html'],
+            controller: ctrls('./demos/columnadd.ctrl.js').default,
+            controllerAs: 'ctrl'
+        })
 
 };
