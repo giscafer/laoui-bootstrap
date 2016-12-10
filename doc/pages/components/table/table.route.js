@@ -113,6 +113,62 @@ export default ($stateProvider, $urlRouterProvider) => {
             controller: ctrls('./demos/slow.ctrl.js').default,
             controllerAs: 'ctrl'
         })
+        .state('table.expressive', {
+            title: 'Table expressive Demo',
+            url: '/expressive',
+            templateUrl: pageHtml['./demos/expressive.html'],
+            controller: ctrls('./demos/expressive.ctrl.js').default,
+            controllerAs: 'ctrl'
+        })
+        .state('table.templates', {
+            title: 'Table templates Demo',
+            url: '/templates',
+            templateUrl: pageHtml['./demos/templates.html'],
+            controller: ctrls('./demos/templates.ctrl.js').default,
+            controllerAs: 'ctrl'
+        })
+        .state('table.cell-templates', {
+            title: 'Table cell-templates Demo',
+            url: '/cell-templates',
+            templateUrl: pageHtml['./demos/cell-templates.html'],
+            controller: ctrls('./demos/cell-templates.ctrl.js').default,
+            controllerAs: 'ctrl'
+        })
+        .state('table.single-select', {
+            title: 'Table single-select Demo',
+            url: '/single-select',
+            templateUrl: pageHtml['./demos/single-select.html'],
+            controller: ctrls('./demos/single-select.ctrl.js').default,
+            controllerAs: 'ctrl'
+        })
+        .state('table.multi-select', {
+            title: 'Table multi-select Demo',
+            url: '/multi-select',
+            templateUrl: pageHtml['./demos/multi-select.html'],
+            controller: ctrls('./demos/multi-select.ctrl.js').default,
+            controllerAs: 'ctrl'
+        })
+        .state('table.checkboxes', {
+            title: 'Table checkboxes Demo',
+            url: '/checkboxes',
+            templateUrl: pageHtml['./demos/checkboxes.html'],
+            controller: ctrls('./demos/checkboxes.ctrl.js').default,
+            controllerAs: 'ctrl'
+        })
+        .state('table.greed', {
+            title: 'Table greed Demo',
+            url: '/greed',
+            templateUrl: pageHtml['./demos/greed.html'],
+            controller: ctrls('./demos/greed.ctrl.js').default,
+            controllerAs: 'ctrl'
+        })
+        .state('table.force', {
+            title: 'Table force Demo',
+            url: '/force',
+            templateUrl: pageHtml['./demos/force.html'],
+            controller: ctrls('./demos/force.ctrl.js').default,
+            controllerAs: 'ctrl'
+        })
         
 
 };
