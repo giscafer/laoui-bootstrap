@@ -7,4 +7,4 @@ export default angular
   .module('popover', [])
   .service('PopoverRegistry', PopoverRegistry)
   .factory('PositionHelper', PositionHelper)
-  .directive('popover', PopoverDirective);
+  .directive('popover', PopoverDirective).name;

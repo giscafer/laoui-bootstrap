@@ -15,9 +15,12 @@ import { GroupRowDirective } from './components/body/GroupRowDirective';
 import { CellDirective } from './components/body/CellDirective';
 import { FooterDirective } from './components/footer/FooterDirective';
 import { PagerDirective } from './components/footer/PagerDirective';
+//菜单
+import popover from './components/popover/popover.js';
+import menu from './components/menu/menu.js';
 let MODULE_NAME='data-table';
 export default angular
-  .module(MODULE_NAME, [])
+  .module(MODULE_NAME, [menu,popover])
   .directive('dtable', DataTableDirective)
   .directive('resizable', ResizableDirective)
   .directive('sortable', SortableDirective)

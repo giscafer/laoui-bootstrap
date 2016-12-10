@@ -46634,11 +46634,11 @@
 
 	var _dataTable2 = _interopRequireDefault(_dataTable);
 
-	var _alert = __webpack_require__(373);
+	var _alert = __webpack_require__(385);
 
 	var _alert2 = _interopRequireDefault(_alert);
 
-	var _notification = __webpack_require__(376);
+	var _notification = __webpack_require__(388);
 
 	var _notification2 = _interopRequireDefault(_notification);
 
@@ -72788,10 +72788,19 @@
 
 	var _PagerDirective = __webpack_require__(371);
 
+	var _popover = __webpack_require__(373);
+
+	var _popover2 = _interopRequireDefault(_popover);
+
+	var _menu = __webpack_require__(377);
+
+	var _menu2 = _interopRequireDefault(_menu);
+
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
+	//菜单
 	var MODULE_NAME = 'data-table';
-	exports.default = _angular2.default.module(MODULE_NAME, []).directive('dtable', _DataTableDirective.DataTableDirective).directive('resizable', _ResizableDirective.ResizableDirective).directive('sortable', _SortableDirective.SortableDirective).directive('dtHeader', _HeaderDirective.HeaderDirective).directive('dtHeaderCell', _HeaderCellDirective.HeaderCellDirective).directive('dtBody', _BodyDirective.BodyDirective).directive('dtScroller', _ScrollerDirective.ScrollerDirective).directive('dtSeletion', _SelectionDirective.SelectionDirective).directive('dtRow', _RowDirective.RowDirective).directive('dtGroupRow', _GroupRowDirective.GroupRowDirective).directive('dtCell', _CellDirective.CellDirective).directive('dtFooter', _FooterDirective.FooterDirective).directive('dtPager', _PagerDirective.PagerDirective).name;
+	exports.default = _angular2.default.module(MODULE_NAME, [_menu2.default, _popover2.default]).directive('dtable', _DataTableDirective.DataTableDirective).directive('resizable', _ResizableDirective.ResizableDirective).directive('sortable', _SortableDirective.SortableDirective).directive('dtHeader', _HeaderDirective.HeaderDirective).directive('dtHeaderCell', _HeaderCellDirective.HeaderCellDirective).directive('dtBody', _BodyDirective.BodyDirective).directive('dtScroller', _ScrollerDirective.ScrollerDirective).directive('dtSeletion', _SelectionDirective.SelectionDirective).directive('dtRow', _RowDirective.RowDirective).directive('dtGroupRow', _GroupRowDirective.GroupRowDirective).directive('dtCell', _CellDirective.CellDirective).directive('dtFooter', _FooterDirective.FooterDirective).directive('dtPager', _PagerDirective.PagerDirective).name;
 
 /***/ },
 /* 313 */
@@ -77260,6 +77269,659 @@
 	'use strict';
 
 	Object.defineProperty(exports, "__esModule", {
+	  value: true
+	});
+
+	var _angular = __webpack_require__(3);
+
+	var _angular2 = _interopRequireDefault(_angular);
+
+	var _PopoverDirective = __webpack_require__(374);
+
+	var _PopoverRegistry = __webpack_require__(375);
+
+	var _PositionHelper = __webpack_require__(376);
+
+	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+	exports.default = _angular2.default.module('popover', []).service('PopoverRegistry', _PopoverRegistry.PopoverRegistry).factory('PositionHelper', _PositionHelper.PositionHelper).directive('popover', _PopoverDirective.PopoverDirective).name;
+
+/***/ },
+/* 374 */
+/***/ function(module, exports, __webpack_require__) {
+
+	'use strict';
+
+	PopoverDirective.$inject = ["$q", "$timeout", "$templateCache", "$compile", "PopoverRegistry", "PositionHelper", "$animate"];
+	Object.defineProperty(exports, "__esModule", {
+	  value: true
+	});
+	exports.PopoverDirective = PopoverDirective;
+
+	var _angular = __webpack_require__(3);
+
+	var _angular2 = _interopRequireDefault(_angular);
+
+	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+	/**
+	 * Popover Directive
+	 * @param {object} $q              
+	 * @param {function} $timeout        
+	 * @param {function} $templateCache  
+	 * @param {function} $compile        
+	 * @param {function} PopoverRegistry 
+	 * @param {function} $animate        
+	 */
+	function PopoverDirective($q, $timeout, $templateCache, $compile, PopoverRegistry, PositionHelper, $animate) {
+	  "ngInject";
+	  /**
+	   * Loads a template from the template cache
+	   * @param  {string} template 
+	   * @param  {boolean} plain    
+	   * @return {object}  html template
+	   */
+
+	  function loadTemplate(template, plain) {
+	    if (!template) {
+	      return '';
+	    }
+
+	    if (_angular2.default.isString(template) && plain) {
+	      return template;
+	    }
+
+	    return $templateCache.get(template) || $http.get(template, { cache: true });
+	  }
+
+	  /**
+	   * Determines a boolean given a value
+	   * @param  {object} value 
+	   * @return {boolean}       
+	   */
+	  function toBoolean(value) {
+	    if (value && value.length !== 0) {
+	      var v = ("" + value).toLowerCase();
+	      value = v == 'true';
+	    } else {
+	      value = false;
+	    }
+	    return value;
+	  }
+
+	  return {
+	    restrict: 'A',
+	    scope: true,
+	    replace: false,
+	    link: function link($scope, $element, $attributes) {
+	      $scope.popover = null;
+	      $scope.popoverId = Date.now();
+
+	      $scope.options = {
+	        text: $attributes.popoverText,
+	        template: $attributes.popoverTemplate,
+	        plain: toBoolean($attributes.popoverPlain || false),
+	        placement: $attributes.popoverPlacement || 'right',
+	        alignment: $attributes.popoverAlignment || 'center',
+	        group: $attributes.popoverGroup,
+	        spacing: parseInt($attributes.popoverSpacing) || 0,
+	        showCaret: toBoolean($attributes.popoverPlain || false)
+	      };
+
+	      // attach exit and enter events to element
+	      $element.off('mouseenter', display);
+	      $element.on('mouseenter', display);
+	      $element.off('mouseleave', mouseOut);
+	      $element.on('mouseleave', mouseOut);
+
+	      function mouseOut() {
+	        $scope.exitTimeout = $timeout(remove, 500);
+	      };
+
+	      /**
+	       * Displays the popover on the page
+	       */
+	      function display() {
+	        // Cancel exit timeout
+	        $timeout.cancel($scope.exitTimeout);
+
+	        var elm = document.getElementById('#' + $scope.popoverId);
+	        if ($scope.popover && elm) return;
+
+	        // remove other popovers from the same group
+	        if ($scope.options.group) {
+	          PopoverRegistry.removeGroup($scope.options.group, $scope.popoverId);
+	        }
+
+	        if ($scope.options.text && !$scope.options.template) {
+	          $scope.popover = _angular2.default.element('<div class="popover popover-text \n            popover' + $scope.options.placement + '" id="' + $scope.popoverId + '"></div>');
+
+	          $scope.popover.html($scope.options.text);
+	          _angular2.default.element(document.body).append($scope.popover);
+	          positionPopover($element, $scope.popover, $scope.options);
+	          PopoverRegistry.add($scope.popoverId, { element: $element, popover: $scope.popover, group: $scope.options.group });
+	        } else {
+	          $q.when(loadTemplate($scope.options.template, $scope.options.plain)).then(function (template) {
+	            if (!_angular2.default.isString(template)) {
+	              if (template.data && _angular2.default.isString(template.data)) {
+	                template = template.data;
+	              } else {
+	                template = '';
+	              }
+	            }
+
+	            $scope.popover = _angular2.default.element('<div class="popover \n              popover-' + $scope.options.placement + '" id="' + $scope.popoverId + '"></div>');
+
+	            $scope.popover.html(template);
+	            $compile($scope.popover)($scope);
+	            _angular2.default.element(document.body).append($scope.popover);
+	            positionPopover($element, $scope.popover, $scope.options);
+
+	            // attach exit and enter events to popover
+	            $scope.popover.off('mouseleave', mouseOut);
+	            $scope.popover.on('mouseleave', mouseOut);
+	            $scope.popover.on('mouseenter', function () {
+	              $timeout.cancel($scope.exitTimeout);
+	            });
+
+	            PopoverRegistry.add($scope.popoverId, {
+	              element: $element,
+	              popover: $scope.popover,
+	              group: $scope.options.group
+	            });
+	          });
+	        }
+	      };
+
+	      /**
+	       * Removes the template from the registry and page
+	       */
+	      function remove() {
+	        if ($scope.popover) {
+	          $scope.popover.remove();
+	        }
+
+	        $scope.popover = undefined;
+	        PopoverRegistry.remove($scope.popoverId);
+	      };
+
+	      /**
+	       * Positions the popover
+	       * @param  {object} triggerElement 
+	       * @param  {object} popover        
+	       * @param  {object} options        
+	       */
+	      function positionPopover(triggerElement, popover, options) {
+	        $timeout(function () {
+	          var elDimensions = triggerElement[0].getBoundingClientRect(),
+	              popoverDimensions = popover[0].getBoundingClientRect(),
+	              top,
+	              left;
+
+	          if (options.placement === 'right') {
+	            left = elDimensions.left + elDimensions.width + options.spacing;
+	            top = PositionHelper.calculateVerticalAlignment(elDimensions, popoverDimensions, options.alignment);
+	          }
+	          if (options.placement === 'left') {
+	            left = elDimensions.left - popoverDimensions.width - options.spacing;
+	            top = PositionHelper.calculateVerticalAlignment(elDimensions, popoverDimensions, options.alignment);
+	          }
+	          if (options.placement === 'top') {
+	            top = elDimensions.top - popoverDimensions.height - options.spacing;
+	            left = PositionHelper.calculateHorizontalAlignment(elDimensions, popoverDimensions, options.alignment);
+	          }
+	          if (options.placement === 'bottom') {
+	            top = elDimensions.top + elDimensions.height + options.spacing;
+	            left = PositionHelper.calculateHorizontalAlignment(elDimensions, popoverDimensions, options.alignment);
+	          }
+
+	          popover.css({
+	            top: top + 'px',
+	            left: left + 'px'
+	          });
+
+	          if ($scope.options.showCaret) {
+	            addCaret($scope.popover, elDimensions, popoverDimensions);
+	          }
+
+	          $animate.addClass($scope.popover, 'popover-animation');
+	        }, 50);
+	      };
+
+	      /**
+	       * Adds a caret and positions it relatively to the popover
+	       * @param {object} popoverEl         
+	       * @param {object} elDimensions      
+	       * @param {object} popoverDimensions 
+	       */
+	      function addCaret(popoverEl, elDimensions, popoverDimensions) {
+	        var caret = _angular2.default.element('<span class="popover-caret caret-' + $scope.options.placement + '"></span>');
+	        popoverEl.append(caret);
+	        var caretDimensions = caret[0].getBoundingClientRect();
+
+	        var left, top;
+	        if ($scope.options.placement === 'right') {
+	          left = -6;
+	          top = PositionHelper.calculateVerticalCaret(elDimensions, popoverDimensions, caretDimensions, $scope.options.alignment);
+	        }
+	        if ($scope.options.placement === 'left') {
+	          left = popoverDimensions.width - 2;
+	          top = PositionHelper.calculateVerticalCaret(elDimensions, popoverDimensions, caretDimensions, $scope.options.alignment);
+	        }
+	        if ($scope.options.placement === 'top') {
+	          top = popoverDimensions.height - 5;
+	          left = PositionHelper.calculateHorizontalCaret(elDimensions, popoverDimensions, caretDimensions, $scope.options.alignment);
+	        }
+
+	        if ($scope.options.placement === 'bottom') {
+	          top = -8;
+	          left = PositionHelper.calculateHorizontalCaret(elDimensions, popoverDimensions, caretDimensions, $scope.options.alignment);
+	        }
+
+	        caret.css({
+	          top: top + 'px',
+	          left: left + 'px'
+	        });
+	      };
+	    }
+	  };
+	};
+
+/***/ },
+/* 375 */
+/***/ function(module, exports) {
+
+	"use strict";
+
+	PopoverRegistry.$inject = ["$animate"];
+	Object.defineProperty(exports, "__esModule", {
+	  value: true
+	});
+	exports.PopoverRegistry = PopoverRegistry;
+	/**
+	 * Registering to deal with popovers
+	 * @param {function} $animate
+	 */
+	function PopoverRegistry($animate) {
+	  "ngInject";
+
+	  var popovers = {};
+	  this.add = function (id, object) {
+	    popovers[id] = object;
+	  };
+	  this.find = function (id) {
+	    popovers[id];
+	  };
+	  this.remove = function (id) {
+	    delete popovers[id];
+	  };
+	  this.removeGroup = function (group, currentId) {
+	    angular.forEach(popovers, function (popoverOb, id) {
+	      if (id === currentId) return;
+
+	      if (popoverOb.group && popoverOb.group === group) {
+	        $animate.removeClass(popoverOb.popover, 'sw-popover-animate').then(function () {
+	          popoverOb.popover.remove();
+	          delete popovers[id];
+	        });
+	      }
+	    });
+	  };
+	};
+
+/***/ },
+/* 376 */
+/***/ function(module, exports) {
+
+	'use strict';
+
+	Object.defineProperty(exports, "__esModule", {
+	  value: true
+	});
+	exports.PositionHelper = PositionHelper;
+	/**
+	 * Position helper for the popover directive.
+	 */
+	function PositionHelper() {
+	  return {
+
+	    calculateVerticalAlignment: function calculateVerticalAlignment(elDimensions, popoverDimensions, alignment) {
+	      if (alignment === 'top') {
+	        return elDimensions.top;
+	      }
+	      if (alignment === 'bottom') {
+	        return elDimensions.top + elDimensions.height - popoverDimensions.height;
+	      }
+	      if (alignment === 'center') {
+	        return elDimensions.top + elDimensions.height / 2 - popoverDimensions.height / 2;
+	      }
+	    },
+
+	    calculateVerticalCaret: function calculateVerticalCaret(elDimensions, popoverDimensions, caretDimensions, alignment) {
+	      if (alignment === 'top') {
+	        return elDimensions.height / 2 - caretDimensions.height / 2 - 1;
+	      }
+	      if (alignment === 'bottom') {
+	        return popoverDimensions.height - elDimensions.height / 2 - caretDimensions.height / 2 - 1;
+	      }
+	      if (alignment === 'center') {
+	        return popoverDimensions.height / 2 - caretDimensions.height / 2 - 1;
+	      }
+	    },
+
+	    calculateHorizontalCaret: function calculateHorizontalCaret(elDimensions, popoverDimensions, caretDimensions, alignment) {
+	      if (alignment === 'left') {
+	        return elDimensions.width / 2 - caretDimensions.height / 2 - 1;
+	      }
+	      if (alignment === 'right') {
+	        return popoverDimensions.width - elDimensions.width / 2 - caretDimensions.height / 2 - 1;
+	      }
+	      if (alignment === 'center') {
+	        return popoverDimensions.width / 2 - caretDimensions.height / 2 - 1;
+	      }
+	    },
+
+	    calculateHorizontalAlignment: function calculateHorizontalAlignment(elDimensions, popoverDimensions, alignment) {
+	      if (alignment === 'left') {
+	        return elDimensions.left;
+	      }
+	      if (alignment === 'right') {
+	        return elDimensions.left + elDimensions.width - popoverDimensions.width;
+	      }
+	      if (alignment === 'center') {
+	        return elDimensions.left + elDimensions.width / 2 - popoverDimensions.width / 2;
+	      }
+	    }
+
+	  };
+	};
+
+/***/ },
+/* 377 */
+/***/ function(module, exports, __webpack_require__) {
+
+	'use strict';
+
+	Object.defineProperty(exports, "__esModule", {
+	  value: true
+	});
+
+	var _angular = __webpack_require__(3);
+
+	var _angular2 = _interopRequireDefault(_angular);
+
+	var _MenuController = __webpack_require__(378);
+
+	var _MenuDirective = __webpack_require__(379);
+
+	var _dropdown = __webpack_require__(380);
+
+	var _dropdown2 = _interopRequireDefault(_dropdown);
+
+	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+	exports.default = _angular2.default.module('dt.menu', [_dropdown2.default.name]).controller('MenuController', _MenuController.MenuController).directive('dtm', _MenuDirective.MenuDirective).name;
+
+/***/ },
+/* 378 */
+/***/ function(module, exports, __webpack_require__) {
+
+	"use strict";
+
+	Object.defineProperty(exports, "__esModule", {
+	  value: true
+	});
+	exports.MenuController = undefined;
+
+	var _classCallCheck2 = __webpack_require__(117);
+
+	var _classCallCheck3 = _interopRequireDefault(_classCallCheck2);
+
+	var _createClass2 = __webpack_require__(118);
+
+	var _createClass3 = _interopRequireDefault(_createClass2);
+
+	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+	var MenuController = exports.MenuController = function () {
+
+	  /*@ngInject*/
+	  MenuController.$inject = ["$scope", "$timeout"];
+	  function MenuController($scope, $timeout) {
+	    "ngInject";
+
+	    (0, _classCallCheck3.default)(this, MenuController);
+	    this.$scope = $scope;
+	  }
+
+	  (0, _createClass3.default)(MenuController, [{
+	    key: "getColumnIndex",
+	    value: function getColumnIndex(model) {
+	      return this.$scope.current.findIndex(function (col) {
+	        return model.name == col.name;
+	      });
+	    }
+	  }, {
+	    key: "isChecked",
+	    value: function isChecked(model) {
+	      return this.getColumnIndex(model) > -1;
+	    }
+	  }, {
+	    key: "onCheck",
+	    value: function onCheck(model) {
+	      var idx = this.getColumnIndex(model);
+	      if (idx === -1) {
+	        this.$scope.current.push(model);
+	      } else {
+	        this.$scope.current.splice(idx, 1);
+	      }
+	    }
+	  }]);
+	  return MenuController;
+	}();
+
+/***/ },
+/* 379 */
+/***/ function(module, exports) {
+
+	'use strict';
+
+	Object.defineProperty(exports, "__esModule", {
+	  value: true
+	});
+	exports.MenuDirective = MenuDirective;
+	function MenuDirective() {
+	  return {
+	    restrict: 'E',
+	    controller: 'MenuController',
+	    controllerAs: 'dtm',
+	    scope: {
+	      current: '=',
+	      available: '='
+	    },
+	    template: '<div class="dt-menu dropdown" close-on-click="false">\n        <a href="#" class="dropdown-toggle icon-add">\n          Configure Columns\n        </a>\n        <div class="dropdown-menu" role="menu" aria-labelledby="dropdown">\n          <div class="keywords">\n            <input type="text" \n                   click-select\n                   placeholder="Filter columns..." \n                   ng-model="columnKeyword" \n                   autofocus />\n          </div>\n          <ul>\n            <li ng-repeat="column in available | filter:columnKeyword">\n              <label class="dt-checkbox">\n                <input type="checkbox" \n                       ng-checked="dtm.isChecked(column)"\n                       ng-click="dtm.onCheck(column)">\n                {{column.name}}\n              </label>\n            </li>\n          </ul>\n        </div>\n      </div>'
+	  };
+	};
+
+/***/ },
+/* 380 */
+/***/ function(module, exports, __webpack_require__) {
+
+	'use strict';
+
+	Object.defineProperty(exports, "__esModule", {
+	  value: true
+	});
+
+	var _angular = __webpack_require__(3);
+
+	var _angular2 = _interopRequireDefault(_angular);
+
+	var _DropdownController = __webpack_require__(381);
+
+	var _DropdownDirective = __webpack_require__(382);
+
+	var _DropdownToggleDirective = __webpack_require__(383);
+
+	var _DropdownMenuDirective = __webpack_require__(384);
+
+	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+	exports.default = _angular2.default.module('dt.dropdown', []).controller('DropdownController', _DropdownController.DropdownController).directive('dropdown', _DropdownDirective.DropdownDirective).directive('dropdownToggle', _DropdownToggleDirective.DropdownToggleDirective).directive('dropdownMenu', _DropdownMenuDirective.DropdownMenuDirective);
+
+/***/ },
+/* 381 */
+/***/ function(module, exports, __webpack_require__) {
+
+	"use strict";
+
+	Object.defineProperty(exports, "__esModule", {
+	  value: true
+	});
+	exports.DropdownController = undefined;
+
+	var _classCallCheck2 = __webpack_require__(117);
+
+	var _classCallCheck3 = _interopRequireDefault(_classCallCheck2);
+
+	var _createClass2 = __webpack_require__(118);
+
+	var _createClass3 = _interopRequireDefault(_createClass2);
+
+	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+	var DropdownController = exports.DropdownController = function () {
+	  /*@ngInject*/
+	  DropdownController.$inject = ["$scope"];
+	  function DropdownController($scope) {
+	    (0, _classCallCheck3.default)(this, DropdownController);
+
+	    $scope.open = false;
+	  }
+
+	  (0, _createClass3.default)(DropdownController, [{
+	    key: "toggle",
+	    value: function toggle(scope) {
+	      scope.open = !scope.open;
+	    }
+	  }]);
+	  return DropdownController;
+	}();
+
+/***/ },
+/* 382 */
+/***/ function(module, exports) {
+
+	'use strict';
+
+	Object.defineProperty(exports, "__esModule", {
+	  value: true
+	});
+	exports.DropdownDirective = DropdownDirective;
+	function DropdownDirective($document, $timeout) {
+	  return {
+	    restrict: 'C',
+	    controller: 'DropdownController',
+	    link: function link($scope, $elm, $attrs) {
+
+	      function closeDropdown(ev) {
+	        if ($elm[0].contains(ev.target)) {
+	          return;
+	        }
+
+	        $timeout(function () {
+	          $scope.open = false;
+	          off();
+	        });
+	      };
+
+	      function keydown(ev) {
+	        if (ev.which === 27) {
+	          $timeout(function () {
+	            $scope.open = false;
+	            off();
+	          });
+	        }
+	      };
+
+	      function off() {
+	        $document.unbind('click', closeDropdown);
+	        $document.unbind('keydown', keydown);
+	      };
+
+	      $scope.$watch('open', function (newVal) {
+	        if (newVal) {
+	          $document.bind('click', closeDropdown);
+	          $document.bind('keydown', keydown);
+	        }
+	      });
+	    }
+	  };
+	};
+
+/***/ },
+/* 383 */
+/***/ function(module, exports) {
+
+	'use strict';
+
+	Object.defineProperty(exports, "__esModule", {
+	  value: true
+	});
+	exports.DropdownToggleDirective = DropdownToggleDirective;
+	function DropdownToggleDirective($timeout) {
+	  return {
+	    restrict: 'C',
+	    controller: 'DropdownController',
+	    require: '?^dropdown',
+	    link: function link($scope, $elm, $attrs, ctrl) {
+
+	      function toggleClick(event) {
+	        event.preventDefault();
+	        $timeout(function () {
+	          ctrl.toggle($scope);
+	        });
+	      };
+
+	      function toggleDestroy() {
+	        $elm.unbind('click', toggleClick);
+	      };
+
+	      $elm.bind('click', toggleClick);
+	      $scope.$on('$destroy', toggleDestroy);
+	    }
+	  };
+	};
+
+/***/ },
+/* 384 */
+/***/ function(module, exports) {
+
+	'use strict';
+
+	Object.defineProperty(exports, "__esModule", {
+	  value: true
+	});
+	exports.DropdownMenuDirective = DropdownMenuDirective;
+	function DropdownMenuDirective($animate) {
+	  return {
+	    restrict: 'C',
+	    require: '?^dropdown',
+	    link: function link($scope, $elm, $attrs, ctrl) {
+	      $scope.$watch('open', function () {
+	        $animate[$scope.open ? 'addClass' : 'removeClass']($elm, 'ddm-open');
+	      });
+	    }
+	  };
+	};
+
+/***/ },
+/* 385 */
+/***/ function(module, exports, __webpack_require__) {
+
+	'use strict';
+
+	Object.defineProperty(exports, "__esModule", {
 	    value: true
 	});
 
@@ -77271,11 +77933,11 @@
 
 	var _createClass3 = _interopRequireDefault(_createClass2);
 
-	var _alertCtrl = __webpack_require__(374);
+	var _alertCtrl = __webpack_require__(386);
 
 	var _alertCtrl2 = _interopRequireDefault(_alertCtrl);
 
-	var _alert = __webpack_require__(375);
+	var _alert = __webpack_require__(387);
 
 	var _alert2 = _interopRequireDefault(_alert);
 
@@ -77312,7 +77974,7 @@
 	exports.default = UiAlert;
 
 /***/ },
-/* 374 */
+/* 386 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -77451,7 +78113,7 @@
 	exports.default = UiAlertController;
 
 /***/ },
-/* 375 */
+/* 387 */
 /***/ function(module, exports) {
 
 	var path = 'G:/GitHub/_private/laoui-bootstrap/src/components/alert/alert.html';
@@ -77460,7 +78122,7 @@
 	module.exports = path;
 
 /***/ },
-/* 376 */
+/* 388 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -77469,7 +78131,7 @@
 	  value: true
 	});
 
-	var _notification = __webpack_require__(377);
+	var _notification = __webpack_require__(389);
 
 	var _notification2 = _interopRequireDefault(_notification);
 
@@ -77478,7 +78140,7 @@
 	exports.default = _notification2.default;
 
 /***/ },
-/* 377 */
+/* 389 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -77489,7 +78151,7 @@
 
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
-	var notificationTemp = __webpack_require__(378);
+	var notificationTemp = __webpack_require__(390);
 	angular.module('ui-notification', []);
 
 	angular.module('ui-notification').provider('uiNotification', function () {
@@ -77715,7 +78377,7 @@
 	module.exports = 'ui-notification';
 
 /***/ },
-/* 378 */
+/* 390 */
 /***/ function(module, exports) {
 
 	var path = 'G:/GitHub/_private/laoui-bootstrap/src/components/notification/template/notification.html';
