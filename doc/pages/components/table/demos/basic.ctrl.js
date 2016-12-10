@@ -1,41 +1,29 @@
-export default class TableDemoCtrl {
-    constructor($scope, $http) {
-        "ngInject";
-       $scope.data = []
-
-          $scope.optionz = {
+export default class BasicTableDemoCtrl {
+  constructor($scope, $http) {
+    "ngInject";
+      $scope.options = {
             rowHeight: 50,
             headerHeight: 50,
-            footerHeight: 50,
+            footerHeight: false,
             scrollbarV: false,
+            selectable: false,
             columns: [
-              { name: "Name", prop: "name" },
-              { name: "Gender", prop: "gender" },
-              { name: "Company", prop: "company" }
-            ],
-            columnMode: 'force',
-            paging: {
-              externalPaging: true,
-              size: 10
-            }
+              { name: "Name", width: 300 },
+              { name: "Gender" },
+              { name: "Company" }
+            ]
           };
+          
+          angular.extend($scope, {
+              onRowDblClick: onRowDblClick 
+          });
+          
+          function onRowDblClick(row) {
+              console.log('Row Double Clicked', row);
+          }
 
-          $scope.paging = function(offset, size){
-            setTimeout(function(){
-            $http.get('/data/table/100.json').success(function(d) {
-
-              $scope.optionz.paging.count = d.length;
-
-              var set = d.splice(offset, size);
-              // only insert items i don't already have
-              set.forEach(function(r, i){
-                var idx = i + (offset * size);
-                $scope.data[idx] = r;
-              });
-
-              console.log('paging!', offset, size)
-            });
-          }, 200)
-          };
-    }
+          $http.get('/data/table/100.json').success(function(data) {
+            $scope.data = data;
+          });
+  }
 }
