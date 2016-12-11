@@ -1,5 +1,6 @@
 export default class EditingTableDemoCtrl {
     constructor($scope, $http) {
+      "ngInject";
         $scope.options = {
             rowHeight: 50,
             headerHeight: 50,
