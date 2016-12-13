@@ -1,3 +1,4 @@
+var modalTemplateUrl=require('./template/window.html')
 angular.module('ui.bootstrap.modal', ['ui.bootstrap.stackedMap', 'ui.bootstrap.position'])
 /**
  * A helper, internal data structure that stores all references attached to key
@@ -138,7 +139,7 @@ angular.module('ui.bootstrap.modal', ['ui.bootstrap.stackedMap', 'ui.bootstrap.p
       restrict: 'A',
       transclude: true,
       templateUrl: function(tElement, tAttrs) {
-        return tAttrs.templateUrl || '../../template/modal/window.html';
+        return tAttrs.templateUrl || modalTemplateUrl;
       },
       link: function(scope, element, attrs) {
         element.addClass(attrs.windowTopClass || '');

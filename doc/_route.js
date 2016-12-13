@@ -119,11 +119,11 @@ export default ($stateProvider, $urlRouterProvider) => {
             controller: ctrls('./components/notification/notification.ctrl.js').default,
             controllerAs: 'ctrl'
         })
-        // .state('table', {
-        //     url: '/components/table',
-        //     templateUrl: pageHtml['./components/table/table.html'],
-        //     controller: ctrls('./components/table/table.ctrl.js').default,
-        //     controllerAs: 'ctrl'
-        // })
+        .state('modal', {
+            url: '/components/modal',
+            templateUrl: pageHtml['./components/modal/modal.html'],
+            controller: ctrls('./components/modal/modal.ctrl.js').default,
+            controllerAs: 'ctrl'
+        })
 
 };
