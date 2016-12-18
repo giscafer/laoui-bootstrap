@@ -1,131 +1,63 @@
-`$uiModal` is a service to create modal windows.
-Creating modals is straightforward: create a template and controller, and reference them when using `$uiModal`.
+# Modal对话框
 
-The `$uiModal` service has only one method: `open(options)`.
+模态对话框。
+
+## 何时使用
+
+需要用户处理事务，又不希望跳转页面以致打断工作流程时，可以使用 Modal 在当前页面正中打开一个浮层，承载相应的操作。
+或者是通过弹窗自定义html内容，满足一下业务处理需要。
+
+## 如何使用
+
+依赖注入服务 `$uiModal`， 提供一个模板template和controller，使用`open(options)`方法创建一个模态弹窗
+
+
+## 属性
 
 ### $uiModal's open function
 
 #### options parameter
 
-* `animation`
-  _(Type: `boolean`, Default: `true`)_ -
-  Set to false to disable animations on new modal/backdrop. Does not toggle animations for modals/backdrops that are already displayed.
 
-* `appendTo`
-  _(Type: `angular.element`, Default: `body`: Example: `$document.find('aside').eq(0)`)_ -
-  Appends the modal to a specific element.
+| 成员       | 说明             | 类型               | 默认值       |
+|-----------|-----------------|--------------------|-------------|
+| animation    | 是否显示动画效果   | boolean | `true`       |
+| appendTo      | 将模态弹窗显示在element元素上| Type: `angular.element`, Default: `body`: Example: `$document.find('aside').eq(0)` |   `body`    |
+| ariaDescribedBy     |详情见[`aria-describedby`](https://www.w3.org/TR/wai-aria/states_and_properties#aria-describedby)  | string |`my-modal-description`     |
+| ariaLabelledBy   | 详情见[`aria-labelledby`](https://www.w3.org/TR/wai-aria/states_and_properties#aria-labelledby)    | string | `start`        |
+| backdrop   |  控制是否有背景掩膜 : `true` (default), `false` (no backdrop), `'static'` (点击背景关闭窗口)   | boolean、string | `true`       |
+| backdropClass   | 背景样式.   | string | -     |
+| bindToController   |  当使用`controllerAs`属性并设为`true`时, 将会绑定 $scope的属性到此controller   | boolean | `false`  |
+| controller   | modal instance（弹窗实例对象）控制器，控制器可依赖注入 `$uiModalInstance` 服务，该服务即为modal instance   | Type: `function、string、array`, Example: `MyModalController` | `false`  |
+| controllerAs   |  controller替代别名   | Type: `string`, Example: `ctrl` | -  |
+| keyboard   |  设定弹窗是否可以通过`ESC`键关闭   | boolean | `true` |
+| openedClass   |  弹窗打开时，body 样式 | string | `modal-open` |
+| resolve   |  传参给窗口controller作为本地参数属性，作用和路由router的`resolve`属性一样 | Object |  -  |
+| scope   |  modal的scope作用域对象 | $scope |  `$rootScope`  |
+| size   |  窗体尺寸大小 | string，可选值有`sm`,`lg`,`md` |  `lg`  |
+| template   |  替代modal内容的自定义模板 | string |  -  |
+| templateUrl   |  modal内容模板路径 | string |  -  |
+| windowClass   |  模态弹窗模板CSS样式 | string |  -  |
+| windowTemplateUrl   |  模态弹窗自定义模板 | string |  -  |
+| windowTopClass   |  顶部模态弹窗样式（弹两个弹窗时） | string |  -  |
 
-* `ariaDescribedBy`
-  _(Type: `string`, `my-modal-description`)_ -
-  Sets the [`aria-describedby`](https://www.w3.org/TR/wai-aria/states_and_properties#aria-describedby) property on the modal. The value should be an id (without the leading `#`) pointing to the element that describes your modal. Typically, this will be the text on your modal, but does not include something the user would interact with, like buttons or a form. Omitting this option will not impact sighted users but will weaken your accessibility support.
 
-* `ariaLabelledBy`
-  _(Type: `string`, `my-modal-title`)_ -
-  Sets the [`aria-labelledby`](https://www.w3.org/TR/wai-aria/states_and_properties#aria-labelledby) property on the modal. The value should be an id (without the leading `#`) pointing to the element that labels your modal. Typically, this will be a header element. Omitting this option will not impact sighted users but will weaken your accessibility support.
+> 全局的模态弹窗属性配置可以通过`$uiModalProvider.options`来设置
 
-* `backdrop`
-  _(Type: `boolean|string`, Default: `true`)_ -
-  Controls presence of a backdrop. Allowed values: `true` (default), `false` (no backdrop), `'static'` (disables modal closing by click on the backdrop).
-
-* `backdropClass`
-  _(Type: `string`)_ -
-  Additional CSS class(es) to be added to a modal backdrop template.
-
-* `bindToController`
-  _(Type: `boolean`, Default: `false`)_ -
-  When used with `controllerAs` & set to `true`, it will bind the $scope properties onto the controller.
-
-* `component`
-  _(Type: `string`, Example: `myComponent`)_ -
-  A string reference to the component to be rendered that is registered with Angular's compiler. If using a directive, the directive must have `restrict: 'E'` and a template or templateUrl set.
-
-  It supports these bindings:
-
-  * `close` - A method that can be used to close a modal, passing a result. The result must be passed in this format: `{$value: myResult}`
-
-  * `dismiss` - A method that can be used to dismiss a modal, passing a result. The result must be passed in this format: `{$value: myRejectedResult}`
-
-  * `modalInstance` - The modal instance. This is the same `$uiModalInstance` injectable found when using `controller`.
-
-  * `resolve` - An object of the modal resolve values. See [UI Router resolves](#ui-router-resolves) for details.
-
-* `controller`
-  _(Type: `function|string|array`, Example: `MyModalController`)_ -
-  A controller for the modal instance, either a controller name as a string, or an inline controller function, optionally wrapped in array notation for dependency injection. Allows the controller-as syntax. Has a special `$uiModalInstance` injectable to access the modal instance.
-
-* `controllerAs`
-  _(Type: `string`, Example: `ctrl`)_ -
-  An alternative to the controller-as syntax. Requires the `controller` option to be provided as well.
-
-* `keyboard` -
-  _(Type: `boolean`, Default: `true`)_ -
-  Indicates whether the dialog should be closable by hitting the ESC key.
-
-* `openedClass`
-  _(Type: `string`, Default: `modal-open`)_ -
-  Class added to the `body` element when the modal is opened.
-
-* `resolve`
-  _(Type: `Object`)_ -
-  Members that will be resolved and passed to the controller as locals; it is equivalent of the `resolve` property in the router.
-
-* `scope`
-  _(Type: `$scope`)_ -
-  The parent scope instance to be used for the modal's content. Defaults to `$rootScope`.
-
-* `size`
-  _(Type: `string`, Example: `lg`)_ -
-  Optional suffix of modal window class. The value used is appended to the `modal-` class, i.e. a value of `sm` gives `modal-sm`.
-
-* `template`
-  _(Type: `string`)_ -
-  Inline template representing the modal's content.
-
-* `templateUrl`
-  _(Type: `string`)_ -
-  A path to a template representing modal's content. You need either a `template` or `templateUrl`.
-
-* `windowClass`
-  _(Type: `string`)_ -
-  Additional CSS class(es) to be added to a modal window template.
-
-* `windowTemplateUrl`
-  _(Type: `string`, Default: `../../template/modal/window.html`)_ -
-  A path to a template overriding modal's window template.
-
-* `windowTopClass`
-  _(Type: `string`)_ -
-  CSS class(es) to be added to the top modal window.
-
-Global defaults may be set for `$uiModal` via `$uiModalProvider.options`.
 
 #### return
 
-The `open` method returns a modal instance, an object with the following properties:
+ `open` 方法返回一个弹窗实例（modal instance）, 改实例有以下属性
 
-* `close(result)`
-  _(Type: `function`)_ -
-  Can be used to close a modal, passing a result.
+| 成员       | 说明             | 类型               | 默认值       |
+|-----------|-----------------|--------------------|-------------|
+| close(result)    | 关闭窗口，并返回`result`，支持promise   | function | `true`       |
+| dismiss(result)    | dismiss窗口，并返回`reason`，支持promise   | function | `true`       |
+| result   | 方法close或dismiss执行返回的promise对象   | promise |  -  |
+| opened   | 当modal弹窗打开后，并且内容模板加载完成和接收所有变量参数时   | promise |  -  |
+| closed   | 当modal弹窗关闭并且动画结束 | promise |  -  |
+| rendered   | 当modal弹窗渲染时| promise |  -  |
 
-* `dismiss(reason)`
-  _(Type: `function`)_ -
-  Can be used to dismiss a modal, passing a reason.
-
-* `result`
-  _(Type: `promise`)_ -
-  Is resolved when a modal is closed and rejected when a modal is dismissed.
-
-* `opened`
-  _(Type: `promise`)_ -
-  Is resolved when a modal gets opened after downloading content's template and resolving all variables.
-
-* `closed`
-  _(Type: `promise`)_ -
-  Is resolved when a modal is closed and the animation completes.
-
-* `rendered`
-  _(Type: `promise`)_ -
-  Is resolved when a modal is rendered.
 
 ---
 
@@ -178,8 +110,8 @@ When the modal is opened with a controller, a `$resolve` object is exposed on th
             Selected: <b>{{ ctrl.selected.item }}</b>
         </div>
         <div class="modal-footer">
-            <button class="btn btn-primary" type="button" ng-click="ctrl.ok()">OK</button>
-            <button class="btn btn-warning" type="button" ng-click="ctrl.cancel()">Cancel</button>
+            <button class="btn btn-primary" type="button" ng-click="objFrom.ok()">OK</button>
+            <button class="btn btn-warning" type="button" ng-click="objFrom.cancel()">Cancel</button>
         </div>
     </script>
     <script type="text/ng-template" id="stackedModal.html">
@@ -200,7 +132,7 @@ When the modal is opened with a controller, a `$resolve` object is exposed on th
             Modal appended to a custom parent
     </button>
     <button type="button" class="btn btn-default" ng-click="ctrl.toggleAnimation()">Toggle Animation ({{ ctrl.animationsEnabled }})</button>
-    <button type="button" class="btn btn-default" ng-click="ctrl.openComponentModal()">Open a component modal!</button>
+    <!--<button type="button" class="btn btn-default" ng-click="ctrl.openComponentModal()">Open a component modal!</button>-->
     <button type="button" class="btn btn-default" ng-click="ctrl.openMultipleModals()">
         Open multiple modals at once 
     </button>
