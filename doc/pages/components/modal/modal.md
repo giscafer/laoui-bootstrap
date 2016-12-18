@@ -61,82 +61,198 @@
 
 ---
 
-The scope associated with modal's content is augmented with:
+与模态的内容相关联的 `scope` 扩充:
 
-* `$close(result)`
-  _(Type: `function`)_ -
-  A method that can be used to close a modal, passing a result.
+| 成员       | 说明             | 类型               | 默认值       |
+|-----------|-----------------|--------------------|-------------|
+| $close(result)    | 关闭窗口，并返回`result`，支持promise   | function | `true`       |
+| $dismiss(result)    | dismiss窗口，并返回`reason`，支持promise   | function | `true`       |
 
-* `$dismiss(reason)`
-  _(Type: `function`)_ -
-  A method that can be used to dismiss a modal, passing a reason.
+> 在不需要创建一个controller时，这些方法可以关闭弹窗
+> 此外，在使用`bindToController`时，可以在控制器controller里边定义一个`$onInit`方法，该方法在控制器初始化的时候执行
 
-Those methods make it easy to close a modal window without a need to create a dedicated controller.
-
-Also, when using `bindToController`, you can define an `$onInit` method in the controller that will fire upon initialization.
 
 ---
 
 Events fired:
 
 * `$uiUnscheduledDestruction` -
-  This event is fired if the $scope is destroyed via unexpected mechanism, such as it being passed in the modal options and a $route/$state transition occurs. The modal will also be dismissed.
+  该事件在$scope被意想不到的机制破坏时, 比如在$route/$state转变时. 窗口将会dismiss.
 
 * `modal.closing` -
-  This event is broadcast to the modal scope before the modal closes. If the listener calls preventDefault() on the event, then the modal will remain open.
-  Also, the `$close` and `$dismiss` methods returns true if the event was executed. This event also includes a parameter for the result/reason and a boolean that indicates whether the modal is being closed (true) or dismissed.
-
-##### UI Router resolves
-
-If one wants to have the modal resolve using [UI Router's](https://github.com/angular-ui/ui-router) pre-1.0 resolve mechanism, one can call `$uiResolve.setResolver('$resolve')` in the configuration phase of the application. One can also provide a custom resolver as well, as long as the signature conforms to UI Router's [$resolve](http://angular-ui.github.io/ui-router/site/#/api/ui.router.util.$resolve).
-
-When the modal is opened with a controller, a `$resolve` object is exposed on the template with the resolved values from the resolve object. If using the component option, see details on how to access this object in component section of the modal documentation.
+  事件再modal关闭前广播`broadcast`给modal的scope作用域. 如果监听器中调用`preventDefault()`方法, 则modal弹窗还会维持（不关闭）.
+  并且,  `$close`和 `$dismiss` 方法返回`true`。
 
 
 ## 代码演示
 
 
+<div class="bs-example">
 <div  class="modal-demo">
-    <script type="text/ng-template" id="myModalContent.html">
-        <div class="modal-header">
-            <h3 class="modal-title" id="modal-title">I'm a modal!</h3>
-        </div>
-        <div class="modal-body" id="modal-body">
-            <ul>
-                <li ng-repeat="item in ctrl.items">
-                    <a href="#" ng-click="$event.preventDefault(); ctrl.selected.item = item">{{ item }}</a>
-                </li>
-            </ul>
-            Selected: <b>{{ ctrl.selected.item }}</b>
-        </div>
-        <div class="modal-footer">
-            <button class="btn btn-primary" type="button" ng-click="objFrom.ok()">OK</button>
-            <button class="btn btn-warning" type="button" ng-click="objFrom.cancel()">Cancel</button>
-        </div>
-    </script>
-    <script type="text/ng-template" id="stackedModal.html">
-        <div class="modal-header">
-            <h3 class="modal-title" id="modal-title-{{name}}">The {{name}} modal!</h3>
-        </div>
-        <div class="modal-body" id="modal-body-{{name}}">
-            Having multiple modals open at once is probably bad UX but it's technically possible.
-        </div>
-    </script>
-
-    <button type="button" class="btn btn-default" ng-click="ctrl.open()">Open me!</button>
-    <button type="button" class="btn btn-default" ng-click="ctrl.open('lg')">Large modal</button>
-    <button type="button" class="btn btn-default" ng-click="ctrl.open('sm')">Small modal</button>
-    <button type="button" 
-        class="btn btn-default" 
-        ng-click="ctrl.open('sm', '.modal-parent')">
-            Modal appended to a custom parent
-    </button>
-    <button type="button" class="btn btn-default" ng-click="ctrl.toggleAnimation()">Toggle Animation ({{ ctrl.animationsEnabled }})</button>
-    <!--<button type="button" class="btn btn-default" ng-click="ctrl.openComponentModal()">Open a component modal!</button>-->
-    <button type="button" class="btn btn-default" ng-click="ctrl.openMultipleModals()">
-        Open multiple modals at once 
-    </button>
-    <div ng-show="ctrl.selected">Selection from a modal: {{ ctrl.selected }}</div>
-    <div class="modal-parent">
+<script type="text/ng-template" id="stackedModal.html">
+    <div class="modal-header">
+        <h3 class="modal-title" id="modal-title-{{name}}">The {{name}} modal!</h3>
     </div>
+    <div class="modal-body" id="modal-body-{{name}}">
+        Having multiple modals open at once is probably bad UX but it's technically possible.
+    </div>
+</script>
+
+<button type="button" class="btn btn-default" ng-click="ctrl.open()">点击弹窗!</button>
+<button type="button" class="btn btn-default" ng-click="ctrl.open('lg')">大弹窗</button>
+<button type="button" class="btn btn-default" ng-click="ctrl.open('sm')">小弹窗</button>
+<button type="button" 
+    class="btn btn-default" 
+    ng-click="ctrl.open('sm', '.modal-parent')">
+        Modal appended to a custom parent
+</button>
+<button type="button" class="btn btn-default" ng-click="ctrl.toggleAnimation()">是否有动画 ({{ ctrl.animationsEnabled }})</button>
+<!--<button type="button" class="btn btn-default" ng-click="ctrl.openComponentModal()">Open a component modal!</button>-->
+<button type="button" class="btn btn-default" ng-click="ctrl.openMultipleModals()">
+    一次打开多个弹窗
+</button>
+<div ng-show="ctrl.selected">Selection from a modal: {{ ctrl.selected }}</div>
+<div class="modal-parent">
 </div>
+</div>
+</div>
+<div class="row">
+    <ui-tabset style="height:500px;overflow-y:auto">
+        <ui-tab heading="modal.ctrl.js">
+            <pre>
+                
+// Please note that $uiModalInstance represents a modal window (instance) dependency.
+// It is not the same as the $uiModal service used above.
+import ModalInstanceCtrl from './modal-form.ctrl.js';
+// import ModalContentHtml from './modal-form.html';
+
+// Please note that the close and dismiss bindings are from $uiModalInstance.
+import ModelComponentCtrl from './modal.component.js';
+
+export default class ModelDemoCtrl {
+    constructor($scope, $timeout, $http, $uiModal, $document, $log) {
+        "ngInject";
+        this.items = ['item1', 'item2', 'item3'];
+
+        this.animationsEnabled = true;
+
+        this.open = function (size, parentSelector) {
+            let parentElem = parentSelector ?
+                angular.element($document[0].querySelector('.modal-demo ' + parentSelector)) : undefined;
+            let modalInstance = $uiModal.open({
+                animation: this.animationsEnabled,
+                ariaLabelledBy: 'modal-title',
+                ariaDescribedBy: 'modal-body',
+                templateUrl: ModalContentHtml,
+                controller: ModalInstanceCtrl,
+                controllerAs: 'objFrom',
+                size: size,
+                appendTo: parentElem,
+                resolve: {
+                    items: () => {
+                        return this.items;
+                    }
+                }
+            });
+
+            modalInstance.result.then((selectedItem) => {
+                this.selected = selectedItem;
+            }, () => {
+                $log.info('Modal dismissed at: ' + new Date());
+            });
+        };
+
+        /**this.openComponentModal = function () {
+            let modalInstance = $uiModal.open({
+                animation: this.animationsEnabled,
+                component: ModelComponentCtrl,//有问题
+                resolve: {
+                    items: () => {
+                        return this.items;
+                    }
+                }
+            });
+
+            modalInstance.result.then((selectedItem) => {
+                this.selected = selectedItem;
+            }, () => {
+                $log.info('modal-component dismissed at: ' + new Date());
+            });
+        };*/
+
+        this.openMultipleModals = () => {
+            $uiModal.open({
+                animation: this.animationsEnabled,
+                ariaLabelledBy: 'modal-title-bottom',
+                ariaDescribedBy: 'modal-body-bottom',
+                templateUrl: 'stackedModal.html',
+                size: 'sm',
+                controller: function ($scope) {
+                    $scope.name = 'bottom';
+                }
+            });
+
+            $uiModal.open({
+                animation: this.animationsEnabled,
+                ariaLabelledBy: 'modal-title-top',
+                ariaDescribedBy: 'modal-body-top',
+                templateUrl: 'stackedModal.html',
+                size: 'sm',
+                controller: function ($scope) {
+                    $scope.name = 'top';
+                }
+            });
+        };
+
+        this.toggleAnimation = () => {
+            this.animationsEnabled = !this.animationsEnabled;
+        };
+    }
+
+}
+
+            </pre>
+        </ui-tab>
+        <ui-tab heading="modal-form.ctrl.js">
+             <pre>
+export default class ModelFromCtrl{
+    constructor($scope,$uiModalInstance, items){
+    this.items = items;
+    this.selected = {
+        item: this.items[0]
+    };
+
+    this.ok = function () {
+        $uiModalInstance.close(this.selected.item);
+    };
+
+    this.cancel = function () {
+        $uiModalInstance.dismiss('cancel');
+    };
+    }
+}
+            </pre>
+        </ui-tab>
+        <ui-tab heading="modal-form.html">
+             <pre>
+<div class="modal-header">
+    <h3 class="modal-title" id="modal-title">I'm a modal!</h3>
+</div>
+<div class="modal-body" id="modal-body">
+    <ul>
+        <li ng-repeat="item in objFrom.items">
+            <a href="#" ng-click="$event.preventDefault(); objFrom.selected.item = item">{{ item }}</a>
+        </li>
+    </ul>
+    Selected: <b>{{ objFrom.selected.item }}</b>
+</div>
+<div class="modal-footer">
+    <button class="btn btn-primary" type="button" ng-click="objFrom.ok()">OK</button>
+    <button class="btn btn-warning" type="button" ng-click="objFrom.cancel()">Cancel</button>
+</div>
+            </pre>
+        </ui-tab>
+    </ui-tabset>
+</div>
+
+>注： modal-form.ctrl.js为弹窗的控制器、modal-form.html是弹窗模板文件

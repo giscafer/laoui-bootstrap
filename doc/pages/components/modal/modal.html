@@ -138,102 +138,262 @@
 <p>全局的模态弹窗属性配置可以通过<code>$uiModalProvider.options</code>来设置</p>
 </blockquote>
 <h4 id="return">return</h4>
-<p>The <code>open</code> method returns a modal instance, an object with the following properties:</p>
-<ul>
-<li><p><code>close(result)</code>
-<em>(Type: <code>function</code>)</em> -
-Can be used to close a modal, passing a result.</p>
-</li>
-<li><p><code>dismiss(reason)</code>
-<em>(Type: <code>function</code>)</em> -
-Can be used to dismiss a modal, passing a reason.</p>
-</li>
-<li><p><code>result</code>
-<em>(Type: <code>promise</code>)</em> -
-Is resolved when a modal is closed and rejected when a modal is dismissed.</p>
-</li>
-<li><p><code>opened</code>
-<em>(Type: <code>promise</code>)</em> -
-Is resolved when a modal gets opened after downloading content&#39;s template and resolving all variables.</p>
-</li>
-<li><p><code>closed</code>
-<em>(Type: <code>promise</code>)</em> -
-Is resolved when a modal is closed and the animation completes.</p>
-</li>
-<li><p><code>rendered</code>
-<em>(Type: <code>promise</code>)</em> -
-Is resolved when a modal is rendered.</p>
-</li>
-</ul>
+<p> <code>open</code> 方法返回一个弹窗实例（modal instance）, 改实例有以下属性</p>
+<table>
+<thead>
+<tr>
+<th>成员</th>
+<th>说明</th>
+<th>类型</th>
+<th>默认值</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>close(result)</td>
+<td>关闭窗口，并返回<code>result</code>，支持promise</td>
+<td>function</td>
+<td><code>true</code></td>
+</tr>
+<tr>
+<td>dismiss(result)</td>
+<td>dismiss窗口，并返回<code>reason</code>，支持promise</td>
+<td>function</td>
+<td><code>true</code></td>
+</tr>
+<tr>
+<td>result</td>
+<td>方法close或dismiss执行返回的promise对象</td>
+<td>promise</td>
+<td>-</td>
+</tr>
+<tr>
+<td>opened</td>
+<td>当modal弹窗打开后，并且内容模板加载完成和接收所有变量参数时</td>
+<td>promise</td>
+<td>-</td>
+</tr>
+<tr>
+<td>closed</td>
+<td>当modal弹窗关闭并且动画结束</td>
+<td>promise</td>
+<td>-</td>
+</tr>
+<tr>
+<td>rendered</td>
+<td>当modal弹窗渲染时</td>
+<td>promise</td>
+<td>-</td>
+</tr>
+</tbody>
+</table>
 <hr>
-<p>The scope associated with modal&#39;s content is augmented with:</p>
-<ul>
-<li><p><code>$close(result)</code>
-<em>(Type: <code>function</code>)</em> -
-A method that can be used to close a modal, passing a result.</p>
-</li>
-<li><p><code>$dismiss(reason)</code>
-<em>(Type: <code>function</code>)</em> -
-A method that can be used to dismiss a modal, passing a reason.</p>
-</li>
-</ul>
-<p>Those methods make it easy to close a modal window without a need to create a dedicated controller.</p>
-<p>Also, when using <code>bindToController</code>, you can define an <code>$onInit</code> method in the controller that will fire upon initialization.</p>
+<p>与模态的内容相关联的 <code>scope</code> 扩充:</p>
+<table>
+<thead>
+<tr>
+<th>成员</th>
+<th>说明</th>
+<th>类型</th>
+<th>默认值</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>$close(result)</td>
+<td>关闭窗口，并返回<code>result</code>，支持promise</td>
+<td>function</td>
+<td><code>true</code></td>
+</tr>
+<tr>
+<td>$dismiss(result)</td>
+<td>dismiss窗口，并返回<code>reason</code>，支持promise</td>
+<td>function</td>
+<td><code>true</code></td>
+</tr>
+</tbody>
+</table>
+<blockquote>
+<p>在不需要创建一个controller时，这些方法可以关闭弹窗
+此外，在使用<code>bindToController</code>时，可以在控制器controller里边定义一个<code>$onInit</code>方法，该方法在控制器初始化的时候执行</p>
+</blockquote>
 <hr>
 <p>Events fired:</p>
 <ul>
 <li><p><code>$uiUnscheduledDestruction</code> -
-This event is fired if the $scope is destroyed via unexpected mechanism, such as it being passed in the modal options and a $route/$state transition occurs. The modal will also be dismissed.</p>
+该事件在$scope被意想不到的机制破坏时, 比如在$route/$state转变时. 窗口将会dismiss.</p>
 </li>
 <li><p><code>modal.closing</code> -
-This event is broadcast to the modal scope before the modal closes. If the listener calls preventDefault() on the event, then the modal will remain open.
-Also, the <code>$close</code> and <code>$dismiss</code> methods returns true if the event was executed. This event also includes a parameter for the result/reason and a boolean that indicates whether the modal is being closed (true) or dismissed.</p>
+事件再modal关闭前广播<code>broadcast</code>给modal的scope作用域. 如果监听器中调用<code>preventDefault()</code>方法, 则modal弹窗还会维持（不关闭）.
+并且,  <code>$close</code>和 <code>$dismiss</code> 方法返回<code>true</code>。</p>
 </li>
 </ul>
 <h5 id="ui-router-resolves">UI Router resolves</h5>
 <p>If one wants to have the modal resolve using <a href="https://github.com/angular-ui/ui-router">UI Router&#39;s</a> pre-1.0 resolve mechanism, one can call <code>$uiResolve.setResolver(&#39;$resolve&#39;)</code> in the configuration phase of the application. One can also provide a custom resolver as well, as long as the signature conforms to UI Router&#39;s <a href="http://angular-ui.github.io/ui-router/site/#/api/ui.router.util.$resolve">$resolve</a>.</p>
 <p>When the modal is opened with a controller, a <code>$resolve</code> object is exposed on the template with the resolved values from the resolve object. If using the component option, see details on how to access this object in component section of the modal documentation.</p>
 <h2 id="-">代码演示</h2>
+<div class="bs-example">
 <div class="modal-demo">
-    <script type="text/ng-template" id="myModalContent.html">
-        <div class="modal-header">
-            <h3 class="modal-title" id="modal-title">I&#39;m a modal!</h3>
-        </div>
-        <div class="modal-body" id="modal-body">
-            <ul>
-                <li ng-repeat="item in ctrl.items">
-                    <a href="#" ng-click="$event.preventDefault(); ctrl.selected.item = item">{{ item }}</a>
-                </li>
-            </ul>
-            Selected: <b>{{ ctrl.selected.item }}</b>
-        </div>
-        <div class="modal-footer">
-            <button class="btn btn-primary" type="button" ng-click="objFrom.ok()">OK</button>
-            <button class="btn btn-warning" type="button" ng-click="objFrom.cancel()">Cancel</button>
-        </div>
-    </script>
-    <script type="text/ng-template" id="stackedModal.html">
-        <div class="modal-header">
-            <h3 class="modal-title" id="modal-title-{{name}}">The {{name}} modal!</h3>
-        </div>
-        <div class="modal-body" id="modal-body-{{name}}">
-            Having multiple modals open at once is probably bad UX but it&#39;s technically possible.
-        </div>
-    </script>
-
-    <button type="button" class="btn btn-default" ng-click="ctrl.open()">Open me!</button>
-    <button type="button" class="btn btn-default" ng-click="ctrl.open('lg')">Large modal</button>
-    <button type="button" class="btn btn-default" ng-click="ctrl.open('sm')">Small modal</button>
-    <button type="button" class="btn btn-default" ng-click="ctrl.open('sm', '.modal-parent')">
-            Modal appended to a custom parent
-    </button>
-    <button type="button" class="btn btn-default" ng-click="ctrl.toggleAnimation()">Toggle Animation ({{ ctrl.animationsEnabled }})</button>
-    <button type="button" class="btn btn-default" ng-click="ctrl.openComponentModal()">Open a component modal!</button>
-    <button type="button" class="btn btn-default" ng-click="ctrl.openMultipleModals()">
-        Open multiple modals at once 
-    </button>
-    <div ng-show="ctrl.selected">Selection from a modal: {{ ctrl.selected }}</div>
-    <div class="modal-parent">
+<script type="text/ng-template" id="stackedModal.html">
+    <div class="modal-header">
+        <h3 class="modal-title" id="modal-title-{{name}}">The {{name}} modal!</h3>
     </div>
+    <div class="modal-body" id="modal-body-{{name}}">
+        Having multiple modals open at once is probably bad UX but it&#39;s technically possible.
+    </div>
+</script>
+
+<button type="button" class="btn btn-default" ng-click="ctrl.open()">Open me!</button>
+<button type="button" class="btn btn-default" ng-click="ctrl.open('lg')">Large modal</button>
+<button type="button" class="btn btn-default" ng-click="ctrl.open('sm')">Small modal</button>
+<button type="button" class="btn btn-default" ng-click="ctrl.open('sm', '.modal-parent')">
+        Modal appended to a custom parent
+</button>
+<button type="button" class="btn btn-default" ng-click="ctrl.toggleAnimation()">Toggle Animation ({{ ctrl.animationsEnabled }})</button>
+<!--<button type="button" class="btn btn-default" ng-click="ctrl.openComponentModal()">Open a component modal!</button>-->
+<button type="button" class="btn btn-default" ng-click="ctrl.openMultipleModals()">
+    Open multiple modals at once 
+</button>
+<div ng-show="ctrl.selected">Selection from a modal: {{ ctrl.selected }}</div>
+<div class="modal-parent">
 </div>
 </div>
+</div>
+<div class="row">
+    <ui-tabset  style="height:500px;overflow-y:auto">
+        <ui-tab heading="modal.ctrl.js">
+            <pre><code style="width:100%;color:#fff">
+
+<span class="hljs-comment">// Please note that $uiModalInstance represents a modal window (instance) dependency.</span>
+<span class="hljs-comment">// It is not the same as the $uiModal service used above.</span>
+<span class="hljs-keyword">import</span> ModalInstanceCtrl <span class="hljs-keyword">from</span> <span class="hljs-string">&#39;./modal-form.ctrl.js&#39;</span>;
+<span class="hljs-keyword">import</span> ModalContentHtml <span class="hljs-keyword">from</span> <span class="hljs-string">&#39;./modal-form.html&#39;</span>;
+
+<span class="hljs-comment">// Please note that the close and dismiss bindings are from $uiModalInstance.</span>
+<span class="hljs-keyword">import</span> ModelComponentCtrl <span class="hljs-keyword">from</span> <span class="hljs-string">&#39;./modal.component.js&#39;</span>;
+
+<span class="hljs-keyword">export</span> <span class="hljs-keyword">default</span> <span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">ModelDemoCtrl</span> </span>{
+    <span class="hljs-keyword">constructor</span>($scope, $timeout, $http, $uiModal, $document, $log) {
+        <span class="hljs-string">&quot;ngInject&quot;</span>;
+        <span class="hljs-keyword">this</span>.items = [<span class="hljs-string">&#39;item1&#39;</span>, <span class="hljs-string">&#39;item2&#39;</span>, <span class="hljs-string">&#39;item3&#39;</span>];
+
+        <span class="hljs-keyword">this</span>.animationsEnabled = <span class="hljs-literal">true</span>;
+
+        <span class="hljs-keyword">this</span>.open = <span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params">size, parentSelector</span>) </span>{
+            <span class="hljs-keyword">let</span> parentElem = parentSelector ?
+                angular.element($<span class="hljs-built_in">document</span>[<span class="hljs-number">0</span>].querySelector(<span class="hljs-string">&#39;.modal-demo &#39;</span> + parentSelector)) : <span class="hljs-literal">undefined</span>;
+            <span class="hljs-keyword">let</span> modalInstance = $uiModal.open({
+                <span class="hljs-attr">animation</span>: <span class="hljs-keyword">this</span>.animationsEnabled,
+                <span class="hljs-attr">ariaLabelledBy</span>: <span class="hljs-string">&#39;modal-title&#39;</span>,
+                <span class="hljs-attr">ariaDescribedBy</span>: <span class="hljs-string">&#39;modal-body&#39;</span>,
+                <span class="hljs-attr">templateUrl</span>: ModalContentHtml,
+                <span class="hljs-attr">controller</span>: ModalInstanceCtrl,
+                <span class="hljs-attr">controllerAs</span>: <span class="hljs-string">&#39;objFrom&#39;</span>,
+                <span class="hljs-attr">size</span>: size,
+                <span class="hljs-attr">appendTo</span>: parentElem,
+                <span class="hljs-attr">resolve</span>: {
+                    <span class="hljs-attr">items</span>: <span class="hljs-function"><span class="hljs-params">()</span> =&gt;</span> {
+                        <span class="hljs-keyword">return</span> <span class="hljs-keyword">this</span>.items;
+                    }
+                }
+            });
+
+            modalInstance.result.then(<span class="hljs-function">(<span class="hljs-params">selectedItem</span>) =&gt;</span> {
+                <span class="hljs-keyword">this</span>.selected = selectedItem;
+            }, () =&gt; {
+                $log.info(<span class="hljs-string">&#39;Modal dismissed at: &#39;</span> + <span class="hljs-keyword">new</span> <span class="hljs-built_in">Date</span>());
+            });
+        };
+
+        <span class="hljs-keyword">this</span>.openComponentModal = <span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params"></span>) </span>{
+            <span class="hljs-keyword">let</span> modalInstance = $uiModal.open({
+                <span class="hljs-attr">animation</span>: <span class="hljs-keyword">this</span>.animationsEnabled,
+                <span class="hljs-attr">component</span>: ModelComponentCtrl,<span class="hljs-comment">//有问题</span>
+                resolve: {
+                    <span class="hljs-attr">items</span>: <span class="hljs-function"><span class="hljs-params">()</span> =&gt;</span> {
+                        <span class="hljs-keyword">return</span> <span class="hljs-keyword">this</span>.items;
+                    }
+                }
+            });
+
+            modalInstance.result.then(<span class="hljs-function">(<span class="hljs-params">selectedItem</span>) =&gt;</span> {
+                <span class="hljs-keyword">this</span>.selected = selectedItem;
+            }, () =&gt; {
+                $log.info(<span class="hljs-string">&#39;modal-component dismissed at: &#39;</span> + <span class="hljs-keyword">new</span> <span class="hljs-built_in">Date</span>());
+            });
+        };
+
+        <span class="hljs-keyword">this</span>.openMultipleModals = <span class="hljs-function"><span class="hljs-params">()</span> =&gt;</span> {
+            $uiModal.open({
+                <span class="hljs-attr">animation</span>: <span class="hljs-keyword">this</span>.animationsEnabled,
+                <span class="hljs-attr">ariaLabelledBy</span>: <span class="hljs-string">&#39;modal-title-bottom&#39;</span>,
+                <span class="hljs-attr">ariaDescribedBy</span>: <span class="hljs-string">&#39;modal-body-bottom&#39;</span>,
+                <span class="hljs-attr">templateUrl</span>: <span class="hljs-string">&#39;stackedModal.html&#39;</span>,
+                <span class="hljs-attr">size</span>: <span class="hljs-string">&#39;sm&#39;</span>,
+                <span class="hljs-attr">controller</span>: <span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params">$scope</span>) </span>{
+                    $scope.name = <span class="hljs-string">&#39;bottom&#39;</span>;
+                }
+            });
+
+            $uiModal.open({
+                <span class="hljs-attr">animation</span>: <span class="hljs-keyword">this</span>.animationsEnabled,
+                <span class="hljs-attr">ariaLabelledBy</span>: <span class="hljs-string">&#39;modal-title-top&#39;</span>,
+                <span class="hljs-attr">ariaDescribedBy</span>: <span class="hljs-string">&#39;modal-body-top&#39;</span>,
+                <span class="hljs-attr">templateUrl</span>: <span class="hljs-string">&#39;stackedModal.html&#39;</span>,
+                <span class="hljs-attr">size</span>: <span class="hljs-string">&#39;sm&#39;</span>,
+                <span class="hljs-attr">controller</span>: <span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params">$scope</span>) </span>{
+                    $scope.name = <span class="hljs-string">&#39;top&#39;</span>;
+                }
+            });
+        };
+
+        <span class="hljs-keyword">this</span>.toggleAnimation = <span class="hljs-function"><span class="hljs-params">()</span> =&gt;</span> {
+            <span class="hljs-keyword">this</span>.animationsEnabled = !<span class="hljs-keyword">this</span>.animationsEnabled;
+        };
+    }
+
+}
+
+            </code></pre>
+        </ui-tab>
+        <ui-tab heading="modal-form.ctrl.js">
+             <pre><code style="width:100%;color:#fff">
+<span class="hljs-keyword">export</span> <span class="hljs-keyword">default</span> <span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">ModelFromCtrl</span></span>{
+    <span class="hljs-keyword">constructor</span>($scope,$uiModalInstance, items){
+    <span class="hljs-keyword">this</span>.items = items;
+    <span class="hljs-keyword">this</span>.selected = {
+        <span class="hljs-attr">item</span>: <span class="hljs-keyword">this</span>.items[<span class="hljs-number">0</span>]
+    };
+
+    <span class="hljs-keyword">this</span>.ok = <span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params"></span>) </span>{
+        $uiModalInstance.close(<span class="hljs-keyword">this</span>.selected.item);
+    };
+
+    <span class="hljs-keyword">this</span>.cancel = <span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params"></span>) </span>{
+        $uiModalInstance.dismiss(<span class="hljs-string">&#39;cancel&#39;</span>);
+    };
+    }
+}
+            </code></pre>
+        </ui-tab>
+        <ui-tab heading="modal-form.html">
+             <pre><code style="width:100%;color:#fff"><span class="xml">
+<span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">&quot;modal-header&quot;</span>&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-name">h3</span> <span class="hljs-attr">class</span>=<span class="hljs-string">&quot;modal-title&quot;</span> <span class="hljs-attr">id</span>=<span class="hljs-string">&quot;modal-title&quot;</span>&gt;</span>I&#39;m a modal!<span class="hljs-tag">&lt;/<span class="hljs-name">h3</span>&gt;</span>
+<span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
+<span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">&quot;modal-body&quot;</span> <span class="hljs-attr">id</span>=<span class="hljs-string">&quot;modal-body&quot;</span>&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-name">ul</span>&gt;</span>
+        <span class="hljs-tag">&lt;<span class="hljs-name">li</span> <span class="hljs-attr">ng-repeat</span>=<span class="hljs-string">&quot;item in objFrom.items&quot;</span>&gt;</span>
+            <span class="hljs-tag">&lt;<span class="hljs-name">a</span> <span class="hljs-attr">href</span>=<span class="hljs-string">&quot;#&quot;</span> <span class="hljs-attr">ng-click</span>=<span class="hljs-string">&quot;$event.preventDefault(); objFrom.selected.item = item&quot;</span>&gt;</span></span><span class="hljs-template-variable">{{ item }}</span><span class="xml"><span class="hljs-tag">&lt;/<span class="hljs-name">a</span>&gt;</span>
+        <span class="hljs-tag">&lt;/<span class="hljs-name">li</span>&gt;</span>
+    <span class="hljs-tag">&lt;/<span class="hljs-name">ul</span>&gt;</span>
+    Selected: <span class="hljs-tag">&lt;<span class="hljs-name">b</span>&gt;</span></span><span class="hljs-template-variable">{{ objFrom.selected.item }}</span><span class="xml"><span class="hljs-tag">&lt;/<span class="hljs-name">b</span>&gt;</span>
+<span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
+<span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">&quot;modal-footer&quot;</span>&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-name">button</span> <span class="hljs-attr">class</span>=<span class="hljs-string">&quot;btn btn-primary&quot;</span> <span class="hljs-attr">type</span>=<span class="hljs-string">&quot;button&quot;</span> <span class="hljs-attr">ng-click</span>=<span class="hljs-string">&quot;objFrom.ok()&quot;</span>&gt;</span>OK<span class="hljs-tag">&lt;/<span class="hljs-name">button</span>&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-name">button</span> <span class="hljs-attr">class</span>=<span class="hljs-string">&quot;btn btn-warning&quot;</span> <span class="hljs-attr">type</span>=<span class="hljs-string">&quot;button&quot;</span> <span class="hljs-attr">ng-click</span>=<span class="hljs-string">&quot;objFrom.cancel()&quot;</span>&gt;</span>Cancel<span class="hljs-tag">&lt;/<span class="hljs-name">button</span>&gt;</span>
+<span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
+            </span></code></pre>
+        </ui-tab>
+    </ui-tabset>
+</div></div>

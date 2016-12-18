@@ -2,9 +2,10 @@
 // Please note that $uiModalInstance represents a modal window (instance) dependency.
 // It is not the same as the $uiModal service used above.
 import ModalInstanceCtrl from './modal-form.ctrl.js';
+import ModalContentHtml from './modal-form.html';
 
 // Please note that the close and dismiss bindings are from $uiModalInstance.
-import ModelComponentCtrl from './modal.component.js';
+// import ModelComponentCtrl from './modal.component.js';
 
 export default class ModelDemoCtrl {
     constructor($scope, $timeout, $http, $uiModal, $document, $log) {
@@ -20,7 +21,7 @@ export default class ModelDemoCtrl {
                 animation: this.animationsEnabled,
                 ariaLabelledBy: 'modal-title',
                 ariaDescribedBy: 'modal-body',
-                templateUrl: 'myModalContent.html',
+                templateUrl: ModalContentHtml,
                 controller: ModalInstanceCtrl,
                 controllerAs: 'objFrom',
                 size: size,
@@ -39,7 +40,7 @@ export default class ModelDemoCtrl {
             });
         };
 
-        this.openComponentModal = function () {
+       /* this.openComponentModal = function () {
             let modalInstance = $uiModal.open({
                 animation: this.animationsEnabled,
                 component: ModelComponentCtrl,//有问题
@@ -55,7 +56,7 @@ export default class ModelDemoCtrl {
             }, () => {
                 $log.info('modal-component dismissed at: ' + new Date());
             });
-        };
+        };*/
 
         this.openMultipleModals = () => {
             $uiModal.open({
