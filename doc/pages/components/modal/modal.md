@@ -1,4 +1,4 @@
-# Modal对话框
+# Modal 对话框
 
 模态对话框。
 
@@ -118,6 +118,37 @@ Events fired:
 </div>
 <div class="row">
     <ui-tabset style="height:500px;overflow-y:auto">
+        <ui-tab heading="HTML">
+            <pre>
+<div  class="modal-demo">
+<script type="text/ng-template" id="stackedModal.html">
+    <div class="modal-header">
+        <h3 class="modal-title" id="modal-title-{{name}}">The {{name}} modal!</h3>
+    </div>
+    <div class="modal-body" id="modal-body-{{name}}">
+        Having multiple modals open at once is probably bad UX but it's technically possible.
+    </div>
+</script>
+
+<button type="button" class="btn btn-default" ng-click="ctrl.open()">点击弹窗!</button>
+<button type="button" class="btn btn-default" ng-click="ctrl.open('lg')">大弹窗</button>
+<button type="button" class="btn btn-default" ng-click="ctrl.open('sm')">小弹窗</button>
+<button type="button" 
+    class="btn btn-default" 
+    ng-click="ctrl.open('sm', '.modal-parent')">
+        Modal appended to a custom parent
+</button>
+<button type="button" class="btn btn-default" ng-click="ctrl.toggleAnimation()">是否有动画 ({{ ctrl.animationsEnabled }})</button>
+<!--<button type="button" class="btn btn-default" ng-click="ctrl.openComponentModal()">Open a component modal!</button>-->
+<button type="button" class="btn btn-default" ng-click="ctrl.openMultipleModals()">
+    一次打开多个弹窗
+</button>
+<div ng-show="ctrl.selected">Selection from a modal: {{ ctrl.selected }}</div>
+<div class="modal-parent">
+</div>
+</div>
+            </pre>
+        </ui-tab>
         <ui-tab heading="modal.ctrl.js">
             <pre>
                 

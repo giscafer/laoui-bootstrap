@@ -10,7 +10,7 @@ import tableRoute from './pages/components/table/table.route.js';
 import services from './services/index.js';
 import components from './components';
 
-angular.module('laoui-bootstrap.doc', ['ui.router','laoui-bootstrap',services,components])
+angular.module('laoui-bootstrap.doc', ['ui.router', 'laoui-bootstrap', services, components])
     .constant('uibPaginationConfig', {
         firstText: '<<',
         previousText: '<',
@@ -20,7 +20,7 @@ angular.module('laoui-bootstrap.doc', ['ui.router','laoui-bootstrap',services,co
         directionLinks: true,
         maxSize: 5
     })
-    .config(['uiNotificationProvider', function(uiNotificationProvider){
+    .config(['uiNotificationProvider', (uiNotificationProvider) => {
         uiNotificationProvider.setOptions({
             delay: 10000,
             startTop: 20,
@@ -33,13 +33,13 @@ angular.module('laoui-bootstrap.doc', ['ui.router','laoui-bootstrap',services,co
     }])
     .config(route)
     .config(tableRoute)
-    .config(['$httpProvider', function($httpProvider){
+    .config(['$httpProvider', ($httpProvider) => {
         $httpProvider.interceptors.push('httpInterceptor');
     }])
-    .run(['$window', '$rootScope', '$location',($window, $rootScope, $location) => {
-        $window.angular=angular;
+    .run(['$window', '$rootScope', '$location', ($window, $rootScope, $location) => {
+        $window.angular = angular;
         $window.$ = angular.element;
-        $rootScope.title="LaoUI Demo"
-        $rootScope.$on('$routeChangeSuccess', function(event, next, current) {
+        $rootScope.title = "LaoUI Demo"
+        $rootScope.$on('$routeChangeSuccess', (event, next, current) => {
         });
     }]);
