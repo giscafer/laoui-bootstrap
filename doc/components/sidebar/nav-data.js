@@ -76,6 +76,10 @@ var data = [{
         "link": "#/components/table",
         "name": "Table - 表格",
         "icon": ""
+    },{
+        "link": "#/components/ui-grid",
+        "name": "TableGrid - 表格",
+        "icon": ""
     }]
 }, {
     "link": "",

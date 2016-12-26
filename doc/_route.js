@@ -125,5 +125,11 @@ export default ($stateProvider, $urlRouterProvider) => {
             controller: ctrls('./components/modal/modal.ctrl.js').default,
             controllerAs: 'ctrl'
         })
+        .state('ui-grid', {
+            url: '/components/ui-grid',
+            templateUrl: pageHtml['./components/tableGrid/uiGrid.html'],
+            controller: ctrls('./components/tableGrid/uiGrid.ctrl.js').default,
+            controllerAs: 'ctrl'
+        })
 
 };

@@ -17,8 +17,11 @@ import Alert from './alert';
 import Notification from './notification';
 
 const MODULE_NAME = "laoui.bootstrap.components";
+//ui-grid.info 
+import 'angular-ui-grid/ui-grid.css';
+import uiGrid from 'angular-ui-grid/ui-grid.js';
 
-angular.module(MODULE_NAME, [TextAngular,Notification,Datepicker,DataTable])
+angular.module(MODULE_NAME, [TextAngular,Notification,Datepicker,DataTable,uiGrid])
 	//general
 	.directive('uiIcon', Icon.factory)
 	.directive('uiButton', Button.factory)

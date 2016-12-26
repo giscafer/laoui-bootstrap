@@ -7,6 +7,7 @@ import components from './components';
 
 import laoUtil from 'lao-utils';
 import { getLicDate } from './config';
+
 const MODULE_NAME = "laoui-bootstrap";
 
 angular.module(MODULE_NAME, [components, bootstrap]).config(() => {
