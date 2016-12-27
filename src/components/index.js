@@ -16,12 +16,13 @@ import DataTable from './table/dataTable';
 import Alert from './alert';
 import Notification from './notification';
 
-const MODULE_NAME = "laoui.bootstrap.components";
-//ui-grid.info 
-import 'angular-ui-grid/ui-grid.css';
-import uiGrid from 'angular-ui-grid/ui-grid.js';
+//https://github.com/angular-ui/ui-grid
+import './tablegrid/ui-grid';
 
-angular.module(MODULE_NAME, [TextAngular,Notification,Datepicker,DataTable,uiGrid])
+const MODULE_NAME = "laoui.bootstrap.components";
+
+
+angular.module(MODULE_NAME, [TextAngular,Notification,Datepicker,DataTable,'ui.grid'])
 	//general
 	.directive('uiIcon', Icon.factory)
 	.directive('uiButton', Button.factory)
