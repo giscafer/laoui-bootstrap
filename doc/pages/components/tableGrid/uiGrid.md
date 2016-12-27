@@ -1,5 +1,7 @@
 # ui-grid 表格组件
 
+集成`ui-grid v4.0.1`版本，使用参考官方文档http://ui-grid.info/
+
 <div>
 <br>
 <button id='toggleGender' ng-click='toggleGender()' class="btn btn-success">Toggle Gender</button>
