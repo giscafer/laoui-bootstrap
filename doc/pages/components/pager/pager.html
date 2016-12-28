@@ -1,0 +1,71 @@
+<div class="markdown-body"><h1 id="pager-">Pager 分页</h1>
+<p>A lightweight pager directive that is focused on providing previous/next paging functionality</p>
+<h3 id="ui-pager-settings">ui-pager settings</h3>
+<ul>
+<li><p><code>align</code>
+<small class="badge">C</small>
+<em>(Default: <code>true</code>)</em> -
+Whether to align each link to the sides.</p>
+</li>
+<li><p><code>items-per-page</code>
+<small class="badge">$</small>
+<small class="badge">C</small>
+<i class="glyphicon glyphicon-eye-open"></i>
+<em>(Default: <code>10</code>)</em> -
+Maximum number of items per page. A value less than one indicates all items on one page.</p>
+</li>
+<li><p><code>next-text</code>
+<small class="badge">C</small>
+<em>(Default: <code>Next »</code>)</em> -
+Text for Next button.</p>
+</li>
+<li><p><code>ng-disabled</code>
+<small class="badge">$</small>
+<i class="glyphicon glyphicon-eye-open"></i>
+<em>(Default: <code>false</code>)</em> -
+Used to disable the pager component.</p>
+</li>
+<li><p><code>ng-model</code>
+<small class="badge">$</small>
+<i class="glyphicon glyphicon-eye-open"></i> -
+Current page number. First page is 1.</p>
+</li>
+<li><p><code>num-pages</code>
+<small class="badge">$</small>
+<small class="badge">readonly</small>
+<em>(Default: <code>angular.noop</code>)</em> -
+An optional expression assigned the total number of pages to display.</p>
+</li>
+<li><p><code>previous-text</code>
+<small class="badge">C</small>
+<em>(Default: <code>« Previous</code>)</em> -
+Text for Previous button.</p>
+</li>
+<li><p><code>template-url</code>
+<em>(Default: <code>../../template/pager/pager.html</code>)</em> -
+Override the template for the component with a custom provided template.</p>
+</li>
+<li><p><code>total-items</code>
+<small class="badge">$</small>
+<i class="glyphicon glyphicon-eye-open"></i> -
+Total number of items in all pages.</p>
+</li>
+</ul>
+<h2 id="-">代码演示</h2>
+<div class="bs-example">
+<div>
+  <h4>Pager</h4>
+  <code>You are currently on page {{currentPage}}</code>
+  <ul ui-pager="" total-items="totalItems" ng-model="currentPage"></ul>
+</div>
+</div>
+<ui-clipboard clipboard-target="pager-code"></ui-clipboard>
+<div class="highlight" id="pager-code">
+  <pre><code style="width:100%;color:#fff"><span class="xml">
+  <span class="hljs-tag">&lt;<span class="hljs-name">div</span>&gt;</span>
+  <span class="hljs-tag">&lt;<span class="hljs-name">h4</span>&gt;</span>Pager<span class="hljs-tag">&lt;/<span class="hljs-name">h4</span>&gt;</span>
+  <span class="hljs-tag">&lt;<span class="hljs-name">pre</span>&gt;</span>You are currently on page </span><span class="hljs-template-variable">{{currentPage}}</span><span class="xml"><span class="hljs-tag">&lt;/<span class="hljs-name">pre</span>&gt;</span>
+  <span class="hljs-tag">&lt;<span class="hljs-name">ul</span> <span class="hljs-attr">ui-pager</span>=<span class="hljs-string">&quot;&quot;</span> <span class="hljs-attr">total-items</span>=<span class="hljs-string">&quot;totalItems&quot;</span> <span class="hljs-attr">ng-model</span>=<span class="hljs-string">&quot;currentPage&quot;</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">ul</span>&gt;</span>
+<span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
+  </span></code></pre>
+</div></div>

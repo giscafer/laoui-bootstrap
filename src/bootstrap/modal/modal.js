@@ -1,4 +1,4 @@
-var modalTemplateUrl=require('./template/window.html')
+var modalTemplateUrl=require('./template/window.html');
 angular.module('ui.bootstrap.modal', ['ui.bootstrap.stackedMap', 'ui.bootstrap.position'])
 /**
  * A helper, internal data structure that stores all references attached to key

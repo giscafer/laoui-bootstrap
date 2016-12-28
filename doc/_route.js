@@ -131,5 +131,11 @@ export default ($stateProvider, $urlRouterProvider) => {
             controller: ctrls('./components/tableGrid/uiGrid.ctrl.js').default,
             controllerAs: 'ctrl'
         })
+        .state('pager', {
+            url: '/components/pager',
+            templateUrl: pageHtml['./components/pager/pager.html'],
+            controller: ctrls('./components/pager/pager.ctrl.js').default,
+            controllerAs: 'ctrl'
+        })
 
 };

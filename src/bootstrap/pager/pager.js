@@ -1,3 +1,5 @@
+var pagerTemplateUrl=require('./template/pager.html');
+
 angular.module('ui.bootstrap.pager', ['ui.bootstrap.paging', 'ui.bootstrap.tabindex'])
 
 .controller('UiPagerController', ['$scope', '$attrs', 'uiPaging', 'uiPagerConfig', function($scope, $attrs, uiPaging, uiPagerConfig) {
@@ -26,7 +28,7 @@ angular.module('ui.bootstrap.pager', ['ui.bootstrap.paging', 'ui.bootstrap.tabin
     controller: 'UiPagerController',
     controllerAs: 'pager',
     templateUrl: function(element, attrs) {
-      return attrs.templateUrl || '../../template/pager/pager.html';
+      return attrs.templateUrl || pagerTemplateUrl;
     },
     link: function(scope, element, attrs, ctrls) {
       element.addClass('pager');

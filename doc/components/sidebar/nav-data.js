@@ -37,6 +37,10 @@ var data = [{
         "link": "#/components/panel",
         "name": "Panel - 面板",
         "icon": ""
+    },{
+        "link": "#/components/pager",
+        "name": "Pager - 分页",
+        "icon": ""
     }]
 }, {
     "link": "",
