@@ -39,7 +39,11 @@ var data = [{
         "icon": ""
     },{
         "link": "#/components/pager",
-        "name": "Pager - 分页",
+        "name": "Pager - 文章分页",
+        "icon": ""
+    },{
+        "link": "#/components/pagination",
+        "name": "Pagination - 分页",
         "icon": ""
     }]
 }, {
@@ -83,6 +87,10 @@ var data = [{
     },{
         "link": "#/components/ui-grid",
         "name": "TableGrid - 表格",
+        "icon": ""
+    },{
+        "link": "#/components/popover",
+        "name": "Popover - 气泡卡片",
         "icon": ""
     }]
 }, {

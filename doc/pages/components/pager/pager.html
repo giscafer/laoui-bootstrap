@@ -1,56 +1,66 @@
 <div class="markdown-body"><h1 id="pager-">Pager 分页</h1>
-<p>A lightweight pager directive that is focused on providing previous/next paging functionality</p>
-<h3 id="ui-pager-settings">ui-pager settings</h3>
-<ul>
-<li><p><code>align</code>
-<small class="badge">C</small>
-<em>(Default: <code>true</code>)</em> -
-Whether to align each link to the sides.</p>
-</li>
-<li><p><code>items-per-page</code>
-<small class="badge">$</small>
-<small class="badge">C</small>
-<i class="glyphicon glyphicon-eye-open"></i>
-<em>(Default: <code>10</code>)</em> -
-Maximum number of items per page. A value less than one indicates all items on one page.</p>
-</li>
-<li><p><code>next-text</code>
-<small class="badge">C</small>
-<em>(Default: <code>Next »</code>)</em> -
-Text for Next button.</p>
-</li>
-<li><p><code>ng-disabled</code>
-<small class="badge">$</small>
-<i class="glyphicon glyphicon-eye-open"></i>
-<em>(Default: <code>false</code>)</em> -
-Used to disable the pager component.</p>
-</li>
-<li><p><code>ng-model</code>
-<small class="badge">$</small>
-<i class="glyphicon glyphicon-eye-open"></i> -
-Current page number. First page is 1.</p>
-</li>
-<li><p><code>num-pages</code>
-<small class="badge">$</small>
-<small class="badge">readonly</small>
-<em>(Default: <code>angular.noop</code>)</em> -
-An optional expression assigned the total number of pages to display.</p>
-</li>
-<li><p><code>previous-text</code>
-<small class="badge">C</small>
-<em>(Default: <code>« Previous</code>)</em> -
-Text for Previous button.</p>
-</li>
-<li><p><code>template-url</code>
-<em>(Default: <code>../../template/pager/pager.html</code>)</em> -
-Override the template for the component with a custom provided template.</p>
-</li>
-<li><p><code>total-items</code>
-<small class="badge">$</small>
-<i class="glyphicon glyphicon-eye-open"></i> -
-Total number of items in all pages.</p>
-</li>
-</ul>
+<p>一个轻量级的上一页/下一页分页指令</p>
+<h3 id="ui-pager-">ui-pager 属性</h3>
+<table>
+<thead>
+<tr>
+<th>成员</th>
+<th>说明</th>
+<th>类型</th>
+<th>默认值</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>align</td>
+<td>每个链接到双方是否对齐。</td>
+<td>boolean</td>
+<td><code>true</code></td>
+</tr>
+<tr>
+<td>items-per-page</td>
+<td>每页记录数。值小于1表示所有记录在一页展示</td>
+<td>number</td>
+<td><code>10</code></td>
+</tr>
+<tr>
+<td>next-text</td>
+<td>下一页按钮文本</td>
+<td>number</td>
+<td><code>Next »</code></td>
+</tr>
+<tr>
+<td>previous-text</td>
+<td>上一页按钮文本</td>
+<td>number</td>
+<td><code>« Previous</code></td>
+</tr>
+<tr>
+<td>ng-disabled</td>
+<td>禁用分页组件</td>
+<td>number</td>
+<td><code>false</code></td>
+</tr>
+<tr>
+<td>num-pages</td>
+<td>一个可选的表达式指定要显示的页面总数</td>
+<td>number</td>
+<td><code>angular.noop</code></td>
+</tr>
+<tr>
+<td>template-url</td>
+<td>自定义模板路径</td>
+<td>string</td>
+<td>-</td>
+</tr>
+<tr>
+<td>total-items</td>
+<td>总记录数</td>
+<td>number</td>
+<td>-</td>
+</tr>
+</tbody>
+</table>
 <h2 id="-">代码演示</h2>
 <div class="bs-example">
 <div>
@@ -68,4 +78,20 @@ Total number of items in all pages.</p>
   <span class="hljs-tag">&lt;<span class="hljs-name">ul</span> <span class="hljs-attr">ui-pager</span>=<span class="hljs-string">&quot;&quot;</span> <span class="hljs-attr">total-items</span>=<span class="hljs-string">&quot;totalItems&quot;</span> <span class="hljs-attr">ng-model</span>=<span class="hljs-string">&quot;currentPage&quot;</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">ul</span>&gt;</span>
 <span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
   </span></code></pre>
+</div>
+
+<p>controller代码：</p>
+<p><ui-clipboard clipboard-target="pager-code"></ui-clipboard></p>
+<div class="highlight" id="pager-code">
+  <pre><code style="width:100%;color:#fff">
+<span class="hljs-keyword">import</span> <span class="hljs-type">ClipboardCtrl</span> from &#39;../../common/clipboard.ctrl.js&#39;;
+export <span class="hljs-keyword">default</span> <span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">PagerDemoCtrl</span>  <span class="hljs-keyword">extends</span> <span class="hljs-title">ClipboardCtrl</span></span>{
+  constructor($scope, uiNotification) {
+    <span class="hljs-string">&quot;ngInject&quot;</span>;
+    <span class="hljs-keyword">super</span>(uiNotification);
+    $scope.totalItems = <span class="hljs-number">64</span>;
+    $scope.currentPage = <span class="hljs-number">4</span>;
+  }
+}
+  </code></pre>
 </div></div>

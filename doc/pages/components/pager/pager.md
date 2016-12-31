@@ -1,56 +1,20 @@
 # Pager 分页
 
-A lightweight pager directive that is focused on providing previous/next paging functionality
+一个轻量级的上一页/下一页分页指令
 
-### ui-pager settings
+### ui-pager 属性
 
-* `align`
-  <small class="badge">C</small>
-  _(Default: `true`)_ -
-  Whether to align each link to the sides.
-  
-* `items-per-page`
-  <small class="badge">$</small>
-  <small class="badge">C</small>
-  <i class="glyphicon glyphicon-eye-open"></i>
-  _(Default: `10`)_ -
-  Maximum number of items per page. A value less than one indicates all items on one page.
-  
-* `next-text`
-  <small class="badge">C</small>
-  _(Default: `Next »`)_ -
-  Text for Next button.
-  
-* `ng-disabled`
-  <small class="badge">$</small>
-  <i class="glyphicon glyphicon-eye-open"></i>
-  _(Default: `false`)_ -
-  Used to disable the pager component.
-  
-* `ng-model`
-  <small class="badge">$</small>
-  <i class="glyphicon glyphicon-eye-open"></i> -
-  Current page number. First page is 1.
-  
-* `num-pages`
-  <small class="badge">$</small>
-  <small class="badge">readonly</small>
-  _(Default: `angular.noop`)_ -
-  An optional expression assigned the total number of pages to display.
 
-* `previous-text`
-  <small class="badge">C</small>
-  _(Default: `« Previous`)_ -
-  Text for Previous button.
-
-* `template-url`
-  _(Default: `../../template/pager/pager.html`)_ -
-  Override the template for the component with a custom provided template.
-  
-* `total-items`
-  <small class="badge">$</small>
-  <i class="glyphicon glyphicon-eye-open"></i> -
-  Total number of items in all pages.
+| 成员       | 说明             | 类型               | 默认值       |
+|-----------|-----------------|--------------------|-------------|
+| align   | 每个链接到双方是否对齐。   | boolean | `true`       |
+| items-per-page    | 每页记录数。值小于1表示所有记录在一页展示  | number |  `10`    |
+| next-text   | 下一页按钮文本  | number |  `Next »`   |
+| previous-text   | 上一页按钮文本  | number |  `« Previous`  |
+| ng-disabled  | 禁用分页组件  | number |  `false` |
+| num-pages  | 一个可选的表达式指定要显示的页面总数  | number |  `angular.noop` |
+| template-url  | 自定义模板路径  | string |  - |
+| total-items | 总记录数  | number |  - |
 
 
 ## 代码演示
@@ -70,5 +34,22 @@ A lightweight pager directive that is focused on providing previous/next paging 
   <pre>You are currently on page {{currentPage}}</pre>
   <ul ui-pager total-items="totalItems" ng-model="currentPage"></ul>
 </div>
+  </pre>
+</div>
+
+controller代码：
+
+<ui-clipboard clipboard-target="pager-code"></ui-clipboard>
+<div class="highlight" id="pager-code">
+  <pre>
+import ClipboardCtrl from '../../common/clipboard.ctrl.js';
+export default class PagerDemoCtrl  extends ClipboardCtrl{
+  constructor($scope, uiNotification) {
+    "ngInject";
+    super(uiNotification);
+    $scope.totalItems = 64;
+    $scope.currentPage = 4;
+  }
+}
   </pre>
 </div>

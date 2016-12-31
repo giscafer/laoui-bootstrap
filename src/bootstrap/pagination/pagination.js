@@ -1,3 +1,5 @@
+var paginationTemp=require('./template/pagination.html');
+
 angular.module('ui.bootstrap.pagination', ['ui.bootstrap.paging', 'ui.bootstrap.tabindex'])
 .controller('UiPaginationController', ['$scope', '$attrs', '$parse', 'uiPaging', 'uiPaginationConfig', function($scope, $attrs, $parse, uiPaging, uiPaginationConfig) {
   var ctrl = this;
@@ -136,7 +138,7 @@ angular.module('ui.bootstrap.pagination', ['ui.bootstrap.paging', 'ui.bootstrap.
     controller: 'UiPaginationController',
     controllerAs: 'pagination',
     templateUrl: function(element, attrs) {
-      return attrs.templateUrl || '../../template/pagination/pagination.html';
+      return attrs.templateUrl || paginationTemp;
     },
     link: function(scope, element, attrs, ctrls) {
       element.addClass('pagination');

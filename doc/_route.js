@@ -137,5 +137,17 @@ export default ($stateProvider, $urlRouterProvider) => {
             controller: ctrls('./components/pager/pager.ctrl.js').default,
             controllerAs: 'ctrl'
         })
+        .state('pagination', {
+            url: '/components/pagination',
+            templateUrl: pageHtml['./components/pagination/pagination.html'],
+            controller: ctrls('./components/pagination/pagination.ctrl.js').default,
+            controllerAs: 'ctrl'
+        })
+        .state('popover', {
+            url: '/components/popover',
+            templateUrl: pageHtml['./components/popover/popover.html'],
+            controller: ctrls('./components/popover/popover.ctrl.js').default,
+            controllerAs: 'ctrl'
+        })
 
 };

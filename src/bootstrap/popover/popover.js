@@ -3,13 +3,17 @@
  * function, placement as a function, inside, support for more triggers than
  * just mouse enter/leave, and selector delegatation.
  */
+
+var popoverTemp=require('./template/popover.html');
+var popoverTemplateTemp=require('./template/popover-template.html');
+var popoverHtmlTemp=require('./template/popover-html.html');
 angular.module('ui.bootstrap.popover', ['ui.bootstrap.tooltip'])
 
 .directive('uiPopoverTemplatePopup', function() {
   return {
     restrict: 'A',
     scope: { uiTitle: '@', contentExp: '&', originScope: '&' },
-    templateUrl: '../../template/popover/popover-template.html'
+    templateUrl: popoverTemplateTemp
   };
 })
 
@@ -23,7 +27,7 @@ angular.module('ui.bootstrap.popover', ['ui.bootstrap.tooltip'])
   return {
     restrict: 'A',
     scope: { contentExp: '&', uiTitle: '@' },
-    templateUrl: '../../template/popover/popover-html.html'
+    templateUrl: popoverHtmlTemp
   };
 })
 
@@ -37,7 +41,7 @@ angular.module('ui.bootstrap.popover', ['ui.bootstrap.tooltip'])
   return {
     restrict: 'A',
     scope: { uiTitle: '@', content: '@' },
-    templateUrl: '../../template/popover/popover.html'
+    templateUrl: popoverTemp
   };
 })
 

@@ -1,5 +1,6 @@
 /**
  * 编译doc md文件
+ * class="not-markdown"不会编译
  */
 'use strict'
 /**
