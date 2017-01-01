@@ -1,0 +1,158 @@
+<div class="markdown-body"><h1 id="progress-">Progress 进度条</h1>
+<p>展示操作的当前进度。</p>
+<h2 id="-">何时使用</h2>
+<p>在操作需要较长时间才能完成时，为用户显示该操作的当前进度和状态。
+当一个操作会打断当前界面，或者需要在后台运行，且耗时可能超过2秒时；
+当需要显示一个操作完成的百分比时。</p>
+<p>A progress bar directive that is focused on providing feedback on the progress of a workflow or action.</p>
+<p>It supports multiple (stacked) <code>&lt;ui-bar&gt;</code> into the same <code>&lt;ui-progress&gt;</code> element or a single <code>&lt;ui-progressbar&gt;</code> element with optional <code>max</code> attribute and transition animations.</p>
+<h2 id="ui-progressbar-settings">ui-progressbar settings</h2>
+<ul>
+<li><p><code>value</code>
+<small class="badge">$</small>
+<i class="glyphicon glyphicon-eye-open"></i> -
+The current value of progress completed.</p>
+</li>
+<li><p><code>type</code>
+<em>(Default: <code>null</code>)</em> -
+Bootstrap style type. Possible values are &#39;success&#39;, &#39;info&#39;, &#39;warning&#39;, and, &#39;danger&#39; to use Bootstrap&#39;s pre-existing styling, or any desired custom suffix.</p>
+</li>
+<li><p><code>max</code>
+<small class="badge">$</small>
+<small class="badge">C</small>
+<i class="glyphicon glyphicon-eye-open"></i>
+<em>(Default: <code>100</code>)</em> -
+A number that specifies the total value of bars that is required.</p>
+</li>
+<li><p><code>animate</code>
+<small class="badge">$</small>
+<small class="badge">C</small>
+<em>(Default: <code>true</code>)</em> -
+Whether bars use transitions to achieve the width change.</p>
+</li>
+<li><p><code>title</code>
+<em>(Default: <code>progressbar</code>)</em> -
+Title to use as label (for accessibility).</p>
+</li>
+</ul>
+<h3 id="ui-progress-settings">ui-progress settings</h3>
+<ul>
+<li><p><code>max</code>
+<small class="badge">$</small>
+<small class="badge">C</small>
+<i class="glyphicon glyphicon-eye-open"></i>
+<em>(Default: <code>100</code>)</em> -
+A number that specifies the total value of bars that is required.</p>
+</li>
+<li><p><code>animate</code>
+<small class="badge">$</small>
+<small class="badge">C</small>
+<em>(Default: <code>true</code>)</em> -
+Whether bars use transitions to achieve the width change.</p>
+</li>
+<li><p><code>title</code>
+<em>(Default: <code>progressbar</code>)</em> -
+Title to use as label (for accessibility).</p>
+</li>
+</ul>
+<h3 id="ui-bar-settings">ui-bar settings</h3>
+<ul>
+<li><p><code>value</code>
+<small class="badge">$</small>
+<i class="glyphicon glyphicon-eye-open"></i> -
+The current value of progress completed.</p>
+</li>
+<li><p><code>type</code>
+<em>(Default: <code>null</code>)</em> -
+Bootstrap style type. Possible values are &#39;success&#39;, &#39;info&#39;, &#39;warning&#39;, and, &#39;danger&#39; to use Bootstrap&#39;s pre-existing styling, or any desired custom suffix.</p>
+</li>
+<li><p><code>title</code>
+<em>(Default: <code>progressbar</code>)</em> -
+Title to use as label (for accessibility).</p>
+</li>
+</ul>
+<h2 id="-">代码演示</h2>
+<p><div class="row no-markdown">
+    <h3>Static</h3>
+    <div class="row">
+        <div class="col-sm-4"><ui-progressbar value="55"></ui-progressbar></div>
+        <div class="col-sm-4"><ui-progressbar class="progress-striped" value="22" type="warning">22%</ui-progressbar></div>
+        <div class="col-sm-4"><ui-progressbar class="progress-striped active" max="200" value="166" type="danger"><i>166 / 200</i></ui-progressbar></div>
+    </div>
+    <hr>
+    <h3>Dynamic <button type="button" class="btn btn-sm btn-primary" ng-click="random()">Randomize</button></h3>
+    <ui-progressbar max="max" value="dynamic"><span style="color:white; white-space:nowrap;">{{dynamic}} / {{max}}</span></ui-progressbar>
+    <small><em>No animation</em></small>
+    <ui-progressbar animate="false" value="dynamic" type="success"><b>{{dynamic}}%</b></ui-progressbar>
+    <small><em>Object (changes type based on value)</em></small>
+    <ui-progressbar class="progress-striped active" value="dynamic" type="{{type}}">{{type}} <i ng-show="showWarning">!!! Watch out !!!</i></ui-progressbar>
+    <hr>
+    <h3>Stacked <button type="button" class="btn btn-sm btn-primary" ng-click="randomStacked()">Randomize</button></h3>
+    <ui-progress><ui-bar ng-repeat="bar in stacked track by $index" value="bar.value" type="{{bar.type}}"><span ng-hide="bar.value < 5">{{bar.value}}%</span></ui-bar></ui-progress>
+</div></p>
+<p><div class="no-markdown"></div></p>
+<p><ui-tabset style="height:500px;overflow:auto">
+  <ui-tab heading="HTML">
+    <pre><code style="width:100%;color:#fff"><span class="xml">
+      <span class="hljs-tag">&lt;<span class="hljs-name">div</span>&gt;</span>
+          <span class="hljs-tag">&lt;<span class="hljs-name">h3</span>&gt;</span>Static<span class="hljs-tag">&lt;/<span class="hljs-name">h3</span>&gt;</span>
+          <span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">&quot;row&quot;</span>&gt;</span>
+              <span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">&quot;col-sm-4&quot;</span>&gt;</span><span class="hljs-tag">&lt;<span class="hljs-name">ui-progressbar</span> <span class="hljs-attr">value</span>=<span class="hljs-string">&quot;55&quot;</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">ui-progressbar</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
+              <span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">&quot;col-sm-4&quot;</span>&gt;</span><span class="hljs-tag">&lt;<span class="hljs-name">ui-progressbar</span> <span class="hljs-attr">class</span>=<span class="hljs-string">&quot;progress-striped&quot;</span> <span class="hljs-attr">value</span>=<span class="hljs-string">&quot;22&quot;</span> <span class="hljs-attr">type</span>=<span class="hljs-string">&quot;warning&quot;</span>&gt;</span>22%<span class="hljs-tag">&lt;/<span class="hljs-name">ui-progressbar</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
+              <span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">&quot;col-sm-4&quot;</span>&gt;</span><span class="hljs-tag">&lt;<span class="hljs-name">ui-progressbar</span> <span class="hljs-attr">class</span>=<span class="hljs-string">&quot;progress-striped active&quot;</span> <span class="hljs-attr">max</span>=<span class="hljs-string">&quot;200&quot;</span> <span class="hljs-attr">value</span>=<span class="hljs-string">&quot;166&quot;</span> <span class="hljs-attr">type</span>=<span class="hljs-string">&quot;danger&quot;</span>&gt;</span><span class="hljs-tag">&lt;<span class="hljs-name">i</span>&gt;</span>166 / 200<span class="hljs-tag">&lt;/<span class="hljs-name">i</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">ui-progressbar</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
+          <span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
+          <span class="hljs-tag">&lt;<span class="hljs-name">hr</span>&gt;</span>
+          <span class="hljs-tag">&lt;<span class="hljs-name">h3</span>&gt;</span>Dynamic <span class="hljs-tag">&lt;<span class="hljs-name">button</span> <span class="hljs-attr">type</span>=<span class="hljs-string">&quot;button&quot;</span> <span class="hljs-attr">class</span>=<span class="hljs-string">&quot;btn btn-sm btn-primary&quot;</span> <span class="hljs-attr">ng-click</span>=<span class="hljs-string">&quot;random()&quot;</span>&gt;</span>Randomize<span class="hljs-tag">&lt;/<span class="hljs-name">button</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">h3</span>&gt;</span>
+          <span class="hljs-tag">&lt;<span class="hljs-name">ui-progressbar</span> <span class="hljs-attr">max</span>=<span class="hljs-string">&quot;max&quot;</span> <span class="hljs-attr">value</span>=<span class="hljs-string">&quot;dynamic&quot;</span>&gt;</span><span class="hljs-tag">&lt;<span class="hljs-name">span</span> <span class="hljs-attr">style</span>=<span class="hljs-string">&quot;color:white; white-space:nowrap;&quot;</span>&gt;</span></span><span class="hljs-template-variable">{{dynamic}}</span><span class="xml"> / </span><span class="hljs-template-variable">{{<span class="hljs-name">max</span>}}</span><span class="xml"><span class="hljs-tag">&lt;/<span class="hljs-name">span</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">ui-progressbar</span>&gt;</span>
+          <span class="hljs-tag">&lt;<span class="hljs-name">small</span>&gt;</span><span class="hljs-tag">&lt;<span class="hljs-name">em</span>&gt;</span>No animation<span class="hljs-tag">&lt;/<span class="hljs-name">em</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">small</span>&gt;</span>
+          <span class="hljs-tag">&lt;<span class="hljs-name">ui-progressbar</span> <span class="hljs-attr">animate</span>=<span class="hljs-string">&quot;false&quot;</span> <span class="hljs-attr">value</span>=<span class="hljs-string">&quot;dynamic&quot;</span> <span class="hljs-attr">type</span>=<span class="hljs-string">&quot;success&quot;</span>&gt;</span><span class="hljs-tag">&lt;<span class="hljs-name">b</span>&gt;</span></span><span class="hljs-template-variable">{{dynamic}}</span><span class="xml">%<span class="hljs-tag">&lt;/<span class="hljs-name">b</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">ui-progressbar</span>&gt;</span>
+          <span class="hljs-tag">&lt;<span class="hljs-name">small</span>&gt;</span><span class="hljs-tag">&lt;<span class="hljs-name">em</span>&gt;</span>Object (changes type based on value)<span class="hljs-tag">&lt;/<span class="hljs-name">em</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">small</span>&gt;</span>
+          <span class="hljs-tag">&lt;<span class="hljs-name">ui-progressbar</span> <span class="hljs-attr">class</span>=<span class="hljs-string">&quot;progress-striped active&quot;</span> <span class="hljs-attr">value</span>=<span class="hljs-string">&quot;dynamic&quot;</span> <span class="hljs-attr">type</span>=<span class="hljs-string">&quot;</span></span></span><span class="hljs-template-variable">{{type}}</span><span class="xml"><span class="hljs-tag"><span class="hljs-string">&quot;</span>&gt;</span></span><span class="hljs-template-variable">{{type}}</span><span class="xml"> <span class="hljs-tag">&lt;<span class="hljs-name">i</span> <span class="hljs-attr">ng-show</span>=<span class="hljs-string">&quot;showWarning&quot;</span>&gt;</span>!!! Watch out !!!<span class="hljs-tag">&lt;/<span class="hljs-name">i</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">ui-progressbar</span>&gt;</span>
+          <span class="hljs-tag">&lt;<span class="hljs-name">hr</span>&gt;</span>
+          <span class="hljs-tag">&lt;<span class="hljs-name">h3</span>&gt;</span>Stacked <span class="hljs-tag">&lt;<span class="hljs-name">button</span> <span class="hljs-attr">type</span>=<span class="hljs-string">&quot;button&quot;</span> <span class="hljs-attr">class</span>=<span class="hljs-string">&quot;btn btn-sm btn-primary&quot;</span> <span class="hljs-attr">ng-click</span>=<span class="hljs-string">&quot;randomStacked()&quot;</span>&gt;</span>Randomize<span class="hljs-tag">&lt;/<span class="hljs-name">button</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">h3</span>&gt;</span>
+          <span class="hljs-tag">&lt;<span class="hljs-name">ui-progress</span>&gt;</span><span class="hljs-tag">&lt;<span class="hljs-name">ui-bar</span> <span class="hljs-attr">ng-repeat</span>=<span class="hljs-string">&quot;bar in stacked track by $index&quot;</span> <span class="hljs-attr">value</span>=<span class="hljs-string">&quot;bar.value&quot;</span> <span class="hljs-attr">type</span>=<span class="hljs-string">&quot;</span></span></span><span class="hljs-template-variable">{{bar.type}}</span><span class="xml"><span class="hljs-tag"><span class="hljs-string">&quot;</span>&gt;</span><span class="hljs-tag">&lt;<span class="hljs-name">span</span> <span class="hljs-attr">ng-hide</span>=<span class="hljs-string">&quot;bar.value &lt; 5&quot;</span>&gt;</span></span><span class="hljs-template-variable">{{bar.value}}</span><span class="xml">%<span class="hljs-tag">&lt;/<span class="hljs-name">span</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">ui-bar</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">ui-progress</span>&gt;</span>
+      <span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
+    </span></code></pre>
+  </ui-tab>
+  <ui-tab heading="Controller">
+ <pre><code style="width:100%;color:#fff">
+      <span class="hljs-keyword">export</span> <span class="hljs-keyword">default</span> <span class="hljs-keyword">class</span> ProgressDemoCtrl {
+        <span class="hljs-keyword">constructor</span>($scope) {
+          <span class="hljs-string">&quot;ngInject&quot;</span>;
+          $scope.max = <span class="hljs-number">200</span>;
+          $scope.random = <span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params"></span>) </span>{
+            <span class="hljs-keyword">var</span> value = <span class="hljs-built_in">Math</span>.floor(<span class="hljs-built_in">Math</span>.random() <em> <span class="hljs-number">100</span> + <span class="hljs-number">1</span>);
+            <span class="hljs-keyword">var</span> <span class="hljs-keyword">type</span>;
+            <span class="hljs-keyword">if</span> (value &lt; <span class="hljs-number">25</span>) {
+              <span class="hljs-keyword">type</span> = <span class="hljs-string">&#39;success&#39;</span>;
+            } <span class="hljs-keyword">else</span> <span class="hljs-keyword">if</span> (value &lt; <span class="hljs-number">50</span>) {
+              <span class="hljs-keyword">type</span> = <span class="hljs-string">&#39;info&#39;</span>;
+            } <span class="hljs-keyword">else</span> <span class="hljs-keyword">if</span> (value &lt; <span class="hljs-number">75</span>) {
+              <span class="hljs-keyword">type</span> = <span class="hljs-string">&#39;warning&#39;</span>;
+            } <span class="hljs-keyword">else</span> {
+              <span class="hljs-keyword">type</span> = <span class="hljs-string">&#39;danger&#39;</span>;
+            }
+            $scope.showWarning = <span class="hljs-keyword">type</span> === <span class="hljs-string">&#39;danger&#39;</span> || <span class="hljs-keyword">type</span> === <span class="hljs-string">&#39;warning&#39;</span>;
+            $scope.dynamic = value;
+            $scope.type = <span class="hljs-keyword">type</span>;
+          };
+          $scope.random();
+          $scope.randomStacked = <span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params"></span>) </span>{
+            $scope.stacked = [];
+            <span class="hljs-keyword">var</span> types = [<span class="hljs-string">&#39;success&#39;</span>, <span class="hljs-string">&#39;info&#39;</span>, <span class="hljs-string">&#39;warning&#39;</span>, <span class="hljs-string">&#39;danger&#39;</span>];
+            <span class="hljs-keyword">for</span> (<span class="hljs-keyword">var</span> i = <span class="hljs-number">0</span>, n = <span class="hljs-built_in">Math</span>.floor(<span class="hljs-built_in">Math</span>.random() </em> <span class="hljs-number">4</span> + <span class="hljs-number">1</span>); i &lt; n; i++) {
+              <span class="hljs-keyword">var</span> index = <span class="hljs-built_in">Math</span>.floor(<span class="hljs-built_in">Math</span>.random() <em> <span class="hljs-number">4</span>);
+              $scope.stacked.push({
+                value: <span class="hljs-built_in">Math</span>.floor(<span class="hljs-built_in">Math</span>.random() </em> <span class="hljs-number">30</span> + <span class="hljs-number">1</span>),
+                <span class="hljs-keyword">type</span>: types[index]
+              });
+            }
+          };
+          $scope.randomStacked();
+        }
+      }
+ </code></pre>
+</ui-tab>
+</ui-tabset>
+</p>
+</div>

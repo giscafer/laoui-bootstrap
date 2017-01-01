@@ -63,6 +63,10 @@ var data = [{
         "link": "#/components/datepicker",
         "name": "Datepicker - 日期选择框",
         "icon": ""
+    },{
+        "link": "#/components/rating",
+        "name": "Rate - 评分",
+        "icon": ""
     }]
 }, {
     "link": "",
@@ -108,6 +112,10 @@ var data = [{
     },{
         "link": "#/components/modal",
         "name": "Modal - 对话框",
+        "icon": ""
+    },{
+        "link": "#/components/progressbar",
+        "name": "Progressbar - 进度条",
         "icon": ""
     }]
 }, {

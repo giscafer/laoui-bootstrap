@@ -1,4 +1,9 @@
-<div class="markdown-body"><p>A lightweight, extensible directive for fancy popover creation. The popover
+<div class="markdown-body"><h1 id="popover-">Popover气泡卡片</h1>
+<p>点击/鼠标移入元素，弹出气泡式的卡片浮层。</p>
+<h2 id="-">何时使用</h2>
+<p>当目标元素有进一步的描述和相关操作时，可以收纳到卡片中，根据用户的操作行为进行展现。
+和 Tooltip 的区别是，用户可以对浮层上的元素进行操作，因此它可以承载更复杂的内容，比如链接或按钮等。</p>
+<p>A lightweight, extensible directive for fancy popover creation. The popover
 directive supports multiple placements, optional transition animation, and more.</p>
 <p>Like the Bootstrap jQuery plugin, the popover <strong>requires</strong> the tooltip
 module.</p>
@@ -114,7 +119,6 @@ Provide a set of defaults for certain tooltip and popover attributes. Currently 
   Click Me
 <span class="hljs-tag">&lt;/<span class="hljs-name">a</span>&gt;</span>
 </code></pre><h2 id="-">代码演示</h2>
-
 <div class="no-markdown">
     <h4>Dynamic</h4>
     <div class="form-group">
@@ -140,26 +144,27 @@ Provide a set of defaults for certain tooltip and popover attributes. Currently 
           <input type="text" ng-model="ctrl.dynamicPopover.title" class="form-control">
         </div>
     </script>
-    <hr />
+    <hr>
     <h4>Positional</h4>
     <div class="form-group">
       <label>Popover placement</label>
-      <select class="form-control" ng-model="placement.selected" ng-options="o as o for o in placement.options"></select>
+      <select class="form-control" ng-model="ctrl.placement.selected" ng-options="o as o for o in ctrl.placement.options"></select>
     </div>
-    <button popover-placement="{{placement.selected}}" ui-popover="On the {{placement.selected}}" type="button" class="btn btn-default">Popover {{placement.selected}}</button>
+    <button popover-placement="{{ctrl.placement.selected}}" ui-popover="On the {{ctrl.placement.selected}}" type="button" class="btn btn-default">Popover {{ctrl.placement.selected}}</button>
 
-    <hr />
+    <hr>
     <h4>Triggers</h4>
     <p>
       <button ui-popover="I appeared on mouse enter!" popover-trigger="'mouseenter'" type="button" class="btn btn-default">Mouseenter</button>
     </p>
-    <input type="text" value="Click me!" ui-popover="I appeared on focus! Click away and I'll vanish..."  popover-trigger="'focus'" class="form-control">
+    <input type="text" value="Click me!" ui-popover="I appeared on focus! Click away and I'll vanish..." popover-trigger="'focus'" class="form-control">
 
-    <hr />
+    <hr>
     <h4>Other</h4>
     <button popover-animation="true" ui-popover="I fade in and out!" type="button" class="btn btn-default">fading</button>
     <button ui-popover="I have a title!" popover-title="The title." type="button" class="btn btn-default">title</button>
     <button ui-popover="I am activated manually" popover-is-open="popoverIsOpen" ng-click="popoverIsOpen = !popoverIsOpen" type="button" class="btn btn-default">Toggle popover</button>
     <button ui-popover-html="htmlPopover" class="btn btn-default">HTML Popover</button>
     <button ui-popover-html="'<b>HTML</b>, <i>inline</i>'" class="btn btn-default">HTML Popover (inline)</button>
+</div>
 </div>

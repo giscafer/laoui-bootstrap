@@ -143,6 +143,18 @@ export default ($stateProvider, $urlRouterProvider) => {
             controller: ctrls('./components/pagination/pagination.ctrl.js').default,
             controllerAs: 'ctrl'
         })
+        .state('progressbar', {
+            url: '/components/progressbar',
+            templateUrl: pageHtml['./components/progressbar/progressbar.html'],
+            controller: ctrls('./components/progressbar/progressbar.ctrl.js').default,
+            controllerAs: 'ctrl'
+        })
+        .state('rating', {
+            url: '/components/rating',
+            templateUrl: pageHtml['./components/rating/rating.html'],
+            controller: ctrls('./components/rating/rating.ctrl.js').default,
+            controllerAs: 'ctrl'
+        })
         .state('popover', {
             url: '/components/popover',
             templateUrl: pageHtml['./components/popover/popover.html'],

@@ -1,3 +1,5 @@
+var ratingTemp=require('./template/rating.html');
+
 angular.module('ui.bootstrap.rating', [])
 
 .constant('uiRatingConfig', {
@@ -97,7 +99,7 @@ angular.module('ui.bootstrap.rating', [])
       onLeave: '&'
     },
     controller: 'UiRatingController',
-    templateUrl: '../../template/rating/rating.html',
+    templateUrl: ratingTemp,
     link: function(scope, element, attrs, ctrls) {
       var ratingCtrl = ctrls[0], ngModelCtrl = ctrls[1];
       ratingCtrl.init(ngModelCtrl);

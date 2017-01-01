@@ -5732,9 +5732,6 @@ div.ui-grid-cell-contents.invalid {
 [ui-popover-template-popup].popover {
   display: block !important;
 }
-.ui-time input {
-  width: 50px;
-}
 [ui-typeahead-popup].dropdown-menu {
   display: block;
 }

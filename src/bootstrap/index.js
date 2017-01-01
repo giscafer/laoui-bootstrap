@@ -19,7 +19,6 @@ var rating = require("./rating");
 var stackedMap = require("./stackedMap");
 var tabindex = require("./tabindex");
 var tabs = require("./tabs");
-var timepicker = require("./timepicker");
 var tooltip = require("./tooltip");
 var typeahead = require("./typeahead");
 
@@ -45,7 +44,6 @@ angular.module(MODULE_NAME, [accordion,
     stackedMap,
     tabindex,
     tabs,
-    timepicker,
     tooltip,
     typeahead
 ]);

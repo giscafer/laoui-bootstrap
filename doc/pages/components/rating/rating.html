@@ -1,0 +1,129 @@
+<div class="markdown-body"><h1 id="rate-">Rate 评分</h1>
+<p>评分组件。</p>
+<h2 id="-">何时使用</h2>
+<p>对评价进行展示。
+对事物进行快速的评级操作</p>
+<h2 id="ui-rating-settings">ui-rating settings</h2>
+<ul>
+<li><p><code>max</code>
+<small class="badge">$</small>
+<small class="badge">C</small>
+<em>(Default: <code>5</code>)</em> -
+Changes the number of icons.</p>
+</li>
+<li><p><code>ng-model</code>
+<small class="badge">$</small>
+<i class="glyphicon glyphicon-eye-open"></i> -
+The current rate.</p>
+</li>
+<li><p><code>on-hover(value)</code>
+<small class="badge">$</small> -
+An optional expression called when user&#39;s mouse is over a particular icon.</p>
+</li>
+<li><p><code>on-leave()</code>
+<small class="badge">$</small> -
+An optional expression called when user&#39;s mouse leaves the control altogether.</p>
+</li>
+<li><p><code>rating-states</code>
+<small class="badge">$</small>
+<em>(Default: <code>null</code>)</em> -
+An array of objects defining properties for all icons. In default template, <code>stateOn</code> &amp; <code>stateOff</code> property is used to specify the icon&#39;s class.</p>
+</li>
+<li><p><code>read-only</code>
+<small class="badge">$</small>
+<i class="icon-eye-open"></i>
+<em>(Default: <code>false</code>)</em> -
+Prevent user&#39;s interaction.</p>
+</li>
+<li><p><code>titles</code>
+<small class="badge">$</small>
+<small class="badge">C</small>
+<em>(Default: [&#39;one&#39;, &#39;two&#39;, &#39;three&#39;, &#39;four&#39;, &#39;five&#39;]`)</em> -
+An array of strings defining titles for all icons.</p>
+</li>
+<li><p><code>enable-reset</code>
+<small class="badge">$</small>
+<em>(Default: <code>true</code>)</em> -
+Clicking the icon of the current rating will reset the rating to 0.</p>
+</li>
+<li><p><code>state-off</code>
+<small class="badge">$</small>
+<small class="badge">C</small>
+<em>(Default: <code>null</code>)</em> -
+A variable used in the template to specify the state for unselected icons.</p>
+</li>
+<li><p><code>state-on</code>
+<small class="badge">$</small>
+<small class="badge">C</small>
+<em>(Default: <code>null</code>)</em> -
+   A variable used in the template to specify the state (class, src, etc) for selected icons.</p>
+</li>
+</ul>
+<h2 id="-">代码演示</h2>
+<div class="row">
+  <div class="col-md-5">
+   <div>
+    <h4>Default</h4>
+    <span ui-rating="" ng-model="rate" max="max" read-only="isReadonly" on-hover="hoveringOver(value)" on-leave="overStar = null" titles="['one','two','three']" aria-labelledby="default-rating"></span>
+    <span class="label" ng-class="{'label-warning': percent<30, 'label-info': percent>=30 && percent<70, 'label-success': percent>=70}" ng-show="overStar && !isReadonly">{{percent}}%</span>
+
+    <code style="margin:15px 0;">Rate: <b>{{rate}}</b> - Readonly is: <i>{{isReadonly}}</i> - Hovering over: <b>{{overStar || &quot;none&quot;}}</b></code>
+
+    <button type="button" class="btn btn-sm btn-danger" ng-click="rate = 0" ng-disabled="isReadonly">Clear</button>
+    <button type="button" class="btn btn-sm btn-default" ng-click="isReadonly = ! isReadonly">Toggle Readonly</button>
+    <hr>
+
+    <h4>Custom icons</h4>
+    <div ng-init="x = 5"><span ui-rating="" ng-model="x" max="15" state-on="'glyphicon-ok-sign'" state-off="'glyphicon-ok-circle'" aria-labelledby="custom-icons-1"></span> <b>(<i>Rate:</i> {{x}})</b></div>
+    <div ng-init="y = 2"><span ui-rating="" ng-model="y" rating-states="ratingStates" aria-labelledby="custom-icons-2"></span> <b>(<i>Rate:</i> {{y}})</b></div>
+</div>
+  </div>
+  <div class="col-md-7">
+    <ui-tabset>
+  <ui-tab heading="HTML">
+   <pre><code style="width:100%;color:#fff"><span class="xml">
+  <span class="hljs-tag">&lt;<span class="hljs-name">div</span>&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-name">h4</span>&gt;</span>Default<span class="hljs-tag">&lt;/<span class="hljs-name">h4</span>&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-name">span</span> <span class="hljs-attr">ui-rating</span>=<span class="hljs-string">&quot;&quot;</span> <span class="hljs-attr">ng-model</span>=<span class="hljs-string">&quot;rate&quot;</span> <span class="hljs-attr">max</span>=<span class="hljs-string">&quot;max&quot;</span> <span class="hljs-attr">read-only</span>=<span class="hljs-string">&quot;isReadonly&quot;</span> <span class="hljs-attr">on-hover</span>=<span class="hljs-string">&quot;hoveringOver(value)&quot;</span> <span class="hljs-attr">on-leave</span>=<span class="hljs-string">&quot;overStar = null&quot;</span> <span class="hljs-attr">titles</span>=<span class="hljs-string">&quot;[&#39;one&#39;,&#39;two&#39;,&#39;three&#39;]&quot;</span> <span class="hljs-attr">aria-labelledby</span>=<span class="hljs-string">&quot;default-rating&quot;</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">span</span>&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-name">span</span> <span class="hljs-attr">class</span>=<span class="hljs-string">&quot;label&quot;</span> <span class="hljs-attr">ng-class</span>=<span class="hljs-string">&quot;</span></span></span><span class="hljs-template-variable">{&#39;label-warning&#39;: percent&lt;30, &#39;label-info&#39;: percent&gt;=30 &amp;&amp; percent&lt;70, &#39;label-success&#39;: percent&gt;=70}</span><span class="xml"><span class="hljs-tag"><span class="hljs-string">&quot;</span> <span class="hljs-attr">ng-show</span>=<span class="hljs-string">&quot;overStar &amp;&amp; !isReadonly&quot;</span>&gt;</span></span><span class="hljs-template-variable">{{percent}</span><span class="xml">}%<span class="hljs-tag">&lt;/<span class="hljs-name">span</span>&gt;</span>
+
+    <span class="hljs-tag">&lt;<span class="hljs-name">pre</span> <span class="hljs-attr">style</span>=<span class="hljs-string">&quot;margin:15px 0;&quot;</span>&gt;</span>Rate: <span class="hljs-tag">&lt;<span class="hljs-name">b</span>&gt;</span></span><span class="hljs-template-variable">{{rate}</span><span class="xml">}<span class="hljs-tag">&lt;/<span class="hljs-name">b</span>&gt;</span> - Readonly is: <span class="hljs-tag">&lt;<span class="hljs-name">i</span>&gt;</span></span><span class="hljs-template-variable">{{isReadonly}</span><span class="xml">}<span class="hljs-tag">&lt;/<span class="hljs-name">i</span>&gt;</span> - Hovering over: <span class="hljs-tag">&lt;<span class="hljs-name">b</span>&gt;</span></span><span class="hljs-template-variable">{{overStar || &quot;none&quot;}</span><span class="xml">}<span class="hljs-tag">&lt;/<span class="hljs-name">b</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">pre</span>&gt;</span>
+
+    <span class="hljs-tag">&lt;<span class="hljs-name">button</span> <span class="hljs-attr">type</span>=<span class="hljs-string">&quot;button&quot;</span> <span class="hljs-attr">class</span>=<span class="hljs-string">&quot;btn btn-sm btn-danger&quot;</span> <span class="hljs-attr">ng-click</span>=<span class="hljs-string">&quot;rate = 0&quot;</span> <span class="hljs-attr">ng-disabled</span>=<span class="hljs-string">&quot;isReadonly&quot;</span>&gt;</span>Clear<span class="hljs-tag">&lt;/<span class="hljs-name">button</span>&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-name">button</span> <span class="hljs-attr">type</span>=<span class="hljs-string">&quot;button&quot;</span> <span class="hljs-attr">class</span>=<span class="hljs-string">&quot;btn btn-sm btn-default&quot;</span> <span class="hljs-attr">ng-click</span>=<span class="hljs-string">&quot;isReadonly = ! isReadonly&quot;</span>&gt;</span>Toggle Readonly<span class="hljs-tag">&lt;/<span class="hljs-name">button</span>&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-name">hr</span>&gt;</span>
+
+    <span class="hljs-tag">&lt;<span class="hljs-name">h4</span>&gt;</span>Custom icons<span class="hljs-tag">&lt;/<span class="hljs-name">h4</span>&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">ng-init</span>=<span class="hljs-string">&quot;x = 5&quot;</span>&gt;</span><span class="hljs-tag">&lt;<span class="hljs-name">span</span> <span class="hljs-attr">ui-rating</span>=<span class="hljs-string">&quot;&quot;</span> <span class="hljs-attr">ng-model</span>=<span class="hljs-string">&quot;x&quot;</span> <span class="hljs-attr">max</span>=<span class="hljs-string">&quot;15&quot;</span> <span class="hljs-attr">state-on</span>=<span class="hljs-string">&quot;&#39;glyphicon-ok-sign&#39;&quot;</span> <span class="hljs-attr">state-off</span>=<span class="hljs-string">&quot;&#39;glyphicon-ok-circle&#39;&quot;</span> <span class="hljs-attr">aria-labelledby</span>=<span class="hljs-string">&quot;custom-icons-1&quot;</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">span</span>&gt;</span> <span class="hljs-tag">&lt;<span class="hljs-name">b</span>&gt;</span>(<span class="hljs-tag">&lt;<span class="hljs-name">i</span>&gt;</span>Rate:<span class="hljs-tag">&lt;/<span class="hljs-name">i</span>&gt;</span> </span><span class="hljs-template-variable">{{x}</span><span class="xml">})<span class="hljs-tag">&lt;/<span class="hljs-name">b</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">ng-init</span>=<span class="hljs-string">&quot;y = 2&quot;</span>&gt;</span><span class="hljs-tag">&lt;<span class="hljs-name">span</span> <span class="hljs-attr">ui-rating</span>=<span class="hljs-string">&quot;&quot;</span> <span class="hljs-attr">ng-model</span>=<span class="hljs-string">&quot;y&quot;</span> <span class="hljs-attr">rating-states</span>=<span class="hljs-string">&quot;ratingStates&quot;</span> <span class="hljs-attr">aria-labelledby</span>=<span class="hljs-string">&quot;custom-icons-2&quot;</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">span</span>&gt;</span> <span class="hljs-tag">&lt;<span class="hljs-name">b</span>&gt;</span>(<span class="hljs-tag">&lt;<span class="hljs-name">i</span>&gt;</span>Rate:<span class="hljs-tag">&lt;/<span class="hljs-name">i</span>&gt;</span> </span><span class="hljs-template-variable">{{y}</span><span class="xml">})<span class="hljs-tag">&lt;/<span class="hljs-name">b</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
+<span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
+   </span></code></pre>
+  </ui-tab>
+  <ui-tab heading="Controller">
+   <pre><code style="width:100%;color:#fff">
+  export <span class="hljs-keyword">default</span> class RatingDemoCtrl {
+  constructor(<span class="hljs-variable">$scope</span>) {
+    <span class="hljs-string">&quot;ngInject&quot;</span>;
+    <span class="hljs-variable">$scope</span>.rate = <span class="hljs-number">7</span>;
+    <span class="hljs-variable">$scope</span>.<span class="hljs-keyword">max</span> = <span class="hljs-number">10</span>;
+    <span class="hljs-variable">$scope</span>.isReadonly = false;
+
+    <span class="hljs-variable">$scope</span>.hoveringOver = function (value) {
+      <span class="hljs-variable">$scope</span>.overStar = value;
+      <span class="hljs-variable">$scope</span>.percent = <span class="hljs-number">100</span> * (value / <span class="hljs-variable">$scope</span>.<span class="hljs-keyword">max</span>);
+    };
+
+    <span class="hljs-variable">$scope</span>.ratingStates = [
+      { <span class="hljs-keyword">state</span>On: &#39;glyphicon-ok-sign&#39;, <span class="hljs-keyword">state</span>Off: &#39;glyphicon-ok-circle&#39; },
+      { <span class="hljs-keyword">state</span>On: &#39;glyphicon-star&#39;, <span class="hljs-keyword">state</span>Off: &#39;glyphicon-star-empty&#39; },
+      { <span class="hljs-keyword">state</span>On: &#39;glyphicon-heart&#39;, <span class="hljs-keyword">state</span>Off: &#39;glyphicon-ban-circle&#39; },
+      { <span class="hljs-keyword">state</span>On: &#39;glyphicon-heart&#39; },
+      { <span class="hljs-keyword">state</span>Off: &#39;glyphicon-off&#39; }
+    ];
+  }
+}
+   </code></pre>
+  </ui-tab>
+</ui-tabset>
+  </div>
+</div></div>
