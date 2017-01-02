@@ -1,76 +1,117 @@
 <div class="markdown-body"><h1 id="progress-">Progress 进度条</h1>
 <p>展示操作的当前进度。</p>
 <h2 id="-">何时使用</h2>
-<p>在操作需要较长时间才能完成时，为用户显示该操作的当前进度和状态。
-当一个操作会打断当前界面，或者需要在后台运行，且耗时可能超过2秒时；
-当需要显示一个操作完成的百分比时。</p>
-<p>A progress bar directive that is focused on providing feedback on the progress of a workflow or action.</p>
-<p>It supports multiple (stacked) <code>&lt;ui-bar&gt;</code> into the same <code>&lt;ui-progress&gt;</code> element or a single <code>&lt;ui-progressbar&gt;</code> element with optional <code>max</code> attribute and transition animations.</p>
-<h2 id="ui-progressbar-settings">ui-progressbar settings</h2>
-<ul>
-<li><p><code>value</code>
-<small class="badge">$</small>
-<i class="glyphicon glyphicon-eye-open"></i> -
-The current value of progress completed.</p>
-</li>
-<li><p><code>type</code>
-<em>(Default: <code>null</code>)</em> -
-Bootstrap style type. Possible values are &#39;success&#39;, &#39;info&#39;, &#39;warning&#39;, and, &#39;danger&#39; to use Bootstrap&#39;s pre-existing styling, or any desired custom suffix.</p>
-</li>
-<li><p><code>max</code>
-<small class="badge">$</small>
-<small class="badge">C</small>
-<i class="glyphicon glyphicon-eye-open"></i>
-<em>(Default: <code>100</code>)</em> -
-A number that specifies the total value of bars that is required.</p>
-</li>
-<li><p><code>animate</code>
-<small class="badge">$</small>
-<small class="badge">C</small>
-<em>(Default: <code>true</code>)</em> -
-Whether bars use transitions to achieve the width change.</p>
-</li>
-<li><p><code>title</code>
-<em>(Default: <code>progressbar</code>)</em> -
-Title to use as label (for accessibility).</p>
-</li>
-</ul>
-<h3 id="ui-progress-settings">ui-progress settings</h3>
-<ul>
-<li><p><code>max</code>
-<small class="badge">$</small>
-<small class="badge">C</small>
-<i class="glyphicon glyphicon-eye-open"></i>
-<em>(Default: <code>100</code>)</em> -
-A number that specifies the total value of bars that is required.</p>
-</li>
-<li><p><code>animate</code>
-<small class="badge">$</small>
-<small class="badge">C</small>
-<em>(Default: <code>true</code>)</em> -
-Whether bars use transitions to achieve the width change.</p>
-</li>
-<li><p><code>title</code>
-<em>(Default: <code>progressbar</code>)</em> -
-Title to use as label (for accessibility).</p>
-</li>
-</ul>
-<h3 id="ui-bar-settings">ui-bar settings</h3>
-<ul>
-<li><p><code>value</code>
-<small class="badge">$</small>
-<i class="glyphicon glyphicon-eye-open"></i> -
-The current value of progress completed.</p>
-</li>
-<li><p><code>type</code>
-<em>(Default: <code>null</code>)</em> -
-Bootstrap style type. Possible values are &#39;success&#39;, &#39;info&#39;, &#39;warning&#39;, and, &#39;danger&#39; to use Bootstrap&#39;s pre-existing styling, or any desired custom suffix.</p>
-</li>
-<li><p><code>title</code>
-<em>(Default: <code>progressbar</code>)</em> -
-Title to use as label (for accessibility).</p>
-</li>
-</ul>
+<p>在操作需要较长时间才能完成时，为用户显示该操作的当前进度和状态。</p>
+<p>当一个操作会打断当前界面，或者需要在后台运行，且耗时可能超过2秒时；</p>
+<p>当需要显示一个操作完成的百分比时。</p>
+<h2 id="-">如何使用</h2>
+<p>支持<code>&lt; ui-progress &gt;</code>内置多个<code>&lt;ui-bar&gt;</code>元素或一个 <code>&lt;ui-progressbar&gt;</code>的元素可选的<code>max</code>属性和过渡动画。</p>
+<h2 id="-">属性</h2>
+<h3 id="ui-progressbar-">ui-progressbar 属性</h3>
+<table>
+<thead>
+<tr>
+<th>成员</th>
+<th>说明</th>
+<th>类型</th>
+<th>默认值</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>value</td>
+<td>当前进度条完成的值</td>
+<td>number</td>
+<td>-</td>
+</tr>
+<tr>
+<td>type</td>
+<td>样式类型，可自定义</td>
+<td>string（ <code>success</code>, <code>info</code>, <code>warning</code>, <code>danger</code>）</td>
+<td><code>null</code></td>
+</tr>
+<tr>
+<td>max</td>
+<td>进度条最大值</td>
+<td>number</td>
+<td><code>100</code></td>
+</tr>
+<tr>
+<td>animate</td>
+<td>进度条变动时是否带动画效果</td>
+<td>boolean</td>
+<td><code>true</code></td>
+</tr>
+<tr>
+<td>title</td>
+<td>标题作为标签(可访问性)</td>
+<td>string</td>
+<td><code>progressbar</code></td>
+</tr>
+</tbody>
+</table>
+<h3 id="ui-progress-">ui-progress 属性</h3>
+<table>
+<thead>
+<tr>
+<th>成员</th>
+<th>说明</th>
+<th>类型</th>
+<th>默认值</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>max</td>
+<td>进度条最大值</td>
+<td>number</td>
+<td><code>100</code></td>
+</tr>
+<tr>
+<td>animate</td>
+<td>进度条变动时是否带动画效果</td>
+<td>boolean</td>
+<td><code>true</code></td>
+</tr>
+<tr>
+<td>title</td>
+<td>标题作为标签(可访问性)</td>
+<td>string</td>
+<td><code>progressbar</code></td>
+</tr>
+</tbody>
+</table>
+<h3 id="ui-bar-">ui-bar 属性</h3>
+<table>
+<thead>
+<tr>
+<th>成员</th>
+<th>说明</th>
+<th>类型</th>
+<th>默认值</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>value</td>
+<td>当前进度条完成的值</td>
+<td>number</td>
+<td>-</td>
+</tr>
+<tr>
+<td>type</td>
+<td>样式类型，可自定义</td>
+<td>string（ <code>success</code>, <code>info</code>, <code>warning</code>, <code>danger</code>）</td>
+<td><code>null</code></td>
+</tr>
+<tr>
+<td>title</td>
+<td>标题作为标签(可访问性)</td>
+<td>string</td>
+<td><code>progressbar</code></td>
+</tr>
+</tbody>
+</table>
 <h2 id="-">代码演示</h2>
 <p><div class="row">
     <h3>Static</h3>

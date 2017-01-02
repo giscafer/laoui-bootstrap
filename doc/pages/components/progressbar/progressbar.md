@@ -5,74 +5,47 @@
 ## 何时使用
 
 在操作需要较长时间才能完成时，为用户显示该操作的当前进度和状态。
+
 当一个操作会打断当前界面，或者需要在后台运行，且耗时可能超过2秒时；
+
 当需要显示一个操作完成的百分比时。
 
-A progress bar directive that is focused on providing feedback on the progress of a workflow or action.
+## 如何使用
 
-It supports multiple (stacked) `<ui-bar>` into the same `<ui-progress>` element or a single `<ui-progressbar>` element with optional `max` attribute and transition animations.
+支持`< ui-progress >`内置多个`<ui-bar>`元素或一个 `<ui-progressbar>`的元素可选的`max`属性和过渡动画。
 
-## ui-progressbar settings
+## 属性
 
-* `value`
-  <small class="badge">$</small>
-  <i class="glyphicon glyphicon-eye-open"></i> -
-  The current value of progress completed.
+### ui-progressbar 属性
 
-* `type`
-  _(Default: `null`)_ -
-  Bootstrap style type. Possible values are 'success', 'info', 'warning', and, 'danger' to use Bootstrap's pre-existing styling, or any desired custom suffix.
 
-* `max`
-  <small class="badge">$</small>
-  <small class="badge">C</small>
-  <i class="glyphicon glyphicon-eye-open"></i>
-  _(Default: `100`)_ -
-  A number that specifies the total value of bars that is required.
+| 成员       | 说明             | 类型               | 默认值       |
+|-----------|-----------------|--------------------|-------------|
+| value   | 当前进度条完成的值   | number |  -      |
+| type  | 样式类型，可自定义  | string（ `success`, `info`, `warning`, `danger`） | `null`   |
+| max  | 进度条最大值  | number | `100`  |
+| animate   | 进度条变动时是否带动画效果  | boolean |  `true` |
+| title | 标题作为标签(可访问性)  | string |  `progressbar` |
 
-* `animate`
-  <small class="badge">$</small>
-  <small class="badge">C</small>
-  _(Default: `true`)_ -
-  Whether bars use transitions to achieve the width change.
-
-* `title`
-  _(Default: `progressbar`)_ -
-  Title to use as label (for accessibility).
   
-### ui-progress settings
+### ui-progress 属性
 
-* `max`
-  <small class="badge">$</small>
-  <small class="badge">C</small>
-  <i class="glyphicon glyphicon-eye-open"></i>
-  _(Default: `100`)_ -
-  A number that specifies the total value of bars that is required.
 
-* `animate`
-  <small class="badge">$</small>
-  <small class="badge">C</small>
-  _(Default: `true`)_ -
-  Whether bars use transitions to achieve the width change.
 
-* `title`
-  _(Default: `progressbar`)_ -
-  Title to use as label (for accessibility).
+| 成员       | 说明             | 类型               | 默认值       |
+|-----------|-----------------|--------------------|-------------|
+| max  | 进度条最大值  | number | `100`  |
+| animate   | 进度条变动时是否带动画效果  | boolean |  `true` |
+| title | 标题作为标签(可访问性)  | string |  `progressbar` |
+
   
-### ui-bar settings
+### ui-bar 属性
 
-* `value`
-  <small class="badge">$</small>
-  <i class="glyphicon glyphicon-eye-open"></i> -
-  The current value of progress completed.
-
-* `type`
-  _(Default: `null`)_ -
-  Bootstrap style type. Possible values are 'success', 'info', 'warning', and, 'danger' to use Bootstrap's pre-existing styling, or any desired custom suffix.
-
-* `title`
-  _(Default: `progressbar`)_ -
-  Title to use as label (for accessibility).
+| 成员       | 说明             | 类型               | 默认值       |
+|-----------|-----------------|--------------------|-------------|
+| value   | 当前进度条完成的值   | number |  -      |
+| type  | 样式类型，可自定义  | string（ `success`, `info`, `warning`, `danger`） | `null`   |
+| title | 标题作为标签(可访问性)  | string |  `progressbar` |
 
 
 ## 代码演示
