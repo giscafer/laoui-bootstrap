@@ -77,7 +77,7 @@ It supports multiple (stacked) `<ui-bar>` into the same `<ui-progress>` element 
 
 ## 代码演示
 
-<div class="row no-markdown">
+<div class="row">
     <h3>Static</h3>
     <div class="row">
         <div class="col-sm-4"><ui-progressbar value="55"></ui-progressbar></div>
@@ -95,7 +95,7 @@ It supports multiple (stacked) `<ui-bar>` into the same `<ui-progress>` element 
     <h3>Stacked <button type="button" class="btn btn-sm btn-primary" ng-click="randomStacked()">Randomize</button></h3>
     <ui-progress><ui-bar ng-repeat="bar in stacked track by $index" value="bar.value" type="{{bar.type}}"><span ng-hide="bar.value < 5">{{bar.value}}%</span></ui-bar></ui-progress>
 </div>
-<div class="no-markdown">
+<div class="row  no-markdown">
 <ui-tabset style="height:500px;overflow:auto">
   <ui-tab heading="HTML">
     <pre>

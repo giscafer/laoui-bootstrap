@@ -72,7 +72,7 @@ Title to use as label (for accessibility).</p>
 </li>
 </ul>
 <h2 id="-">代码演示</h2>
-<p><div class="row no-markdown">
+<p><div class="row">
     <h3>Static</h3>
     <div class="row">
         <div class="col-sm-4"><ui-progressbar value="55"></ui-progressbar></div>
@@ -90,8 +90,8 @@ Title to use as label (for accessibility).</p>
     <h3>Stacked <button type="button" class="btn btn-sm btn-primary" ng-click="randomStacked()">Randomize</button></h3>
     <ui-progress><ui-bar ng-repeat="bar in stacked track by $index" value="bar.value" type="{{bar.type}}"><span ng-hide="bar.value < 5">{{bar.value}}%</span></ui-bar></ui-progress>
 </div></p>
-<p><div class="no-markdown"></div></p>
-<p><ui-tabset style="height:500px;overflow:auto">
+<p><div class="row  no-markdown"></div></p>
+<ui-tabset style="height:500px;overflow:auto">
   <ui-tab heading="HTML">
     <pre><code style="width:100%;color:#fff"><span class="xml">
       <span class="hljs-tag">&lt;<span class="hljs-name">div</span>&gt;</span>

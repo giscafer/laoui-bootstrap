@@ -72,7 +72,7 @@ function loadFiles() {
         let markedHtml=marked($text.html(),{ lineNumbers: true });
         let $text2=cheerio.load(''+markedHtml,{decodeEntities: false});
         let content='<div class="markdown-body">' + $text2.html() + '</div>'+notMarkdownHTML;
-        fs.writeFileSync(file.replace(/[^.]+$/, 'html'), content);
+        fs.writeFileSync(file.replace(/[^.]+$/, 'html'), content.replace(/<p><ui-tabset/g,"<ui-tabset"));
     }
 
     return list;
